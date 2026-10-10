@@ -10,15 +10,13 @@
       "assets/hsk5_sc023_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc023_char_li_na.webp",
-        "reason": "identity_regeneration_required_after_HSK5_SC005"
-      },
-      {
-        "asset": "assets/hsk5_sc023_char_zhang_wei.webp",
-        "reason": "identity_regeneration_required_after_HSK5_SC005"
-      }
+    "qualityBlocked": [],
+    "characterIdentityStatus": "canonical_rebase_complete",
+    "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
+    "remainingAudit": [
+      "background",
+      "foreground",
+      "preview"
     ]
   },
   "audio": {
@@ -81,5 +79,5 @@
     ],
     "missing": []
   },
-  "rule": "Visual completion requires physical presence plus visual-quality and canonical-identity approval; HSK5_SC006+ characters are blocked until regenerated/re-approved."
+  "rule": "Character identity rebaseline is complete; scene remains pending until BG/FG/PREVIEW pass the active visual-quality audit."
 }
