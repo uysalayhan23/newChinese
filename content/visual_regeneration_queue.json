@@ -538,5 +538,55 @@
         ]
       }
     }
+  },
+  "hsk6Progress": {
+    "status": "physical-canonical-staging-in-progress",
+    "totalScenes": 50,
+    "physicalWebpPresent": 126,
+    "physicalWebpRequired": 250,
+    "physicalWebpMissing": 124,
+    "audioComplete": 50,
+    "visualComplete": 0,
+    "accepted": 0,
+    "stageMethod": "exact-approved-canonical-git-blob-sha-reuse",
+    "pendingGates": [
+      "50 scene-specific previews",
+      "27 HD backgrounds",
+      "27 HD foregrounds",
+      "20 face-correct canonical character assets",
+      "independent visual identity and continuity QA"
+    ],
+    "batches": {
+      "sc001_sc010": {
+        "physicalPresent": 27,
+        "required": 50,
+        "visualComplete": 0,
+        "accepted": 0
+      },
+      "sc011_sc020": {
+        "physicalPresent": 21,
+        "required": 50,
+        "visualComplete": 0,
+        "accepted": 0
+      },
+      "sc021_sc030": {
+        "physicalPresent": 29,
+        "required": 50,
+        "visualComplete": 0,
+        "accepted": 0
+      },
+      "sc031_sc040": {
+        "physicalPresent": 15,
+        "required": 50,
+        "visualComplete": 0,
+        "accepted": 0
+      },
+      "sc041_sc050": {
+        "physicalPresent": 34,
+        "required": 50,
+        "visualComplete": 0,
+        "accepted": 0
+      }
+    }
   }
 }
