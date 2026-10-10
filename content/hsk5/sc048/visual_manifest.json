@@ -28,5 +28,16 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "all"
+    ]
+  },
+  "repair": {
+    "method": "canonical_staging",
+    "reason": "Exact Breakroom orientation match staged from accepted canonical set."
+  }
 }
