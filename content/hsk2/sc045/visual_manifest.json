@@ -28,5 +28,39 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk2_sc045_bg.webp",
+      "reason": "background_regeneration_required_after_partial_canonical_rebase",
+      "minimum": [
+        540,
+        960
+      ]
+    },
+    {
+      "asset": "assets/hsk2_sc045_preview.webp",
+      "reason": "preview_recompose_required_after_partial_canonical_rebase",
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "background",
+      "preview"
+    ],
+    "preserve": [
+      "foreground",
+      "characterA",
+      "characterB"
+    ]
+  },
+  "repair": {
+    "method": "partial_canonical_rebase",
+    "source": "HSK3_SC032/036/040 canonical Zhang Wei/Liu Mei + Community Center FG",
+    "reason": "canonical characters and HD FG preserved; Community Center BG/preview source is below quality floor"
+  }
 }
