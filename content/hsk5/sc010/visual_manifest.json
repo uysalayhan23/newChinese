@@ -32,7 +32,7 @@
   "qualityBlocked": [
     {
       "asset": "assets/hsk5_sc010_preview.webp",
-      "reason": "preview_below_minimum_resolution",
+      "reason": "preview_recompose_required_after_canonical_character_environment_rebase",
       "minimum": [
         720,
         1280
@@ -51,9 +51,7 @@
     ]
   },
   "repair": {
-    "method": "partial_canonical_rebase",
-    "source": "existing HD Zhang Office BG/FG + canonical ZW/CY",
-    "reason": "preview remains 360x640",
-    "characterIdentity": "canonical_rebase_complete"
+    "method": "character_canonical_rebase",
+    "reason": "only preview remains after quality/identity normalization"
   }
 }
