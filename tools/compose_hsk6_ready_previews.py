@@ -52,6 +52,14 @@ def preflight(scene: int, root: Path) -> tuple[dict, dict[str, Path], Path]:
                 for letter, actor in zip(("A", "B"), chars))):
         raise ValueError("character identity/path mismatch")
     paths = {role: directory / manifest["assets"][role] for role in (*ROLES, "preview")}
+    import json
+    pinned_file = root / "tools/hsk6_ready_preview_blobs.json"
+    if not pinned_file.is_file():
+        raise ValueError("pinned canonical source SHA manifest is missing")
+    scene_pins = json.loads(pinned_file.read_text(encoding="utf-8")).get(
+        "scenes", {}).get(f"{scene:03d}")
+    if not isinstance(scene_pins, dict) or len(scene_pins) != 4:
+        raise ValueError(f"HSK6_SC{scene:03d}: incomplete source SHA pinset")
     for role in ROLES:
         p = paths[role]
         if not p.is_file():
@@ -62,6 +70,8 @@ def preflight(scene: int, root: Path) -> tuple[dict, dict[str, Path], Path]:
         minsize = TARGET if role in ("background", "foreground") else (500, 750)
         if dim[0] < minsize[0] or dim[1] < minsize[1]:
             raise ValueError(f"low resolution {role}: {dim}, required {minsize}")
+        if scene_pins.get(p.name) != git_blob_sha1(p):
+            raise ValueError(f"HSK6_SC{scene:03d}: {role} canonical source blob SHA drift")
     return manifest, paths, directory
 
 
