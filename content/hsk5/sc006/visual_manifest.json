@@ -28,5 +28,11 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "repair": {
+    "method": "canonical_rebaseline",
+    "source": "existing HD Cafe environment + canonical ZW/CY",
+    "reason": "BG/FG/PREVIEW 941x1672; canonical characters approved"
+  }
 }
