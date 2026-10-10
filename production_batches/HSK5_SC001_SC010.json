@@ -116,6 +116,7 @@
     "HSK5_SC010 visual + audio complete; accepted canonical Zhang Office set reused from HSK5_SC004 after HSK5_SC009 → HSK5_SC010 continuity grounding.",
     "HSK5_SC001-SC010 first batch closure: 10/10 visual complete, 10/10 audio complete, 10/10 accepted; physical closure audit PASSED.",
     "Visual QA rebaseline supersedes earlier acceptance: HSK5_SC006+ character layers require regeneration/re-approval before visual/accepted counters may advance.",
-    "Visual QA rebaseline: HSK5_SC006/007 now pass canonical identity + environment gates; SC008/009/010 only await preview recomposition."
+    "Visual QA rebaseline: HSK5_SC006/007 now pass canonical identity + environment gates; SC008/009/010 only await preview recomposition.",
+    "Visual QA rebaseline: SC006/007 now pass canonical identity + environment quality; SC008/009/010 only await preview recomposition."
   ]
 }
