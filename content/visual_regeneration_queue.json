@@ -380,5 +380,105 @@
       "status": "preview_pending",
       "note": "canonical HD layers complete; preview recomposition required"
     }
-  ]
+  ],
+  "hsk5Progress": {
+    "sc001_sc010": {
+      "visualComplete": 7,
+      "accepted": 7,
+      "pendingPreview": [
+        8,
+        9,
+        10
+      ]
+    },
+    "sc011_sc020": {
+      "visualComplete": 5,
+      "accepted": 5,
+      "pendingPreview": [
+        12,
+        13,
+        16,
+        17,
+        20
+      ]
+    },
+    "sc021_sc030": {
+      "visualComplete": 10,
+      "accepted": 10,
+      "status": "complete"
+    },
+    "sc031_sc040": {
+      "visualComplete": 0,
+      "accepted": 0,
+      "staged": true,
+      "remaining": {
+        "sc031": [
+          "background",
+          "preview"
+        ],
+        "sc032": [
+          "preview"
+        ],
+        "sc033": [
+          "liu_mei_face_right",
+          "preview"
+        ],
+        "sc034": [
+          "preview"
+        ],
+        "sc035": [
+          "liu_mei_face_right",
+          "preview"
+        ],
+        "sc036": [
+          "preview"
+        ],
+        "sc037": [
+          "background",
+          "liu_mei_face_right",
+          "preview"
+        ],
+        "sc038": [
+          "preview"
+        ],
+        "sc039": [
+          "liu_mei_face_right",
+          "preview"
+        ],
+        "sc040": [
+          "background",
+          "preview"
+        ]
+      }
+    },
+    "sc041_sc050": {
+      "visualComplete": 4,
+      "accepted": 4,
+      "remaining": {
+        "sc041": [
+          "wang_ming_face_right",
+          "preview"
+        ],
+        "sc043": [
+          "wang_ming_face_right",
+          "preview"
+        ],
+        "sc045": [
+          "wang_ming_face_right",
+          "preview"
+        ],
+        "sc046": [
+          "preview"
+        ],
+        "sc047": [
+          "wang_ming_face_right",
+          "preview"
+        ],
+        "sc049": [
+          "wang_ming_face_right",
+          "preview"
+        ]
+      }
+    }
+  }
 }
