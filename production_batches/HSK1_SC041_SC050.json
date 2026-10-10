@@ -2,7 +2,7 @@
   "batchId": "HSK1_SC041_SC050",
   "masterStep": 9,
   "goldenReference": "Run #163",
-  "status": "audio_complete_visual_pending",
+  "status": "mixed_progress",
   "scenes": [
     {
       "sceneId": "HSK1_SC041",
@@ -32,13 +32,13 @@
       "sceneId": "HSK1_SC045",
       "titleTr": "Eczaneye Uğramak",
       "locationId": "LOC_PHARMACY_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     },
     {
       "sceneId": "HSK1_SC046",
       "titleTr": "Kafede Çince Çalışmak",
       "locationId": "LOC_CAFE_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     },
     {
       "sceneId": "HSK1_SC047",
@@ -62,7 +62,7 @@
       "sceneId": "HSK1_SC050",
       "titleTr": "HSK1 Finali: Göl Kenarında",
       "locationId": "LOC_CITY_PARK_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     }
   ],
   "pipeline": [
@@ -82,18 +82,19 @@
     "accepted": true
   },
   "progress": {
-    "completeScenes": 0,
+    "completeScenes": 3,
     "totalScenes": 10,
     "contentReady": 10,
-    "visualComplete": 0,
+    "visualComplete": 3,
     "audioComplete": 10,
     "previewImported": 10,
     "previewTotal": 10,
-    "acceptedScenes": 0
+    "acceptedScenes": 3
   },
-  "identityReviewRequired": true,
-  "identityReviewReason": "HSK1_SC041-SC050 character identity review required: Li Na/Zhang Wei remain on one-off variants pending canonical re-approval.",
+  "identityReviewRequired": false,
+  "identityReviewReason": null,
   "notes": [
-    "Visual QA rebaseline: identity continuity must be re-approved before visual/accepted counters can advance."
+    "Visual QA rebaseline: identity continuity must be re-approved before visual/accepted counters can advance.",
+    "Visual QA rebaseline progress: all SC041-SC050 character layers are canonical Li Na/Zhang Wei; SC045/046/050 fully HD-complete, SC047/049 await preview recomposition, remaining scenes await HD environment regeneration."
   ]
 }
