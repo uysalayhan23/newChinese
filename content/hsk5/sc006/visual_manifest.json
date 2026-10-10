@@ -28,23 +28,11 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc006_preview.webp",
-      "reason": "preview_recompose_required_after_character_identity_change",
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "repair": {
-    "method": "canonical_rebaseline",
-    "source": "existing HD Cafe environment + canonical ZW/CY",
-    "reason": "BG/FG/PREVIEW 941x1672; canonical characters approved",
-    "characterIdentity": "canonical_rebase_complete",
-    "previewConsistency": "recompose_after_character_identity_change"
+    "method": "canonical_character_rebase",
+    "reason": "canonical identity normalized; existing environment/preview pass quality gate"
   },
   "regeneration": {
     "required": [
