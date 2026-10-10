@@ -13,7 +13,7 @@
     "qualityBlocked": [
       {
         "asset": "assets/hsk5_sc017_preview.webp",
-        "reason": "preview_below_minimum_resolution",
+        "reason": "preview_recompose_required_after_canonical_character_rebase",
         "minimum": [
           720,
           1280
