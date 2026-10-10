@@ -616,7 +616,9 @@
         ],
         "script": "tools/prepare_hsk6_face_right_candidates.py",
         "physicallyGenerated": 0,
-        "approved": 0
+        "approved": 0,
+        "independentSceneIdentityPinManifest": "tools/hsk6_face_right_identity_pins.json",
+        "independentIdentityPinsVerified": 20
       },
       "fourLayerPreviewReady": {
         "count": 16,
@@ -668,7 +670,17 @@
       },
       "offlineTestsCommitted": true,
       "offlineTestsExecuted": false,
-      "notes": "HSK6_SC041/047 physically staged 941x1672 exact accepted-source preview blobs, NOT 720x1280 and NOT accepted. 20/20 face_right scene identity manifest checks and 64/64 ready preview Git source SHA checks passed connector-side. 16 source dimensions passed WebP header thresholds. 12 ready scenes reuse Zhang Wei blob 44a7... with inconsistent WORK_01 (HSK2_SC001) vs CASUAL_01 (HSK6) metadata, requiring independent wardrobe QA. Exact Python offline tests not run. Actions not used."
+      "notes": "20/20 independent scene/identity/location/wardrobe/face pins verified against live GitHub manifests. Offline synthetic local replay 7/7 + 11/11 passed, not byte-exact checkout. Physical candidate/previews remain pending, Actions unused. 12 legacy wardrobe provenance conflicts still require visual QA.",
+      "offlineSyntheticReplay": {
+        "date": "2026-10-11",
+        "candidateSuite": "7/7 passed",
+        "previewSuite": "11/11 passed",
+        "environment": "isolated local Pillow; GitHub source logic recreated, synthetic images",
+        "fullGitHubCheckoutTested": false,
+        "physicalCanonicalImagesGenerated": 0,
+        "physicalCanonicalPreviewGenerated": 0,
+        "report": "docs/HSK6_OFFLINE_TEST_EVIDENCE_20261011.md"
+      }
     }
   }
 }
