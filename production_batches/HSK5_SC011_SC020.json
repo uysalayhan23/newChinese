@@ -2,18 +2,18 @@
   "level": "HSK5",
   "startScene": 11,
   "endScene": 20,
-  "status": "audio_complete_visual_pending",
+  "status": "mixed_progress",
   "progress": {
     "contentReady": 10,
     "totalScenes": 10,
-    "visualComplete": 0,
+    "visualComplete": 5,
     "audioComplete": 10,
-    "acceptedScenes": 0
+    "acceptedScenes": 5
   },
   "scenes": [
     {
       "sceneId": "HSK5_SC011",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_TRAIN_STATION_001",
       "characterIds": [
         "CHAR_LI_NA_001",
@@ -40,7 +40,7 @@
     },
     {
       "sceneId": "HSK5_SC014",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_WEST_LAKE_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -49,7 +49,7 @@
     },
     {
       "sceneId": "HSK5_SC015",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_TRAIN_STATION_001",
       "characterIds": [
         "CHAR_LI_NA_001",
@@ -76,7 +76,7 @@
     },
     {
       "sceneId": "HSK5_SC018",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_WEST_LAKE_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -85,7 +85,7 @@
     },
     {
       "sceneId": "HSK5_SC019",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_TRAIN_STATION_001",
       "characterIds": [
         "CHAR_LI_NA_001",
@@ -115,6 +115,7 @@
     "HSK5_SC019 visual + audio complete; accepted canonical Train Station 5'li seti HSK2_SC033 kaynağından birebir reuse edildi; HSK5_SC018 → HSK5_SC019 continuity approved.",
     "HSK5_SC020 visual + audio complete; accepted Day Trip Town composite 5'li seti HSK4_SC035 kaynağından birebir reuse edildi; HSK5_SC019 → HSK5_SC020 continuity approved.",
     "HSK5_SC011-SC020 second batch closure: 10/10 visual complete, 10/10 audio complete, 10/10 accepted; physical closure audit PASSED (each scene: 5 WebP + 54 M4A, no missing visual assets).",
-    "Visual QA rebaseline supersedes earlier acceptance: HSK5_SC006+ character layers require regeneration/re-approval before visual/accepted counters may advance."
+    "Visual QA rebaseline supersedes earlier acceptance: HSK5_SC006+ character layers require regeneration/re-approval before visual/accepted counters may advance.",
+    "Visual QA rebaseline: all SC011-SC020 characters are canonical; SC011/014/015/018/019 complete, remaining five scenes only await higher-resolution preview."
   ]
 }
