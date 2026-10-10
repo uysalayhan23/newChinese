@@ -12,14 +12,6 @@
     "missing": [],
     "qualityBlocked": [
       {
-        "asset": "assets/hsk5_sc031_bg.webp",
-        "reason": "below_minimum_resolution",
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
         "asset": "assets/hsk5_sc031_preview.webp",
         "reason": "preview_missing_or_below_quality",
         "minimum": [
@@ -31,13 +23,16 @@
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
     "remainingAudit": [
-      "background",
       "preview"
     ],
     "regenerationRequired": [
-      "background",
       "preview"
-    ]
+    ],
+    "backgroundValidation": {
+      "status": "passed",
+      "source": "HSK2_SC041",
+      "blobSha": "6ba20dfb8423743e855c90dcd4212a17a866e9b7"
+    }
   },
   "audio": {
     "status": "complete",
@@ -99,5 +94,5 @@
     ],
     "missing": []
   },
-  "rule": "Community Center FG and canonical characters pass; BG 360x640 and preview 256x455 must be regenerated."
+  "rule": "HD Community Center background and canonical character/foreground layers pass; preview remains the only open visual gate."
 }
