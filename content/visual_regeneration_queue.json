@@ -1,0 +1,314 @@
+{
+  "version": 1,
+  "status": "active",
+  "policy": "Do not mark visual complete until the listed repair/review item passes the active visual quality gate. GitHub Actions must not be used.",
+  "phases": [
+    {
+      "id": "P1_HSK1_ENVIRONMENT_REPAIR",
+      "priority": 1,
+      "items": [
+        {
+          "sceneId": "HSK1_SC014",
+          "location": "LOC_NEIGHBORHOOD_001",
+          "required": [
+            "preview"
+          ],
+          "preserve": [
+            "background",
+            "foreground",
+            "char_li_na",
+            "char_zhang_wei"
+          ],
+          "note": "BG/FG already rebased to HD canonical Neighborhood assets; recompose preview only."
+        },
+        {
+          "sceneId": "HSK1_SC015",
+          "location": "LOC_SUPERMARKET_001",
+          "required": [
+            "background",
+            "foreground",
+            "preview"
+          ],
+          "preserve": [
+            "char_li_na",
+            "char_zhang_wei"
+          ]
+        },
+        {
+          "sceneId": "HSK1_SC019",
+          "location": "LOC_NEIGHBORHOOD_001",
+          "required": [
+            "preview"
+          ],
+          "preserve": [
+            "background",
+            "foreground",
+            "char_li_na",
+            "char_zhang_wei"
+          ],
+          "note": "BG/FG already rebased; recompose preview only."
+        },
+        {
+          "sceneId": "HSK1_SC021",
+          "location": "LOC_NEIGHBORHOOD_001",
+          "required": [
+            "preview"
+          ],
+          "preserve": [
+            "background",
+            "foreground",
+            "char_li_na",
+            "char_zhang_wei"
+          ],
+          "note": "BG/FG already rebased; recompose preview only."
+        },
+        {
+          "sceneId": "HSK1_SC022",
+          "location": "LOC_BUS_STOP_001",
+          "required": [
+            "background",
+            "foreground",
+            "preview"
+          ],
+          "preserve": [
+            "char_li_na",
+            "char_zhang_wei"
+          ]
+        },
+        {
+          "sceneId": "HSK1_SC023",
+          "location": "LOC_CITY_BUS_001",
+          "required": [
+            "background",
+            "foreground",
+            "preview"
+          ],
+          "preserve": [
+            "char_li_na",
+            "char_zhang_wei"
+          ]
+        },
+        {
+          "sceneId": "HSK1_SC024",
+          "location": "LOC_CONVENIENCE_STORE_001",
+          "required": [
+            "background",
+            "foreground",
+            "preview"
+          ],
+          "preserve": [
+            "char_li_na",
+            "char_zhang_wei"
+          ]
+        },
+        {
+          "sceneId": "HSK1_SC027",
+          "location": "LOC_RESTAURANT_001",
+          "required": [
+            "background",
+            "foreground",
+            "preview"
+          ],
+          "preserve": [
+            "char_li_na",
+            "char_zhang_wei"
+          ]
+        },
+        {
+          "sceneId": "HSK1_SC028",
+          "location": "LOC_POST_OFFICE_001",
+          "required": [
+            "background",
+            "foreground",
+            "preview"
+          ],
+          "preserve": [
+            "char_li_na",
+            "char_zhang_wei"
+          ]
+        },
+        {
+          "sceneId": "HSK1_SC030",
+          "location": "LOC_NEIGHBORHOOD_001",
+          "required": [
+            "preview"
+          ],
+          "preserve": [
+            "background",
+            "foreground",
+            "char_li_na",
+            "char_zhang_wei"
+          ],
+          "note": "BG/FG already rebased; recompose preview only."
+        }
+      ]
+    },
+    {
+      "id": "P2_IDENTITY_REVIEW",
+      "priority": 2,
+      "items": [
+        {
+          "range": "HSK1_SC031-HSK1_SC050",
+          "required": [
+            "character_identity_review"
+          ],
+          "reason": "Li Na/Zhang Wei one-off variant burst after stable SC001-SC030 baseline."
+        },
+        {
+          "range": "HSK2_SC001-HSK2_SC010",
+          "required": [
+            "character_identity_review"
+          ],
+          "reason": "Zhang Wei/Wang Ming high per-scene variant count."
+        }
+      ]
+    },
+    {
+      "id": "P3_HSK2_ASSET_REPAIR",
+      "priority": 3,
+      "items": [
+        {
+          "sceneId": "HSK2_SC045",
+          "required": [
+            "background",
+            "preview"
+          ],
+          "reason": "BG 360x640; preview 256x455."
+        },
+        {
+          "sceneId": "HSK2_SC046",
+          "required": [
+            "background",
+            "characterA",
+            "characterB",
+            "foreground",
+            "preview"
+          ],
+          "reason": "declared .webp set fails valid RIFF/WEBP signature check."
+        }
+      ]
+    },
+    {
+      "id": "P4_HSK3_HSK4_BREAKROOM_REPAIR",
+      "priority": 4,
+      "items": [
+        {
+          "range": "HSK3_SC002/004/006/008/010",
+          "required": [
+            "background",
+            "foreground",
+            "preview"
+          ],
+          "preserve": [
+            "characters"
+          ],
+          "reason": "legacy 360x640 breakroom set; preview equals background."
+        },
+        {
+          "sceneId": "HSK3_SC013",
+          "required": [
+            "background",
+            "characterA",
+            "characterB",
+            "foreground",
+            "preview"
+          ],
+          "reason": "180x320/160x284/90x160/270x480 substandard set."
+        },
+        {
+          "sceneId": "HSK3_SC014",
+          "required": [
+            "background",
+            "characterA",
+            "characterB",
+            "foreground",
+            "preview"
+          ],
+          "reason": "all visual layers 360x640."
+        },
+        {
+          "sceneId": "HSK3_SC016",
+          "required": [
+            "background",
+            "foreground"
+          ],
+          "reason": "confirmed substandard BG/FG reuse."
+        },
+        {
+          "range": "HSK4_SC002/004/006/008/010",
+          "required": [
+            "background",
+            "foreground",
+            "preview"
+          ],
+          "preserve": [
+            "characters"
+          ],
+          "reason": "legacy 360x640 breakroom set; preview equals background."
+        }
+      ]
+    },
+    {
+      "id": "P5_HSK5_PLUS_CHARACTER_REGEN",
+      "priority": 5,
+      "items": [
+        {
+          "range": "HSK5_SC006-HSK5_SC050",
+          "required": [
+            "all_character_layers"
+          ],
+          "baseline": "HSK1-HSK5_SC005 approved canonical identities"
+        },
+        {
+          "range": "HSK6_SC001-HSK6_SC050",
+          "required": [
+            "all_character_layers_with_new_visual_completion"
+          ],
+          "baseline": "HSK1-HSK5_SC005 approved canonical identities"
+        }
+      ]
+    }
+  ],
+  "completedRepairs": [
+    {
+      "sceneId": "HSK1_SC011",
+      "source": "HSK3_SC019",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC016",
+      "source": "HSK3_SC019",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC017",
+      "source": "HSK3_SC019",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC018",
+      "source": "HSK3_SC019",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC020",
+      "source": "HSK3_SC021",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC025",
+      "source": "HSK2_SC015",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC026",
+      "source": "HSK2_SC017",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC029",
+      "source": "HSK4_SC025",
+      "status": "complete"
+    }
+  ]
+}
