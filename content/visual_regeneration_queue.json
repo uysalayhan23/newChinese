@@ -647,11 +647,28 @@
         "canonicalHighResPreviewScenes": [
           "041",
           "047"
+        ],
+        "identityPinManifest": "tools/hsk6_ready_preview_identity_pins.json",
+        "identityLocksVerified": 16,
+        "sourceGitBlobsVerified": 64,
+        "outfitLabelConflictsRequiringVisualReview": [
+          "002",
+          "006",
+          "008",
+          "012",
+          "018",
+          "022",
+          "024",
+          "028",
+          "030",
+          "044",
+          "046",
+          "050"
         ]
       },
       "offlineTestsCommitted": true,
       "offlineTestsExecuted": false,
-      "notes": "HSK6_SC041/047 staged as 941x1672 exact four-blob matching West Lake preview candidates; exact 720x1280 normalization and QA pending. Remaining 14 of 16 four-layer previews not physically present; 20 face-right candidates not generated."
+      "notes": "HSK6_SC041/047 physically staged 941x1672 exact accepted-source preview blobs, NOT 720x1280 and NOT accepted. 20/20 face_right scene identity manifest checks and 64/64 ready preview Git source SHA checks passed connector-side. 16 source dimensions passed WebP header thresholds. 12 ready scenes reuse Zhang Wei blob 44a7... with inconsistent WORK_01 (HSK2_SC001) vs CASUAL_01 (HSK6) metadata, requiring independent wardrobe QA. Exact Python offline tests not run. Actions not used."
     }
   }
 }
