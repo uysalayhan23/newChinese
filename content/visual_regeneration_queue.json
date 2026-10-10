@@ -432,6 +432,11 @@
       "range": "HSK5_SC031/040",
       "status": "preview_pending",
       "note": "Community Center HD BG rebased from HSK2_SC041 blob 6ba20dfb8423743e855c90dcd4212a17a866e9b7; canonical characters/FG preserved."
+    },
+    {
+      "range": "HSK5_SC037",
+      "status": "character_and_preview_pending",
+      "note": "Community Center HD BG repaired via HSK2_SC041 canonical blob; Liu Mei face_right must not reuse face_left."
     }
   ],
   "hsk5Progress": {
@@ -476,7 +481,6 @@
           "preview"
         ],
         "sc037": [
-          "background",
           "liu_mei_face_right",
           "preview"
         ],
