@@ -15,7 +15,7 @@
     "qualityBlocked": [
       {
         "asset": "assets/hsk5_sc032_preview.webp",
-        "reason": "preview_missing_after_hd_environment_and_canonical_character_rebase",
+        "reason": "preview_missing_or_below_quality",
         "minimum": [
           720,
           1280
@@ -91,5 +91,5 @@
     ],
     "missing": []
   },
-  "rule": "HD Neighborhood BG/FG and canonical Zhang Wei/Chen Yu are complete; only preview is missing."
+  "rule": "Neighborhood BG/FG pass and canonical characters are complete; preview is physically missing."
 }
