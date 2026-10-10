@@ -13,7 +13,7 @@
     "qualityBlocked": [
       {
         "asset": "assets/hsk5_sc016_preview.webp",
-        "reason": "preview_below_minimum_resolution",
+        "reason": "preview_recompose_required_after_canonical_character_rebase",
         "minimum": [
           720,
           1280
@@ -89,5 +89,5 @@
     ],
     "missing": []
   },
-  "rule": "Canonical characters and environment pass; preview remains below active quality floor."
+  "rule": "Canonical characters and BG/FG pass quality gate; only preview recomposition remains."
 }
