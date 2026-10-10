@@ -341,6 +341,12 @@
       "sceneId": "HSK3_SC013",
       "source": "HSK3_SC019",
       "status": "complete"
+    },
+    {
+      "sceneId": "HSK5_SC008",
+      "source": "HSK5_SC002",
+      "status": "complete",
+      "note": "Exact accepted canonical Electronics Store preview blob validated; metadata gate closed without unnecessary regeneration."
     }
   ],
   "updatedAt": "2026-10-10",
@@ -383,10 +389,9 @@
   ],
   "hsk5Progress": {
     "sc001_sc010": {
-      "visualComplete": 7,
-      "accepted": 7,
+      "visualComplete": 8,
+      "accepted": 8,
       "pendingPreview": [
-        8,
         9,
         10
       ]
