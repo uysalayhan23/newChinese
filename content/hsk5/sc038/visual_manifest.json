@@ -31,16 +31,28 @@
   "status": "visual-quality-pending",
   "qualityBlocked": [
     {
+      "asset": "assets/hsk5_sc038_bg.webp",
+      "reason": "requires_genuine_HD_for_sharp_preview",
+      "actual": [
+        540,
+        960
+      ],
+      "minimum": [
+        720,
+        1280
+      ]
+    },
+    {
       "asset": "assets/hsk5_sc038_preview.webp",
       "reason": "preview_missing_after_canonical_staging"
     }
   ],
   "regeneration": {
     "required": [
+      "background",
       "preview"
     ],
     "preserve": [
-      "background",
       "characterA",
       "characterB",
       "foreground"
@@ -48,6 +60,6 @@
   },
   "repair": {
     "method": "canonical_staging",
-    "reason": "Neighborhood BG/FG and canonical Zhang Wei/Chen Yu are staged; only preview remains."
+    "reason": "True HD Neighborhood BG and new 9:16 preview required; do not upscale 540x960 source."
   }
 }
