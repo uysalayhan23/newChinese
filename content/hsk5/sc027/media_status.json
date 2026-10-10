@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC027",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc027_bg.webp",
       "assets/hsk5_sc027_char_li_na.webp",
@@ -13,11 +13,8 @@
     "qualityBlocked": [],
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
-    "remainingAudit": [
-      "background",
-      "foreground",
-      "preview"
-    ]
+    "remainingAudit": [],
+    "regenerationRequired": []
   },
   "audio": {
     "status": "complete",
@@ -79,5 +76,5 @@
     ],
     "missing": []
   },
-  "rule": "Character identity rebaseline is complete; scene remains pending until BG/FG/PREVIEW pass the active visual-quality audit."
+  "rule": "Canonical characters and BG/FG/PREVIEW pass the active visual-quality gate."
 }
