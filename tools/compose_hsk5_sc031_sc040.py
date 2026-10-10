@@ -161,16 +161,17 @@ def compose(number: int, *, replace: bool, approvals: dict) -> str:
     with Image.open(paths["foreground"]) as fg:
         overlay = fg.convert("RGBA").resize(TARGET, Image.Resampling.LANCZOS)
         canvas.alpha_composite(overlay)
-    for key, x_fraction in (("characterA", 0.34), ("characterB", 0.67)):
+    placed_bounds = []
+    for key, x_fraction in (("characterA", 0.285), ("characterB", 0.715)):
         with Image.open(paths[key]) as image:
             actor = image.convert("RGBA")
         alpha_min, alpha_max = actor.getextrema()[3]
         if alpha_min == 255 or alpha_max == 0:
             return f"BLOCKED: {key} layer is not a usable transparent cutout"
-        # Keep source aspect ratio and keep the full canonical silhouette on-canvas.
-        # The legacy 76%-height rule clipped the 600x900 left actor at x=0.34.
+        # Source aspect ratio remains fixed. The 56%-of-canvas actor limit
+        # prevents severe overlap caused by the old 75%-of-canvas placement.
         target_height = round(TARGET[1] * 0.70)
-        width_limit = round(TARGET[0] * 0.75)
+        width_limit = round(TARGET[0] * 0.56)
         scale = min(target_height / actor.height, width_limit / actor.width)
         height = max(1, round(actor.height * scale))
         width = max(1, round(actor.width * scale))
@@ -180,6 +181,13 @@ def compose(number: int, *, replace: bool, approvals: dict) -> str:
         y = TARGET[1] - height
         if width > TARGET[0] or height > TARGET[1]:
             return f"BLOCKED: {key} exceeds canvas bounds"
+        if placed_bounds:
+            previous_x, previous_width = placed_bounds[-1]
+            overlap = max(0, min(x + width, previous_x + previous_width) -
+                          max(x, previous_x))
+            if overlap > round(TARGET[0] * 0.14):
+                return f"BLOCKED: character overlap is excessive ({overlap}px)"
+        placed_bounds.append((x, width))
         canvas.alpha_composite(actor, (x, y))
     output.parent.mkdir(parents=True, exist_ok=True)
     canvas.convert("RGB").save(output, "WEBP", quality=92, method=6)
