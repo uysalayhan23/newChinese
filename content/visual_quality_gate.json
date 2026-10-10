@@ -23,8 +23,17 @@
     "status": "required",
     "baselineThrough": "HSK5_SC005",
     "regenerateFrom": "HSK5_SC006",
-    "rule": "All character layers from HSK5_SC006 onward must be regenerated/rebased against approved canonical identities before acceptance.",
-    "approvedCharacterSha256": {}
+    "rule": "HSK5_SC006 onward character assets are accepted only when they match approved canonical Git blob SHA-1 values or scene-specific approved SHA-256 values.",
+    "approvedCharacterSha256": {},
+    "approvedCanonicalGitBlobSha1": [
+      "44a7a521b7fa64466111c30f6830904081c3767d",
+      "b617cef41d4adeb331f126284a2039dd33868a99",
+      "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+      "22ad29eea28cae496f48144c00753faf5b8bc865",
+      "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "eea4742918bf5b78f222b54631de8f71a4c824a7"
+    ]
   },
   "manualBlocks": {
     "HSK1_SC028": [
