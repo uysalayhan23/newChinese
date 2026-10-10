@@ -2,13 +2,13 @@
   "batchId": "HSK1_SC011_SC020",
   "masterStep": 6,
   "goldenReference": "Run #163",
-  "status": "audio_complete_visual_pending",
+  "status": "mixed_progress",
   "scenes": [
     {
       "sceneId": "HSK1_SC011",
       "titleTr": "Sabah Uyanmak",
       "locationId": "LOC_ZHANG_HOME_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     },
     {
       "sceneId": "HSK1_SC012",
@@ -38,19 +38,19 @@
       "sceneId": "HSK1_SC016",
       "titleTr": "Eve Dönüp Yemek Yapmak",
       "locationId": "LOC_ZHANG_HOME_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     },
     {
       "sceneId": "HSK1_SC017",
       "titleTr": "Öğleden Sonra Dinlenme",
       "locationId": "LOC_ZHANG_HOME_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     },
     {
       "sceneId": "HSK1_SC018",
       "titleTr": "Çamaşır Yıkamak",
       "locationId": "LOC_ZHANG_HOME_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     },
     {
       "sceneId": "HSK1_SC019",
@@ -83,14 +83,15 @@
     "completeScenes": 10,
     "totalScenes": 10,
     "contentReady": 10,
-    "visualComplete": 3,
+    "visualComplete": 7,
     "audioComplete": 10,
     "validationBuildStatus": "success",
     "validationBuildRun": 244,
-    "acceptedScenes": 3
+    "acceptedScenes": 7
   },
   "completedAt": "2026-09-26",
   "notes": [
-    "Visual QA rebaseline supersedes earlier physical-only closure; placeholder/low-resolution visual assets remain blocked until repaired."
+    "Visual QA rebaseline supersedes earlier physical-only closure; placeholder/low-resolution visual assets remain blocked until repaired.",
+    "Visual QA repair progress updated: 7/10 scenes currently pass the active quality gate."
   ]
 }
