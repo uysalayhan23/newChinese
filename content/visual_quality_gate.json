@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "policy": "A visual scene is complete only when required files exist, pass resolution/identity quality gates, and preview is not a raw background duplicate.",
+  "minimumResolution": {
+    "background": [
+      540,
+      960
+    ],
+    "foreground": [
+      540,
+      960
+    ],
+    "preview": [
+      720,
+      1280
+    ],
+    "character": [
+      500,
+      750
+    ]
+  },
+  "identityRegeneration": {
+    "status": "required",
+    "baselineThrough": "HSK5_SC005",
+    "regenerateFrom": "HSK5_SC006",
+    "rule": "All character layers from HSK5_SC006 onward must be regenerated/rebased against approved canonical identities before acceptance.",
+    "approvedCharacterSha256": {}
+  },
+  "manualBlocks": {
+    "HSK1_SC020": [
+      {
+        "asset": "assets/hsk1_sc020_bg.webp",
+        "reason": "confirmed_low_resolution_320x180"
+      }
+    ],
+    "HSK1_SC028": [
+      {
+        "asset": "assets/hsk1_sc028_preview.webp",
+        "reason": "confirmed_low_resolution_120x213"
+      }
+    ],
+    "HSK4_SC002": [
+      {
+        "asset": "assets/hsk4_sc002_preview.webp",
+        "reason": "confirmed_preview_equals_background"
+      }
+    ],
+    "HSK4_SC004": [
+      {
+        "asset": "assets/hsk4_sc004_preview.webp",
+        "reason": "confirmed_preview_equals_background"
+      }
+    ],
+    "HSK4_SC006": [
+      {
+        "asset": "assets/hsk4_sc006_preview.webp",
+        "reason": "confirmed_preview_equals_background"
+      }
+    ],
+    "HSK4_SC008": [
+      {
+        "asset": "assets/hsk4_sc008_preview.webp",
+        "reason": "confirmed_preview_equals_background"
+      }
+    ],
+    "HSK4_SC010": [
+      {
+        "asset": "assets/hsk4_sc010_preview.webp",
+        "reason": "confirmed_preview_equals_background"
+      }
+    ]
+  }
+}
