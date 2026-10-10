@@ -56,3 +56,18 @@ The physical WebP numbers above remain unchanged (**HSK6 126/250; HSK5 226/250; 
 - Offline test suites `tools/tests/test_prepare_hsk6_face_right_candidates.py` and `tools/tests/test_compose_hsk6_ready_previews.py` were added. These test scripts have been committed but **were not run in the GitHub-connected execution environment**.
 
 These are production mechanisms, **not claims that candidate assets or previews have already been rendered or uploaded**. Network-disabled local image processing remains a separate execution blocker; GitHub connector read/write permissions are functional. Independent visual QA of actual outputs is required before changing the `accepted` counters; all HSK6 visual batches remain 0/10 accepted. GitHub Actions have not been started.
+
+## Live main staging addendum — HSK6_SC041/047
+
+The historical 126/250 counts in the original table above describe the **pre-preview-candidate** snapshot, not the latest main HEAD. GitHub commit `cd791b42dd190fd6bd30d17e52d2c42a0eb7999c` placed two physically verifiable high-resolution canonical preview candidates into HSK6_SC041 and HSK6_SC047.
+
+| Level | Current physical WebP | Missing | Scenes with five physical WebPs |
+| --- | ---: | ---: | ---: |
+| HSK1–HSK4 | 1000/1000 | 0 | 200 |
+| HSK5 | 226/250 | 24 | 35 |
+| HSK6 | 128/250 | 122 | 2 |
+| **Total** | **1354/1500** | **146** | **237** |
+
+Both newly staged previews are existing 941×1672 West Lake accepted-source images (four source layers match). They are **not** exact 720×1280 rendered outputs and do not constitute HSK6 scene acceptance. HSK6 accepted remains **0/50**, and physical HSK6 previews are missing in 48 scenes. The user-requested new 720×1280 previews and 20 right-facing character candidate binaries have not been rendered in the isolated Python runtime.
+
+The 16-scene preview compositor now validates an independent character/outfit/facing/location manifest in `tools/hsk6_ready_preview_identity_pins.json`, with fail-closed unit tests committed. Connector-side static checks verified all 64 input Git SHA pins and all 20 face-right target manifests; these are **not** evidence that the offline Python test suites ran.
