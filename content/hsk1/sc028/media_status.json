@@ -12,6 +12,18 @@
     "missing": [],
     "qualityBlocked": [
       {
+        "asset": "assets/hsk1_sc028_bg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          480,
+          853
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
         "asset": "assets/hsk1_sc028_fg.webp",
         "reason": "placeholder_foreground_1x1",
         "actual": [
@@ -25,7 +37,7 @@
       },
       {
         "asset": "assets/hsk1_sc028_preview.webp",
-        "reason": "confirmed_low_resolution_120x213",
+        "reason": "below_minimum_resolution",
         "actual": [
           120,
           213
@@ -35,7 +47,13 @@
           1280
         ]
       }
-    ]
+    ],
+    "regenerationRequired": [
+      "background",
+      "foreground",
+      "preview"
+    ],
+    "preserveCanonicalCharacters": true
   },
   "audio": {
     "status": "complete",
@@ -67,5 +85,5 @@
     ],
     "missing": []
   },
-  "rule": "Visual completion requires physical presence plus minimum-resolution/non-placeholder quality approval."
+  "rule": "Li Na and Zhang Wei character layers pass canonical identity/resolution checks; only BG/FG/PREVIEW require regeneration."
 }
