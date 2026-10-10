@@ -10,12 +10,40 @@
       "assets/hsk5_sc031_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc031_bg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          360,
+          640
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk5_sc031_preview.webp",
+        "reason": "below_minimum_resolution_and_stale_after_character_rebase",
+        "actual": [
+          256,
+          455
+        ],
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ],
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
     "remainingAudit": [
       "background",
-      "foreground",
+      "preview"
+    ],
+    "regenerationRequired": [
+      "background",
       "preview"
     ]
   },
@@ -79,5 +107,5 @@
     ],
     "missing": []
   },
-  "rule": "Character identity rebaseline is complete; scene remains pending until BG/FG/PREVIEW pass the active visual-quality audit."
+  "rule": "Canonical Zhang Wei/Liu Mei and HD foreground pass; Community Center background and preview require regeneration."
 }
