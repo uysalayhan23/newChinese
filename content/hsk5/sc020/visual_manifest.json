@@ -28,5 +28,29 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk5_sc020_preview.webp",
+      "reason": "preview_below_minimum_resolution",
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB"
+    ]
+  },
+  "repair": {
+    "characterIdentity": "canonical_rebase_complete"
+  }
 }
