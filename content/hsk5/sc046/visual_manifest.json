@@ -28,5 +28,25 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk5_sc046_preview.webp",
+      "reason": "preview_recompose_required_after_canonical_staging"
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterB"
+    ]
+  },
+  "repair": {
+    "method": "canonical_staging",
+    "reason": "Cafe BG/FG + canonical Zhang Wei/Wang Ming pass; preview source was low-resolution and must be recomposed."
+  }
 }
