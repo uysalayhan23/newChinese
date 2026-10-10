@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK2_SC045",
   "visual": {
-    "status": "complete",
+    "status": "pending",
     "required": [
       "assets/hsk2_sc045_bg.webp",
       "assets/hsk2_sc045_char_zhang_wei.webp",
@@ -9,7 +9,33 @@
       "assets/hsk2_sc045_fg.webp",
       "assets/hsk2_sc045_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk2_sc045_bg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          360,
+          640
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk2_sc045_preview.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          256,
+          455
+        ],
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ]
   },
   "audio": {
     "status": "complete",
@@ -51,5 +77,5 @@
     ],
     "missing": []
   },
-  "rule": "Mark complete only after physical assets exist and validation passes."
+  "rule": "Visual completion blocked by confirmed low-resolution background/preview."
 }
