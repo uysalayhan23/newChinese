@@ -34,6 +34,7 @@
     "required": []
   },
   "repair": {
-    "source": "HSK3_SC017 full canonical Public Library set"
+    "method": "canonical_character_rebase",
+    "reason": "character identity normalized; existing environment and preview pass quality gate"
   }
 }
