@@ -10,11 +10,26 @@
       "assets/hsk5_sc035_preview.webp"
     ],
     "missing": [
-      "assets/hsk5_sc035_bg.webp",
       "assets/hsk5_sc035_char_liu_mei.webp",
-      "assets/hsk5_sc035_char_zhang_wei.webp",
-      "assets/hsk5_sc035_fg.webp",
       "assets/hsk5_sc035_preview.webp"
+    ],
+    "regenerationRequired": [
+      "characterA",
+      "preview"
+    ],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc035_char_liu_mei.webp",
+        "reason": "canonical_face_right_character_regeneration_required"
+      },
+      {
+        "asset": "assets/hsk5_sc035_preview.webp",
+        "reason": "preview_missing_after_canonical_staging"
+      }
+    ],
+    "remainingAudit": [
+      "characterA",
+      "preview"
     ]
   },
   "audio": {
@@ -77,5 +92,5 @@
     ],
     "missing": []
   },
-  "rule": "Audio may be complete only after every declared physical M4A exists and validation passes; visuals intentionally remain pending until produced."
+  "rule": "Neighborhood BG/FG and canonical Zhang Wei face-left are staged; Liu Mei face-right canonical regeneration and preview remain."
 }
