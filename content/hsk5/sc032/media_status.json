@@ -11,6 +11,16 @@
     ],
     "missing": [
       "assets/hsk5_sc032_preview.webp"
+    ],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc032_char_zhang_wei.webp",
+        "reason": "identity_regeneration_required_after_HSK5_SC005"
+      },
+      {
+        "asset": "assets/hsk5_sc032_char_chen_yu.webp",
+        "reason": "identity_regeneration_required_after_HSK5_SC005"
+      }
     ]
   },
   "audio": {
@@ -73,5 +83,5 @@
     ],
     "missing": []
   },
-  "rule": "Audio and visuals may be complete only after every declared physical asset exists and validation passes."
+  "rule": "Visual completion requires physical presence plus visual-quality and canonical-identity approval; HSK5_SC006+ characters are blocked until regenerated/re-approved."
 }
