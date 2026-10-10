@@ -10,11 +10,24 @@
       "assets/hsk5_sc034_preview.webp"
     ],
     "missing": [
-      "assets/hsk5_sc034_bg.webp",
-      "assets/hsk5_sc034_char_zhang_wei.webp",
-      "assets/hsk5_sc034_char_chen_yu.webp",
-      "assets/hsk5_sc034_fg.webp",
       "assets/hsk5_sc034_preview.webp"
+    ],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc034_preview.webp",
+        "reason": "preview_missing_after_canonical_hd_staging",
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ],
+    "characterIdentityStatus": "canonical_rebase_complete",
+    "remainingAudit": [
+      "preview"
+    ],
+    "regenerationRequired": [
+      "preview"
     ]
   },
   "audio": {
@@ -77,5 +90,5 @@
     ],
     "missing": []
   },
-  "rule": "Audio may be complete only after every declared physical M4A exists and validation passes; visuals intentionally remain pending until produced."
+  "rule": "HD BG/FG and canonical Zhang Wei/Chen Yu are staged; only preview is missing."
 }
