@@ -28,5 +28,31 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk3_sc014_preview.webp",
+      "reason": "preview_recompose_required_after_hd_canonical_rebase",
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB"
+    ]
+  },
+  "repair": {
+    "method": "partial_canonical_rebase",
+    "source": "HSK3_SC020",
+    "reason": "Public Library BG/FG + canonical Zhang Wei/Liu Mei; preview recomposition required"
+  }
 }
