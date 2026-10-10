@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK2_SC003",
   "visual": {
-    "status": "complete",
+    "status": "pending",
     "required": [
       "assets/hsk2_sc003_bg.webp",
       "assets/hsk2_sc003_char_zhang_wei.webp",
@@ -17,7 +17,21 @@
       "assets/hsk2_sc003_fg.webp",
       "assets/hsk2_sc003_preview.webp"
     ],
-    "previewStatus": "complete"
+    "previewStatus": "complete",
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk2_sc003_preview.webp",
+        "reason": "preview_recompose_required_after_canonical_character_rebase",
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ],
+    "regenerationRequired": [
+      "preview"
+    ],
+    "identityReviewRequired": false
   },
   "audio": {
     "status": "complete",
