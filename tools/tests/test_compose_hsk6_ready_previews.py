@@ -55,6 +55,16 @@ class HSK6PreviewTests(unittest.TestCase):
         tools_dir.mkdir()
         (tools_dir / "hsk6_ready_preview_blobs.json").write_text(
             json.dumps({"scenes": {"002": pins}}), encoding="utf-8")
+        (tools_dir / "hsk6_ready_preview_identity_pins.json").write_text(
+            json.dumps({"scenes": {"002": {
+                "sceneId": "HSK6_SC002",
+                "locationId": self.manifest["locationId"],
+                "characters": [
+                    {key: actor.get(key) for key in
+                     ("characterId", "outfit", "speechBubbleAnchor")}
+                    for actor in self.manifest["characters"]
+                ],
+            }}}), encoding="utf-8")
 
     def test_generates_physical_720x1280_webp_but_not_acceptance(self):
         preview, manifest = p.compose(2, self.root)
@@ -67,6 +77,33 @@ class HSK6PreviewTests(unittest.TestCase):
         self.assertEqual(recorded["previewComposition"]["previewBlob"],
                          p.git_blob_sha1(preview))
         self.assertEqual(len(recorded["previewComposition"]["inputBlobs"]), 4)
+
+    def test_refuses_unpinned_face_direction_change(self):
+        changed = json.loads((self.base / "visual_manifest.json").read_text())
+        changed["characters"][0]["speechBubbleAnchor"] = "face_left"
+        (self.base / "visual_manifest.json").write_text(json.dumps(changed))
+        with self.assertRaisesRegex(ValueError, "facing drift"):
+            p.compose(2, self.root)
+        self.assertFalse((self.base / self.files["preview"]).exists())
+
+    def test_refuses_unpinned_outfit_change(self):
+        changed = json.loads((self.base / "visual_manifest.json").read_text())
+        changed["characters"][0]["outfit"] = "OUTFIT_UNAPPROVED"
+        (self.base / "visual_manifest.json").write_text(json.dumps(changed))
+        with self.assertRaisesRegex(ValueError, "outfit/facing drift"):
+            p.compose(2, self.root)
+
+    def test_refuses_unpinned_location_change(self):
+        changed = json.loads((self.base / "visual_manifest.json").read_text())
+        changed["locationId"] = "LOC_INCORRECT_001"
+        (self.base / "visual_manifest.json").write_text(json.dumps(changed))
+        with self.assertRaisesRegex(ValueError, "locked scene/location"):
+            p.compose(2, self.root)
+
+    def test_refuses_missing_identity_pins(self):
+        (self.root / "tools/hsk6_ready_preview_identity_pins.json").unlink()
+        with self.assertRaisesRegex(ValueError, "identity/outfit/facing pin file"):
+            p.compose(2, self.root)
 
     def test_reuses_unchanged_preview_only_with_provenance(self):
         preview, _ = p.compose(2, self.root)
@@ -87,7 +124,7 @@ class HSK6PreviewTests(unittest.TestCase):
         m["characters"][0] = {"characterId": "CHAR_CHEN_YU_001"}
         (self.base / "visual_manifest.json").write_text(
             json.dumps(m), encoding="utf-8")
-        with self.assertRaisesRegex(ValueError, "character identity/path mismatch"):
+        with self.assertRaisesRegex(ValueError, "locked scene/location/identity/outfit/facing drift"):
             p.compose(2, self.root)
         self.assertFalse((self.base / self.files["preview"]).exists())
 
