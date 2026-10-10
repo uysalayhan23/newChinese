@@ -427,6 +427,11 @@
       "range": "HSK3_SC014/016",
       "status": "preview_pending",
       "note": "canonical HD layers complete; preview recomposition required"
+    },
+    {
+      "range": "HSK5_SC031/040",
+      "status": "preview_pending",
+      "note": "Community Center HD BG rebased from HSK2_SC041 blob 6ba20dfb8423743e855c90dcd4212a17a866e9b7; canonical characters/FG preserved."
     }
   ],
   "hsk5Progress": {
@@ -451,7 +456,6 @@
       "staged": true,
       "remaining": {
         "sc031": [
-          "background",
           "preview"
         ],
         "sc032": [
@@ -484,7 +488,6 @@
           "preview"
         ],
         "sc040": [
-          "background",
           "preview"
         ]
       }
