@@ -49,6 +49,12 @@ class HSK6PreviewTests(unittest.TestCase):
             actor = Image.new("RGBA", (600, 900), (0, 0, 0, 0))
             ImageDraw.Draw(actor).ellipse((85, 25, 510, 880), fill=color)
             actor.save(self.base / self.files[role], "WEBP")
+        pins = {Path(filename).name: p.git_blob_sha1(self.base / filename)
+                for role, filename in self.files.items() if role != "preview"}
+        tools_dir = self.root / "tools"
+        tools_dir.mkdir()
+        (tools_dir / "hsk6_ready_preview_blobs.json").write_text(
+            json.dumps({"scenes": {"002": pins}}), encoding="utf-8")
 
     def test_generates_physical_720x1280_webp_but_not_acceptance(self):
         preview, manifest = p.compose(2, self.root)
@@ -84,6 +90,18 @@ class HSK6PreviewTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "character identity/path mismatch"):
             p.compose(2, self.root)
         self.assertFalse((self.base / self.files["preview"]).exists())
+
+    def test_detects_changed_canonical_blob_before_composing(self):
+        Image.new("RGB", (941, 1672), (25, 80, 100)).save(
+            self.base / self.files["background"], "WEBP")
+        with self.assertRaisesRegex(ValueError, "canonical source blob SHA drift"):
+            p.compose(2, self.root)
+        self.assertFalse((self.base / self.files["preview"]).exists())
+
+    def test_rejects_missing_pinset(self):
+        (self.root / "tools/hsk6_ready_preview_blobs.json").unlink()
+        with self.assertRaisesRegex(ValueError, "pinned canonical source SHA"):
+            p.compose(2, self.root)
 
     def test_rejects_non_ready_scene(self):
         with self.assertRaises(ValueError):
