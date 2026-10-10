@@ -28,14 +28,32 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete",
-  "qualityBlocked": [],
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk5_sc015_preview.webp",
+      "reason": "preview_recompose_required_after_character_identity_change",
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
   "repair": {
     "method": "canonical_character_rebase_plus_environment_audit",
     "reason": "BG/FG/PREVIEW 941x1672",
-    "characterIdentity": "canonical_rebase_complete"
+    "characterIdentity": "canonical_rebase_complete",
+    "previewConsistency": "recompose_after_character_identity_change"
   },
   "regeneration": {
-    "required": []
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB"
+    ]
   }
 }
