@@ -27,6 +27,22 @@ SCENES = tuple(range(31, 41))
 PREVIEW_ONLY = (31, 32, 34, 36, 38, 40)
 LIU_MEI_FACE_RIGHT = (33, 35, 37, 39)
 TARGET = (720, 1280)
+# Scene-specific canonical identity baseline, not a generic allowlist.
+# Alternate face orientation is never accepted under the wrong role.
+CANONICAL_LAYER_BLOBS = {
+    ("CHAR_ZHANG_WEI_001", "face_right"): {
+        "44a7a521b7fa64466111c30f6830904081c3767d"
+    },
+    ("CHAR_ZHANG_WEI_001", "face_left"): {
+        "b617cef41d4adeb331f126284a2039dd33868a99"
+    },
+    ("CHAR_CHEN_YU_001", "face_left"): {
+        "ee14b09ae3c8cc4f5e539a54884798900f2ad85b"
+    },
+    ("CHAR_LIU_MEI_001", "face_left"): {
+        "eea4742918bf5b78f222b54631de8f71a4c824a7"
+    },
+}
 MINIMUMS = {"background": (720, 1280), "foreground": (720, 1280),
             "characterA": (500, 750), "characterB": (500, 750),
             "preview": TARGET}
@@ -68,6 +84,24 @@ def verify_assets(number: int, manifest: dict, approvals: dict, reviews: dict) -
         minimum = MINIMUMS[role]
         if size[0] < minimum[0] or size[1] < minimum[1]:
             issues.append(f"{role}: {size} below {minimum}")
+    for idx, role in enumerate(("characterA", "characterB")):
+        characters = manifest.get("characters") or []
+        if len(characters) != 2:
+            issues.append("manifest: expected exactly two canonical characters")
+            break
+        spec = characters[idx]
+        path = paths[role]
+        if not path.is_file():
+            continue
+        key = (spec.get("characterId"), spec.get("speechBubbleAnchor"))
+        actual_blob = git_blob_sha1(path)
+        accepted = CANONICAL_LAYER_BLOBS.get(key)
+        if key == ("CHAR_LIU_MEI_001", "face_right"):
+            accepted = {approvals.get(f"HSK5_SC{number:03d}")}
+        if not accepted or actual_blob not in accepted:
+            issues.append(
+                f"{role}: incorrect character identity/orientation or unapproved blob"
+            )
     record = manifest.get("previewComposition") or {}
     inputs = record.get("inputBlobs") or {}
     for role in ("background", "characterA", "characterB", "foreground"):
