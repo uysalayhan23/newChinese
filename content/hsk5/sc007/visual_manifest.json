@@ -33,6 +33,10 @@
   "repair": {
     "method": "canonical_rebaseline",
     "source": "existing HD Zhang Office environment + canonical ZW/WM",
-    "reason": "BG/FG 540x960, preview 768x1365; canonical characters approved"
+    "reason": "BG/FG 540x960, preview 768x1365; canonical characters approved",
+    "characterIdentity": "canonical_rebase_complete"
+  },
+  "regeneration": {
+    "required": []
   }
 }
