@@ -181,4 +181,8 @@ Her adım bitince bir sonraki adıma geçilir. Durum raporu kısa tutulur:
 
 
 
-- **HSK5 rebaseline güncel:** SC001–010 = 7/10, SC011–020 = 5/10, SC021–030 = 10/10 CLOSED, SC031–040 = canonical staging active, SC041–050 = 4/10. Wang Ming face-right ve Liu Mei face-right için yanlış yön reuse yasak; gerçek canonical regeneration bekleniyor.
+- **HSK5 rebaseline güncel (2026-10-10):** SC001–010 = 10/10, SC011–020 = 10/10, SC021–030 = 10/10 CLOSED, SC031–040 = 0/10 QA-accepted (all audio 10/10), SC041–050 = 4/10. Rebaseline önceki 1/10 SC031 acceptance kaydını geçersiz kılar; SC031 preview kalite engeli açık. Wang Ming/Liu Mei face_right yanlış yön reuse yasak.
+
+- **HSK5_SC031/037/040:** Community Center 941×1672 canonical HD BG fiziksel olarak repoya işlendi; preview ve gerekli face_right onayları ayrı bekliyor.
+- **HSK5_SC032/035/038:** Neighborhood BG 540×960; 720×1280 preview için yukarı ölçekleme değil gerçek HD kaynak gerekiyor.
+- **Kompozitör:** tools/compose_hsk5_sc031_sc040.py eklendi; Actions'sız çalışır, fiziksel asset/kimlik ve çözünürlük doğrulanmadan kabul sayaçlarını ilerletmez. Preview dosyaları henüz fiziksel olarak üretilmedi; SC031–SC040 10/10 kapanışı raporlanmaz.
