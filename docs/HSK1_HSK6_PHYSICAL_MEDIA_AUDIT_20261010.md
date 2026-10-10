@@ -46,3 +46,13 @@ HSK6 missing **by role**: 27 BG + 27 FG + 20 character cutouts + 50 previews = *
 1. Produce and inspect missing HSK5 SC031–SC050 previews and missing face-right character cutouts; create real HD Neighborhood assets for SC032/035/038.
 2. Regenerate HSK6 BG/FG for 27 scene locations with only low-resolution sources (or find a genuinely HD matching approved source), and create/approve 20 correctly oriented character cutouts.
 3. Compose 50 HSK6 scene-specific 9:16 previews from its existing newly staged layers and future repairs; require exact Git blob provenance and independent visual/continuity approval before incrementing acceptance counters.
+
+## HSK6 face-right and preview production tooling (2026-10-10 continuation)
+
+The physical WebP numbers above remain unchanged (**HSK6 126/250; HSK5 226/250; overall 1352/1500**). Additional fail-closed tools were committed to `main`:
+
+- `tools/prepare_hsk6_face_right_candidates.py`: generates 20 **candidate**, not approved, HSK6 face-right character WebPs for scenes SC001/003/005/007/009 (Wang Ming), SC011/013/015/017/019 (Liu Mei), SC021/023/025/027/029 (Chen Yu) and SC031/033/035/037/039 (Wang Ming). Exact source blobs, identity, wardrobe and manifest path are checked in an all-scenes preflight. Mirroring a character is not proof of visual identity/continuity suitability.
+- `tools/compose_hsk6_ready_previews.py`: can physically compose 16 existing 4-layer scene packages (SC002/006/008/012/018/022/024/028/030/041/043/044/046/047/049/050) into 720×1280 preview WebPs. Input files must match their exact hashes in `tools/hsk6_ready_preview_blobs.json`, which pins **64 physically staged canonical Git blobs**. No upscale of small BG or FG is permitted; transparent actor and overlap guards apply. `--publish` stages only preview files and their source-provenance manifests in a `[skip ci]` main-branch commit, without setting acceptance.
+- Offline test suites `tools/tests/test_prepare_hsk6_face_right_candidates.py` and `tools/tests/test_compose_hsk6_ready_previews.py` were added. These test scripts have been committed but **were not run in the GitHub-connected execution environment**.
+
+These are production mechanisms, **not claims that candidate assets or previews have already been rendered or uploaded**. Network-disabled local image processing remains a separate execution blocker; GitHub connector read/write permissions are functional. Independent visual QA of actual outputs is required before changing the `accepted` counters; all HSK6 visual batches remain 0/10 accepted. GitHub Actions have not been started.
