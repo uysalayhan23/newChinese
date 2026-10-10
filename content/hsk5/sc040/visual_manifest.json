@@ -31,27 +31,24 @@
   "status": "visual-quality-pending",
   "qualityBlocked": [
     {
-      "asset": "assets/hsk5_sc040_bg.webp",
-      "reason": "hd_background_regeneration_required"
-    },
-    {
       "asset": "assets/hsk5_sc040_preview.webp",
       "reason": "preview_missing_after_canonical_staging"
     }
   ],
   "regeneration": {
     "required": [
-      "background",
       "preview"
     ],
     "preserve": [
       "characterA",
       "characterB",
-      "foreground"
+      "foreground",
+      "background"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "Community Center FG and canonical Zhang Wei/Chen Yu are staged; HD BG and preview remain."
+    "method": "hd_environment_rebase",
+    "source": "HSK2_SC041 canonical Community Center HD background",
+    "reason": "HD Community Center background blob installed; preview remains the only open visual gate."
   }
 }
