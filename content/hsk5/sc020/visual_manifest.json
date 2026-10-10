@@ -32,7 +32,7 @@
   "qualityBlocked": [
     {
       "asset": "assets/hsk5_sc020_preview.webp",
-      "reason": "preview_below_minimum_resolution",
+      "reason": "preview_recompose_required_after_canonical_character_rebase",
       "minimum": [
         720,
         1280
@@ -51,6 +51,7 @@
     ]
   },
   "repair": {
-    "characterIdentity": "canonical_rebase_complete"
+    "method": "canonical_character_rebase",
+    "reason": "environment passes quality gate; preview remains below active threshold"
   }
 }
