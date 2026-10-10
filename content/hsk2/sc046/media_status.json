@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK2_SC046",
   "visual": {
-    "status": "complete",
+    "status": "pending",
     "required": [
       "assets/hsk2_sc046_bg.webp",
       "assets/hsk2_sc046_char_zhang_wei.webp",
@@ -9,7 +9,29 @@
       "assets/hsk2_sc046_fg.webp",
       "assets/hsk2_sc046_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk2_sc046_bg.webp",
+        "reason": "invalid_webp_riff_signature"
+      },
+      {
+        "asset": "assets/hsk2_sc046_char_zhang_wei.webp",
+        "reason": "invalid_webp_riff_signature"
+      },
+      {
+        "asset": "assets/hsk2_sc046_char_liu_mei.webp",
+        "reason": "invalid_webp_riff_signature"
+      },
+      {
+        "asset": "assets/hsk2_sc046_fg.webp",
+        "reason": "invalid_webp_riff_signature"
+      },
+      {
+        "asset": "assets/hsk2_sc046_preview.webp",
+        "reason": "invalid_webp_riff_signature"
+      }
+    ]
   },
   "audio": {
     "status": "complete",
@@ -51,5 +73,5 @@
     ],
     "missing": []
   },
-  "rule": "Mark complete only after physical assets exist and validation passes."
+  "rule": "Visual completion blocked because declared .webp assets do not expose a valid RIFF/WEBP binary signature."
 }
