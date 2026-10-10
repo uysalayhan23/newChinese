@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC017",
   "visual": {
-    "status": "complete",
+    "status": "pending",
     "required": [
       "assets/hsk5_sc017_bg.webp",
       "assets/hsk5_sc017_char_li_na.webp",
@@ -9,7 +9,17 @@
       "assets/hsk5_sc017_fg.webp",
       "assets/hsk5_sc017_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc017_char_li_na.webp",
+        "reason": "identity_regeneration_required_after_HSK5_SC005"
+      },
+      {
+        "asset": "assets/hsk5_sc017_char_zhang_wei.webp",
+        "reason": "identity_regeneration_required_after_HSK5_SC005"
+      }
+    ]
   },
   "audio": {
     "status": "complete",
@@ -71,5 +81,5 @@
     ],
     "missing": []
   },
-  "rule": "Audio and visuals may be complete only after every declared physical asset exists and validation passes."
+  "rule": "Visual completion requires physical presence plus visual-quality and canonical-identity approval; HSK5_SC006+ characters are blocked until regenerated/re-approved."
 }
