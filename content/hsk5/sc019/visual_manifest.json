@@ -28,17 +28,8 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc019_preview.webp",
-      "reason": "preview_recompose_required_after_character_identity_change",
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
     "required": [
       "preview"
@@ -51,7 +42,7 @@
     ]
   },
   "repair": {
-    "characterIdentity": "canonical_rebase_complete",
-    "previewConsistency": "recompose_after_character_identity_change"
+    "method": "canonical_character_rebase",
+    "reason": "environment and preview pass quality gate"
   }
 }
