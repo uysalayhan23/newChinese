@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC048",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc048_bg.webp",
       "assets/hsk5_sc048_char_zhang_wei.webp",
@@ -9,13 +9,10 @@
       "assets/hsk5_sc048_fg.webp",
       "assets/hsk5_sc048_preview.webp"
     ],
-    "missing": [
-      "assets/hsk5_sc048_bg.webp",
-      "assets/hsk5_sc048_char_zhang_wei.webp",
-      "assets/hsk5_sc048_char_wang_ming.webp",
-      "assets/hsk5_sc048_fg.webp",
-      "assets/hsk5_sc048_preview.webp"
-    ]
+    "missing": [],
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "remainingAudit": []
   },
   "audio": {
     "status": "complete",
@@ -77,5 +74,5 @@
     ],
     "missing": []
   },
-  "rule": "Audio may be complete only after every declared physical M4A exists and validation passes; visuals intentionally remain pending until produced."
+  "rule": "Canonical characters and exact same-location BG/FG/PREVIEW pass the active visual-quality gate."
 }
