@@ -68,6 +68,15 @@ def verify_assets(number: int, manifest: dict, approvals: dict) -> list[str]:
         minimum = MINIMUMS[role]
         if size[0] < minimum[0] or size[1] < minimum[1]:
             issues.append(f"{role}: {size} below {minimum}")
+    record = manifest.get("previewComposition") or {}
+    inputs = record.get("inputBlobs") or {}
+    for role in ("background", "characterA", "characterB", "foreground"):
+        path = paths[role]
+        if path.is_file() and inputs.get(role) != git_blob_sha1(path):
+            issues.append(f"{role}: preview composition provenance missing or stale")
+    preview = paths["preview"]
+    if preview.is_file() and record.get("previewBlob") != git_blob_sha1(preview):
+        issues.append("preview: compositor output does not match recorded blob")
     required = list(manifest["assets"].values())
     for block in visual_quality_blocks(f"HSK5_SC{number:03d}", directory, required):
         issues.append(f"{block['asset']}: {block['reason']}")
@@ -84,9 +93,12 @@ def verify_assets(number: int, manifest: dict, approvals: dict) -> list[str]:
     return issues
 
 
-def compose(number: int, *, replace: bool) -> str:
+def compose(number: int, *, replace: bool, approvals: dict) -> str:
     if number in LIU_MEI_FACE_RIGHT:
-        return "BLOCKED: canonical Liu Mei face_right image needs separate approval"
+        approved = approvals.get(f"HSK5_SC{number:03d}")
+        layer = scene_dir(number) / f"assets/hsk5_sc{number:03d}_char_liu_mei.webp"
+        if not approved or not layer.is_file() or git_blob_sha1(layer) != approved:
+            return "BLOCKED: canonical Liu Mei face_right image needs explicit blob approval"
     directory, manifest, _ = load_scene(number)
     paths = required_paths(directory, manifest)
     output = paths["preview"]
@@ -121,6 +133,13 @@ def compose(number: int, *, replace: bool) -> str:
         canvas.alpha_composite(actor, (x, y))
     output.parent.mkdir(parents=True, exist_ok=True)
     canvas.convert("RGB").save(output, "WEBP", quality=92, method=6)
+    manifest["previewComposition"] = {
+        "method": "deterministic_alpha_composite_v1",
+        "inputBlobs": {key: git_blob_sha1(paths[key])
+                       for key in ("background", "characterA", "characterB", "foreground")},
+        "previewBlob": git_blob_sha1(output),
+    }
+    write_json(directory / "visual_manifest.json", manifest)
     return f"CREATED: {output.relative_to(ROOT)} {TARGET[0]}x{TARGET[1]}"
 
 
@@ -192,7 +211,7 @@ def main() -> int:
     approvals = read_json(args.face_right_approvals) if args.face_right_approvals else {}
     if args.compose:
         for n in args.scenes:
-            print(f"HSK5_SC{n:03d}: {compose(n, replace=args.replace)}")
+            print(f"HSK5_SC{n:03d}: {compose(n, replace=args.replace, approvals=approvals)}")
     if args.accept:
         for line in accept(approvals):
             print(line)
