@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK1_SC044",
   "visual": {
-    "status": "complete",
+    "status": "pending",
     "required": [
       "assets/hsk1_sc044_bg.webp",
       "assets/hsk1_sc044_char_li_na.webp",
@@ -9,7 +9,52 @@
       "assets/hsk1_sc044_fg.webp",
       "assets/hsk1_sc044_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk1_sc044_bg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          512,
+          910
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk1_sc044_fg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          512,
+          910
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk1_sc044_preview.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          512,
+          910
+        ],
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ],
+    "regenerationRequired": [
+      "background",
+      "foreground",
+      "preview"
+    ],
+    "preserveCanonicalCharacters": true,
+    "identityReviewRequired": false
   },
   "audio": {
     "status": "complete",
@@ -41,5 +86,5 @@
     ],
     "missing": []
   },
-  "rule": "A media category may only be marked complete after every required physical asset exists and passes validation."
+  "rule": "Li Na/Zhang Wei character layers have been rebased to canonical HD identities; environment and preview remain blocked by 512x910 legacy resolution."
 }
