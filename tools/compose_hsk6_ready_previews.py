@@ -45,6 +45,25 @@ def preflight(scene: int, root: Path) -> tuple[dict, dict[str, Path], Path]:
     directory, manifest = read_manifest(scene, root)
     if manifest.get("sceneId") != f"HSK6_SC{scene:03d}":
         raise ValueError("scene identity mismatch")
+    # Independent scene/character/outfit/orientation lock. Source SHA alone
+    # does not prove wardrobe, facing or the correct narrative location.
+    import json
+    identity_file = root / "tools/hsk6_ready_preview_identity_pins.json"
+    if not identity_file.is_file():
+        raise ValueError("HSK6 identity/outfit/facing pin file is missing")
+    identity_pin = json.loads(identity_file.read_text(encoding="utf-8")).get(
+        "scenes", {}).get(f"{scene:03d}")
+    actual = {
+        "sceneId": manifest.get("sceneId"),
+        "locationId": manifest.get("locationId"),
+        "characters": [
+            {field: actor.get(field) for field in
+             ("characterId", "outfit", "speechBubbleAnchor")}
+            for actor in (manifest.get("characters") or [])
+        ],
+    }
+    if not identity_pin or actual != identity_pin:
+        raise ValueError(f"HSK6_SC{scene:03d}: locked scene/location/identity/outfit/facing drift")
     chars = manifest.get("characters") or []
     if (len(chars) != 2 or
             any(manifest.get("assets", {}).get(f"character{letter}") !=
