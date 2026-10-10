@@ -9,15 +9,24 @@
       "assets/hsk6_sc047_fg.webp",
       "assets/hsk6_sc047_preview.webp"
     ],
-    "missing": [
-      "assets/hsk6_sc047_preview.webp"
-    ],
+    "missing": [],
     "physicalStaging": {
-      "present": 4,
+      "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
-    }
+      "source": "verified-exact-four-layer-canonical-preview-blob-reuse",
+      "qa": "pending",
+      "previewSize": [
+        941,
+        1672
+      ],
+      "target": [
+        720,
+        1280
+      ]
+    },
+    "qualityBlocked": [
+      "preview requires exact 720x1280 normalization and scene continuity QA"
+    ]
   },
   "audio": {
     "status": "complete",

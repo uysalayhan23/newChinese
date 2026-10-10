@@ -542,19 +542,19 @@
   "hsk6Progress": {
     "status": "physical-canonical-staging-in-progress",
     "totalScenes": 50,
-    "physicalWebpPresent": 126,
+    "physicalWebpPresent": 128,
     "physicalWebpRequired": 250,
-    "physicalWebpMissing": 124,
+    "physicalWebpMissing": 122,
     "audioComplete": 50,
     "visualComplete": 0,
     "accepted": 0,
     "stageMethod": "exact-approved-canonical-git-blob-sha-reuse",
     "pendingGates": [
-      "50 scene-specific previews",
+      "48 missing preview files; 2 high-resolution source previews pending exact 720x1280 normalization",
       "27 HD backgrounds",
       "27 HD foregrounds",
       "20 face-correct canonical character assets",
-      "independent visual identity and continuity QA"
+      "independent visual identity, outfit and continuity QA"
     ],
     "batches": {
       "sc001_sc010": {
@@ -582,7 +582,7 @@
         "accepted": 0
       },
       "sc041_sc050": {
-        "physicalPresent": 34,
+        "physicalPresent": 36,
         "required": 50,
         "visualComplete": 0,
         "accepted": 0
@@ -642,11 +642,16 @@
         "pinnedSourceManifest": "tools/hsk6_ready_preview_blobs.json",
         "inputBlobsPinned": 64,
         "physicallyGenerated": 0,
-        "approved": 0
+        "approved": 0,
+        "canonicalHighResPreviewStaged": 2,
+        "canonicalHighResPreviewScenes": [
+          "041",
+          "047"
+        ]
       },
       "offlineTestsCommitted": true,
       "offlineTestsExecuted": false,
-      "notes": "Physical accepted counts unchanged; network-separated local Pillow and GitHub connector not bridged. GitHub Actions must not run."
+      "notes": "HSK6_SC041/047 staged as 941x1672 exact four-blob matching West Lake preview candidates; exact 720x1280 normalization and QA pending. Remaining 14 of 16 four-layer previews not physically present; 20 face-right candidates not generated."
     }
   }
 }
