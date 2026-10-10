@@ -14,10 +14,23 @@
       "assets/hsk5_sc035_preview.webp"
     ],
     "regenerationRequired": [
+      "background",
       "characterA",
       "preview"
     ],
     "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc035_bg.webp",
+        "reason": "requires_genuine_HD_for_sharp_preview",
+        "actual": [
+          540,
+          960
+        ],
+        "minimum": [
+          720,
+          1280
+        ]
+      },
       {
         "asset": "assets/hsk5_sc035_char_liu_mei.webp",
         "reason": "canonical_face_right_character_regeneration_required"
@@ -28,6 +41,7 @@
       }
     ],
     "remainingAudit": [
+      "background",
       "characterA",
       "preview"
     ]
@@ -92,5 +106,5 @@
     ],
     "missing": []
   },
-  "rule": "Neighborhood BG/FG and canonical Zhang Wei face-left are staged; Liu Mei face-right canonical regeneration and preview remain."
+  "rule": "Actual Neighborhood BG is 540x960; needs true HD source, correct face-right Liu Mei and physical preview."
 }
