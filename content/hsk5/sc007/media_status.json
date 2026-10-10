@@ -75,5 +75,5 @@
     ],
     "missing": []
   },
-  "rule": "Scene passes active visual-quality and canonical-identity gates."
+  "rule": "Canonical character identity and BG/FG/PREVIEW quality gate all pass."
 }
