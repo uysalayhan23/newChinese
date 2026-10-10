@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK3_SC016",
   "visual": {
-    "status": "complete",
+    "status": "pending",
     "required": [
       "assets/hsk3_sc016_bg.webp",
       "assets/hsk3_sc016_char_zhang_wei.webp",
@@ -9,7 +9,33 @@
       "assets/hsk3_sc016_fg.webp",
       "assets/hsk3_sc016_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk3_sc016_bg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          180,
+          320
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk3_sc016_fg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          90,
+          160
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      }
+    ]
   },
   "audio": {
     "status": "complete",
@@ -59,5 +85,5 @@
     ],
     "missing": []
   },
-  "rule": "Audio and visuals may be complete only after every declared physical asset exists and validation passes."
+  "rule": "Visual completion is blocked by confirmed substandard physical WebP resolution."
 }
