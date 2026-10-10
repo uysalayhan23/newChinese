@@ -587,6 +587,66 @@
         "visualComplete": 0,
         "accepted": 0
       }
+    },
+    "productionReadiness": {
+      "status": "scripts_committed_outputs_pending",
+      "faceRightCandidates": {
+        "count": 20,
+        "scenes": [
+          "001",
+          "003",
+          "005",
+          "007",
+          "009",
+          "011",
+          "013",
+          "015",
+          "017",
+          "019",
+          "021",
+          "023",
+          "025",
+          "027",
+          "029",
+          "031",
+          "033",
+          "035",
+          "037",
+          "039"
+        ],
+        "script": "tools/prepare_hsk6_face_right_candidates.py",
+        "physicallyGenerated": 0,
+        "approved": 0
+      },
+      "fourLayerPreviewReady": {
+        "count": 16,
+        "scenes": [
+          "002",
+          "006",
+          "008",
+          "012",
+          "018",
+          "022",
+          "024",
+          "028",
+          "030",
+          "041",
+          "043",
+          "044",
+          "046",
+          "047",
+          "049",
+          "050"
+        ],
+        "script": "tools/compose_hsk6_ready_previews.py",
+        "pinnedSourceManifest": "tools/hsk6_ready_preview_blobs.json",
+        "inputBlobsPinned": 64,
+        "physicallyGenerated": 0,
+        "approved": 0
+      },
+      "offlineTestsCommitted": true,
+      "offlineTestsExecuted": false,
+      "notes": "Physical accepted counts unchanged; network-separated local Pillow and GitHub connector not bridged. GitHub Actions must not run."
     }
   }
 }
