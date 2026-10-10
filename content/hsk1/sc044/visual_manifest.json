@@ -28,5 +28,61 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk1_sc044_bg.webp",
+      "reason": "below_minimum_resolution",
+      "actual": [
+        512,
+        910
+      ],
+      "minimum": [
+        540,
+        960
+      ]
+    },
+    {
+      "asset": "assets/hsk1_sc044_fg.webp",
+      "reason": "below_minimum_resolution",
+      "actual": [
+        512,
+        910
+      ],
+      "minimum": [
+        540,
+        960
+      ]
+    },
+    {
+      "asset": "assets/hsk1_sc044_preview.webp",
+      "reason": "below_minimum_resolution",
+      "actual": [
+        512,
+        910
+      ],
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "identityReviewRequired": false,
+  "regeneration": {
+    "required": [
+      "background",
+      "foreground",
+      "preview"
+    ],
+    "preserve": [
+      "characterA",
+      "characterB"
+    ],
+    "identityRule": "canonical Li Na/Zhang Wei already fixed"
+  },
+  "repair": {
+    "method": "character_canonical_rebase",
+    "source": "HSK3_SC019 canonical Li Na/Zhang Wei blobs",
+    "reason": "remove one-off character drift while preserving scene-specific environment until HD regeneration"
+  }
 }
