@@ -13,11 +13,7 @@
     "qualityBlocked": [
       {
         "asset": "assets/hsk2_sc045_bg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
+        "reason": "background_regeneration_required_after_partial_canonical_rebase",
         "minimum": [
           540,
           960
@@ -25,17 +21,18 @@
       },
       {
         "asset": "assets/hsk2_sc045_preview.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          256,
-          455
-        ],
+        "reason": "preview_recompose_required_after_partial_canonical_rebase",
         "minimum": [
           720,
           1280
         ]
       }
-    ]
+    ],
+    "regenerationRequired": [
+      "background",
+      "preview"
+    ],
+    "preserveCanonicalCharacters": true
   },
   "audio": {
     "status": "complete",
@@ -77,5 +74,5 @@
     ],
     "missing": []
   },
-  "rule": "Visual completion blocked by confirmed low-resolution background/preview."
+  "rule": "Partial canonical rebase applied; only the listed remaining visual assets may block completion."
 }
