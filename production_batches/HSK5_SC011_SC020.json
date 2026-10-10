@@ -6,14 +6,14 @@
   "progress": {
     "contentReady": 10,
     "totalScenes": 10,
-    "visualComplete": 0,
+    "visualComplete": 5,
     "audioComplete": 10,
-    "acceptedScenes": 0
+    "acceptedScenes": 5
   },
   "scenes": [
     {
       "sceneId": "HSK5_SC011",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_TRAIN_STATION_001",
       "characterIds": [
         "CHAR_LI_NA_001",
@@ -40,7 +40,7 @@
     },
     {
       "sceneId": "HSK5_SC014",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_WEST_LAKE_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -49,7 +49,7 @@
     },
     {
       "sceneId": "HSK5_SC015",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_TRAIN_STATION_001",
       "characterIds": [
         "CHAR_LI_NA_001",
@@ -76,7 +76,7 @@
     },
     {
       "sceneId": "HSK5_SC018",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_WEST_LAKE_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -85,7 +85,7 @@
     },
     {
       "sceneId": "HSK5_SC019",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_TRAIN_STATION_001",
       "characterIds": [
         "CHAR_LI_NA_001",
@@ -117,6 +117,7 @@
     "HSK5_SC011-SC020 second batch closure: 10/10 visual complete, 10/10 audio complete, 10/10 accepted; physical closure audit PASSED (each scene: 5 WebP + 54 M4A, no missing visual assets).",
     "Visual QA rebaseline supersedes earlier acceptance: HSK5_SC006+ character layers require regeneration/re-approval before visual/accepted counters may advance.",
     "Visual QA rebaseline: all SC011-SC020 characters are canonical; SC011/014/015/018/019 complete, remaining five scenes only await higher-resolution preview.",
-    "All SC011-SC020 character identities were rebased; every stored preview now requires recomposition against the canonical character layers."
+    "All SC011-SC020 character identities were rebased; every stored preview now requires recomposition against the canonical character layers.",
+    "Visual QA rebaseline: canonical identities complete across SC011-SC020; SC011/014/015/018/019 pass fully, remaining five only await preview recomposition."
   ]
 }
