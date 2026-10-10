@@ -10,12 +10,22 @@
       "assets/hsk5_sc017_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc017_preview.webp",
+        "reason": "preview_below_minimum_resolution",
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ],
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
     "remainingAudit": [
-      "background",
-      "foreground",
+      "preview"
+    ],
+    "regenerationRequired": [
       "preview"
     ]
   },
