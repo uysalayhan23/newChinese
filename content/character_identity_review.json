@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "policy": "Do not accept character continuity by filename alone. HSK1_SC031-SC050 and HSK2_SC001-SC010 require identity review; HSK5_SC006+ requires regeneration/re-approval.",
+  "canonicalReferenceBlobs": {
+    "li_na": [
+      "22ad29eea28cae496f48144c00753faf5b8bc865"
+    ],
+    "zhang_wei": [
+      "b617cef41d4adeb331f126284a2039dd33868a99",
+      "44a7a521b7fa64466111c30f6830904081c3767d"
+    ],
+    "wang_ming": [
+      "067fcfe261c52adebc383f5551d7ed365abd747e"
+    ],
+    "chen_yu": [
+      "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+      "fabe661ebed0ce7b99ff1789d2ed0e51f47e70d8"
+    ],
+    "liu_mei": [
+      "042f301cc718d74440126553e0e307d94566c267",
+      "eea4742918bf5b78f222b54631de8f71a4c824a7"
+    ]
+  },
+  "reviewRequired": [
+    {
+      "range": "HSK1_SC031-HSK1_SC050",
+      "reason": "Li Na and Zhang Wei switch from long-running shared canonical blobs to many one-off variants; face/type continuity must be visually re-approved."
+    },
+    {
+      "range": "HSK2_SC001-HSK2_SC010",
+      "reason": "Zhang Wei/Wang Ming use unusually high per-scene blob variation; identity consistency must be visually re-approved."
+    }
+  ],
+  "baselineThroughHSK5SC005": [
+    {
+      "sceneId": "HSK5_SC001",
+      "zhangWei": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "wangMing": "067fcfe261c52adebc383f5551d7ed365abd747e"
+    },
+    {
+      "sceneId": "HSK5_SC002",
+      "zhangWei": "6648bcc65bc2f7e7089a7b3a7d8925ebc6692996",
+      "chenYu": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b"
+    },
+    {
+      "sceneId": "HSK5_SC003",
+      "zhangWei": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "wangMing": "067fcfe261c52adebc383f5551d7ed365abd747e"
+    },
+    {
+      "sceneId": "HSK5_SC004",
+      "zhangWei": "b90f96f7904526d676e911e8d768a2cd0349b050",
+      "chenYu": "fabe661ebed0ce7b99ff1789d2ed0e51f47e70d8"
+    },
+    {
+      "sceneId": "HSK5_SC005",
+      "zhangWei": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "wangMing": "067fcfe261c52adebc383f5551d7ed365abd747e"
+    }
+  ],
+  "mandatoryRegeneration": {
+    "from": "HSK5_SC006",
+    "status": "active"
+  }
+}
