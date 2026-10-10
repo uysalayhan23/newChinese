@@ -12,15 +12,15 @@
     "missing": [],
     "qualityBlocked": [
       {
-        "asset": "assets/hsk1_sc019_fg.webp",
-        "reason": "placeholder_foreground_1x1",
+        "asset": "assets/hsk1_sc019_preview.webp",
+        "reason": "preview_recompose_required_after_hd_bg_fg_rebase",
         "actual": [
-          1,
-          1
+          320,
+          180
         ],
         "minimum": [
-          540,
-          960
+          720,
+          1280
         ]
       }
     ]
@@ -57,5 +57,5 @@
     ],
     "missing": []
   },
-  "rule": "Visual completion requires physical presence plus minimum-resolution/non-placeholder quality approval."
+  "rule": "BG/FG have been upgraded to canonical 540x960 Neighborhood assets; scene remains pending until a true high-resolution preview is recomposed with target Li Na/Zhang Wei orientation."
 }
