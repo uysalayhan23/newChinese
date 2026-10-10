@@ -75,5 +75,5 @@
     ],
     "missing": []
   },
-  "rule": "Canonical character identity and BG/FG/PREVIEW quality gate all pass."
+  "rule": "Character identity and BG/FG/PREVIEW pass the active visual-quality gate."
 }
