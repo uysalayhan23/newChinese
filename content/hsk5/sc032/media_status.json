@@ -12,12 +12,22 @@
     "missing": [
       "assets/hsk5_sc032_preview.webp"
     ],
-    "qualityBlocked": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc032_preview.webp",
+        "reason": "preview_missing_after_hd_environment_and_canonical_character_rebase",
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ],
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
     "remainingAudit": [
-      "background",
-      "foreground",
+      "preview"
+    ],
+    "regenerationRequired": [
       "preview"
     ]
   },
@@ -81,5 +91,5 @@
     ],
     "missing": []
   },
-  "rule": "Character identity rebaseline is complete; scene remains pending until BG/FG/PREVIEW pass the active visual-quality audit."
+  "rule": "HD Neighborhood BG/FG and canonical Zhang Wei/Chen Yu are complete; only preview is missing."
 }
