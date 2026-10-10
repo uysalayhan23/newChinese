@@ -60,6 +60,12 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def git_blob_sha1(path: Path) -> str:
+    data = path.read_bytes()
+    header = f"blob {len(data)}\0".encode("ascii")
+    return hashlib.sha1(header + data).hexdigest()
+
+
 def load_gate() -> dict:
     if not QUALITY_GATE_PATH.is_file():
         return {}
@@ -77,6 +83,9 @@ def identity_blocked(scene_id: str, rel: str, path: Path, gate: dict) -> bool:
     if not (level > 5 or (level == 5 and scene >= 6)):
         return False
     approved = (rule.get("approvedCharacterSha256") or {}).get(scene_id) or []
+    approved_git = set(rule.get("approvedCanonicalGitBlobSha1") or [])
+    if git_blob_sha1(path) in approved_git:
+        return False
     return sha256(path) not in approved
 
 
