@@ -442,6 +442,11 @@
       "range": "HSK5_SC032/035/038",
       "status": "genuine_HD_neighborhood_background_pending",
       "note": "Current 540x960 Neighborhood BG is valid at baseline minimum but cannot yield sharp 720x1280 preview without upscaling. No synthetic resize counted as HD."
+    },
+    {
+      "range": "HSK5_SC033/035/037/039",
+      "status": "face_right_source_not_found",
+      "note": "Canonical candidate blob 042f301cc718d74440126553e0e307d94566c267 is face_left in HSK3_SC012 and HSK4_SC012 manifests; not approved for face_right reuse. Existing approved Liu Mei blob eea4742918bf5b78f222b54631de8f71a4c824a7 is also face_left. Preserve pending orientation gate."
     }
   ],
   "hsk5Progress": {
