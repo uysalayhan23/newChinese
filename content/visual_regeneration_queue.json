@@ -437,6 +437,11 @@
       "range": "HSK5_SC037",
       "status": "character_and_preview_pending",
       "note": "Community Center HD BG repaired via HSK2_SC041 canonical blob; Liu Mei face_right must not reuse face_left."
+    },
+    {
+      "range": "HSK5_SC032/035/038",
+      "status": "genuine_HD_neighborhood_background_pending",
+      "note": "Current 540x960 Neighborhood BG is valid at baseline minimum but cannot yield sharp 720x1280 preview without upscaling. No synthetic resize counted as HD."
     }
   ],
   "hsk5Progress": {
@@ -464,6 +469,7 @@
           "preview"
         ],
         "sc032": [
+          "background",
           "preview"
         ],
         "sc033": [
@@ -474,6 +480,7 @@
           "preview"
         ],
         "sc035": [
+          "background",
           "liu_mei_face_right",
           "preview"
         ],
@@ -485,6 +492,7 @@
           "preview"
         ],
         "sc038": [
+          "background",
           "preview"
         ],
         "sc039": [
