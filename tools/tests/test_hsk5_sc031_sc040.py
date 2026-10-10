@@ -121,6 +121,25 @@ class SyntheticCompositorTests(unittest.TestCase):
         self.assertEqual(
             record["inputBlobs"]["background"], module.git_blob_sha1(self.bg_file))
 
+    def test_preview_contains_both_characters_and_correct_layer_order(self):
+        result = module.compose(34, replace=False, approvals={})
+        self.assertTrue(result.startswith("CREATED:"), result)
+        output = self.directory / self.files["preview"]
+        with Image.open(output) as preview:
+            rgb = preview.convert("RGB")
+            # Both characters must actually appear; just creating a WebP
+            # with the correct dimensions is not a sufficient composition test.
+            left = rgb.getpixel((200, 950))
+            right = rgb.getpixel((510, 950))
+            backdrop = rgb.getpixel((355, 200))
+            self.assertGreater(left[0], left[2] + 20)
+            self.assertGreater(right[2], right[0] + 20)
+            self.assertGreater(backdrop[1], backdrop[0])
+            # Foreground is intentionally drawn before actors by the
+            # canonical runtime compositor. The actor must remain on top.
+            feet = rgb.getpixel((200, 1250))
+            self.assertGreater(feet[0], feet[2] + 15)
+
     def test_no_background_upscaling_is_permitted(self):
         Image.new("RGB", (540, 960), (200, 200, 200)).save(
             self.bg_file, "WEBP")
