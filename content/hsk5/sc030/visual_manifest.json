@@ -28,17 +28,8 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc030_preview.webp",
-      "reason": "preview_recompose_required_after_character_identity_change",
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
     "required": [
       "preview"
@@ -50,5 +41,8 @@
       "characterB"
     ]
   },
-  "repair": {}
+  "repair": {
+    "method": "canonical_character_rebase",
+    "reason": "character identity normalized; existing environment and preview pass quality gate"
+  }
 }
