@@ -28,5 +28,46 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk5_sc031_bg.webp",
+      "reason": "below_minimum_resolution",
+      "actual": [
+        360,
+        640
+      ],
+      "minimum": [
+        540,
+        960
+      ]
+    },
+    {
+      "asset": "assets/hsk5_sc031_preview.webp",
+      "reason": "below_minimum_resolution_and_stale_after_character_rebase",
+      "actual": [
+        256,
+        455
+      ],
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "background",
+      "preview"
+    ],
+    "preserve": [
+      "foreground",
+      "characterA",
+      "characterB"
+    ]
+  },
+  "repair": {
+    "method": "partial_canonical_rebase",
+    "reason": "canonical characters already fixed; Community Center BG/preview remain below quality floor"
+  }
 }
