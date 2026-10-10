@@ -28,5 +28,11 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "repair": {
+    "method": "canonical_rebase",
+    "source": "HSK2_SC015",
+    "reason": "same Pharmacy location, same Li Na/Zhang Wei identities/orientation, HD accepted assets"
+  }
 }
