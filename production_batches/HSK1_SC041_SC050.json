@@ -2,67 +2,67 @@
   "batchId": "HSK1_SC041_SC050",
   "masterStep": 9,
   "goldenReference": "Run #163",
-  "status": "complete",
+  "status": "audio_complete_visual_pending",
   "scenes": [
     {
       "sceneId": "HSK1_SC041",
       "titleTr": "Süpermarkette Alışveriş",
       "locationId": "LOC_SUPERMARKET_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC042",
       "titleTr": "Otobüs Beklemek",
       "locationId": "LOC_BUS_STOP_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC043",
       "titleTr": "Otobüsle Yolculuk",
       "locationId": "LOC_CITY_BUS_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC044",
       "titleTr": "Postanede Paket Göndermek",
       "locationId": "LOC_POST_OFFICE_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC045",
       "titleTr": "Eczaneye Uğramak",
       "locationId": "LOC_PHARMACY_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC046",
       "titleTr": "Kafede Çince Çalışmak",
       "locationId": "LOC_CAFE_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC047",
       "titleTr": "Mahallede Yürüyüş",
       "locationId": "LOC_NEIGHBORHOOD_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC048",
       "titleTr": "Restoranda Sipariş",
       "locationId": "LOC_RESTAURANT_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC049",
       "titleTr": "Tren İstasyonunda Gezi Planı",
       "locationId": "LOC_TRAIN_STATION_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     },
     {
       "sceneId": "HSK1_SC050",
       "titleTr": "HSK1 Finali: Göl Kenarında",
       "locationId": "LOC_CITY_PARK_001",
-      "status": "complete"
+      "status": "audio_complete_visual_pending"
     }
   ],
   "pipeline": [
@@ -82,13 +82,18 @@
     "accepted": true
   },
   "progress": {
-    "completeScenes": 10,
+    "completeScenes": 0,
     "totalScenes": 10,
     "contentReady": 10,
-    "visualComplete": 10,
+    "visualComplete": 0,
     "audioComplete": 10,
     "previewImported": 10,
     "previewTotal": 10,
-    "acceptedScenes": 10
-  }
+    "acceptedScenes": 0
+  },
+  "identityReviewRequired": true,
+  "identityReviewReason": "HSK1_SC041-SC050 character identity review required: Li Na/Zhang Wei remain on one-off variants pending canonical re-approval.",
+  "notes": [
+    "Visual QA rebaseline: identity continuity must be re-approved before visual/accepted counters can advance."
+  ]
 }
