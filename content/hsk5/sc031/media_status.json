@@ -14,10 +14,6 @@
       {
         "asset": "assets/hsk5_sc031_bg.webp",
         "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
         "minimum": [
           540,
           960
@@ -25,11 +21,7 @@
       },
       {
         "asset": "assets/hsk5_sc031_preview.webp",
-        "reason": "below_minimum_resolution_and_stale_after_character_rebase",
-        "actual": [
-          256,
-          455
-        ],
+        "reason": "preview_missing_or_below_quality",
         "minimum": [
           720,
           1280
@@ -107,5 +99,5 @@
     ],
     "missing": []
   },
-  "rule": "Canonical Zhang Wei/Liu Mei and HD foreground pass; Community Center background and preview require regeneration."
+  "rule": "Community Center FG and canonical characters pass; BG 360x640 and preview 256x455 must be regenerated."
 }
