@@ -28,30 +28,16 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc010_preview.webp",
-      "reason": "preview_recompose_required_after_canonical_character_environment_rebase",
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "preview"
-    ],
+    "required": [],
     "preserve": [
-      "background",
-      "foreground",
-      "characterA",
-      "characterB"
+      "all"
     ]
   },
   "repair": {
-    "method": "character_canonical_rebase",
-    "reason": "only preview remains after quality/identity normalization"
+    "method": "accepted_canonical_preview_blob_validation",
+    "reason": "SC010 preview blob SHA exactly matches accepted HSK5_SC004 preview; no regeneration required."
   }
 }
