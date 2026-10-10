@@ -1,0 +1,101 @@
+{
+  "source": "GitHub main staging 2026-10-10; 16 four-layer preview-ready scenes",
+  "scenes": {
+    "002": {
+      "hsk6_sc002_bg.webp": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "hsk6_sc002_char_wang_ming.webp": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "hsk6_sc002_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc002_fg.webp": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+    },
+    "006": {
+      "hsk6_sc006_bg.webp": "4c21df1ad7bf346240a29478694f2f201090cdb7",
+      "hsk6_sc006_char_wang_ming.webp": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "hsk6_sc006_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc006_fg.webp": "64fc32bb2b3016780e666f9caea7d7d4e10b3de8"
+    },
+    "008": {
+      "hsk6_sc008_bg.webp": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "hsk6_sc008_char_wang_ming.webp": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "hsk6_sc008_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc008_fg.webp": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+    },
+    "012": {
+      "hsk6_sc012_bg.webp": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
+      "hsk6_sc012_char_li_na.webp": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "hsk6_sc012_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc012_fg.webp": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
+    },
+    "018": {
+      "hsk6_sc018_bg.webp": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
+      "hsk6_sc018_char_li_na.webp": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "hsk6_sc018_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc018_fg.webp": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
+    },
+    "022": {
+      "hsk6_sc022_bg.webp": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "hsk6_sc022_char_liu_mei.webp": "eea4742918bf5b78f222b54631de8f71a4c824a7",
+      "hsk6_sc022_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc022_fg.webp": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+    },
+    "024": {
+      "hsk6_sc024_bg.webp": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
+      "hsk6_sc024_char_liu_mei.webp": "eea4742918bf5b78f222b54631de8f71a4c824a7",
+      "hsk6_sc024_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc024_fg.webp": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
+    },
+    "028": {
+      "hsk6_sc028_bg.webp": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "hsk6_sc028_char_liu_mei.webp": "eea4742918bf5b78f222b54631de8f71a4c824a7",
+      "hsk6_sc028_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc028_fg.webp": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+    },
+    "030": {
+      "hsk6_sc030_bg.webp": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
+      "hsk6_sc030_char_liu_mei.webp": "eea4742918bf5b78f222b54631de8f71a4c824a7",
+      "hsk6_sc030_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc030_fg.webp": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
+    },
+    "041": {
+      "hsk6_sc041_bg.webp": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "hsk6_sc041_char_li_na.webp": "052e3d74becbd8376eceeb96bf28adf417b6fbc8",
+      "hsk6_sc041_char_zhang_wei.webp": "316717c873fade2a1e98564bdf6ac037e7cc354e",
+      "hsk6_sc041_fg.webp": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+    },
+    "043": {
+      "hsk6_sc043_bg.webp": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+      "hsk6_sc043_char_li_na.webp": "052e3d74becbd8376eceeb96bf28adf417b6fbc8",
+      "hsk6_sc043_char_zhang_wei.webp": "316717c873fade2a1e98564bdf6ac037e7cc354e",
+      "hsk6_sc043_fg.webp": "7fd1642711f0b3e70da53902f0a7fd4949f0f4b8"
+    },
+    "044": {
+      "hsk6_sc044_bg.webp": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "hsk6_sc044_char_li_na.webp": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "hsk6_sc044_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc044_fg.webp": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+    },
+    "046": {
+      "hsk6_sc046_bg.webp": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+      "hsk6_sc046_char_li_na.webp": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "hsk6_sc046_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc046_fg.webp": "7fd1642711f0b3e70da53902f0a7fd4949f0f4b8"
+    },
+    "047": {
+      "hsk6_sc047_bg.webp": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "hsk6_sc047_char_li_na.webp": "052e3d74becbd8376eceeb96bf28adf417b6fbc8",
+      "hsk6_sc047_char_zhang_wei.webp": "316717c873fade2a1e98564bdf6ac037e7cc354e",
+      "hsk6_sc047_fg.webp": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+    },
+    "049": {
+      "hsk6_sc049_bg.webp": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+      "hsk6_sc049_char_li_na.webp": "052e3d74becbd8376eceeb96bf28adf417b6fbc8",
+      "hsk6_sc049_char_zhang_wei.webp": "316717c873fade2a1e98564bdf6ac037e7cc354e",
+      "hsk6_sc049_fg.webp": "7fd1642711f0b3e70da53902f0a7fd4949f0f4b8"
+    },
+    "050": {
+      "hsk6_sc050_bg.webp": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "hsk6_sc050_char_li_na.webp": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "hsk6_sc050_char_zhang_wei.webp": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "hsk6_sc050_fg.webp": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+    }
+  }
+}
