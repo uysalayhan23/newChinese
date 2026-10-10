@@ -32,7 +32,7 @@
   "qualityBlocked": [
     {
       "asset": "assets/hsk5_sc016_preview.webp",
-      "reason": "below_minimum_resolution",
+      "reason": "preview_below_minimum_resolution",
       "minimum": [
         720,
         1280
@@ -52,6 +52,7 @@
   },
   "repair": {
     "method": "canonical_character_rebase_plus_environment_audit",
-    "reason": "preview 180x320"
+    "reason": "preview 180x320",
+    "characterIdentity": "canonical_rebase_complete"
   }
 }
