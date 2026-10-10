@@ -28,5 +28,11 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "repair": {
+    "method": "canonical_rebaseline",
+    "source": "existing HD Zhang Office environment + canonical ZW/WM",
+    "reason": "BG/FG 540x960, preview 768x1365; canonical characters approved"
+  }
 }
