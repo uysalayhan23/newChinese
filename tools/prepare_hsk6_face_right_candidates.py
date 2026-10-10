@@ -64,6 +64,12 @@ def preflight(root: Path, overwrite: bool) -> dict[str, Image.Image]:
             if img.getextrema()[-1][0] == 255 or img.getextrema()[-1][1] == 0:
                 raise ValueError(f"source must have a usable transparent silhouette: {path}")
             sources[identity] = img.convert("RGBA").copy()
+    pin_file = root / "tools/hsk6_face_right_identity_pins.json"
+    if not pin_file.is_file():
+        raise ValueError("independent HSK6 scene identity pin file missing")
+    pins = json.loads(pin_file.read_text(encoding="utf-8")).get("scenes", {})
+    if set(pins) != {f"{n:03d}" for n in SCENE_ACTORS}:
+        raise ValueError("independent HSK6 scene identity pins incomplete")
     for scene, identity in SCENE_ACTORS.items():
         folder = root / f"content/hsk6/sc{scene:03d}"
         manifest = folder / "visual_manifest.json"
@@ -71,6 +77,17 @@ def preflight(root: Path, overwrite: bool) -> dict[str, Image.Image]:
             raise FileNotFoundError(manifest)
         data = json.loads(manifest.read_text(encoding="utf-8"))
         actors = data.get("characters") or []
+        locked_identity = {
+            "sceneId": data.get("sceneId"),
+            "locationId": data.get("locationId"),
+            "characters": [
+                {field: actor.get(field) for field in
+                 ("characterId", "outfit", "speechBubbleAnchor")}
+                for actor in actors
+            ],
+        }
+        if locked_identity != pins[f"{scene:03d}"]:
+            raise ValueError(f"HSK6_SC{scene:03d}: independent scene/identity/outfit/facing/location drift")
         if (data.get("sceneId") != f"HSK6_SC{scene:03d}" or len(actors) != 2
                 or actors[0].get("characterId") != identity
                 or actors[0].get("speechBubbleAnchor") != "face_right"
