@@ -48,6 +48,39 @@ MINIMUMS = {"background": (720, 1280), "foreground": (720, 1280),
             "preview": TARGET}
 
 
+EXPECTED_SCENE_IDENTITY = {
+    31: ("LOC_COMMUNITY_CENTER_001", "CHAR_ZHANG_WEI_001", "CHAR_LIU_MEI_001"),
+    32: ("LOC_NEIGHBORHOOD_001", "CHAR_ZHANG_WEI_001", "CHAR_CHEN_YU_001"),
+    33: ("LOC_CITY_PARK_001", "CHAR_LIU_MEI_001", "CHAR_ZHANG_WEI_001"),
+    34: ("LOC_COMMUNITY_CENTER_001", "CHAR_ZHANG_WEI_001", "CHAR_CHEN_YU_001"),
+    35: ("LOC_NEIGHBORHOOD_001", "CHAR_LIU_MEI_001", "CHAR_ZHANG_WEI_001"),
+    36: ("LOC_CITY_PARK_001", "CHAR_ZHANG_WEI_001", "CHAR_CHEN_YU_001"),
+    37: ("LOC_COMMUNITY_CENTER_001", "CHAR_LIU_MEI_001", "CHAR_ZHANG_WEI_001"),
+    38: ("LOC_NEIGHBORHOOD_001", "CHAR_ZHANG_WEI_001", "CHAR_CHEN_YU_001"),
+    39: ("LOC_CITY_PARK_001", "CHAR_LIU_MEI_001", "CHAR_ZHANG_WEI_001"),
+    40: ("LOC_COMMUNITY_CENTER_001", "CHAR_ZHANG_WEI_001", "CHAR_CHEN_YU_001"),
+}
+
+
+def canonical_scene_issues(number: int, manifest: dict) -> list[str]:
+    expected = EXPECTED_SCENE_IDENTITY[number]
+    found = manifest.get("characters") or []
+    issues = []
+    if manifest.get("sceneId") != f"HSK5_SC{number:03d}":
+        issues.append("sceneId does not match HSK5 canonical scene")
+    if manifest.get("locationId") != expected[0]:
+        issues.append("locationId drift from locked scene")
+    if len(found) != 2:
+        issues.append("expected exactly two canonical characters")
+    else:
+        for pos, (character, char_id, anchor) in enumerate(zip(
+                found, expected[1:], ("face_right", "face_left")), start=1):
+            if (character.get("characterId"), character.get("speechBubbleAnchor")) != (
+                    char_id, anchor):
+                issues.append(f"character {pos} identity/direction drift")
+    return issues
+
+
 def read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -72,7 +105,7 @@ def required_paths(directory: Path, manifest: dict) -> dict[str, Path]:
 def verify_assets(number: int, manifest: dict, approvals: dict, reviews: dict) -> list[str]:
     directory = scene_dir(number)
     paths = required_paths(directory, manifest)
-    issues = []
+    issues = canonical_scene_issues(number, manifest)
     for role, path in paths.items():
         if not path.is_file():
             issues.append(f"{role}: missing {path.name}")
@@ -143,19 +176,34 @@ def compose(number: int, *, replace: bool, approvals: dict) -> str:
         if not approved or not layer.is_file() or git_blob_sha1(layer) != approved:
             return "BLOCKED: canonical Liu Mei face_right image needs explicit blob approval"
     directory, manifest, _ = load_scene(number)
+    identity_issues = canonical_scene_issues(number, manifest)
+    if identity_issues:
+        return "BLOCKED: canonical manifest mismatch: " + "; ".join(identity_issues)
     paths = required_paths(directory, manifest)
     output = paths["preview"]
     if output.exists() and not replace:
         existing_size = webp_dimensions(output)
-        if existing_size and existing_size[0] >= TARGET[0] and existing_size[1] >= TARGET[1]:
-            return "SKIPPED: existing preview meets minimum dimensions; use --replace to recompose"
-        # Low-resolution previews must be replaced automatically after successful composition.
+        record = manifest.get("previewComposition") or {}
+        inputs = record.get("inputBlobs") or {}
+        inputs_match = all(
+            (directory / paths[role].relative_to(directory)).is_file()
+            and inputs.get(role) == git_blob_sha1(paths[role])
+            for role in ("background", "characterA", "characterB", "foreground")
+        )
+        if (existing_size and existing_size[0] >= TARGET[0]
+                and existing_size[1] >= TARGET[1] and inputs_match
+                and record.get("previewBlob") == git_blob_sha1(output)):
+            return "SKIPPED: existing preview has current four-layer provenance"
+        # Recompose even an HD preview if it has stale or missing provenance.
     for key in ("background", "characterA", "characterB", "foreground"):
         if not paths[key].is_file():
             return f"BLOCKED: missing {key}"
     bg_size = webp_dimensions(paths["background"])
     if not bg_size or min(bg_size[0] / TARGET[0], bg_size[1] / TARGET[1]) < 1:
         return f"BLOCKED: BG {bg_size} requires genuine HD source (no upscaling)"
+    fg_size = webp_dimensions(paths["foreground"])
+    if not fg_size or min(fg_size[0] / TARGET[0], fg_size[1] / TARGET[1]) < 1:
+        return f"BLOCKED: FG {fg_size} requires genuine HD source (no upscaling)"
     with Image.open(paths["background"]) as bg:
         canvas = bg.convert("RGBA").resize(TARGET, Image.Resampling.LANCZOS)
     with Image.open(paths["foreground"]) as fg:
