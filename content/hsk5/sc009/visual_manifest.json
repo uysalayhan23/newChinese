@@ -28,5 +28,31 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk5_sc009_preview.webp",
+      "reason": "preview_recompose_required_after_canonical_rebase",
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB"
+    ]
+  },
+  "repair": {
+    "method": "partial_canonical_rebase",
+    "source": "existing HD Cafe BG/FG + canonical ZW/WM",
+    "reason": "preview remains 180x320"
+  }
 }
