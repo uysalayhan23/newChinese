@@ -173,4 +173,10 @@ Her adım bitince bir sonraki adıma geçilir. Durum raporu kısa tutulur:
 - **Identity review:** HSK1_SC031–SC050 ve HSK2_SC001–SC010 accepted sayaçlarından çıkarıldı; canonical yüz/tip uyumu yeniden onaylanmadan kapanmayacak.
 - **HSK5 character reset:** HSK5_SC006+ accepted sayılmıyor; tüm karakter katmanları HSK1–HSK5_SC005 canonical baseline'a göre regenerate/rebase edilecek.
 - **Tek kuyruk kaynağı:** content/visual_regeneration_queue.json.
+- **HSK1_SC031–SC040:** full canonical HD rebase tamamlandı; batch yeniden 10/10 visual accepted.
+- **HSK1_SC041–SC050:** tüm karakterler canonical Li Na/Zhang Wei; SC045/046/050 complete, SC047/049 preview pending, SC041/042/043/044/048 HD environment+preview regeneration pending.
+- **HSK2_SC001–SC010:** identity drift düzeltildi; 7/10 complete, SC003/007/010 yalnız preview recomposition pending.
+- **HSK3/HSK4 Breakroom:** legacy 360×640 BG/FG kaldırıldı; HD BG/FG + canonical karakterler yerinde, preview recomposition pending.
+- **HSK3_SC013:** full canonical Home rebase complete; HSK3_SC014/016 yalnız preview pending.
+
 
