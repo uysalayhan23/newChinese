@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK1_SC026",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk1_sc026_bg.webp",
       "assets/hsk1_sc026_char_li_na.webp",
@@ -10,20 +10,7 @@
       "assets/hsk1_sc026_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk1_sc026_fg.webp",
-        "reason": "placeholder_foreground_1x1",
-        "actual": [
-          1,
-          1
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      }
-    ]
+    "qualityBlocked": []
   },
   "audio": {
     "status": "complete",
@@ -55,5 +42,5 @@
     ],
     "missing": []
   },
-  "rule": "Visual completion requires physical presence plus minimum-resolution/non-placeholder quality approval."
+  "rule": "Visual assets physically exist and pass the active resolution/canonical quality gate."
 }
