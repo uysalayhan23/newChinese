@@ -10,20 +10,14 @@
       "assets/hsk5_sc037_preview.webp"
     ],
     "missing": [
-      "assets/hsk5_sc037_bg.webp",
       "assets/hsk5_sc037_char_liu_mei.webp",
       "assets/hsk5_sc037_preview.webp"
     ],
     "regenerationRequired": [
-      "background",
       "characterA",
       "preview"
     ],
     "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc037_bg.webp",
-        "reason": "hd_background_regeneration_required"
-      },
       {
         "asset": "assets/hsk5_sc037_char_liu_mei.webp",
         "reason": "canonical_face_right_character_regeneration_required"
@@ -34,10 +28,14 @@
       }
     ],
     "remainingAudit": [
-      "background",
       "characterA",
       "preview"
-    ]
+    ],
+    "backgroundValidation": {
+      "status": "passed",
+      "source": "HSK2_SC041",
+      "blobSha": "6ba20dfb8423743e855c90dcd4212a17a866e9b7"
+    }
   },
   "audio": {
     "status": "complete",
@@ -99,5 +97,5 @@
     ],
     "missing": []
   },
-  "rule": "Community Center FG and canonical Zhang Wei face-left are staged; HD BG, Liu Mei face-right canonical regeneration and preview remain."
+  "rule": "HD canonical Community Center background installed; Liu Mei face_right and preview remain pending."
 }
