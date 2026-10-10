@@ -309,6 +309,76 @@
       "sceneId": "HSK1_SC029",
       "source": "HSK4_SC025",
       "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC031-SC040",
+      "source": "HSK3_SC019 + HSK4_SC025",
+      "status": "complete",
+      "note": "full canonical HD rebase; identity drift removed"
+    },
+    {
+      "sceneId": "HSK1_SC045",
+      "source": "HSK2_SC015",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC046",
+      "source": "HSK2_SC017",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK1_SC050",
+      "source": "HSK4_SC025",
+      "status": "complete"
+    },
+    {
+      "sceneId": "HSK2_SC001/002/004/005/006/008/009",
+      "source": "HSK2_SC001",
+      "status": "complete",
+      "note": "canonical Zhang Office baseline"
+    },
+    {
+      "sceneId": "HSK3_SC013",
+      "source": "HSK3_SC019",
+      "status": "complete"
+    }
+  ],
+  "updatedAt": "2026-10-10",
+  "partialRepairs": [
+    {
+      "range": "HSK1_SC014/019/021/030",
+      "status": "preview_pending",
+      "note": "Neighborhood BG/FG upgraded; canonical chars preserved"
+    },
+    {
+      "range": "HSK1_SC041/042/043/044/048",
+      "status": "environment_preview_pending",
+      "note": "canonical Li Na/Zhang Wei fixed; 512x910 environment requires HD regeneration"
+    },
+    {
+      "range": "HSK1_SC047/049",
+      "status": "preview_pending",
+      "note": "HD BG/FG + canonical characters complete"
+    },
+    {
+      "range": "HSK2_SC003/007/010",
+      "status": "preview_pending",
+      "note": "canonical Zhang Wei/Wang Ming fixed; existing HD environment preserved"
+    },
+    {
+      "range": "HSK3_SC002/004/006/008/010",
+      "status": "preview_pending",
+      "note": "HD Breakroom BG/FG + canonical chars complete"
+    },
+    {
+      "range": "HSK4_SC002/004/006/008/010",
+      "status": "preview_pending",
+      "note": "HD Breakroom BG/FG + canonical chars complete"
+    },
+    {
+      "range": "HSK3_SC014/016",
+      "status": "preview_pending",
+      "note": "canonical HD layers complete; preview recomposition required"
     }
   ]
 }
