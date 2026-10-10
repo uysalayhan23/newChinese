@@ -12,10 +12,15 @@
     "missing": [
       "assets/hsk6_sc031_bg.webp",
       "assets/hsk6_sc031_char_wang_ming.webp",
-      "assets/hsk6_sc031_char_zhang_wei.webp",
       "assets/hsk6_sc031_fg.webp",
       "assets/hsk6_sc031_preview.webp"
-    ]
+    ],
+    "physicalStaging": {
+      "present": 1,
+      "required": 5,
+      "source": "exact-canonical-git-blob-reuse",
+      "qa": "pending"
+    }
   },
   "audio": {
     "status": "complete",
