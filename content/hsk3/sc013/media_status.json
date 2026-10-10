@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK3_SC013",
   "visual": {
-    "status": "complete",
+    "status": "pending",
     "required": [
       "assets/hsk3_sc013_bg.webp",
       "assets/hsk3_sc013_char_li_na.webp",
@@ -9,7 +9,69 @@
       "assets/hsk3_sc013_fg.webp",
       "assets/hsk3_sc013_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk3_sc013_bg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          180,
+          320
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk3_sc013_char_li_na.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          160,
+          284
+        ],
+        "minimum": [
+          500,
+          750
+        ]
+      },
+      {
+        "asset": "assets/hsk3_sc013_char_zhang_wei.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          160,
+          284
+        ],
+        "minimum": [
+          500,
+          750
+        ]
+      },
+      {
+        "asset": "assets/hsk3_sc013_fg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          90,
+          160
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk3_sc013_preview.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          270,
+          480
+        ],
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ]
   },
   "audio": {
     "status": "complete",
@@ -59,5 +121,5 @@
     ],
     "missing": []
   },
-  "rule": "Mark complete only after physical assets exist and validation passes."
+  "rule": "Visual completion is blocked by confirmed substandard physical WebP resolution."
 }
