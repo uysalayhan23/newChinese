@@ -28,5 +28,55 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk1_sc022_bg.webp",
+      "reason": "below_minimum_resolution",
+      "actual": [
+        480,
+        853
+      ],
+      "minimum": [
+        540,
+        960
+      ]
+    },
+    {
+      "asset": "assets/hsk1_sc022_fg.webp",
+      "reason": "placeholder_foreground_1x1",
+      "actual": [
+        1,
+        1
+      ],
+      "minimum": [
+        540,
+        960
+      ]
+    },
+    {
+      "asset": "assets/hsk1_sc022_preview.webp",
+      "reason": "below_minimum_resolution",
+      "actual": [
+        180,
+        320
+      ],
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "background",
+      "foreground",
+      "preview"
+    ],
+    "preserve": [
+      "characterA",
+      "characterB"
+    ],
+    "identityRule": "keep existing canonical Li Na/Zhang Wei layers"
+  }
 }
