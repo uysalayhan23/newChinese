@@ -28,5 +28,11 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "repair": {
+    "method": "full_canonical_rebase",
+    "source": "HSK3_SC019",
+    "reason": "full Home canonical rebase"
+  }
 }
