@@ -214,6 +214,14 @@ def accept(approvals: dict, reviews: dict) -> list[str]:
             # A stale complete label must not survive a failed re-audit.
             entry = next(s for s in batch["scenes"] if s["sceneId"] == scene_id)
             entry["status"] = "audio_complete_visual_pending"
+            media["visual"]["status"] = "pending"
+            if "validation" in media["visual"]:
+                del media["visual"]["validation"]
+            if "validation" in manifest:
+                del manifest["validation"]
+            manifest["status"] = "visual-quality-pending"
+            write_json(directory / "media_status.json", media)
+            write_json(directory / "visual_manifest.json", manifest)
             notes.append(f"{scene_id}: PENDING ({'; '.join(issues)})")
             continue
         media["visual"]["status"] = "complete"
