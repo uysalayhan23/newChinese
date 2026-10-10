@@ -27,7 +27,7 @@ SCENES = tuple(range(31, 41))
 PREVIEW_ONLY = (31, 32, 34, 36, 38, 40)
 LIU_MEI_FACE_RIGHT = (33, 35, 37, 39)
 TARGET = (720, 1280)
-MINIMUMS = {"background": (720, 1280), "foreground": (540, 960),
+MINIMUMS = {"background": (720, 1280), "foreground": (720, 1280),
             "characterA": (500, 750), "characterB": (500, 750),
             "preview": TARGET}
 
@@ -130,8 +130,9 @@ def compose(number: int, *, replace: bool, approvals: dict) -> str:
     for key, x_fraction in (("characterA", 0.34), ("characterB", 0.67)):
         with Image.open(paths[key]) as image:
             actor = image.convert("RGBA")
-        if actor.getextrema()[3][0] == 255:
-            return f"BLOCKED: {key} layer is entirely opaque (not a cutout)"
+        alpha_min, alpha_max = actor.getextrema()[3]
+        if alpha_min == 255 or alpha_max == 0:
+            return f"BLOCKED: {key} layer is not a usable transparent cutout"
         # Keep source aspect ratio and keep the full canonical silhouette on-canvas.
         # The legacy 76%-height rule clipped the 600x900 left actor at x=0.34.
         target_height = round(TARGET[1] * 0.70)
