@@ -10,12 +10,14 @@
       "assets/hsk6_sc028_preview.webp"
     ],
     "missing": [
-      "assets/hsk6_sc028_bg.webp",
-      "assets/hsk6_sc028_char_zhang_wei.webp",
-      "assets/hsk6_sc028_char_liu_mei.webp",
-      "assets/hsk6_sc028_fg.webp",
       "assets/hsk6_sc028_preview.webp"
-    ]
+    ],
+    "physicalStaging": {
+      "present": 4,
+      "required": 5,
+      "source": "exact-canonical-git-blob-reuse",
+      "qa": "pending"
+    }
   },
   "audio": {
     "status": "complete",
