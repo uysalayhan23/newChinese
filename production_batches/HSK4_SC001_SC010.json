@@ -106,6 +106,7 @@
     "HSK4_SC001-SC010 visual + audio production complete: 10/10 accepted scenes.",
     "Physical closure audit PASSED: every scene has exactly 5 WebP visual assets and 46 M4A audio assets; no missing physical media.",
     "HSK4 maturity lock and locked dialogue/scene content remain unchanged.",
-    "Visual QA rebaseline: Office Breakroom scenes SC002/004/006/008/010 use legacy 360x640 BG/FG and preview=BG; those five scenes are reopened."
+    "Visual QA rebaseline: Office Breakroom scenes SC002/004/006/008/010 use legacy 360x640 BG/FG and preview=BG; those five scenes are reopened.",
+    "Even Breakroom scenes now have HD BG/FG + canonical characters; only preview recomposition remains."
   ]
 }
