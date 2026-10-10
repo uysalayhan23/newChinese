@@ -180,3 +180,5 @@ Her adım bitince bir sonraki adıma geçilir. Durum raporu kısa tutulur:
 - **HSK3_SC013:** full canonical Home rebase complete; HSK3_SC014/016 yalnız preview pending.
 
 
+
+- **HSK5 rebaseline güncel:** SC001–010 = 7/10, SC011–020 = 5/10, SC021–030 = 10/10 CLOSED, SC031–040 = canonical staging active, SC041–050 = 4/10. Wang Ming face-right ve Liu Mei face-right için yanlış yön reuse yasak; gerçek canonical regeneration bekleniyor.
