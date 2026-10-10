@@ -28,5 +28,11 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "repair": {
+    "method": "canonical_rebase",
+    "source": "HSK3_SC019",
+    "reason": "replace placeholder/low-quality Home visual set with accepted HD same-location/same-character assets"
+  }
 }
