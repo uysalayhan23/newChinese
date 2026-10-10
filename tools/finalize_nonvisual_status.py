@@ -34,6 +34,20 @@ def scene_status(scene_dir: Path) -> tuple[bool, bool]:
         media[category] = block
     dump(media_path, media)
 
+    visual_manifest_path = scene_dir / "visual_manifest.json"
+    if visual_manifest_path.is_file():
+        visual_manifest = json.loads(visual_manifest_path.read_text(encoding="utf-8"))
+        visual_manifest["status"] = (
+            "visual-assets-complete"
+            if media["visual"]["status"] == "complete"
+            else "visual-quality-pending"
+        )
+        if media["visual"].get("qualityBlocked"):
+            visual_manifest["qualityBlocked"] = media["visual"]["qualityBlocked"]
+        else:
+            visual_manifest.pop("qualityBlocked", None)
+        dump(visual_manifest_path, visual_manifest)
+
     audio_manifest_path = scene_dir / "audio_manifest.json"
     if audio_manifest_path.is_file():
         manifest = json.loads(audio_manifest_path.read_text(encoding="utf-8"))
