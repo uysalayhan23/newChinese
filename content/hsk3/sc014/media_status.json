@@ -12,65 +12,16 @@
     "missing": [],
     "qualityBlocked": [
       {
-        "asset": "assets/hsk3_sc014_bg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
-        "asset": "assets/hsk3_sc014_char_liu_mei.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
-        "minimum": [
-          500,
-          750
-        ]
-      },
-      {
-        "asset": "assets/hsk3_sc014_char_zhang_wei.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
-        "minimum": [
-          500,
-          750
-        ]
-      },
-      {
-        "asset": "assets/hsk3_sc014_fg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
         "asset": "assets/hsk3_sc014_preview.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
+        "reason": "preview_recompose_required_after_hd_canonical_rebase",
         "minimum": [
           720,
           1280
         ]
       }
+    ],
+    "regenerationRequired": [
+      "preview"
     ]
   },
   "audio": {
