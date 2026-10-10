@@ -49,16 +49,24 @@ def prepare(replace_candidates: bool = False) -> list[str]:
     if rgba.getextrema()[3][0] == 255 or rgba.getextrema()[3][1] == 0:
         raise ValueError("source must be a non-empty transparent cutout")
     candidate = ImageOps.mirror(rgba)
-    results = []
+    # Preflight ALL scenes before mutating any file, avoiding partial batch writes
+    # if a later scene has drifted from the locked character/scene manifest.
     for scene in SCENES:
         target, manifest_path = candidate_paths(scene)
         if not manifest_path.is_file():
             raise FileNotFoundError(f"manifest missing: {manifest_path}")
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         characters = manifest.get("characters") or []
-        if (len(characters) != 2 or characters[0].get("characterId") != "CHAR_LIU_MEI_001"
-                or characters[0].get("speechBubbleAnchor") != "face_right"):
-            raise ValueError(f"SC{scene:03d} does not require Liu Mei face_right")
+        if (manifest.get("sceneId") != f"HSK5_SC{scene:03d}"
+                or len(characters) != 2
+                or characters[0].get("characterId") != "CHAR_LIU_MEI_001"
+                or characters[0].get("speechBubbleAnchor") != "face_right"
+                or characters[1].get("characterId") != "CHAR_ZHANG_WEI_001"
+                or characters[1].get("speechBubbleAnchor") != "face_left"):
+            raise ValueError(f"SC{scene:03d} does not match locked Liu Mei face_right scene")
+    results = []
+    for scene in SCENES:
+        target, manifest_path = candidate_paths(scene)
         if target.exists() and not replace_candidates:
             results.append(f"SKIPPED: SC{scene:03d} already has a physical actor layer")
             continue
