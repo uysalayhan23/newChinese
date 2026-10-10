@@ -28,5 +28,12 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "identityReviewRequired": false,
+  "repair": {
+    "method": "full_canonical_rebase",
+    "source": "HSK3_SC019",
+    "reason": "replace one-off Li Na/Zhang Wei variants with accepted canonical HD identities and matching same-location BG/FG/PREVIEW"
+  }
 }
