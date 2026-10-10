@@ -347,6 +347,18 @@
       "source": "HSK5_SC002",
       "status": "complete",
       "note": "Exact accepted canonical Electronics Store preview blob validated; metadata gate closed without unnecessary regeneration."
+    },
+    {
+      "sceneId": "HSK5_SC009",
+      "source": "HSK5_SC003",
+      "status": "complete",
+      "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
+    },
+    {
+      "sceneId": "HSK5_SC010",
+      "source": "HSK5_SC004",
+      "status": "complete",
+      "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
     }
   ],
   "updatedAt": "2026-10-10",
@@ -389,12 +401,9 @@
   ],
   "hsk5Progress": {
     "sc001_sc010": {
-      "visualComplete": 8,
-      "accepted": 8,
-      "pendingPreview": [
-        9,
-        10
-      ]
+      "visualComplete": 10,
+      "accepted": 10,
+      "status": "complete"
     },
     "sc011_sc020": {
       "visualComplete": 5,
