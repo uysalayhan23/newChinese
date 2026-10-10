@@ -28,5 +28,12 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "identityReviewRequired": false,
+  "repair": {
+    "method": "full_canonical_rebase",
+    "source": "HSK2_SC001",
+    "reason": "same Zhang Office + same work outfit/orientation; full canonical HD set"
+  }
 }
