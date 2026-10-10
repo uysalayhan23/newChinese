@@ -12,41 +12,16 @@
     "missing": [],
     "qualityBlocked": [
       {
-        "asset": "assets/hsk4_sc002_bg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
-        "asset": "assets/hsk4_sc002_fg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          360,
-          640
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
         "asset": "assets/hsk4_sc002_preview.webp",
-        "reason": "preview_is_byte_identical_to_background",
-        "actual": [
-          360,
-          640
-        ],
+        "reason": "preview_recompose_required_after_hd_breakroom_rebase",
         "minimum": [
           720,
           1280
         ]
       }
+    ],
+    "regenerationRequired": [
+      "preview"
     ]
   },
   "audio": {
@@ -101,5 +76,5 @@
     ],
     "missing": []
   },
-  "rule": "Office Breakroom visual set is blocked until high-resolution BG/FG and a true composite preview replace the legacy 360x640 background-copy set."
+  "rule": "Breakroom BG/FG and canonical Zhang Wei/Wang Ming layers are HD; only preview recomposition remains."
 }
