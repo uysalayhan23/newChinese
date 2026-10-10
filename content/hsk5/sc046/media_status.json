@@ -10,11 +10,19 @@
       "assets/hsk5_sc046_preview.webp"
     ],
     "missing": [
-      "assets/hsk5_sc046_bg.webp",
-      "assets/hsk5_sc046_char_zhang_wei.webp",
-      "assets/hsk5_sc046_char_wang_ming.webp",
-      "assets/hsk5_sc046_fg.webp",
       "assets/hsk5_sc046_preview.webp"
+    ],
+    "regenerationRequired": [
+      "preview"
+    ],
+    "remainingAudit": [
+      "preview"
+    ],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc046_preview.webp",
+        "reason": "preview_recompose_required_after_canonical_staging"
+      }
     ]
   },
   "audio": {
@@ -77,5 +85,5 @@
     ],
     "missing": []
   },
-  "rule": "Audio may be complete only after every declared physical M4A exists and validation passes; visuals intentionally remain pending until produced."
+  "rule": "Cafe BG/FG + canonical Zhang Wei/Wang Ming pass; preview source was low-resolution and must be recomposed."
 }
