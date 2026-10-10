@@ -32,6 +32,10 @@
   "qualityBlocked": [],
   "repair": {
     "method": "canonical_character_rebase_plus_environment_audit",
-    "reason": "BG/FG/PREVIEW 941x1672"
+    "reason": "BG/FG/PREVIEW 941x1672",
+    "characterIdentity": "canonical_rebase_complete"
+  },
+  "regeneration": {
+    "required": []
   }
 }
