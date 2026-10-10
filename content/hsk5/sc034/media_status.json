@@ -15,11 +15,7 @@
     "qualityBlocked": [
       {
         "asset": "assets/hsk5_sc034_preview.webp",
-        "reason": "preview_missing_after_canonical_hd_staging",
-        "minimum": [
-          720,
-          1280
-        ]
+        "reason": "preview_missing_after_canonical_staging"
       }
     ],
     "characterIdentityStatus": "canonical_rebase_complete",
@@ -90,5 +86,5 @@
     ],
     "missing": []
   },
-  "rule": "HD BG/FG and canonical Zhang Wei/Chen Yu are staged; only preview is missing."
+  "rule": "Community Center BG/FG pass and canonical Zhang Wei/Chen Yu are staged; only preview remains."
 }
