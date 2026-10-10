@@ -53,7 +53,7 @@ def required_paths(directory: Path, manifest: dict) -> dict[str, Path]:
     return {role: directory / relative for role, relative in manifest["assets"].items()}
 
 
-def verify_assets(number: int, manifest: dict, approvals: dict) -> list[str]:
+def verify_assets(number: int, manifest: dict, approvals: dict, reviews: dict) -> list[str]:
     directory = scene_dir(number)
     paths = required_paths(directory, manifest)
     issues = []
@@ -90,6 +90,15 @@ def verify_assets(number: int, manifest: dict, approvals: dict) -> list[str]:
         approved = approvals.get(f"HSK5_SC{number:03d}")
         if not approved or actual != approved:
             issues.append("Liu Mei face_right: explicit approved per-scene blob SHA required")
+    # Technical checks cannot judge identity, readability, occlusion or story.
+    # Bind visual approval to the actual preview bytes, preventing stale review reuse.
+    review = reviews.get(f"HSK5_SC{number:03d}") or {}
+    preview_path = paths["preview"]
+    if not preview_path.is_file() or review.get("previewBlob") != git_blob_sha1(preview_path):
+        issues.append("preview: exact-blob visual review approval required")
+    for field in ("identity", "foregroundOrdering", "continuity", "textless", "sharpness"):
+        if review.get(field) is not True:
+            issues.append(f"preview: visual review {field} not approved")
     return issues
 
 
@@ -149,16 +158,19 @@ def compose(number: int, *, replace: bool, approvals: dict) -> str:
     return f"CREATED: {output.relative_to(ROOT)} {TARGET[0]}x{TARGET[1]}"
 
 
-def accept(approvals: dict) -> list[str]:
+def accept(approvals: dict, reviews: dict) -> list[str]:
     batch = read_json(BATCH)
     queue = read_json(QUEUE)
     notes = []
     verified_scenes = set()
     for number in SCENES:
         directory, manifest, media = load_scene(number)
-        issues = verify_assets(number, manifest, approvals)
+        issues = verify_assets(number, manifest, approvals, reviews)
         scene_id = f"HSK5_SC{number:03d}"
         if issues:
+            # A stale complete label must not survive a failed re-audit.
+            entry = next(s for s in batch["scenes"] if s["sceneId"] == scene_id)
+            entry["status"] = "audio_complete_visual_pending"
             notes.append(f"{scene_id}: PENDING ({'; '.join(issues)})")
             continue
         media["visual"]["status"] = "complete"
@@ -208,17 +220,20 @@ def main() -> int:
     parser.add_argument("--scenes", nargs="*", type=int, default=list(PREVIEW_ONLY))
     parser.add_argument("--face-right-approvals", type=Path,
                         help="JSON mapping HSK5_SC033/035/037/039 to visually approved SHA-1 blobs")
+    parser.add_argument("--visual-review", type=Path,
+                        help="JSON mapping scene ID to exact preview blob and identity/ordering/continuity/textless/sharpness approvals")
     args = parser.parse_args()
     if not args.compose and not args.accept:
         parser.error("Select --compose or --accept")
     if any(scene not in SCENES for scene in args.scenes):
         parser.error("Only HSK5 SC031-SC040 are supported")
     approvals = read_json(args.face_right_approvals) if args.face_right_approvals else {}
+    reviews = read_json(args.visual_review) if args.visual_review else {}
     if args.compose:
         for n in args.scenes:
             print(f"HSK5_SC{n:03d}: {compose(n, replace=args.replace, approvals=approvals)}")
     if args.accept:
-        for line in accept(approvals):
+        for line in accept(approvals, reviews):
             print(line)
     return 0
 
