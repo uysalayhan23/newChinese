@@ -91,7 +91,10 @@ def compose(number: int, *, replace: bool) -> str:
     paths = required_paths(directory, manifest)
     output = paths["preview"]
     if output.exists() and not replace:
-        return "SKIPPED: existing preview; use --replace only after review"
+        existing_size = webp_dimensions(output)
+        if existing_size and existing_size[0] >= TARGET[0] and existing_size[1] >= TARGET[1]:
+            return "SKIPPED: existing preview meets minimum dimensions; use --replace to recompose"
+        # Low-resolution previews must be replaced automatically after successful composition.
     for key in ("background", "characterA", "characterB", "foreground"):
         if not paths[key].is_file():
             return f"BLOCKED: missing {key}"
