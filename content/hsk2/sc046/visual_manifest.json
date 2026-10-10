@@ -28,5 +28,31 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk2_sc046_preview.webp",
+      "reason": "preview_recompose_required_after_hd_neighborhood_rebase",
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB"
+    ]
+  },
+  "repair": {
+    "method": "partial_canonical_rebase",
+    "source": "HSK3_SC022 Neighborhood BG/FG + HSK3_SC032 canonical Zhang Wei/Liu Mei",
+    "reason": "invalid legacy binary set replaced except preview; remaining task is true composite preview"
+  }
 }
