@@ -10,12 +10,22 @@
       "assets/hsk5_sc030_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk5_sc030_preview.webp",
+        "reason": "preview_recompose_required_after_character_identity_change",
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ],
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
     "remainingAudit": [
-      "background",
-      "foreground",
+      "preview"
+    ],
+    "regenerationRequired": [
       "preview"
     ]
   },
@@ -79,5 +89,5 @@
     ],
     "missing": []
   },
-  "rule": "Character identity rebaseline is complete; scene remains pending until BG/FG/PREVIEW pass the active visual-quality audit."
+  "rule": "Character orientation/identity changed relative to stored preview; preview recomposition is mandatory."
 }
