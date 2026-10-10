@@ -28,5 +28,26 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk5_sc036_preview.webp",
+      "reason": "preview_missing_after_canonical_staging"
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "characterA",
+      "characterB",
+      "foreground"
+    ]
+  },
+  "repair": {
+    "method": "canonical_staging",
+    "reason": "City Park BG/FG and canonical Zhang Wei/Chen Yu are staged; only preview remains."
+  }
 }
