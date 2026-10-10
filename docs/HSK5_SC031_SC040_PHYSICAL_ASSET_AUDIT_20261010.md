@@ -32,3 +32,16 @@ Toplam 10 sahne × 5 zorunlu WebP = **50 dosya**. Repo tree içinde **37/50 fizi
 GitHub connector ile repo **okuma ve yazma mümkün**; ancak görüntü işleyicisinin çalıştığı konteyner GitHub'a DNS/TCP erişemiyor. Doğrudan indirme ile `raw.githubusercontent.com` bağlantısı başarısız oldu. Bu nedenle bu oturumda fiziksel dört-katmanlı kompozit WebP üretimi ve GitHub'a binary preview upload **tamamlanmadı**.
 
 Kaynak dosyalar yerelde erişilebilir bir checkout'ta işlenebildiğinde `tools/prepare_hsk5_sc031_sc040.py` ile SC031/034/036/040 preview'ları hazırlanabilir. Gerçek görüntü QA'sı sonrası `tools/compose_hsk5_sc031_sc040.py --accept` kalite ve kaynak provenance kanıtı ister. **Sahne kapatma sonuçları şu an 0/10 görsel, 10/10 ses**; commitlerde `[skip ci]` kullanılır ve GitHub Actions çalıştırılmaz.
+
+## Canonical Liu Mei face-right candidate repair prepared
+
+`tools/prepare_hsk5_liu_mei_face_right.py` and `tools/tests/test_prepare_hsk5_liu_mei_face_right.py` added in separate `[skip ci]` commits. The repair script only uses the SHA-pinned existing Liu Mei `face_left` cutout (941×1672) as input and derives horizontally mirrored, lossless WebP **candidate layers** for HSK5_SC033/035/037/039. It checks **all four locked manifests and both character roles before any file write**, and does not overwrite existing candidate files by default. This avoids changing faces/outfits through a new character generation. The scene-specific `face_right` candidate must still receive real visual/continuity QA approval; a mirror alone does not prove scene suitability or visual acceptance.
+
+From an environment with the checked-out canonical source and Pillow:
+
+```sh
+python -m unittest discover -s tools/tests -p 'test_prepare_hsk5_liu_mei_face_right.py' -v
+python tools/prepare_hsk5_liu_mei_face_right.py
+```
+
+This is **implementation preparation**, not evidence that candidate WebPs have been physically produced or pushed in this tool session. The current GitHub `main` asset count and 0/10 acceptance remain unchanged.
