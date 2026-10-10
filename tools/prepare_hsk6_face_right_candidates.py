@@ -1,0 +1,119 @@
+#!/usr/bin/env python3
+"""Build HSK6 twenty face-right *candidates* from canonical face-left WebPs.
+
+No Actions, no image upscaling, no identity recreation, no metadata acceptance.
+Run in the checked-out repository with Pillow installed:
+    python tools/prepare_hsk6_face_right_candidates.py
+
+A mirrored cutout is only a QA candidate. It must be visually checked for
+handedness, pose, expression, wardrobe, continuity and identity before reuse.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+from PIL import Image, ImageOps
+from visual_quality import git_blob_sha1
+
+ROOT = Path(__file__).resolve().parents[1]
+
+# Canonical sources verified physically in GitHub on 2026-10-10.
+SOURCES = {
+    "CHAR_WANG_MING_001": (
+        "content/hsk2/sc001/assets/hsk2_sc001_char_wang_ming.webp",
+        "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "OUTFIT_WANG_MING_WORK_01",
+    ),
+    "CHAR_LIU_MEI_001": (
+        "content/hsk5/sc031/assets/hsk5_sc031_char_liu_mei.webp",
+        "eea4742918bf5b78f222b54631de8f71a4c824a7",
+        "OUTFIT_LIU_MEI_CASUAL_01",
+    ),
+    "CHAR_CHEN_YU_001": (
+        "content/hsk5/sc034/assets/hsk5_sc034_char_chen_yu.webp",
+        "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+        "OUTFIT_CHEN_YU_CASUAL_01",
+    ),
+}
+
+SCENE_ACTORS = {
+    **{n: "CHAR_WANG_MING_001" for n in range(1, 10, 2)},
+    **{n: "CHAR_LIU_MEI_001" for n in range(11, 20, 2)},
+    **{n: "CHAR_CHEN_YU_001" for n in range(21, 30, 2)},
+    **{n: "CHAR_WANG_MING_001" for n in range(31, 40, 2)},
+}
+
+
+def target_path(scene: int, character_id: str, root: Path) -> Path:
+    actor_name = character_id.removeprefix("CHAR_").removesuffix("_001").lower()
+    return root / f"content/hsk6/sc{scene:03d}/assets/hsk6_sc{scene:03d}_char_{actor_name}.webp"
+
+
+def preflight(root: Path, overwrite: bool) -> dict[str, Image.Image]:
+    """Check every source and manifest before touching any destination."""
+    sources = {}
+    for identity, (relative, expected_sha, _outfit) in SOURCES.items():
+        path = root / relative
+        if not path.is_file() or git_blob_sha1(path) != expected_sha:
+            raise ValueError(f"missing/mismatched canonical face-left source for {identity}")
+        with Image.open(path) as img:
+            if img.format != "WEBP":
+                raise ValueError(f"source is not WebP: {path}")
+            if img.getextrema()[-1][0] == 255 or img.getextrema()[-1][1] == 0:
+                raise ValueError(f"source must have a usable transparent silhouette: {path}")
+            sources[identity] = img.convert("RGBA").copy()
+    for scene, identity in SCENE_ACTORS.items():
+        folder = root / f"content/hsk6/sc{scene:03d}"
+        manifest = folder / "visual_manifest.json"
+        if not manifest.is_file():
+            raise FileNotFoundError(manifest)
+        data = json.loads(manifest.read_text(encoding="utf-8"))
+        actors = data.get("characters") or []
+        if (data.get("sceneId") != f"HSK6_SC{scene:03d}" or len(actors) != 2
+                or actors[0].get("characterId") != identity
+                or actors[0].get("speechBubbleAnchor") != "face_right"
+                or actors[0].get("outfit") != SOURCES[identity][2]):
+            raise ValueError(f"HSK6_SC{scene:03d}: scene/identity/outfit/facing drift")
+        if data.get("assets", {}).get("characterA") != (
+            f"assets/{target_path(scene, identity, root).name}"
+        ):
+            raise ValueError(f"HSK6_SC{scene:03d}: manifest asset path drift")
+        dest = target_path(scene, identity, root)
+        if dest.exists() and not overwrite:
+            raise FileExistsError(f"existing actor must not be overwritten: {dest}")
+    return sources
+
+
+def prepare(root: Path = ROOT, *, overwrite: bool = False) -> list[str]:
+    source_images = preflight(root, overwrite)
+    mirrored = {k: ImageOps.mirror(v) for k, v in source_images.items()}
+    outputs = []
+    for scene, identity in SCENE_ACTORS.items():
+        destination = target_path(scene, identity, root)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        mirrored[identity].save(destination, "WEBP", lossless=True, method=6)
+        with Image.open(destination) as decoded:
+            if decoded.format != "WEBP" or decoded.size != source_images[identity].size:
+                raise ValueError(f"candidate failed WebP verification: {destination}")
+            decoded.verify()
+        outputs.append(
+            f"HSK6_SC{scene:03d}: candidate WebP sha={git_blob_sha1(destination)}"
+        )
+    return outputs
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--replace-candidates", action="store_true",
+                        help="Explicitly overwrite existing unapproved candidate layers")
+    args = parser.parse_args()
+    for line in prepare(overwrite=args.replace_candidates):
+        print(line)
+    print("20 candidates physically prepared, NOT approved or accepted."
+          " Independently check identity, wardrobe, mirroring and continuity.")
+
+
+if __name__ == "__main__":
+    main()
