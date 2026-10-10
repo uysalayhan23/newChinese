@@ -2,13 +2,13 @@
   "level": "HSK5",
   "startScene": 41,
   "endScene": 50,
-  "status": "audio_complete_visual_pending",
+  "status": "mixed_progress",
   "progress": {
     "contentReady": 10,
     "totalScenes": 10,
-    "visualComplete": 0,
+    "visualComplete": 4,
     "audioComplete": 10,
-    "acceptedScenes": 0
+    "acceptedScenes": 4
   },
   "scenes": [
     {
@@ -22,7 +22,7 @@
     },
     {
       "sceneId": "HSK5_SC042",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_OFFICE_BREAKROOM_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -40,7 +40,7 @@
     },
     {
       "sceneId": "HSK5_SC044",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_ZHANG_OFFICE_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -76,7 +76,7 @@
     },
     {
       "sceneId": "HSK5_SC048",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_OFFICE_BREAKROOM_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -94,7 +94,7 @@
     },
     {
       "sceneId": "HSK5_SC050",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_ZHANG_OFFICE_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -103,6 +103,7 @@
     }
   ],
   "notes": [
-    "HSK3-HSK6 content and audio queues generated from locked plans. Visual production intentionally pending."
+    "HSK3-HSK6 content and audio queues generated from locked plans. Visual production intentionally pending.",
+    "Visual QA rebaseline: SC042/044/048/050 complete via exact accepted canonical sets; SC046 preview-only pending; SC041/043/045/047/049 await Wang Ming face-right canonical regeneration plus preview."
   ]
 }
