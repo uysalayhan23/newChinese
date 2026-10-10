@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK3_SC010",
   "visual": {
-    "status": "complete",
+    "status": "pending",
     "required": [
       "assets/hsk3_sc010_bg.webp",
       "assets/hsk3_sc010_char_zhang_wei.webp",
@@ -9,7 +9,45 @@
       "assets/hsk3_sc010_fg.webp",
       "assets/hsk3_sc010_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [
+      {
+        "asset": "assets/hsk3_sc010_bg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          360,
+          640
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk3_sc010_fg.webp",
+        "reason": "below_minimum_resolution",
+        "actual": [
+          360,
+          640
+        ],
+        "minimum": [
+          540,
+          960
+        ]
+      },
+      {
+        "asset": "assets/hsk3_sc010_preview.webp",
+        "reason": "preview_is_byte_identical_to_background",
+        "actual": [
+          360,
+          640
+        ],
+        "minimum": [
+          720,
+          1280
+        ]
+      }
+    ]
   },
   "audio": {
     "status": "complete",
@@ -59,5 +97,5 @@
     ],
     "missing": []
   },
-  "rule": "Audio and visuals may be complete only after every declared physical asset exists and validation passes."
+  "rule": "Office Breakroom visual set is blocked until high-resolution BG/FG and a true composite preview replace the legacy 360x640 background-copy set."
 }
