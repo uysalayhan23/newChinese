@@ -12,29 +12,16 @@
     "missing": [],
     "qualityBlocked": [
       {
-        "asset": "assets/hsk3_sc016_bg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          180,
-          320
-        ],
+        "asset": "assets/hsk3_sc016_preview.webp",
+        "reason": "preview_recompose_required_after_hd_canonical_rebase",
         "minimum": [
-          540,
-          960
-        ]
-      },
-      {
-        "asset": "assets/hsk3_sc016_fg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          90,
-          160
-        ],
-        "minimum": [
-          540,
-          960
+          720,
+          1280
         ]
       }
+    ],
+    "regenerationRequired": [
+      "preview"
     ]
   },
   "audio": {
