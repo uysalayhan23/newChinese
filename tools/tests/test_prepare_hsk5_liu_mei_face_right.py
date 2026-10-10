@@ -30,7 +30,8 @@ class LiuMeiCandidateTests(unittest.TestCase):
         for scene in module.SCENES:
             target, manifest = module.candidate_paths(scene)
             target.parent.mkdir(parents=True)
-            manifest.write_text(json.dumps({"characters": [
+            manifest.write_text(json.dumps({"sceneId": f"HSK5_SC{scene:03d}",
+                                             "characters": [
                 {"characterId": "CHAR_LIU_MEI_001",
                  "speechBubbleAnchor": "face_right"},
                 {"characterId": "CHAR_ZHANG_WEI_001",
@@ -71,6 +72,8 @@ class LiuMeiCandidateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "does not require"):
             module.prepare()
         self.assertFalse(target.exists())
+        # Atomic preflight: SC033 must not have been written either.
+        self.assertFalse(module.candidate_paths(33)[0].exists())
 
 
 if __name__ == "__main__":
