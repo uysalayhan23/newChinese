@@ -107,6 +107,8 @@
     "HSK5_SC031 visual + audio complete; accepted canonical Community Center Zhang Wei/Liu Mei 5'li seti HSK2_SC045 kaynağından reuse edildi; visual manifest accepted canonical orientation Zhang Wei face_right + Liu Mei face_left düzenine hizalandı; HSK5_SC030 → HSK5_SC031 continuity approved.",
     "HSK5_SC032 grounding/layer planning approved: Neighborhood BG/FG HSK2_SC046 accepted source; Zhang Wei/Chen Yu canonical character layers HSK2_SC041 accepted source; 4/5 WebP staged, PREVIEW pending. Scene completion gate intentionally not passed.",
     "HSK5_SC031-SC040 fourth batch progress: 1/10 visual complete, 10/10 audio complete, 1/10 accepted; HSK5_SC032 staged 4/5 visual.",
-    "Visual QA rebaseline supersedes earlier acceptance: HSK5_SC006+ character layers require regeneration/re-approval before visual/accepted counters may advance."
+    "Visual QA rebaseline supersedes earlier acceptance: HSK5_SC006+ character layers require regeneration/re-approval before visual/accepted counters may advance.",
+    "2026-10-10 quality audit: SC031/037/040 HD Community Center backgrounds physically rebased (941x1672); SC032/035/038 Neighborhood backgrounds remain 540x960 and need genuine HD sources.",
+    "Deterministic compositor tools/compose_hsk5_sc031_sc040.py committed; physical preview composites and Liu Mei face_right approved assets still pending. No 10/10 closure or Actions run claimed."
   ]
 }
