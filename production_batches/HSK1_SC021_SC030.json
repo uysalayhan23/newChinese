@@ -32,13 +32,13 @@
       "sceneId": "HSK1_SC025",
       "titleTr": "Eczaneye Gitmek",
       "locationId": "LOC_PHARMACY_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     },
     {
       "sceneId": "HSK1_SC026",
       "titleTr": "Kafede Dinlenmek",
       "locationId": "LOC_CAFE_001",
-      "status": "audio_complete_visual_pending"
+      "status": "complete"
     },
     {
       "sceneId": "HSK1_SC027",
@@ -83,15 +83,16 @@
     "completeScenes": 10,
     "totalScenes": 10,
     "contentReady": 10,
-    "visualComplete": 1,
+    "visualComplete": 3,
     "audioComplete": 10,
     "validationBuildStatus": "success",
     "validationBuildRun": 253,
-    "acceptedScenes": 1
+    "acceptedScenes": 3
   },
   "completedAt": "2026-09-26",
   "notes": [
     "Visual QA rebaseline supersedes earlier physical-only closure; placeholder/low-resolution visual assets remain blocked until repaired.",
-    "Visual QA repair progress updated: 1/10 scenes currently pass the active quality gate."
+    "Visual QA repair progress updated: 1/10 scenes currently pass the active quality gate.",
+    "HSK1_SC025 Pharmacy, SC026 Cafe and SC029 City Park now pass the active visual QA gate using accepted HD canonical same-location/same-character sets."
   ]
 }
