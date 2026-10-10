@@ -72,6 +72,38 @@ class SyntheticCompositorTests(unittest.TestCase):
                                           fill=color)
             actor.save(self.directory / self.files[name], "WEBP")
 
+    def test_low_resolution_foreground_is_blocked_without_upscaling(self):
+        Image.new("RGBA", (540, 960), (0, 0, 0, 0)).save(
+            self.directory / self.files["foreground"], "WEBP")
+        result = module.compose(34, replace=False, approvals={})
+        self.assertIn("FG", result)
+        self.assertIn("genuine HD", result)
+        self.assertFalse((self.directory / self.files["preview"]).exists())
+
+    def test_identity_drift_prevents_composition(self):
+        manifest = module.read_json(self.directory / "visual_manifest.json")
+        manifest["characters"][1]["characterId"] = "CHAR_LIU_MEI_001"
+        module.write_json(self.directory / "visual_manifest.json", manifest)
+        result = module.compose(34, replace=False, approvals={})
+        self.assertIn("canonical manifest mismatch", result)
+        self.assertFalse((self.directory / self.files["preview"]).exists())
+
+    def test_existing_hd_preview_recomposed_when_source_changes(self):
+        first = module.compose(34, replace=False, approvals={})
+        self.assertTrue(first.startswith("CREATED:"), first)
+        manifest = module.read_json(self.directory / "visual_manifest.json")
+        old_blob = manifest["previewComposition"]["inputBlobs"]["background"]
+        Image.new("RGB", (941, 1672), (50, 100, 170)).save(
+            self.bg_file, "WEBP")
+        result = module.compose(34, replace=False, approvals={})
+        self.assertTrue(result.startswith("CREATED:"), result)
+        updated = module.read_json(self.directory / "visual_manifest.json")
+        self.assertNotEqual(
+            old_blob, updated["previewComposition"]["inputBlobs"]["background"])
+        self.assertEqual(
+            updated["previewComposition"]["inputBlobs"]["background"],
+            module.git_blob_sha1(self.bg_file))
+
     def test_produces_real_720_by_1280_webp_with_matching_provenance(self):
         result = module.compose(34, replace=False, approvals={})
         self.assertTrue(result.startswith("CREATED:"), result)
