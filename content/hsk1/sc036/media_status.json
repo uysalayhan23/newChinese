@@ -9,7 +9,9 @@
       "assets/hsk1_sc036_fg.webp",
       "assets/hsk1_sc036_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [],
+    "identityReviewRequired": false
   },
   "audio": {
     "status": "complete",
@@ -41,5 +43,5 @@
     ],
     "missing": []
   },
-  "rule": "A media category may only be marked complete after every required physical asset exists and passes validation."
+  "rule": "Visual assets pass active resolution and canonical identity gate."
 }
