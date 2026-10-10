@@ -32,7 +32,7 @@
   "qualityBlocked": [
     {
       "asset": "assets/hsk5_sc008_preview.webp",
-      "reason": "preview_recompose_required_after_canonical_rebase",
+      "reason": "preview_recompose_required_after_hd_environment_and_canonical_character_rebase",
       "minimum": [
         720,
         1280
@@ -53,6 +53,8 @@
   "repair": {
     "method": "partial_canonical_rebase",
     "source": "HSK3_SC023/027 Electronics Store BG/FG + canonical ZW/CY",
-    "reason": "BG/FG upgraded to 576x1024; preview requires recomposition with canonical characters"
+    "reason": "BG/FG upgraded to 576x1024; preview requires recomposition with canonical characters",
+    "characterIdentity": "canonical_rebase_complete",
+    "environmentSource": "HSK3_SC023/027 Electronics Store"
   }
 }
