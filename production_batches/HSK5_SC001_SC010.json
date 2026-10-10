@@ -6,9 +6,9 @@
   "progress": {
     "contentReady": 10,
     "totalScenes": 10,
-    "visualComplete": 6,
+    "visualComplete": 7,
     "audioComplete": 10,
-    "acceptedScenes": 6
+    "acceptedScenes": 7
   },
   "scenes": [
     {
@@ -58,7 +58,7 @@
     },
     {
       "sceneId": "HSK5_SC006",
-      "status": "audio_complete_visual_pending",
+      "status": "complete",
       "locationId": "LOC_CAFE_001",
       "characterIds": [
         "CHAR_ZHANG_WEI_001",
@@ -118,6 +118,7 @@
     "Visual QA rebaseline supersedes earlier acceptance: HSK5_SC006+ character layers require regeneration/re-approval before visual/accepted counters may advance.",
     "Visual QA rebaseline: HSK5_SC006/007 now pass canonical identity + environment gates; SC008/009/010 only await preview recomposition.",
     "Visual QA rebaseline: SC006/007 now pass canonical identity + environment quality; SC008/009/010 only await preview recomposition.",
-    "SC006/008/009/010 preview pending after character/environment normalization."
+    "SC006/008/009/010 preview pending after character/environment normalization.",
+    "Visual QA rebaseline: SC006/007 now pass canonical identity + environment quality; SC008/009/010 only await preview recomposition."
   ]
 }
