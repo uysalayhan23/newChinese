@@ -28,5 +28,31 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk2_sc003_preview.webp",
+      "reason": "preview_recompose_required_after_canonical_character_rebase",
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB"
+    ]
+  },
+  "repair": {
+    "method": "character_canonical_rebase",
+    "source": "HSK2_SC001 canonical Zhang Wei/Wang Ming",
+    "reason": "Breakroom environment preserved; preview must be recomposed after identity normalization"
+  }
 }
