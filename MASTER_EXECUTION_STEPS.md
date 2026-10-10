@@ -167,3 +167,10 @@ Her adım bitince bir sonraki adıma geçilir. Durum raporu kısa tutulur:
 - **Aktif Adım: VISUAL QA REBASELINE — HSK1 → HSK5_SC005 + HSK5_SC006 sonrası karakter yeniden üretimi**
 - **Anlık iş kalemi: düşük çözünürlüklü/placeholder BG-FG-PREVIEW assetlerini ve karakter identity drift kümelerini kalite kapısından geçir; HSK5_SC006 sonrası tüm karakter katmanlarını canonical baseline'a göre yeniden üret/rebase et. Bu gate kapanmadan HSK5/HSK6 acceptance ilerletme. GitHub Actions çalıştırma; commitlerde [skip ci] kullan.**
 - **İlk fiziksel onarım: HSK1_SC020, HSK3_SC021 accepted same-location/same-character canonical setine rebase edildi; 320×180 BG kaldırıldı ve yüksek çözünürlüklü 5/5 set ile kapatıldı.**
+- **Tamamlanan ek HD rebases:** HSK1_SC011/016/017/018 → HSK3_SC019 Home; HSK1_SC025 → HSK2_SC015 Pharmacy; HSK1_SC026 → HSK2_SC017 Cafe; HSK1_SC029 → HSK4_SC025 City Park.
+- **Kısmi Neighborhood onarımı:** HSK1_SC014/019/021/030 BG+FG 540×960 canonical Neighborhood setine yükseltildi; yalnız yüksek çözünürlüklü preview recomposition bekliyor.
+- **Açık P1 environment regeneration:** HSK1_SC015, SC022, SC023, SC024, SC027, SC028 için canonical karakterler korunacak; BG+FG+PREVIEW yeniden üretilecek.
+- **Identity review:** HSK1_SC031–SC050 ve HSK2_SC001–SC010 accepted sayaçlarından çıkarıldı; canonical yüz/tip uyumu yeniden onaylanmadan kapanmayacak.
+- **HSK5 character reset:** HSK5_SC006+ accepted sayılmıyor; tüm karakter katmanları HSK1–HSK5_SC005 canonical baseline'a göre regenerate/rebase edilecek.
+- **Tek kuyruk kaynağı:** content/visual_regeneration_queue.json.
+
