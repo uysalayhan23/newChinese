@@ -123,12 +123,18 @@ def compose(number: int, *, replace: bool, approvals: dict) -> str:
             actor = image.convert("RGBA")
         if actor.getextrema()[3][0] == 255:
             return f"BLOCKED: {key} layer is entirely opaque (not a cutout)"
-        height = round(TARGET[1] * 0.76)
-        width = round(actor.width * height / actor.height)
+        # Keep source aspect ratio and keep the full canonical silhouette on-canvas.
+        # The legacy 76%-height rule clipped the 600x900 left actor at x=0.34.
+        target_height = round(TARGET[1] * 0.70)
+        width_limit = round(TARGET[0] * 0.75)
+        scale = min(target_height / actor.height, width_limit / actor.width)
+        height = max(1, round(actor.height * scale))
+        width = max(1, round(actor.width * scale))
         actor = actor.resize((width, height), Image.Resampling.LANCZOS)
-        x = round(TARGET[0] * x_fraction - width / 2)
+        x = max(0, min(TARGET[0] - width,
+                       round(TARGET[0] * x_fraction - width / 2)))
         y = TARGET[1] - height
-        if x < 0 or x + width > TARGET[0]:
+        if width > TARGET[0] or height > TARGET[1]:
             return f"BLOCKED: {key} exceeds canvas bounds"
         canvas.alpha_composite(actor, (x, y))
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -147,7 +153,7 @@ def accept(approvals: dict) -> list[str]:
     batch = read_json(BATCH)
     queue = read_json(QUEUE)
     notes = []
-    all_ok = 0
+    verified_scenes = set()
     for number in SCENES:
         directory, manifest, media = load_scene(number)
         issues = verify_assets(number, manifest, approvals)
@@ -169,12 +175,11 @@ def accept(approvals: dict) -> list[str]:
         write_json(directory / "visual_manifest.json", manifest)
         entry = next(s for s in batch["scenes"] if s["sceneId"] == scene_id)
         entry["status"] = "complete"
+        verified_scenes.add(number)
         queue["hsk5Progress"]["sc031_sc040"].get("remaining", {}).pop(f"sc{number:03d}", None)
         notes.append(f"{scene_id}: ACCEPTED")
-    for entry in batch["scenes"]:
-        status = read_json(scene_dir(int(entry["sceneId"][-3:])) / "media_status.json")
-        if status["visual"]["status"] == "complete":
-            all_ok += 1
+    # Never count stale metadata as accepted; only scenes verified in this run.
+    all_ok = len(verified_scenes)
     batch["progress"]["visualComplete"] = all_ok
     batch["progress"]["acceptedScenes"] = all_ok
     batch["status"] = "complete" if all_ok == 10 else "in_progress"
