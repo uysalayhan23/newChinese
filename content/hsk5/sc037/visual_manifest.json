@@ -31,10 +31,6 @@
   "status": "visual-quality-pending",
   "qualityBlocked": [
     {
-      "asset": "assets/hsk5_sc037_bg.webp",
-      "reason": "hd_background_regeneration_required"
-    },
-    {
       "asset": "assets/hsk5_sc037_char_liu_mei.webp",
       "reason": "canonical_face_right_character_regeneration_required"
     },
@@ -45,17 +41,19 @@
   ],
   "regeneration": {
     "required": [
-      "background",
       "characterA",
       "preview"
     ],
     "preserve": [
       "characterB",
-      "foreground"
+      "foreground",
+      "background"
     ]
   },
   "repair": {
     "method": "canonical_staging",
-    "reason": "Community Center FG and canonical Zhang Wei face-left are staged; HD BG, Liu Mei face-right canonical regeneration and preview remain."
+    "reason": "HD canonical background installed; Liu Mei face_right regeneration and preview remain pending.",
+    "backgroundSource": "HSK2_SC041",
+    "backgroundBlobSHA": "6ba20dfb8423743e855c90dcd4212a17a866e9b7"
   }
 }
