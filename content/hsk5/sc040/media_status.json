@@ -10,27 +10,25 @@
       "assets/hsk5_sc040_preview.webp"
     ],
     "missing": [
-      "assets/hsk5_sc040_bg.webp",
       "assets/hsk5_sc040_preview.webp"
     ],
     "regenerationRequired": [
-      "background",
       "preview"
     ],
     "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc040_bg.webp",
-        "reason": "hd_background_regeneration_required"
-      },
       {
         "asset": "assets/hsk5_sc040_preview.webp",
         "reason": "preview_missing_after_canonical_staging"
       }
     ],
     "remainingAudit": [
-      "background",
       "preview"
-    ]
+    ],
+    "backgroundValidation": {
+      "status": "passed",
+      "source": "HSK2_SC041",
+      "blobSha": "6ba20dfb8423743e855c90dcd4212a17a866e9b7"
+    }
   },
   "audio": {
     "status": "complete",
@@ -92,5 +90,5 @@
     ],
     "missing": []
   },
-  "rule": "Community Center FG and canonical Zhang Wei/Chen Yu are staged; HD BG and preview remain."
+  "rule": "HD Community Center background and canonical character/foreground layers pass; preview remains the only open visual gate."
 }
