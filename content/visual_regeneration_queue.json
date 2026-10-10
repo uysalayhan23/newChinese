@@ -359,6 +359,36 @@
       "source": "HSK5_SC004",
       "status": "complete",
       "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
+    },
+    {
+      "sceneId": "HSK5_SC012",
+      "source": "HSK4_SC035",
+      "status": "complete",
+      "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
+    },
+    {
+      "sceneId": "HSK5_SC013",
+      "source": "HSK2_SC036",
+      "status": "complete",
+      "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
+    },
+    {
+      "sceneId": "HSK5_SC016",
+      "source": "HSK4_SC035",
+      "status": "complete",
+      "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
+    },
+    {
+      "sceneId": "HSK5_SC017",
+      "source": "HSK2_SC036",
+      "status": "complete",
+      "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
+    },
+    {
+      "sceneId": "HSK5_SC020",
+      "source": "HSK4_SC035",
+      "status": "complete",
+      "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
     }
   ],
   "updatedAt": "2026-10-10",
@@ -406,15 +436,9 @@
       "status": "complete"
     },
     "sc011_sc020": {
-      "visualComplete": 5,
-      "accepted": 5,
-      "pendingPreview": [
-        12,
-        13,
-        16,
-        17,
-        20
-      ]
+      "visualComplete": 10,
+      "accepted": 10,
+      "status": "complete"
     },
     "sc021_sc030": {
       "visualComplete": 10,
