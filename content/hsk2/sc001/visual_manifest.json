@@ -28,5 +28,12 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "identityReviewRequired": false,
+  "repair": {
+    "method": "baseline_confirmed",
+    "source": "HSK2_SC001",
+    "reason": "canonical batch baseline"
+  }
 }
