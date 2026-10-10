@@ -31,6 +31,18 @@
   "status": "visual-quality-pending",
   "qualityBlocked": [
     {
+      "asset": "assets/hsk5_sc032_bg.webp",
+      "reason": "requires_genuine_HD_for_sharp_preview",
+      "actual": [
+        540,
+        960
+      ],
+      "minimum": [
+        720,
+        1280
+      ]
+    },
+    {
       "asset": "assets/hsk5_sc032_preview.webp",
       "reason": "preview_missing_or_below_quality",
       "minimum": [
@@ -41,10 +53,10 @@
   ],
   "regeneration": {
     "required": [
+      "background",
       "preview"
     ],
     "preserve": [
-      "background",
       "foreground",
       "characterA",
       "characterB"
@@ -52,6 +64,6 @@
   },
   "repair": {
     "method": "partial_canonical_rebase",
-    "reason": "Neighborhood BG/FG pass and canonical characters are complete; preview is physically missing."
+    "reason": "Neighborhood BG 540x960 must be replaced with true HD source before 720x1280 preview compositing; do not upscale."
   }
 }
