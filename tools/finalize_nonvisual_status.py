@@ -4,6 +4,8 @@ import json
 import re
 from pathlib import Path
 
+from visual_quality import visual_quality_blocks
+
 ROOT = Path(__file__).resolve().parents[1]
 BATCH_RE = re.compile(r"^HSK([1-6])_SC(\d{3})_SC(\d{3})\.json$")
 
@@ -17,12 +19,18 @@ def scene_status(scene_dir: Path) -> tuple[bool, bool]:
     if not media_path.is_file():
         return False, False
     media = json.loads(media_path.read_text(encoding="utf-8"))
+    scene_id = media.get("sceneId") or scene_dir.name
     for category in ("visual", "audio"):
         block = media.get(category) or {}
         required = block.get("required") or []
         missing = [rel for rel in required if not (scene_dir / rel).is_file()]
         block["missing"] = missing
-        block["status"] = "pending" if missing else "complete"
+        if category == "visual":
+            quality_blocked = visual_quality_blocks(scene_id, scene_dir, required)
+            block["qualityBlocked"] = quality_blocked
+            block["status"] = "pending" if (missing or quality_blocked) else "complete"
+        else:
+            block["status"] = "pending" if missing else "complete"
         media[category] = block
     dump(media_path, media)
 
