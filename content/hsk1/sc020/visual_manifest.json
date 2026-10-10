@@ -28,5 +28,11 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-complete",
+  "repair": {
+    "method": "canonical_rebase",
+    "source": "HSK3_SC021",
+    "reason": "replace low-resolution HSK1_SC020 visual set with accepted same-location/same-character canonical assets",
+    "verified": "BG 576x1024; FG 576x1024; preview 941x1672; Li Na/Zhang Wei canonical identities preserved"
+  }
 }
