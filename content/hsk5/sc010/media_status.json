@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC010",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc010_bg.webp",
       "assets/hsk5_sc010_char_zhang_wei.webp",
@@ -10,24 +10,15 @@
       "assets/hsk5_sc010_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc010_preview.webp",
-        "reason": "preview_recompose_required_after_canonical_character_environment_rebase",
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
+    "qualityBlocked": [],
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
-    "remainingAudit": [
-      "preview"
-    ],
-    "regenerationRequired": [
-      "preview"
-    ]
+    "remainingAudit": [],
+    "regenerationRequired": [],
+    "previewValidation": {
+      "status": "passed",
+      "evidence": "hsk5_sc010_preview.webp blob SHA cfcfd562f52f6c8d309347d655c923672e776db6 equals accepted HSK5_SC004 preview blob SHA"
+    }
   },
   "audio": {
     "status": "complete",
@@ -89,5 +80,5 @@
     ],
     "missing": []
   },
-  "rule": "Canonical characters are complete and BG/FG pass quality gate; only preview recomposition remains."
+  "rule": "Canonical character/environment layers and exact accepted preview blob pass the active visual-quality gate."
 }
