@@ -27,3 +27,23 @@ The two GitHub-source Python algorithms and their test logic were reconstructed 
 - Next steps require transfer of real source WebP bytes to image runtime, production of physical lossless face-right candidates and 720×1280 composites, publication through the connected GitHub write API, then image/identity/wardrobe/facing/continuity QA before updating `visual_manifest.json`, `media_status.json`, batch counters and queue.
 
 All repository commits were made with `[skip ci]`, and no GitHub Actions were started.
+
+## Live GitHub pin verification and unified local runner — 2026-10-11
+
+Verified against the live `uysalayhan23/newChinese` `main` Git tree **after** the current SHA-pinning commits:
+- 16 HSK6 four-layer preview scenes × 4 assets = **64/64 source blob SHAs match** `tools/hsk6_ready_preview_blobs.json` (no drift).
+- **16/16** HSK6 preview scene ID, location ID, ordered characters, outfits, and speech/face directions match `tools/hsk6_ready_preview_identity_pins.json`.
+- **20/20** proposed canonical face-right actor scene ID, location ID, ordered characters, outfits, and directions match `tools/hsk6_face_right_identity_pins.json`.
+- Existing HSK6_SC041 and SC047 preview candidates share SHA `824ed1f02e5f3a15b5889cc7db5e4349c5a4f68f` and are **941×1672 source reuse**, not newly composed exact 720×1280 WebPs. 14 of the 16 preview-ready scenes have no preview file.
+
+`tools/run_hsk6_visual_staging.py` was committed to unify the two **existing** production tools into one local `main` checkout operation. It runs the original offline test suites, performs a fail-closed preflight, produces 20 lossless face-right cutout candidates and 16 exact 720×1280 previews, then (with `--publish`) commits/pushes only those outputs plus their SHA-provenance manifests. It does **not** mark scenes visually accepted.
+
+The isolated Python environment cannot fetch private canonical GitHub binaries due to unavailable DNS/network routing. No new canonical visual binaries were generated, uploaded, or accepted by the runner in this session. Static connector-side SHA/identity verification **does not count** as successful execution of the original offline Python test suites or independent rendered visual QA. Prior isolated synthetic replays are separate evidence.
+
+Run from a **clean local clone** with Pillow installed, Git remote `origin` matching `uysalayhan23/newChinese`, and a verified `main` checkout:
+
+```bash
+python tools/run_hsk6_visual_staging.py --publish
+```
+
+All commit messages include `[skip ci]`. No GitHub Actions were executed. Status remains HSK6 **128/250 physically present, 0/50 visually accepted**.
