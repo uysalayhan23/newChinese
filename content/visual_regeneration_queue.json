@@ -669,8 +669,8 @@
         ]
       },
       "offlineTestsCommitted": true,
-      "offlineTestsExecuted": false,
-      "notes": "HSK6 main live verification 64/64 canonical input SHA, 16/16 preview scene identity, 20/20 face-right identity. Unified Actions-free local runner committed. Binary transfer from GitHub connector to isolated Pillow runtime still blocked; no newly generated WebP assets or acceptance.",
+      "offlineTestsExecuted": true,
+      "notes": "GitHub source SHA 64/64, preview identity 16/16, actor identity 20/20. Current GitHub byte-identical Python scripts/tests executed locally: 7/7 + 11/11 PASSED on synthetic WebP fixtures. Canonical WebP binary transfer to isolated Pillow runtime remains blocked; real preview/actor generation and acceptance pending.",
       "offlineSyntheticReplay": {
         "date": "2026-10-11",
         "candidateSuite": "7/7 passed",
@@ -694,6 +694,21 @@
         "physicalPreviewFilesProducedByRunner": 0,
         "physicalFaceRightCandidatesProducedByRunner": 0,
         "scope": "current live GitHub main: static blob SHA and manifest comparison only; not full Pillow checkout QA"
+      },
+      "offlineByteIdenticalSourceTests": {
+        "date": "2026-10-11",
+        "localPython": "Pillow 12.3.0",
+        "originalGitHubScriptsAndTestsShaVerified": true,
+        "candidateTestSuite": "7/7 passed",
+        "previewTestSuite": "11/11 passed",
+        "total": "18/18 passed",
+        "syntheticWebPFixturesOnly": true,
+        "completeCheckoutTested": false,
+        "canonicalBinaryTransferSucceeded": false,
+        "generatedNewCanonicalWebps": 0,
+        "uploadedNewCanonicalWebps": 0,
+        "actionsUsed": false,
+        "evidence": "docs/HSK6_OFFLINE_TEST_EVIDENCE_20261011.md"
       }
     }
   }
