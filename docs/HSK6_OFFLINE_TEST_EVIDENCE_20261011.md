@@ -47,3 +47,27 @@ python tools/run_hsk6_visual_staging.py --publish
 ```
 
 All commit messages include `[skip ci]`. No GitHub Actions were executed. Status remains HSK6 **128/250 physically present, 0/50 visually accepted**.
+
+## Byte-identical repository Python tests executed — 2026-10-11
+
+A fresh isolated Pillow 12.3.0 environment was populated with **byte-identical source and test Python files** from current `main`. Each local Git blob SHA-1 was compared to the actual GitHub blob (all five match):
+
+| Source / test | GitHub and local identical blob SHA |
+|---|---|
+| `tools/prepare_hsk6_face_right_candidates.py` | `307ad1ae37f94919f0b4e1e87010199b11f6b627` |
+| `tools/compose_hsk6_ready_previews.py` | `6f0a1f1c96f8548a7ae1d3695a552a5a05d5e75d` |
+| `tools/visual_quality.py` | `89c69129a7ccdb049adfcf2008dfba3a7a6a57d1` |
+| `tools/tests/test_prepare_hsk6_face_right_candidates.py` | `e1d606d9fb8bc95cef006be66670b334280052fc` |
+| `tools/tests/test_compose_hsk6_ready_previews.py` | `d44070c42af48eaa9a130c676e502d234d2d44a0` |
+
+The **original repository tests**, not recreated implementations, ran in the isolated local Python environment:
+
+- `python -m unittest discover -s tools/tests -p 'test_prepare_hsk6_face_right_candidates.py' -v` — **7/7 PASSED**.
+- `python -m unittest discover -s tools/tests -p 'test_compose_hsk6_ready_previews.py' -v` — **11/11 PASSED**.
+- Total **18/18 PASSED**. The suites use their own synthetic WebP fixtures. The compositor test really writes and decodes a 720×1280 synthetic WebP while leaving acceptance unchanged. This verifies the same committed Python source code; it **is not** a full Git checkout with canonical binary art.
+
+The first attempt at the candidate suite tested the historical source SHA `5209c022ce02e9dd313287626308e0cb196a3018` and failed 3/7 identity-pin cases. That is an **older revision**, not the current `main` code. Repeating with live `main` SHA `307ad1ae...` passed 7/7. No new bug fix to that code was required.
+
+Separate live GitHub static checks: **64/64** pinned input WebP blobs, **16/16** ready-preview identity/wardrobe/facing/location pins and **20/20** face-right target identity pins match. The combined Actions-free runner is `tools/run_hsk6_visual_staging.py`; it is committed but cannot execute against real canonical WebPs in this isolated network-restricted container.
+
+**No newly generated canonical preview or face-right WebP binary was uploaded.** HSK6 remains 128/250 physical WebPs and 0/50 accepted. No Actions were run. All commits use `[skip ci]`.
