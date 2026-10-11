@@ -670,7 +670,7 @@
       },
       "offlineTestsCommitted": true,
       "offlineTestsExecuted": false,
-      "notes": "20/20 independent scene/identity/location/wardrobe/face pins verified against live GitHub manifests. Offline synthetic local replay 7/7 + 11/11 passed, not byte-exact checkout. Physical candidate/previews remain pending, Actions unused. 12 legacy wardrobe provenance conflicts still require visual QA.",
+      "notes": "HSK6 main live verification 64/64 canonical input SHA, 16/16 preview scene identity, 20/20 face-right identity. Unified Actions-free local runner committed. Binary transfer from GitHub connector to isolated Pillow runtime still blocked; no newly generated WebP assets or acceptance.",
       "offlineSyntheticReplay": {
         "date": "2026-10-11",
         "candidateSuite": "7/7 passed",
@@ -680,6 +680,20 @@
         "physicalCanonicalImagesGenerated": 0,
         "physicalCanonicalPreviewGenerated": 0,
         "report": "docs/HSK6_OFFLINE_TEST_EVIDENCE_20261011.md"
+      },
+      "unifiedOfflineRunner": "tools/run_hsk6_visual_staging.py",
+      "runnerExecutionStatus": "committed-not-yet-executed-with-canonical-binary-files",
+      "liveGitHubAudit": {
+        "date": "2026-10-11",
+        "sourceBlobsChecked": 64,
+        "sourceBlobsMatched": 64,
+        "previewIdentityManifestMatches": 16,
+        "previewIdentityTotal": 16,
+        "faceRightIdentityManifestMatches": 20,
+        "faceRightIdentityTotal": 20,
+        "physicalPreviewFilesProducedByRunner": 0,
+        "physicalFaceRightCandidatesProducedByRunner": 0,
+        "scope": "current live GitHub main: static blob SHA and manifest comparison only; not full Pillow checkout QA"
       }
     }
   }
