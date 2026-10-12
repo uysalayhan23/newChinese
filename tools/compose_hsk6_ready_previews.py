@@ -127,7 +127,12 @@ def compose(scene: int, root: Path = ROOT, *, replace: bool = False) -> tuple[Pa
         canvas.alpha_composite(layer.resize((w, h), Image.Resampling.LANCZOS), (x, y))
     # Foreground is the nearest depth layer, so composite it after actors.
     with Image.open(paths["foreground"]) as fg:
+        if fg.getbands()[-1] != "A":
+            raise ValueError("foreground must have an alpha channel")
         overlay = fg.convert("RGBA").resize(TARGET, Image.Resampling.LANCZOS)
+        alpha_min, alpha_max = overlay.getchannel("A").getextrema()
+        if alpha_min == 255 or alpha_max == 0:
+            raise ValueError("foreground must have a usable transparent depth layer")
         canvas.alpha_composite(overlay)
     output.parent.mkdir(parents=True, exist_ok=True)
     canvas.convert("RGB").save(output, "WEBP", quality=92, method=6)
