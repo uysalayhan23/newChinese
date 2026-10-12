@@ -32,7 +32,7 @@ This document records the actual local production and gate results. Binary WebP 
 Do not run GitHub Actions. Use `[skip ci]` in commit messages. Preserve locked scene dialogue, locations, identity pins, and source canonical layers.
 
 ## 2026-10-12 follow-up: repo-ready 12-preview package and remote blob check
-A new staging ZIP, `NewChinese_HSK6_12_Previews_Repo_Ready_STAGING.zip`, contains exact repository-relative paths for **12 WebP preview files + 12 provenance `visual_manifest.json` files**, along with package QA metadata. The package passed a ZIP CRC check and each of the 12 physical previews was independently decoded with Pillow and checked against its staged SHA, byte count, and exact 720x1280 resolution. Scene `status` is preserved as pending; the package is NOT an acceptance marker.
+**SUPERSEDED / DO NOT APPLY ITS MANIFESTS:** The earlier `NewChinese_HSK6_12_Previews_Repo_Ready_STAGING.zip` contained 12 reconstructed `visual_manifest.json` files. Those files preserve only a subset of the real repository's fields, and would delete protected metadata such as `cameraPreset`, `lightingPreset`, and `activeSpeakerBubble` if uploaded as replacements. The 12 WebP files in that archive passed CRC, SHA, Pillow and exact 720x1280 checks, but the accompanying manifest files are UNSAFE for direct overwrite. All outputs remain staging-only and QA-pending.
 
 | Scene | Local preview Git blob SHA-1 | Bytes |
 |---|---|---:|
@@ -50,3 +50,18 @@ A new staging ZIP, `NewChinese_HSK6_12_Previews_Repo_Ready_STAGING.zip`, contain
 | HSK6_SC050 | `e117ed2b699e1300e4b02e60356782ab385c9185` | 304096 |
 
 These 12 paths contain **7 unique output WebP blobs**. A read-only GitHub `get blob by SHA` verification found **0/7 already exist** in the remote repository (all returned 404), so simply pointing a Git tree to those SHAs is not a valid publication method. Actual binary blob upload remains necessary. This is an explicit **remote upload pending** gate, not permission to commit simulated assets or overwrite canonical identity locks. GitHub Actions were not used.
+
+
+## 2026-10-12 safe package revision: preserve full scene manifests
+
+The replacement `NewChinese_HSK6_12_Previews_SAFE_STAGING.zip` contains:
+- Twelve original physical preview WebP files only, in exact `content/hsk6/scNNN/assets/` relative paths;
+- `preview_provenance_patches.json` containing *only* per-scene `previewComposition` additions and expected WebP SHA;
+- `SHA_VERIFICATION.json` and a safety README;
+- **Zero replacement `visual_manifest.json` files**.
+
+Local QA re-checked all 12 WebP files as 720x1280, validated their Git blob SHA-1 values and source provenance, and verified ZIP CRC. There are 7 unique preview blobs across the 12 scenes.
+
+**Mandatory publication ordering:** (1) physically upload each preview binary and verify its exact GitHub-returned blob SHA; (2) fetch that scene's CURRENT live `visual_manifest.json` from `main`, preserving all existing fields; (3) merge ONLY the relevant `previewComposition` field, then update with `[skip ci]` under SHA concurrency protection. Never replace full manifests from either staging ZIP. Preserve all character, location, camera, lighting, active-speaker, status and locked dialogue metadata.
+
+As of this report, no physical preview WebP has been verified uploaded to the remote. Do not mark any scene as accepted solely on these technical checks. The four identity-blocked previews and 20 unaccepted face-right candidates remain out of this safe media package. GitHub Actions not used.
