@@ -21,7 +21,7 @@ class CanonicalImportTests(unittest.TestCase):
         Image.new("RGBA", (30, 40), (5, 6, 7, 25)).save(buf, "WEBP", lossless=True)
         self.raw = buf.getvalue()
         self.b64 = base64.b64encode(self.raw).decode("ascii")
-        self.sha = hashlib.sha1(f"blob {len(self.raw)}\\0".encode() + bytes([0]) + self.raw).hexdigest()
+        self.sha = hashlib.sha1(("blob " + str(len(self.raw))).encode() + bytes([0]) + self.raw).hexdigest()
 
     def test_valid_webp(self):
         self.assertEqual(decode_verified_webp(self.b64, self.sha), self.raw)
@@ -36,7 +36,7 @@ class CanonicalImportTests(unittest.TestCase):
 
     def test_not_a_webp(self):
         raw = b"not-webp"
-        sha = hashlib.sha1(f"blob {len(raw)}\\0".encode() + bytes([0]) + raw).hexdigest()
+        sha = hashlib.sha1(("blob " + str(len(raw))).encode() + bytes([0]) + raw).hexdigest()
         with self.assertRaises(Exception):
             decode_verified_webp(base64.b64encode(raw).decode(), sha)
 
