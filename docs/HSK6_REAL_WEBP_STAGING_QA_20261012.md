@@ -65,3 +65,20 @@ Local QA re-checked all 12 WebP files as 720x1280, validated their Git blob SHA-
 **Mandatory publication ordering:** (1) physically upload each preview binary and verify its exact GitHub-returned blob SHA; (2) fetch that scene's CURRENT live `visual_manifest.json` from `main`, preserving all existing fields; (3) merge ONLY the relevant `previewComposition` field, then update with `[skip ci]` under SHA concurrency protection. Never replace full manifests from either staging ZIP. Preserve all character, location, camera, lighting, active-speaker, status and locked dialogue metadata.
 
 As of this report, no physical preview WebP has been verified uploaded to the remote. Do not mark any scene as accepted solely on these technical checks. The four identity-blocked previews and 20 unaccepted face-right candidates remain out of this safe media package. GitHub Actions not used.
+
+
+## 2026-10-12 verified remote binary upload closure (supersedes pending statements above)
+
+**12/12 physical preview WebPs are now present on GitHub `main`.** This supersedes earlier historical notes in this report that said the previews had not been uploaded.
+
+1. The actual WebP bytes were bridged from the local Pillow output to GitHub's base64 `create_blob` API, using temporary conversation-file reads. All **7/7 unique Git blob SHA-1 values matched exactly**, with no binary regeneration.
+2. A 12-entry Git tree was built on the existing repository tree and committed to `main` as **`1d21d29b8f062ae07e0a17ff302b6e1fd2912c26`**: `Stage 12 SHA-verified HSK6 720x1280 preview WebPs for QA [skip ci]`.
+3. All 12 preview files were re-fetched from GitHub `main` using `encoding=base64` and their remote SHA values checked against the physical locally generated preview SHAs (**12/12 PASS**).
+4. The CURRENT existing 12 `visual_manifest.json` files were separately fetched from `main`; scene IDs, location, characters, wardrobe and orientation were checked against independent locks; `previewComposition` was appended without altering existing fields. Commit **`e17f373a9927597227a6dda23ea8901a57feb889`**: `Record provenance for 12 staged HSK6 previews without changing scene acceptance [skip ci]`.
+5. All 12 remote manifests were fetched again and verified with **12/12 provenance PASS**, retaining `cameraPreset`, `lightingPreset`, `activeSpeakerBubble`, `characters`, `locationId`, and scene `status="visual-assets-pending"`.
+
+**Remote-stage scenes:** HSK6_SC002, SC006, SC008, SC012, SC018, SC022, SC024, SC028, SC030, SC044, SC046, SC050. Exactly 12 previews at 720x1280 WebP; 7 unique binary blobs. These are physical QA-staged previews, **not accepted scene closures**.
+
+**Still blocked:** SC041, SC043, SC047, SC049 require independent canonical identity approval/repair before the previews can pass the quality gate. The 20 mirrored `face_right` candidate WebPs remain generated locally but **unapproved** for visual handedness/pose/continuity; they were NOT published to GitHub. Do not bypass the gate or overwrite locked sources.
+
+All commits used `[skip ci]`; no GitHub Actions were invoked.
