@@ -87,6 +87,30 @@ class HSK6PreviewTests(unittest.TestCase):
         # Behind-actor foreground would leave the opaque red actor near 200.
         self.assertLess(red, 185)
 
+    def test_refuses_opaque_foreground_without_acceptance(self):
+        # An opaque FG would hide the actors when drawn at correct depth.
+        filename = self.base / self.files["foreground"]
+        Image.new("RGB", (941, 1672), (50, 60, 70)).save(filename, "WEBP")
+        # Re-pin the altered input so transparency, not the SHA guard, fails.
+        pin_file = self.root / "tools/hsk6_ready_preview_blobs.json"
+        pins = json.loads(pin_file.read_text())
+        pins["scenes"]["002"][filename.name] = p.git_blob_sha1(filename)
+        pin_file.write_text(json.dumps(pins))
+        with self.assertRaisesRegex(ValueError, "foreground must have an alpha channel"):
+            p.compose(2, self.root)
+        self.assertFalse((self.base / self.files["preview"]).exists())
+
+    def test_refuses_invisible_foreground_without_acceptance(self):
+        filename = self.base / self.files["foreground"]
+        Image.new("RGBA", (941, 1672), (0, 0, 0, 0)).save(filename, "WEBP", lossless=True)
+        pin_file = self.root / "tools/hsk6_ready_preview_blobs.json"
+        pins = json.loads(pin_file.read_text())
+        pins["scenes"]["002"][filename.name] = p.git_blob_sha1(filename)
+        pin_file.write_text(json.dumps(pins))
+        with self.assertRaisesRegex(ValueError, "usable transparent depth layer"):
+            p.compose(2, self.root)
+        self.assertFalse((self.base / self.files["preview"]).exists())
+
     def test_refuses_unpinned_face_direction_change(self):
         changed = json.loads((self.base / "visual_manifest.json").read_text())
         changed["characters"][0]["speechBubbleAnchor"] = "face_left"
