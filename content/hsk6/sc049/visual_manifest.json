@@ -28,5 +28,36 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-pending",
+  "previewComposition": {
+    "method": "hsk6_approved_canonical_layer_replacement_layout_v2",
+    "inputBlobs": {
+      "background": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+      "characterA": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "characterB": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "foreground": "7fd1642711f0b3e70da53902f0a7fd4949f0f4b8"
+    },
+    "previewBlob": "768d90c9b2a4a5cc845860874c38d8a69a7364c1",
+    "placement": {
+      "characterA_xc": 0.29,
+      "characterB_xc": 0.74,
+      "mirrored": false
+    },
+    "sourceCharacterAssets": {
+      "characterA": "content/hsk6/sc012/assets/hsk6_sc012_char_li_na.webp",
+      "characterB": "content/hsk6/sc002/assets/hsk6_sc002_char_zhang_wei.webp"
+    },
+    "review": "preview physical QA passed; scene acceptance remains pending"
+  },
+  "previewNormalization": {
+    "actual": [
+      720,
+      1280
+    ],
+    "target": [
+      720,
+      1280
+    ],
+    "status": "completed"
+  }
 }

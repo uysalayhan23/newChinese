@@ -30,32 +30,34 @@
   },
   "status": "visual-quality-pending",
   "previewComposition": {
-    "method": "exact-four-layer-canonical-preview-blob-reuse",
-    "sourceScene": "HSK2_SC040",
+    "method": "hsk6_approved_canonical_layer_replacement_layout_v2",
     "inputBlobs": {
       "background": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
-      "characterA": "052e3d74becbd8376eceeb96bf28adf417b6fbc8",
-      "characterB": "316717c873fade2a1e98564bdf6ac037e7cc354e",
+      "characterA": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "characterB": "44a7a521b7fa64466111c30f6830904081c3767d",
       "foreground": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
     },
-    "previewBlob": "824ed1f02e5f3a15b5889cc7db5e4349c5a4f68f",
-    "review": "pending_exact_720x1280_normalization_and_scene_continuity"
+    "previewBlob": "e09aa94f41e6f8be79dcf950a30f63ad88cd17ce",
+    "placement": {
+      "characterA_xc": 0.47,
+      "characterB_xc": 0.79,
+      "mirrored": false
+    },
+    "sourceCharacterAssets": {
+      "characterA": "content/hsk6/sc012/assets/hsk6_sc012_char_li_na.webp",
+      "characterB": "content/hsk6/sc002/assets/hsk6_sc002_char_zhang_wei.webp"
+    },
+    "review": "preview physical QA passed; scene acceptance remains pending"
   },
   "previewNormalization": {
     "actual": [
-      941,
-      1672
+      720,
+      1280
     ],
     "target": [
       720,
       1280
     ],
-    "status": "pending"
-  },
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk6_sc041_preview.webp",
-      "reason": "exact_720x1280_preview_pending; high_resolution_941x1672_candidate_staged"
-    }
-  ]
+    "status": "completed"
+  }
 }
