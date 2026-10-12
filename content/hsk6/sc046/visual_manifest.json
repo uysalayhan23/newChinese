@@ -28,5 +28,15 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-pending",
+  "previewComposition": {
+    "method": "hsk6_deterministic_alpha_composite_v1",
+    "inputBlobs": {
+      "background": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "foreground": "7fd1642711f0b3e70da53902f0a7fd4949f0f4b8"
+    },
+    "previewBlob": "4defc756632221415ce0cfb483d1effa55d6afc8"
+  }
 }
