@@ -106,9 +106,6 @@ def compose(scene: int, root: Path = ROOT, *, replace: bool = False) -> tuple[Pa
         return output, directory / "visual_manifest.json"
     with Image.open(paths["background"]) as bg:
         canvas = bg.convert("RGBA").resize(TARGET, Image.Resampling.LANCZOS)
-    with Image.open(paths["foreground"]) as fg:
-        overlay = fg.convert("RGBA").resize(TARGET, Image.Resampling.LANCZOS)
-        canvas.alpha_composite(overlay)
     bounds = []
     for role, xc in (("characterA", 0.285), ("characterB", 0.715)):
         with Image.open(paths[role]) as img:
@@ -128,6 +125,10 @@ def compose(scene: int, root: Path = ROOT, *, replace: bool = False) -> tuple[Pa
                 raise ValueError(f"character bounding boxes overlap excessively: {overlap}px")
         bounds.append((x, w))
         canvas.alpha_composite(layer.resize((w, h), Image.Resampling.LANCZOS), (x, y))
+    # Foreground is the nearest depth layer, so composite it after actors.
+    with Image.open(paths["foreground"]) as fg:
+        overlay = fg.convert("RGBA").resize(TARGET, Image.Resampling.LANCZOS)
+        canvas.alpha_composite(overlay)
     output.parent.mkdir(parents=True, exist_ok=True)
     canvas.convert("RGB").save(output, "WEBP", quality=92, method=6)
     with Image.open(output) as created:
