@@ -111,6 +111,18 @@ class HSK6CandidateTests(unittest.TestCase):
             prep.prepare(self.root)
         self.assertFalse(prep.target_path(1, prep.SCENE_ACTORS[1], self.root).exists())
 
+    def test_rgb_cutout_is_rejected_before_writing_candidates(self):
+        source, _sha, outfit = prep.SOURCES["CHAR_WANG_MING_001"]
+        filename = self.root / source
+        Image.new("RGB", (600, 900), (80, 110, 140)).save(
+            filename, "WEBP", lossless=True)
+        prep.SOURCES["CHAR_WANG_MING_001"] = (
+            source, prep.git_blob_sha1(filename), outfit)
+        with self.assertRaisesRegex(ValueError, "alpha channel"):
+            prep.prepare(self.root)
+        self.assertFalse(prep.target_path(
+            1, prep.SCENE_ACTORS[1], self.root).exists())
+
     def test_bad_sha_blocks_all_candidates(self):
         spec = prep.SOURCES["CHAR_WANG_MING_001"]
         prep.SOURCES["CHAR_WANG_MING_001"] = (spec[0], "0" * 40, spec[2])
