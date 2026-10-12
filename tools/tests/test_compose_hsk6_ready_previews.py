@@ -78,6 +78,15 @@ class HSK6PreviewTests(unittest.TestCase):
                          p.git_blob_sha1(preview))
         self.assertEqual(len(recorded["previewComposition"]["inputBlobs"]), 4)
 
+    def test_foreground_is_composited_over_character_feet(self):
+        # Regression: a foreground railing/floor must remain in front of actors.
+        # The fixture paints a semitransparent dark foreground across the bottom.
+        preview, _ = p.compose(2, self.root)
+        with Image.open(preview) as img:
+            red, _green, _blue = img.convert("RGB").getpixel((205, 1200))
+        # Behind-actor foreground would leave the opaque red actor near 200.
+        self.assertLess(red, 185)
+
     def test_refuses_unpinned_face_direction_change(self):
         changed = json.loads((self.base / "visual_manifest.json").read_text())
         changed["characters"][0]["speechBubbleAnchor"] = "face_left"
