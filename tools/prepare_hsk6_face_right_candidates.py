@@ -61,7 +61,10 @@ def preflight(root: Path, overwrite: bool) -> dict[str, Image.Image]:
         with Image.open(path) as img:
             if img.format != "WEBP":
                 raise ValueError(f"source is not WebP: {path}")
-            if img.getextrema()[-1][0] == 255 or img.getextrema()[-1][1] == 0:
+            if "A" not in img.getbands():
+                raise ValueError(f"source must have an alpha channel: {path}")
+            alpha_min, alpha_max = img.getchannel("A").getextrema()
+            if alpha_min == 255 or alpha_max == 0:
                 raise ValueError(f"source must have a usable transparent silhouette: {path}")
             sources[identity] = img.convert("RGBA").copy()
     pin_file = root / "tools/hsk6_face_right_identity_pins.json"
