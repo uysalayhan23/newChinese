@@ -24,7 +24,38 @@
     "baselineThrough": "HSK5_SC005",
     "regenerateFrom": "HSK5_SC006",
     "rule": "HSK5_SC006 onward character assets are accepted only when they match approved canonical Git blob SHA-1 values or scene-specific approved SHA-256 values.",
-    "approvedCharacterSha256": {},
+    "approvedCharacterSha256": {
+      "HSK6_SC011": [
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+      ],
+      "HSK6_SC013": [
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+      ],
+      "HSK6_SC015": [
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+      ],
+      "HSK6_SC017": [
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+      ],
+      "HSK6_SC019": [
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+      ],
+      "HSK6_SC021": [
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+      ],
+      "HSK6_SC023": [
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+      ],
+      "HSK6_SC025": [
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+      ],
+      "HSK6_SC027": [
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+      ],
+      "HSK6_SC029": [
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+      ]
+    },
     "approvedCanonicalGitBlobSha1": [
       "44a7a521b7fa64466111c30f6830904081c3767d",
       "b617cef41d4adeb331f126284a2039dd33868a99",

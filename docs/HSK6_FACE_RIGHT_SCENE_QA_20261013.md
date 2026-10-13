@@ -18,3 +18,12 @@ All 20 image targets were absent on `main` before this audit. The candidate sour
 - Do not substitute the left-facing mirrored Wang Ming outputs for the right-facing approved canonical source.
 
 All writes must include `[skip ci]`; do not start GitHub Actions or force-push.
+
+## 2026-10-13 publication and scene-specific identity approval
+
+The ten previously-pending mirrored characterA layers were physically stored as exact GitHub WebP blobs with verified SHA-1, checked for Pillow decoding, intact RGBA alpha and pixel-exact mirroring from the pinned canonical sources, and reviewed for right-facing orientation and locked outfits.
+
+- Liu Mei: SC011/013/015/017/019 — blob `1944d13b2565d618ad183da64fd33ef68a11191a`, per-scene SHA-256 `a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834`.
+- Chen Yu: SC021/023/025/027/029 — blob `55885be8637e7df4b7ff300a710ed9d1b6f78847`, per-scene SHA-256 `5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956`.
+
+All ten characterA paths and **only** their ten scene-specific `approvedCharacterSha256[HSK6_SCxxx]` array entries were committed atomically on `main` with `[skip ci]`. The global approved canonical blob list, all twenty visual manifests, all sixteen preview files, dialogue, camera and lighting metadata, and all scene acceptance statuses remain untouched. `identityRegeneration.status` remains `required` for other assets; the SHA-256 exception is limited to the ten exact files and scene IDs. No Actions were triggered. Remaining scene BG/FG/preview QA is a separate acceptance gate.
