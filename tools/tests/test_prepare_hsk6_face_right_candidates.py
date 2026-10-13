@@ -90,8 +90,23 @@ class HSK6CandidateTests(unittest.TestCase):
             with Image.open(target) as im:
                 self.assertEqual(im.size, (600, 900))
                 rgba = im.convert("RGBA")
-                self.assertEqual(rgba.getpixel((490, 300))[3], 255)
-                self.assertEqual(rgba.getpixel((80, 300))[3], 0)
+                if identity == "CHAR_WANG_MING_001":
+                    self.assertEqual(rgba.getpixel((490, 300))[3], 0)
+                    self.assertEqual(rgba.getpixel((80, 300))[3], 255)
+                else:
+                    self.assertEqual(rgba.getpixel((490, 300))[3], 255)
+                    self.assertEqual(rgba.getpixel((80, 300))[3], 0)
+
+    def test_wang_ming_right_facing_source_is_copied_exactly(self):
+        source_path = self.root / prep.SOURCES["CHAR_WANG_MING_001"][0]
+        source_bytes = source_path.read_bytes()
+        prep.prepare(self.root)
+        for scene, identity in prep.SCENE_ACTORS.items():
+            if identity == "CHAR_WANG_MING_001":
+                target = prep.target_path(scene, identity, self.root)
+                self.assertEqual(target.read_bytes(), source_bytes)
+                self.assertEqual(prep.git_blob_sha1(target),
+                                 prep.git_blob_sha1(source_path))
 
     def test_refuses_to_overwrite_any_existing_actor(self):
         target = prep.target_path(1, prep.SCENE_ACTORS[1], self.root)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build HSK6 twenty face-right *candidates* from canonical face-left WebPs.
+"""Build HSK6 face-right layers, reusing approved Wang Ming unmirrored.
 
 No Actions, no image upscaling, no identity recreation, no metadata acceptance.
 Run in the checked-out repository with Pillow installed:
@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 from pathlib import Path
 
 from PIL import Image, ImageOps
@@ -108,12 +109,19 @@ def preflight(root: Path, overwrite: bool) -> dict[str, Image.Image]:
 
 def prepare(root: Path = ROOT, *, overwrite: bool = False) -> list[str]:
     source_images = preflight(root, overwrite)
-    mirrored = {k: ImageOps.mirror(v) for k, v in source_images.items()}
+    # The approved Wang Ming cutout already faces RIGHT. Mirroring it would
+    # introduce an incorrect LEFT-facing candidate and lose its approved blob SHA.
+    mirrored = {k: ImageOps.mirror(v) for k, v in source_images.items()
+                if k != "CHAR_WANG_MING_001"}
     outputs = []
     for scene, identity in SCENE_ACTORS.items():
         destination = target_path(scene, identity, root)
         destination.parent.mkdir(parents=True, exist_ok=True)
-        mirrored[identity].save(destination, "WEBP", lossless=True, method=6)
+        if identity == "CHAR_WANG_MING_001":
+            # Exact byte reuse preserves canonical identity and orientation.
+            shutil.copyfile(root / SOURCES[identity][0], destination)
+        else:
+            mirrored[identity].save(destination, "WEBP", lossless=True, method=6)
         with Image.open(destination) as decoded:
             if decoded.format != "WEBP" or decoded.size != source_images[identity].size:
                 raise ValueError(f"candidate failed WebP verification: {destination}")
@@ -131,8 +139,8 @@ def main() -> None:
     args = parser.parse_args()
     for line in prepare(overwrite=args.replace_candidates):
         print(line)
-    print("20 candidates physically prepared, NOT approved or accepted."
-          " Independently check identity, wardrobe, mirroring and continuity.")
+    print("20 face-right layers staged. Wang Ming reuses approved canonical bytes;"
+          " Liu Mei/Chen Yu mirrored outputs remain QA candidates. No scene accepted.")
 
 
 if __name__ == "__main__":
