@@ -6,7 +6,7 @@ Source commit: `8e492e69e9751ccb34ce964f109cdb11242139e7`. Branch: `main`.
 - Exact approved source: `content/hsk6/sc002/assets/hsk6_sc002_char_zhang_wei.webp`, Git blob `44a7a521b7fa64466111c30f6830904081c3767d`.
 - Independent Pillow transformation: ImageOps.mirror(original.convert("RGBA")); WebP lossless method 6; verified `600x900` and nontrivial RGBA alpha.
 - Pixel-exact mirror verification passed. Candidate Git blob `717828100874a371def695365e29b7c946147b4d`; SHA-256 `4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a`. GitHub create_blob returned this exact SHA.
-- 20 live odd-scene `visual_manifest.json` character identities, canonical outfit, facing anchors, scene locations, metadata and unchanged pending statuses were checked against `tools/hsk6_face_right_identity_pins.json`; each old characterB was `316717c873fade2a1e98564bdf6ac037e354e` (unapproved).
+- 20 live odd-scene `visual_manifest.json` character identities, canonical outfit, facing anchors, scene locations, metadata and unchanged pending statuses were checked against `tools/hsk6_face_right_identity_pins.json`; each old characterB was `316717c873fade2a1e98564bdf6ac037e7cc354e` (unapproved).
 
 ## Atomic publication scope
 - 20 characterB WebP paths only, pointing at exact Git blob `717828100874a371def695365e29b7c946147b4d`.
