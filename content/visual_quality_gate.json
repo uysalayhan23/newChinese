@@ -26,34 +26,74 @@
     "rule": "HSK5_SC006 onward character assets are accepted only when they match approved canonical Git blob SHA-1 values or scene-specific approved SHA-256 values.",
     "approvedCharacterSha256": {
       "HSK6_SC011": [
-        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC013": [
-        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC015": [
-        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC017": [
-        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC019": [
-        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834"
+        "a91cc9592d1269b3140bcc9acebc516d383c4013f469088a3c360db08845c834",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC021": [
-        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC023": [
-        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC025": [
-        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC027": [
-        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ],
       "HSK6_SC029": [
-        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956"
+        "5097459fdf98cd4e4701edf7820f8ac9601178b1fcb4b3c747c6c2f2bb431956",
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC001": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC003": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC005": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC007": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC009": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC031": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC033": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC035": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC037": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
+      ],
+      "HSK6_SC039": [
+        "4db0a2bb2988f204f0c979e95d9e626fc1a65e702e2d2a21b2611c107249cd2a"
       ]
     },
     "approvedCanonicalGitBlobSha1": [
