@@ -1,0 +1,31 @@
+{
+  "sceneId": "HSK6_SC001",
+  "locationId": "LOC_ZHANG_OFFICE_001",
+  "state": "QA_PENDING",
+  "productionAccepted": false,
+  "stageOnly": true,
+  "background": {
+    "path": "hsk6_sc001_bg.webp",
+    "sha": "df52de129130d06220c250afabec250caf218541",
+    "size": [
+      720,
+      1280
+    ]
+  },
+  "foreground": {
+    "path": "hsk6_sc001_fg.webp",
+    "sha": "ab49f2892127f49189bc800d6e8cd444feb37a15",
+    "size": [
+      720,
+      1280
+    ]
+  },
+  "qualityGate": {
+    "sourceSameLocation": true,
+    "physicalShaVerified": true,
+    "foregroundDepthContinuity": "PENDING",
+    "canonicalIdentityCompositing": "PENDING",
+    "promotion": "BLOCKED"
+  },
+  "releaseRule": "Explicit scene-level visual and continuity review required; never mark accepted just because files exist in staging."
+}

@@ -1,0 +1,31 @@
+{
+  "sceneId": "HSK6_SC035",
+  "locationId": "LOC_ELECTRONICS_STORE_001",
+  "state": "QA_PENDING",
+  "productionAccepted": false,
+  "stageOnly": true,
+  "background": {
+    "path": "hsk6_sc035_bg.webp",
+    "sha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+    "size": [
+      720,
+      1280
+    ]
+  },
+  "foreground": {
+    "path": "hsk6_sc035_fg.webp",
+    "sha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+    "size": [
+      720,
+      1280
+    ]
+  },
+  "qualityGate": {
+    "sourceSameLocation": true,
+    "physicalShaVerified": true,
+    "foregroundDepthContinuity": "PENDING",
+    "canonicalIdentityCompositing": "PENDING",
+    "promotion": "BLOCKED"
+  },
+  "releaseRule": "Explicit scene-level visual and continuity review required; never mark accepted just because files exist in staging."
+}

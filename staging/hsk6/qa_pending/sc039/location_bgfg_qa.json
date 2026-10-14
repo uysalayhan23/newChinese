@@ -1,0 +1,31 @@
+{
+  "sceneId": "HSK6_SC039",
+  "locationId": "LOC_PUBLIC_LIBRARY_001",
+  "state": "QA_PENDING",
+  "productionAccepted": false,
+  "stageOnly": true,
+  "background": {
+    "path": "hsk6_sc039_bg.webp",
+    "sha": "8c3e7732156ba04375c846af6633475264b229a2",
+    "size": [
+      720,
+      1280
+    ]
+  },
+  "foreground": {
+    "path": "hsk6_sc039_fg.webp",
+    "sha": "01c2add740504ca62d55e2226c53d8993e74fcc7",
+    "size": [
+      720,
+      1280
+    ]
+  },
+  "qualityGate": {
+    "sourceSameLocation": true,
+    "physicalShaVerified": true,
+    "foregroundDepthContinuity": "PENDING",
+    "canonicalIdentityCompositing": "PENDING",
+    "promotion": "BLOCKED"
+  },
+  "releaseRule": "Explicit scene-level visual and continuity review required; never mark accepted just because files exist in staging."
+}
