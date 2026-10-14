@@ -1,0 +1,63 @@
+{
+  "auditDate": "2026-10-14",
+  "repo": "uysalayhan23/newChinese",
+  "baseCommit": "cad07cca52d884e2c76121fdb34822dd4fd313d7",
+  "qualityStatus": "STAGING_VISUAL_CANDIDATE_ONLY",
+  "notes": [
+    "New exact 720x1280 WebP composites generated offline from SHA-verified source layers, no locked assets altered.",
+    "Character sprites preserved pixel data except deterministic crop/resize; soft contact shadows drawn underneath and right-hand clipping avoided.",
+    "SC011 and SC017 have distinct placements; physical WebP format checked; source blob SHAs pinned; final scene/story-level QA and acceptance remain pending.",
+    "Wang Ming and Chen Yu sources accessible by Git metadata SHA only; binary image payload retrieval blocked by connector text-only restriction and container network DNS; no unsupported preview acceptance.",
+    "Do not run GitHub Actions. [skip ci] commit. Manifest/audio/dialogue/accepted counts unchanged."
+  ],
+  "sourceBlobs": {
+    "background": "8c3e7732156ba04375c846af6633475264b229a2",
+    "foreground": "01c2add740504ca62d55e2226c53d8993e74fcc7",
+    "characterA": "1944d13b2565d618ad183da64fd33ef68a11191a",
+    "characterB": "717828100874a371def695365e29b7c946147b4d"
+  },
+  "scenes": [
+    {
+      "scene": "011",
+      "sha": "c5081111ea74a107ac866747551f8b93598110ba",
+      "bytes": 218844,
+      "positions": {
+        "liu": [
+          60,
+          357,
+          397,
+          738
+        ],
+        "zhang": [
+          287,
+          465,
+          418,
+          645
+        ]
+      },
+      "accepted": false,
+      "productionPreviewChanged": false
+    },
+    {
+      "scene": "017",
+      "sha": "99dab19197f3f0767cd44eb06af581a51be3ec55",
+      "bytes": 218686,
+      "positions": {
+        "liu": [
+          78,
+          360,
+          408,
+          760
+        ],
+        "zhang": [
+          283,
+          460,
+          421,
+          650
+        ]
+      },
+      "accepted": false,
+      "productionPreviewChanged": false
+    }
+  ]
+}
