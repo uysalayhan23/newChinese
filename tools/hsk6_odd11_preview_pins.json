@@ -1,0 +1,380 @@
+{
+  "purpose": "Locked SHA and identity provenance for HSK6 11 BG/FG-promoted scenes; staging preview only; not accepted",
+  "source": "2026-10-14 main git tree",
+  "scenes": {
+    "001": {
+      "sceneId": "HSK6_SC001",
+      "locationId": "LOC_ZHANG_OFFICE_001",
+      "characters": [
+        {
+          "characterId": "CHAR_WANG_MING_001",
+          "outfit": "OUTFIT_WANG_MING_WORK_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc001/assets/hsk6_sc001_bg.webp",
+          "sha": "df52de129130d06220c250afabec250caf218541"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc001/assets/hsk6_sc001_char_wang_ming.webp",
+          "sha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc001/assets/hsk6_sc001_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc001/assets/hsk6_sc001_fg.webp",
+          "sha": "ab49f2892127f49189bc800d6e8cd444feb37a15"
+        }
+      }
+    },
+    "007": {
+      "sceneId": "HSK6_SC007",
+      "locationId": "LOC_ZHANG_OFFICE_001",
+      "characters": [
+        {
+          "characterId": "CHAR_WANG_MING_001",
+          "outfit": "OUTFIT_WANG_MING_WORK_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc007/assets/hsk6_sc007_bg.webp",
+          "sha": "df52de129130d06220c250afabec250caf218541"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc007/assets/hsk6_sc007_char_wang_ming.webp",
+          "sha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc007/assets/hsk6_sc007_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc007/assets/hsk6_sc007_fg.webp",
+          "sha": "ab49f2892127f49189bc800d6e8cd444feb37a15"
+        }
+      }
+    },
+    "011": {
+      "sceneId": "HSK6_SC011",
+      "locationId": "LOC_PUBLIC_LIBRARY_001",
+      "characters": [
+        {
+          "characterId": "CHAR_LIU_MEI_001",
+          "outfit": "OUTFIT_LIU_MEI_CASUAL_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc011/assets/hsk6_sc011_bg.webp",
+          "sha": "8c3e7732156ba04375c846af6633475264b229a2"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc011/assets/hsk6_sc011_char_liu_mei.webp",
+          "sha": "1944d13b2565d618ad183da64fd33ef68a11191a"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc011/assets/hsk6_sc011_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc011/assets/hsk6_sc011_fg.webp",
+          "sha": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+        }
+      }
+    },
+    "017": {
+      "sceneId": "HSK6_SC017",
+      "locationId": "LOC_PUBLIC_LIBRARY_001",
+      "characters": [
+        {
+          "characterId": "CHAR_LIU_MEI_001",
+          "outfit": "OUTFIT_LIU_MEI_CASUAL_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc017/assets/hsk6_sc017_bg.webp",
+          "sha": "8c3e7732156ba04375c846af6633475264b229a2"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc017/assets/hsk6_sc017_char_liu_mei.webp",
+          "sha": "1944d13b2565d618ad183da64fd33ef68a11191a"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc017/assets/hsk6_sc017_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc017/assets/hsk6_sc017_fg.webp",
+          "sha": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+        }
+      }
+    },
+    "023": {
+      "sceneId": "HSK6_SC023",
+      "locationId": "LOC_NEIGHBORHOOD_001",
+      "characters": [
+        {
+          "characterId": "CHAR_CHEN_YU_001",
+          "outfit": "OUTFIT_CHEN_YU_CASUAL_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc023/assets/hsk6_sc023_bg.webp",
+          "sha": "a0fda64fd0732d378d2648a48d058edfb4fca015"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc023/assets/hsk6_sc023_char_chen_yu.webp",
+          "sha": "55885be8637e7df4b7ff300a710ed9d1b6f78847"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc023/assets/hsk6_sc023_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc023/assets/hsk6_sc023_fg.webp",
+          "sha": "5da1b87d0e43673ce2259c2759c88569f8cae81e"
+        }
+      }
+    },
+    "029": {
+      "sceneId": "HSK6_SC029",
+      "locationId": "LOC_NEIGHBORHOOD_001",
+      "characters": [
+        {
+          "characterId": "CHAR_CHEN_YU_001",
+          "outfit": "OUTFIT_CHEN_YU_CASUAL_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc029/assets/hsk6_sc029_bg.webp",
+          "sha": "a0fda64fd0732d378d2648a48d058edfb4fca015"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc029/assets/hsk6_sc029_char_chen_yu.webp",
+          "sha": "55885be8637e7df4b7ff300a710ed9d1b6f78847"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc029/assets/hsk6_sc029_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc029/assets/hsk6_sc029_fg.webp",
+          "sha": "5da1b87d0e43673ce2259c2759c88569f8cae81e"
+        }
+      }
+    },
+    "031": {
+      "sceneId": "HSK6_SC031",
+      "locationId": "LOC_ZHANG_OFFICE_001",
+      "characters": [
+        {
+          "characterId": "CHAR_WANG_MING_001",
+          "outfit": "OUTFIT_WANG_MING_WORK_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc031/assets/hsk6_sc031_bg.webp",
+          "sha": "df52de129130d06220c250afabec250caf218541"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc031/assets/hsk6_sc031_char_wang_ming.webp",
+          "sha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc031/assets/hsk6_sc031_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc031/assets/hsk6_sc031_fg.webp",
+          "sha": "ab49f2892127f49189bc800d6e8cd444feb37a15"
+        }
+      }
+    },
+    "033": {
+      "sceneId": "HSK6_SC033",
+      "locationId": "LOC_PUBLIC_LIBRARY_001",
+      "characters": [
+        {
+          "characterId": "CHAR_WANG_MING_001",
+          "outfit": "OUTFIT_WANG_MING_WORK_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc033/assets/hsk6_sc033_bg.webp",
+          "sha": "8c3e7732156ba04375c846af6633475264b229a2"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc033/assets/hsk6_sc033_char_wang_ming.webp",
+          "sha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc033/assets/hsk6_sc033_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc033/assets/hsk6_sc033_fg.webp",
+          "sha": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+        }
+      }
+    },
+    "035": {
+      "sceneId": "HSK6_SC035",
+      "locationId": "LOC_ELECTRONICS_STORE_001",
+      "characters": [
+        {
+          "characterId": "CHAR_WANG_MING_001",
+          "outfit": "OUTFIT_WANG_MING_WORK_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc035/assets/hsk6_sc035_bg.webp",
+          "sha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc035/assets/hsk6_sc035_char_wang_ming.webp",
+          "sha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc035/assets/hsk6_sc035_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc035/assets/hsk6_sc035_fg.webp",
+          "sha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061"
+        }
+      }
+    },
+    "037": {
+      "sceneId": "HSK6_SC037",
+      "locationId": "LOC_ZHANG_OFFICE_001",
+      "characters": [
+        {
+          "characterId": "CHAR_WANG_MING_001",
+          "outfit": "OUTFIT_WANG_MING_WORK_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc037/assets/hsk6_sc037_bg.webp",
+          "sha": "df52de129130d06220c250afabec250caf218541"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc037/assets/hsk6_sc037_char_wang_ming.webp",
+          "sha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc037/assets/hsk6_sc037_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc037/assets/hsk6_sc037_fg.webp",
+          "sha": "ab49f2892127f49189bc800d6e8cd444feb37a15"
+        }
+      }
+    },
+    "039": {
+      "sceneId": "HSK6_SC039",
+      "locationId": "LOC_PUBLIC_LIBRARY_001",
+      "characters": [
+        {
+          "characterId": "CHAR_WANG_MING_001",
+          "outfit": "OUTFIT_WANG_MING_WORK_01",
+          "speechBubbleAnchor": "face_right"
+        },
+        {
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+          "speechBubbleAnchor": "face_left"
+        }
+      ],
+      "assets": {
+        "background": {
+          "path": "content/hsk6/sc039/assets/hsk6_sc039_bg.webp",
+          "sha": "8c3e7732156ba04375c846af6633475264b229a2"
+        },
+        "characterA": {
+          "path": "content/hsk6/sc039/assets/hsk6_sc039_char_wang_ming.webp",
+          "sha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+        },
+        "characterB": {
+          "path": "content/hsk6/sc039/assets/hsk6_sc039_char_zhang_wei.webp",
+          "sha": "717828100874a371def695365e29b7c946147b4d"
+        },
+        "foreground": {
+          "path": "content/hsk6/sc039/assets/hsk6_sc039_fg.webp",
+          "sha": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+        }
+      }
+    }
+  }
+}
