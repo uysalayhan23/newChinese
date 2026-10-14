@@ -1,0 +1,30 @@
+{
+  "locationId": "LOC_PUBLIC_LIBRARY_001",
+  "scenes": [
+    "HSK6_SC011",
+    "HSK6_SC017",
+    "HSK6_SC033",
+    "HSK6_SC039"
+  ],
+  "status": "QA_PENDING",
+  "accepted": false,
+  "source": "newly generated 9:16 background candidate and foreground mask extracted from aligned background",
+  "quality": {
+    "physicalWebp720x1280": "verified",
+    "gitBlobSHA": "verified",
+    "identity": "not tested",
+    "sceneContinuity": "pending",
+    "foregroundDepth": "provisional; not approved"
+  },
+  "files": {
+    "background": {
+      "name": "loc_library_bg_candidate.webp",
+      "sha": "8c3e7732156ba04375c846af6633475264b229a2"
+    },
+    "foreground": {
+      "name": "loc_library_fg_candidate.webp",
+      "sha": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+    }
+  },
+  "releaseRule": "Do not copy into content/hsk6 scene assets or update manifest accepted status until visual bible continuity and foreground depth passed"
+}

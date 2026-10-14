@@ -1,0 +1,28 @@
+{
+  "locationId": "LOC_NEIGHBORHOOD_001",
+  "scenes": [
+    "HSK6_SC023",
+    "HSK6_SC029"
+  ],
+  "status": "QA_PENDING",
+  "accepted": false,
+  "source": "newly generated 9:16 background candidate and foreground mask extracted from aligned background",
+  "quality": {
+    "physicalWebp720x1280": "verified",
+    "gitBlobSHA": "verified",
+    "identity": "not tested",
+    "sceneContinuity": "pending",
+    "foregroundDepth": "provisional; not approved"
+  },
+  "files": {
+    "background": {
+      "name": "loc_neighborhood_bg_candidate.webp",
+      "sha": "a0fda64fd0732d378d2648a48d058edfb4fca015"
+    },
+    "foreground": {
+      "name": "loc_neighborhood_fg_candidate.webp",
+      "sha": "5da1b87d0e43673ce2259c2759c88569f8cae81e"
+    }
+  },
+  "releaseRule": "Do not copy into content/hsk6 scene assets or update manifest accepted status until visual bible continuity and foreground depth passed"
+}

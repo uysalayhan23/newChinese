@@ -1,0 +1,27 @@
+{
+  "locationId": "LOC_ELECTRONICS_STORE_001",
+  "scenes": [
+    "HSK6_SC035"
+  ],
+  "status": "QA_PENDING",
+  "accepted": false,
+  "source": "newly generated 9:16 background candidate and foreground mask extracted from aligned background",
+  "quality": {
+    "physicalWebp720x1280": "verified",
+    "gitBlobSHA": "verified",
+    "identity": "not tested",
+    "sceneContinuity": "pending",
+    "foregroundDepth": "provisional; not approved"
+  },
+  "files": {
+    "background": {
+      "name": "loc_electronics_bg_candidate.webp",
+      "sha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48"
+    },
+    "foreground": {
+      "name": "loc_electronics_fg_candidate.webp",
+      "sha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061"
+    }
+  },
+  "releaseRule": "Do not copy into content/hsk6 scene assets or update manifest accepted status until visual bible continuity and foreground depth passed"
+}
