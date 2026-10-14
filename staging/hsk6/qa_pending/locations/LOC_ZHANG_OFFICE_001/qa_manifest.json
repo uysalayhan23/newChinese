@@ -1,0 +1,38 @@
+{
+  "locationId": "LOC_ZHANG_OFFICE_001",
+  "status": "QA_PENDING",
+  "accepted": false,
+  "canonicalApproval": false,
+  "origin": "new 9:16 high-resolution generated background plus alpha foreground cutout of aligned source pixels",
+  "targetScenes": [
+    "HSK6_SC001",
+    "HSK6_SC007",
+    "HSK6_SC031",
+    "HSK6_SC037"
+  ],
+  "files": {
+    "bg": {
+      "name": "loc_office_bg_candidate.webp",
+      "gitBlob": "df52de129130d06220c250afabec250caf218541",
+      "size": [
+        720,
+        1280
+      ]
+    },
+    "fg": {
+      "name": "loc_office_fg_candidate.webp",
+      "gitBlob": "ab49f2892127f49189bc800d6e8cd444feb37a15",
+      "size": [
+        720,
+        1280
+      ]
+    }
+  },
+  "qa": {
+    "physicalFormat": "verified locally",
+    "geometry": "pending scene-level review",
+    "identity": "not applicable to empty background",
+    "remoteSha": "verified before tree",
+    "doNotPromoteWithoutSceneQA": true
+  }
+}
