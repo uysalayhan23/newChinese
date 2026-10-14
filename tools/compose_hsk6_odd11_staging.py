@@ -13,7 +13,7 @@ import json
 from io import BytesIO
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parents[1]
 SIZE = (720, 1280)
@@ -71,6 +71,37 @@ def source_check(root: Path, scene: str, pin: dict) -> dict[str, Image.Image]:
     return layers
 
 
+
+def guard_foreground_visibility(scene: str, foreground: Image.Image,
+                                actor_masks: dict[str, tuple[int, int, Image.Image]]) -> dict:
+    """Reject foreground covering canonical heads, torsos, or speaking gestures.
+
+    Only opacity is compared; irrelevant colors hidden under transparency
+    cannot fail QA. Deliberate bottom-leg floor/prop occlusion is permitted.
+    This geometry check supplements, never replaces, human visual review.
+    """
+    fg_alpha = foreground.getchannel("A").point(lambda v: 255 if v >= 80 else 0)
+    results = {}
+    for role, (x, y, actor_alpha) in actor_masks.items():
+        w, h = actor_alpha.size
+        region_results = {}
+        for region, fraction, limit in (("head", .30, .005),
+                                        ("torso_and_gestures", .75, .02)):
+            end = max(1, round(h * fraction))
+            actor = actor_alpha.crop((0, 0, w, end)).point(
+                lambda v: 255 if v >= 160 else 0)
+            fg = fg_alpha.crop((x, y, x+w, y+end))
+            opaque_actor = actor.histogram()[255]
+            obscured = ImageChops.multiply(actor, fg).histogram()[255]
+            rate = obscured / max(opaque_actor, 1)
+            region_results[region] = round(rate, 6)
+            if rate > limit:
+                raise ValueError(
+                    f"SC{scene}: foreground covers {role} {region} "
+                    f"({rate:.2%} > {limit:.2%}); QA HOLD")
+        results[role] = region_results
+    return results
+
 def stage(scene: str, layers: dict[str,Image.Image], root: Path,
           pin: dict) -> tuple[Path,Path]:
     target = root / "staging" / "hsk6" / "qa_pending" / f"sc{scene}"
@@ -80,6 +111,7 @@ def stage(scene: str, layers: dict[str,Image.Image], root: Path,
         raise FileExistsError(f"SC{scene}: candidate already exists; refusing overwrite")
     canvas = layers["background"].copy()
     positions = {}
+    actor_masks = {}
     for role,frac in (("characterA",.285),("characterB",.715)):
         actor=layers[role]
         bounds=actor.getchannel("A").getbbox()
@@ -96,11 +128,13 @@ def stage(scene: str, layers: dict[str,Image.Image], root: Path,
         if y<0 or w>SIZE[0]:
             raise ValueError(f"SC{scene}: character geometry exceeds frame")
         positions[role]={"x":x,"y":y,"width":w,"height":h}
+        actor_masks[role] = (x, y, actor.getchannel("A"))
         canvas.alpha_composite(actor,(x,y))
     a,b=(positions[r] for r in ("characterA","characterB"))
     overlap=max(0,min(a["x"]+a["width"],b["x"]+b["width"])-max(a["x"],b["x"]))
     if overlap>round(SIZE[0]*.21):
         raise ValueError(f"SC{scene}: actor overlap {overlap}px exceeds limit")
+    visibility = guard_foreground_visibility(scene, layers["foreground"], actor_masks)
     canvas.alpha_composite(layers["foreground"])
     payload=BytesIO()
     canvas.convert("RGB").save(payload,"WEBP",quality=92,method=6)
@@ -115,7 +149,8 @@ def stage(scene: str, layers: dict[str,Image.Image], root: Path,
         "method":"canonical_4_layer_deterministic_compositor_staging_v1",
         "sourceGitBlobs":{r:pin["assets"][r]["sha"] for r in ROLES},
         "previewGitBlob":blob_sha(binary),"previewSha256":hashlib.sha256(binary).hexdigest(),
-        "resolution":[*SIZE],"positions":positions
+        "resolution":[*SIZE],"positions":positions,
+        "foregroundVisibilityQA":visibility
     }
     target.mkdir(parents=True,exist_ok=True)
     preview.write_bytes(binary)

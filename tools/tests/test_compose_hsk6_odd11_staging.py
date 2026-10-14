@@ -100,6 +100,28 @@ class Odd11PreviewTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"missing transparency channel|unusable alpha"):
             c.main(["--root",str(self.root),"--scenes","001"])
 
+    def test_rejects_foreground_over_character_faces(self):
+        filename = self.base / self.paths["foreground"]
+        fg = Image.new("RGBA", c.SIZE, (0, 0, 0, 0))
+        ImageDraw.Draw(fg).rectangle((0, 320, 720, 670),
+                                     fill=(20, 70, 20, 230))
+        fg.save(filename, "WEBP", lossless=True)
+        self.set_pins()
+        with self.assertRaisesRegex(ValueError, "foreground covers characterA head"):
+            c.main(["--root", str(self.root), "--scenes", "001"])
+        self.assertFalse((self.root/"staging").exists())
+
+    def test_rejects_foreground_over_speaking_gestures(self):
+        filename = self.base / self.paths["foreground"]
+        fg = Image.new("RGBA", c.SIZE, (0, 0, 0, 0))
+        ImageDraw.Draw(fg).rectangle((0, 800, 720, 940),
+                                     fill=(20, 70, 20, 160))
+        fg.save(filename, "WEBP", lossless=True)
+        self.set_pins()
+        with self.assertRaisesRegex(ValueError, "foreground covers characterA torso_and_gestures"):
+            c.main(["--root", str(self.root), "--scenes", "001"])
+        self.assertFalse((self.root/"staging").exists())
+
     def test_refuse_replacing_existing_candidate(self):
         c.main(["--root",str(self.root),"--scenes","001"])
         with self.assertRaises(FileExistsError):
