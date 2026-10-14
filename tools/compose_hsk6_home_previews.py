@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Offline, guarded HSK6 SC013/SC019 preview composer. Never changes manifests.
+"""Offline SC013/SC019 *staging-only* candidate composer. Never changes scene assets or manifests.
 
 Usage: python tools/compose_hsk6_home_previews.py
-Requires Pillow and the four existing WebP layers per scene.
+Requires Pillow and the four existing WebP layers per scene.\nCandidate output needs human depth and identity QA; do NOT accept automatically.
 """
 from __future__ import annotations
 
@@ -71,13 +71,14 @@ def build(number: str) -> dict:
     with Image.open(BytesIO(payload)) as decoded:
         if decoded.format != "WEBP" or decoded.size != SIZE:
             raise ValueError(f"{scene}: invalid output")
-    dest = assets / manifest["assets"]["preview"]
+    dest = ROOT / "staging" / "hsk6" / "qa_pending" / f"sc{number}" / f"{scene}_deterministic_candidate.webp"
+    dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.exists():
         raise FileExistsError(f"Refusing to overwrite existing preview: {dest}")
     dest.write_bytes(payload)
     return {"scene": manifest["sceneId"], "preview": str(dest.relative_to(ROOT)),
             "gitBlob": git_sha(payload), "sha256": hashlib.sha256(payload).hexdigest(),
-            "size": list(SIZE), "inputBlobs": EXPECTED.copy(), "acceptance": "QA_PENDING"}
+            "size": list(SIZE), "inputBlobs": EXPECTED.copy(), "acceptance": "QA_PENDING_DEPTH_AND_IDENTITY", "productionAssetsUnchanged": True}
 
 def main() -> int:
     try:
@@ -89,8 +90,8 @@ def main() -> int:
                 path = scene_dir / "assets" / manifest["assets"][role]
                 if git_sha(path.read_bytes()) != expected:
                     raise ValueError(f"{number}/{role}: missing or hash-mismatched source")
-            if (scene_dir / "assets" / manifest["assets"]["preview"]).exists():
-                raise FileExistsError(f"{number}: preview already exists; will not overwrite")
+            if (ROOT / "staging" / "hsk6" / "qa_pending" / f"sc{number}" / f"hsk6_sc{number}_deterministic_candidate.webp").exists():
+                raise FileExistsError(f"{number}: staging candidate already exists; will not overwrite")
         result = [build(n) for n in SCENES]
         print(json.dumps(result, indent=2))
         return 0
