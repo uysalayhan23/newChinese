@@ -1,0 +1,22 @@
+{
+  "qaState": "PHYSICAL_PASS_CANONICAL_SOURCE_SHA_PASS_VISUAL_ACCEPTANCE_PENDING",
+  "scenes": [
+    "HSK6_SC011",
+    "HSK6_SC017"
+  ],
+  "previewBlob": "180a47a0749d6d83ec3a23f4ca12cb244223427f",
+  "dimensions": [
+    720,
+    1280
+  ],
+  "sourceBlobs": {
+    "background": "8c3e7732156ba04375c846af6633475264b229a2",
+    "characterA": "1944d13b2565d618ad183da64fd33ef68a11191a",
+    "characterB": "717828100874a371def695365e29b7c946147b4d",
+    "foreground": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+  },
+  "method": "deterministic RGBA alpha compositing of pinned canonical image layers, plus soft contact shadows; source files unchanged",
+  "identityAndContinuityQA": "PENDING_INDEPENDENT_VISUAL",
+  "accepted": false,
+  "productionManifestsChanged": false
+}
