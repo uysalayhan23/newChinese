@@ -56,8 +56,8 @@ def build(number: str) -> dict:
     bg = layers["background"].resize(SIZE, Image.Resampling.LANCZOS)
     canvas = bg.copy()
     # Place the intended two speaking characters facing one another.
-    for role, x_frac in (("characterA", 0.34), ("characterB", 0.67)):
-        actor = contain(layers[role], round(SIZE[1] * 0.76))
+    for role, x_frac in (("characterA", 0.29), ("characterB", 0.74)):
+        actor = contain(layers[role], round(SIZE[1] * 0.52))
         x = round(SIZE[0] * x_frac - actor.width / 2)
         y = SIZE[1] - actor.height
         if x < 0 or x + actor.width > SIZE[0]:
