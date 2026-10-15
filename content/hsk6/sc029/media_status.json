@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK6_SC029",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk6_sc029_bg.webp",
       "assets/hsk6_sc029_char_chen_yu.webp",
@@ -9,14 +9,13 @@
       "assets/hsk6_sc029_fg.webp",
       "assets/hsk6_sc029_preview.webp"
     ],
-    "missing": [
-      "assets/hsk6_sc029_preview.webp"
-    ],
+    "missing": [],
     "physicalStaging": {
-      "present": 4,
+      "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "canonical SHA-pinned 4-layer Pillow composite",
+      "qa": "PASS",
+      "approvedGrounding": "content/hsk6/sc029/visual_grounding.json"
     }
   },
   "audio": {
