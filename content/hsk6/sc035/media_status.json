@@ -10,13 +10,10 @@
       "assets/hsk6_sc035_preview.webp"
     ],
     "missing": [
-      "assets/hsk6_sc035_bg.webp",
-      "assets/hsk6_sc035_char_wang_ming.webp",
-      "assets/hsk6_sc035_fg.webp",
       "assets/hsk6_sc035_preview.webp"
     ],
     "physicalStaging": {
-      "present": 1,
+      "present": 4,
       "required": 5,
       "source": "exact-canonical-git-blob-reuse",
       "qa": "pending"

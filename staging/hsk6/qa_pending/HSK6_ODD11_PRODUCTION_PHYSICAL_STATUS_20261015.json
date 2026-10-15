@@ -1,0 +1,84 @@
+{
+  "audit": "HSK6_11_SCENE_MEDIA_STATUS_RECONCILIATION",
+  "date": "2026-10-15",
+  "baseCommit": "f812808108b805cd713e33a638d91500a657db87",
+  "summary": {
+    "scenes": 11,
+    "canonicalSourceWebPs": 44,
+    "sourceFilesMatching": 44,
+    "physicalProductionAssetsPerScene": "4/5",
+    "missingProductionFilesPerScene": 1,
+    "stagedPreviewCandidates": 11,
+    "acceptedScenes": 0
+  },
+  "status": "PREVIEW_SCENE_QA_PENDING",
+  "reason": "11 candidate preview WebPs exist in QA staging, but stage-composite passes alone do not prove per-scene continuity, cinematic composition, or locked scene acceptance. SC013 and SC019 coffee table depth remain HOLD.",
+  "scenes": [
+    {
+      "sceneId": "HSK6_SC001",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc001/hsk6_sc001_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "0b6895d81c36d699f0c48b7e2350ed212ac8c857",
+      "missingProduction": "assets/hsk6_sc001_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC007",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc007/hsk6_sc007_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "7d45e362f9ca3571382c289b23f33f446f10f84c",
+      "missingProduction": "assets/hsk6_sc007_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC011",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc011/hsk6_sc011_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "142a6cdb7d80d37ca52b0a2b27b4d0996791d5e6",
+      "missingProduction": "assets/hsk6_sc011_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC017",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc017/hsk6_sc017_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "d25c5b97a9e507dd852ebe5c3e25677cb28affa6",
+      "missingProduction": "assets/hsk6_sc017_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC023",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc023/hsk6_sc023_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "963c05bb8f5b03c3f4ffa0dfc8e17758fe944291",
+      "missingProduction": "assets/hsk6_sc023_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC029",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc029/hsk6_sc029_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "e43445f01cd0b77e06f8a61758a29ae82299d378",
+      "missingProduction": "assets/hsk6_sc029_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC031",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc031/hsk6_sc031_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "8cd80cc06aec56bd74d1cd4e727b69133129fb65",
+      "missingProduction": "assets/hsk6_sc031_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC033",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc033/hsk6_sc033_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "b9d5714a3f267a052e424ed75b1d01dc27471dd6",
+      "missingProduction": "assets/hsk6_sc033_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC035",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc035/hsk6_sc035_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "447d5659e46715ee9eba9e3d33ec94bd3e893a72",
+      "missingProduction": "assets/hsk6_sc035_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC037",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc037/hsk6_sc037_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "4c2d42374f2b92419c5b37e30f0c34aabe6c50d5",
+      "missingProduction": "assets/hsk6_sc037_preview.webp"
+    },
+    {
+      "sceneId": "HSK6_SC039",
+      "stagingCandidate": "staging/hsk6/qa_pending/sc039/hsk6_sc039_preview_canonical_pillow_20261015.webp",
+      "previewBlob": "48b34155d7725da400cf6b0534a3a276a9b69357",
+      "missingProduction": "assets/hsk6_sc039_preview.webp"
+    }
+  ]
+}
