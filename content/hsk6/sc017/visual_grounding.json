@@ -74,7 +74,7 @@
     "method": "Pillow dört canonical katman"
   },
   "visualQa": {
-    "status": "PASS",
+    "status": "HOLD_STYLE_MISMATCH",
     "physical": "PASS",
     "canonicalIdentity": "PASS_BY_SHA",
     "foregroundGuard": "PASS",
@@ -82,6 +82,6 @@
     "continuity": "PASS_METADATA_AND_LOCATION_CANONICAL",
     "noGeneratedArtwork": true,
     "acceptedScene": false,
-    "notes": "Görsel olarak QA temas sayfası ve tekil preview denetlendi; genel sahne kapanışı bağımsızdır"
+    "notes": "Realistic/photo-styled Liu Mei and much more stylized CGI Zhang Wei are inconsistent in the same shot; physical WebP/identity SHA PASS but final visual QA HOLD. Do not publish or accept."
   }
 }
