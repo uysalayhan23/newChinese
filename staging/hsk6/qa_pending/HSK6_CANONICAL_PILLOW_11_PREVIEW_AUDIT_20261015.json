@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "createdDate": "2026-10-15",
+  "repository": "uysalayhan23/newChinese",
+  "sourceHead": "2ff478f466e3b3a105ad77010638714e0a19adfa",
+  "method": "Pillow 4-layer BG+CHAR_A+CHAR_B+FG; identity preserved by SHA pin; 720x1280 WebP",
+  "scope": "qa_staging_only",
+  "layerPreflight": {
+    "verifiedSourceBlobCount": 44,
+    "allSourceBlobShaPinsMatch": true,
+    "outputPhysicalQA": "11/11 PASS",
+    "foregroundFaceAndGestureGuard": "11/11 PASS",
+    "productionAcceptance": "NOT_GRANTED"
+  },
+  "stagedPreviews": [
+    {
+      "scene": "HSK6_SC001",
+      "path": "staging/hsk6/qa_pending/sc001/hsk6_sc001_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "0b6895d81c36d699f0c48b7e2350ed212ac8c857",
+      "sourceCharacterIds": [
+        "CHAR_WANG_MING_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC007",
+      "path": "staging/hsk6/qa_pending/sc007/hsk6_sc007_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "7d45e362f9ca3571382c289b23f33f446f10f84c",
+      "sourceCharacterIds": [
+        "CHAR_WANG_MING_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC011",
+      "path": "staging/hsk6/qa_pending/sc011/hsk6_sc011_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "142a6cdb7d80d37ca52b0a2b27b4d0996791d5e6",
+      "sourceCharacterIds": [
+        "CHAR_LIU_MEI_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC017",
+      "path": "staging/hsk6/qa_pending/sc017/hsk6_sc017_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "d25c5b97a9e507dd852ebe5c3e25677cb28affa6",
+      "sourceCharacterIds": [
+        "CHAR_LIU_MEI_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC023",
+      "path": "staging/hsk6/qa_pending/sc023/hsk6_sc023_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "963c05bb8f5b03c3f4ffa0dfc8e17758fe944291",
+      "sourceCharacterIds": [
+        "CHAR_CHEN_YU_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC029",
+      "path": "staging/hsk6/qa_pending/sc029/hsk6_sc029_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "e43445f01cd0b77e06f8a61758a29ae82299d378",
+      "sourceCharacterIds": [
+        "CHAR_CHEN_YU_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC031",
+      "path": "staging/hsk6/qa_pending/sc031/hsk6_sc031_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "8cd80cc06aec56bd74d1cd4e727b69133129fb65",
+      "sourceCharacterIds": [
+        "CHAR_WANG_MING_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC033",
+      "path": "staging/hsk6/qa_pending/sc033/hsk6_sc033_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "b9d5714a3f267a052e424ed75b1d01dc27471dd6",
+      "sourceCharacterIds": [
+        "CHAR_WANG_MING_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC035",
+      "path": "staging/hsk6/qa_pending/sc035/hsk6_sc035_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "447d5659e46715ee9eba9e3d33ec94bd3e893a72",
+      "sourceCharacterIds": [
+        "CHAR_WANG_MING_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC037",
+      "path": "staging/hsk6/qa_pending/sc037/hsk6_sc037_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "4c2d42374f2b92419c5b37e30f0c34aabe6c50d5",
+      "sourceCharacterIds": [
+        "CHAR_WANG_MING_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC039",
+      "path": "staging/hsk6/qa_pending/sc039/hsk6_sc039_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "48b34155d7725da400cf6b0534a3a276a9b69357",
+      "sourceCharacterIds": [
+        "CHAR_WANG_MING_001",
+        "CHAR_ZHANG_WEI_001"
+      ],
+      "physicalFileQA": "PASS",
+      "canonicalSourceSha": "PASS",
+      "foregroundGuard": "PASS",
+      "fullSceneQa": "PENDING",
+      "accepted": false
+    }
+  ],
+  "held": [
+    {
+      "scene": "HSK6_SC013",
+      "reason": "Coffee-table/character depth still unnatural in four-layer composite",
+      "staged": false,
+      "accepted": false
+    },
+    {
+      "scene": "HSK6_SC019",
+      "reason": "Coffee-table/character depth still unnatural in four-layer composite",
+      "staged": false,
+      "accepted": false
+    }
+  ],
+  "unmetLockedGates": [
+    "dialogue-derived scene context grounding approvals not present",
+    "location matching and layer planning approvals not established",
+    "full scene continuity and visual QA not closed"
+  ],
+  "preserved": [
+    "LOCKS.md",
+    "all character source blobs",
+    "all background/foreground source blobs",
+    "all scene.json and visual_manifest.json",
+    "all media_status.json",
+    "all production preview paths",
+    "audio and acceptance counters"
+  ],
+  "actions": "No workflows dispatched; [skip ci] commit"
+}
