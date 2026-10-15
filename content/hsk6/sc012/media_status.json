@@ -9,14 +9,12 @@
       "assets/hsk6_sc012_fg.webp",
       "assets/hsk6_sc012_preview.webp"
     ],
-    "missing": [
-      "assets/hsk6_sc012_preview.webp"
-    ],
+    "missing": [],
     "physicalStaging": {
-      "present": 4,
+      "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "exact-canonical-git-blob-reuse; production path physically present",
+      "qa": "git-tree-5-of-5-sha-consistent; pixel-visual-QA-pending"
     }
   },
   "audio": {
