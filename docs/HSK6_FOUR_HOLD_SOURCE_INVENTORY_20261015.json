@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-15",
+  "repo": "uysalayhan23/newChinese",
+  "branch": "main",
+  "baseline": "7f87e45e8cb0b7b776b69fc9ba429571d57e3e35",
+  "method": "GitHub recursive main tree blob SHA inventory; no claims of pixel-level visual approval",
+  "inventory": {
+    "characterFilesMatchingLiuMeiOrZhangWei": 344,
+    "distinctCharacterBlobShas": 36
+  },
+  "stylePair": {
+    "scenes": [
+      "HSK6_SC011",
+      "HSK6_SC017"
+    ],
+    "liuMeiSha": "1944d13b2565d618ad183da64fd33ef68a11191a",
+    "zhangWeiSha": "717828100874a371def695365e29b7c946147b4d",
+    "sameSourcePair": true,
+    "alternativeSamples": [
+      "content/hsk3/sc012/assets/hsk3_sc012_char_liu_mei.webp",
+      "content/hsk3/sc012/assets/hsk3_sc012_char_zhang_wei.webp",
+      "content/hsk2/sc044/assets/hsk2_sc044_char_liu_mei.webp",
+      "content/hsk2/sc044/assets/hsk2_sc044_char_zhang_wei.webp"
+    ],
+    "assessment": "Alternate blob pairs exist; NOT pixel-reviewed or confirmed suitable for HSK6 maturity/style/outfits. Keep both HOLD."
+  },
+  "homePair": {
+    "scenes": [
+      "HSK6_SC013",
+      "HSK6_SC019"
+    ],
+    "bgSha": "86c8e17e3e63a3acbf5d2ce4e205e191627cdcba",
+    "fgSha": "6acadbee8403b5d78e0042431eec7af75fc94248",
+    "reusedIn": [
+      "HSK2_SC049",
+      "HSK4_SC024",
+      "HSK4_SC030",
+      "HSK5_SC024",
+      "HSK5_SC030"
+    ],
+    "assessment": "All listed home layers share exact BG/FG SHA; reuse of the same foreground cannot independently remedy documented coffee-table occlusion. Alternative valid LOC_ZHANG_HOME_001 camera/FG or accepted poses still unverified. Keep both HOLD."
+  },
+  "acceptance": {
+    "promoted": [],
+    "held": [
+      "HSK6_SC011",
+      "HSK6_SC013",
+      "HSK6_SC017",
+      "HSK6_SC019"
+    ],
+    "reason": "SHA inventory only, no pixel-level comparisons or safe approved production preview",
+    "fullSceneAcceptanceChanged": false
+  },
+  "next": "Inspect candidate WebP pixels and location visual bible, evaluate accepted canonical alternative with proper depth; produce and promote only after physical 5/5 and visual QA",
+  "actionsRun": false,
+  "lockedSourcesModified": false
+}
