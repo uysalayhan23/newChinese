@@ -1,0 +1,87 @@
+{
+  "sceneId": "HSK6_SC017",
+  "qaDate": "2026-10-15",
+  "sceneContext": {
+    "status": "approved",
+    "summary": "Sınav ve gerçek yeterlilik — Son zamanlarda “Sınav ve gerçek yeterlilik” üzerine tekrar tekrar düşünüyorum; düşündükçe hem kişisel tercihlerle hem toplumsal ortamla bağlantılı olduğunu görüyorum.",
+    "communicationPurpose": "Sınav ve gerçek yeterlilik üzerine karşılıklı HSK6 düzeyinde değerlendirme",
+    "tone": "sakin, analitik, saygılı",
+    "mainPhysicalAction": "İki yetişkin konuşmacı aynı mekânda açıklayıcı jestlerle tartışıyor",
+    "charactersPresent": [
+      "CHAR_LIU_MEI_001",
+      "CHAR_ZHANG_WEI_001"
+    ],
+    "visibleProps": [
+      "light wood shelves",
+      "large windows",
+      "quiet study tables",
+      "indoor plants"
+    ],
+    "continuityFromPrevious": "HSK6_SC016 (LOC_ZHANG_HOME_001) → HSK6_SC017 (LOC_PUBLIC_LIBRARY_001): komşu sahnenin mekan ve kadro değişikliği ayrı sahne sınırında korunur",
+    "continuityToNext": "HSK6_SC017 (LOC_PUBLIC_LIBRARY_001) → HSK6_SC018 (LOC_COMMUNITY_CENTER_001): canonical kimlikler değiştirilmez",
+    "visualNotes": "Tek 9:16 kare, metinsiz, 720x1280, yalnız SHA-doğrulanmış BG+CHAR_A+CHAR_B+FG"
+  },
+  "dialogueCheck": {
+    "status": "approved_with_locked_content",
+    "source": "content/hsk6/sc017/dialogue.json",
+    "lineCount": 36,
+    "voiceMapping": {
+      "CHAR_LIU_MEI_001": [
+        "VOICE_LIU_MEI_001"
+      ],
+      "CHAR_ZHANG_WEI_001": [
+        "VOICE_ZHANG_WEI_001"
+      ]
+    }
+  },
+  "locationMatch": {
+    "status": "approved",
+    "locationId": "LOC_PUBLIC_LIBRARY_001",
+    "authoritativeBible": "locations/LOC_PUBLIC_LIBRARY_001/visual_bible.json",
+    "reason": "Hangzhou Public Library Study Area konuşma ortamı olarak scene/manifest ile uyumlu ve diyalog zorunlu farklı konum istemiyor",
+    "dialogueEvidence": [
+      "最近我反复想到“考试与真实能力”，越想越觉得它和个人选择、社会环境都有关系。",
+      "这类问题很难靠单一立场解释，先把不同层次分开会更清楚。"
+    ],
+    "continuityEvidence": "HSK6_SC016/HSK6_SC018 scene.json location/role sınırları incelendi",
+    "approvedForLayerPlanning": true
+  },
+  "layerPlan": {
+    "status": "approved",
+    "sources": {
+      "background": {
+        "path": "content/hsk6/sc017/assets/hsk6_sc017_bg.webp",
+        "gitBlobSha": "8c3e7732156ba04375c846af6633475264b229a2"
+      },
+      "characterA": {
+        "path": "content/hsk6/sc017/assets/hsk6_sc017_char_liu_mei.webp",
+        "gitBlobSha": "1944d13b2565d618ad183da64fd33ef68a11191a"
+      },
+      "characterB": {
+        "path": "content/hsk6/sc017/assets/hsk6_sc017_char_zhang_wei.webp",
+        "gitBlobSha": "717828100874a371def695365e29b7c946147b4d"
+      },
+      "foreground": {
+        "path": "content/hsk6/sc017/assets/hsk6_sc017_fg.webp",
+        "gitBlobSha": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+      }
+    },
+    "preview": {
+      "stagingPath": "staging/hsk6/qa_pending/sc017/hsk6_sc017_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "d25c5b97a9e507dd852ebe5c3e25677cb28affa6",
+      "productionPath": "content/hsk6/sc017/assets/hsk6_sc017_preview.webp"
+    },
+    "method": "Pillow dört canonical katman"
+  },
+  "visualQa": {
+    "status": "PASS",
+    "physical": "PASS",
+    "canonicalIdentity": "PASS_BY_SHA",
+    "foregroundGuard": "PASS",
+    "location": "PASS",
+    "continuity": "PASS_METADATA_AND_LOCATION_CANONICAL",
+    "noGeneratedArtwork": true,
+    "acceptedScene": false,
+    "notes": "Görsel olarak QA temas sayfası ve tekil preview denetlendi; genel sahne kapanışı bağımsızdır"
+  }
+}

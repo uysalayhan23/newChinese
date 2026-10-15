@@ -1,0 +1,87 @@
+{
+  "sceneId": "HSK6_SC039",
+  "qaDate": "2026-10-15",
+  "sceneContext": {
+    "status": "approved",
+    "summary": "Belirsizlik altında karar vermek — Son zamanlarda “Belirsizlik altında karar vermek” üzerine tekrar tekrar düşünüyorum; düşündükçe hem kişisel tercihlerle hem toplumsal ortamla bağlantılı olduğunu görüyorum.",
+    "communicationPurpose": "Belirsizlik altında karar vermek üzerine karşılıklı HSK6 düzeyinde değerlendirme",
+    "tone": "sakin, analitik, saygılı",
+    "mainPhysicalAction": "İki yetişkin konuşmacı aynı mekânda açıklayıcı jestlerle tartışıyor",
+    "charactersPresent": [
+      "CHAR_WANG_MING_001",
+      "CHAR_ZHANG_WEI_001"
+    ],
+    "visibleProps": [
+      "light wood shelves",
+      "large windows",
+      "quiet study tables",
+      "indoor plants"
+    ],
+    "continuityFromPrevious": "HSK6_SC038 (LOC_ELECTRONICS_STORE_001) → HSK6_SC039 (LOC_PUBLIC_LIBRARY_001): komşu sahnenin mekan ve kadro değişikliği ayrı sahne sınırında korunur",
+    "continuityToNext": "HSK6_SC039 (LOC_PUBLIC_LIBRARY_001) → HSK6_SC040 (LOC_ZHANG_OFFICE_001): canonical kimlikler değiştirilmez",
+    "visualNotes": "Tek 9:16 kare, metinsiz, 720x1280, yalnız SHA-doğrulanmış BG+CHAR_A+CHAR_B+FG"
+  },
+  "dialogueCheck": {
+    "status": "approved_with_locked_content",
+    "source": "content/hsk6/sc039/dialogue.json",
+    "lineCount": 36,
+    "voiceMapping": {
+      "CHAR_WANG_MING_001": [
+        "VOICE_WANG_MING_001"
+      ],
+      "CHAR_ZHANG_WEI_001": [
+        "VOICE_ZHANG_WEI_001"
+      ]
+    }
+  },
+  "locationMatch": {
+    "status": "approved",
+    "locationId": "LOC_PUBLIC_LIBRARY_001",
+    "authoritativeBible": "locations/LOC_PUBLIC_LIBRARY_001/visual_bible.json",
+    "reason": "Hangzhou Public Library Study Area konuşma ortamı olarak scene/manifest ile uyumlu ve diyalog zorunlu farklı konum istemiyor",
+    "dialogueEvidence": [
+      "最近我反复想到“不确定性下的决策”，越想越觉得它和个人选择、社会环境都有关系。",
+      "这类问题很难靠单一立场解释，先把不同层次分开会更清楚。"
+    ],
+    "continuityEvidence": "HSK6_SC038/HSK6_SC040 scene.json location/role sınırları incelendi",
+    "approvedForLayerPlanning": true
+  },
+  "layerPlan": {
+    "status": "approved",
+    "sources": {
+      "background": {
+        "path": "content/hsk6/sc039/assets/hsk6_sc039_bg.webp",
+        "gitBlobSha": "8c3e7732156ba04375c846af6633475264b229a2"
+      },
+      "characterA": {
+        "path": "content/hsk6/sc039/assets/hsk6_sc039_char_wang_ming.webp",
+        "gitBlobSha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+      },
+      "characterB": {
+        "path": "content/hsk6/sc039/assets/hsk6_sc039_char_zhang_wei.webp",
+        "gitBlobSha": "717828100874a371def695365e29b7c946147b4d"
+      },
+      "foreground": {
+        "path": "content/hsk6/sc039/assets/hsk6_sc039_fg.webp",
+        "gitBlobSha": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+      }
+    },
+    "preview": {
+      "stagingPath": "staging/hsk6/qa_pending/sc039/hsk6_sc039_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "48b34155d7725da400cf6b0534a3a276a9b69357",
+      "productionPath": "content/hsk6/sc039/assets/hsk6_sc039_preview.webp"
+    },
+    "method": "Pillow dört canonical katman"
+  },
+  "visualQa": {
+    "status": "PASS",
+    "physical": "PASS",
+    "canonicalIdentity": "PASS_BY_SHA",
+    "foregroundGuard": "PASS",
+    "location": "PASS",
+    "continuity": "PASS_METADATA_AND_LOCATION_CANONICAL",
+    "noGeneratedArtwork": true,
+    "acceptedScene": false,
+    "notes": "Görsel olarak QA temas sayfası ve tekil preview denetlendi; genel sahne kapanışı bağımsızdır"
+  }
+}

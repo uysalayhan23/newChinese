@@ -1,0 +1,86 @@
+{
+  "sceneId": "HSK6_SC029",
+  "qaDate": "2026-10-15",
+  "sceneContext": {
+    "status": "approved",
+    "summary": "Gelenekler mutlaka korunmalı mı — Son zamanlarda “Gelenekler mutlaka korunmalı mı” üzerine tekrar tekrar düşünüyorum; düşündükçe hem kişisel tercihlerle hem toplumsal ortamla bağlantılı olduğunu görüyorum.",
+    "communicationPurpose": "Gelenekler mutlaka korunmalı mı üzerine karşılıklı HSK6 düzeyinde değerlendirme",
+    "tone": "sakin, analitik, saygılı",
+    "mainPhysicalAction": "İki yetişkin konuşmacı aynı mekânda açıklayıcı jestlerle tartışıyor",
+    "charactersPresent": [
+      "CHAR_CHEN_YU_001",
+      "CHAR_ZHANG_WEI_001"
+    ],
+    "visibleProps": [
+      "tree-lined sidewalks",
+      "small park",
+      "residential storefronts"
+    ],
+    "continuityFromPrevious": "HSK6_SC028 (LOC_WEST_LAKE_001) → HSK6_SC029 (LOC_NEIGHBORHOOD_001): komşu sahnenin mekan ve kadro değişikliği ayrı sahne sınırında korunur",
+    "continuityToNext": "HSK6_SC029 (LOC_NEIGHBORHOOD_001) → HSK6_SC030 (LOC_COMMUNITY_CENTER_001): canonical kimlikler değiştirilmez",
+    "visualNotes": "Tek 9:16 kare, metinsiz, 720x1280, yalnız SHA-doğrulanmış BG+CHAR_A+CHAR_B+FG"
+  },
+  "dialogueCheck": {
+    "status": "approved_with_locked_content",
+    "source": "content/hsk6/sc029/dialogue.json",
+    "lineCount": 36,
+    "voiceMapping": {
+      "CHAR_CHEN_YU_001": [
+        "VOICE_CHEN_YU_001"
+      ],
+      "CHAR_ZHANG_WEI_001": [
+        "VOICE_ZHANG_WEI_001"
+      ]
+    }
+  },
+  "locationMatch": {
+    "status": "approved",
+    "locationId": "LOC_NEIGHBORHOOD_001",
+    "authoritativeBible": "locations/LOC_NEIGHBORHOOD_001/visual_bible.json",
+    "reason": "Zhang Wei Neighborhood konuşma ortamı olarak scene/manifest ile uyumlu ve diyalog zorunlu farklı konum istemiyor",
+    "dialogueEvidence": [
+      "最近我反复想到“传统是否必须保留”，越想越觉得它和个人选择、社会环境都有关系。",
+      "这类问题很难靠单一立场解释，先把不同层次分开会更清楚。"
+    ],
+    "continuityEvidence": "HSK6_SC028/HSK6_SC030 scene.json location/role sınırları incelendi",
+    "approvedForLayerPlanning": true
+  },
+  "layerPlan": {
+    "status": "approved",
+    "sources": {
+      "background": {
+        "path": "content/hsk6/sc029/assets/hsk6_sc029_bg.webp",
+        "gitBlobSha": "a0fda64fd0732d378d2648a48d058edfb4fca015"
+      },
+      "characterA": {
+        "path": "content/hsk6/sc029/assets/hsk6_sc029_char_chen_yu.webp",
+        "gitBlobSha": "55885be8637e7df4b7ff300a710ed9d1b6f78847"
+      },
+      "characterB": {
+        "path": "content/hsk6/sc029/assets/hsk6_sc029_char_zhang_wei.webp",
+        "gitBlobSha": "717828100874a371def695365e29b7c946147b4d"
+      },
+      "foreground": {
+        "path": "content/hsk6/sc029/assets/hsk6_sc029_fg.webp",
+        "gitBlobSha": "5da1b87d0e43673ce2259c2759c88569f8cae81e"
+      }
+    },
+    "preview": {
+      "stagingPath": "staging/hsk6/qa_pending/sc029/hsk6_sc029_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "e43445f01cd0b77e06f8a61758a29ae82299d378",
+      "productionPath": "content/hsk6/sc029/assets/hsk6_sc029_preview.webp"
+    },
+    "method": "Pillow dört canonical katman"
+  },
+  "visualQa": {
+    "status": "PASS",
+    "physical": "PASS",
+    "canonicalIdentity": "PASS_BY_SHA",
+    "foregroundGuard": "PASS",
+    "location": "PASS",
+    "continuity": "PASS_METADATA_AND_LOCATION_CANONICAL",
+    "noGeneratedArtwork": true,
+    "acceptedScene": false,
+    "notes": "Görsel olarak QA temas sayfası ve tekil preview denetlendi; genel sahne kapanışı bağımsızdır"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "sceneId": "HSK6_SC037",
+  "qaDate": "2026-10-15",
+  "sceneContext": {
+    "status": "approved",
+    "summary": "Geleceğin çalışma biçimi — Son zamanlarda “Geleceğin çalışma biçimi” üzerine tekrar tekrar düşünüyorum; düşündükçe hem kişisel tercihlerle hem toplumsal ortamla bağlantılı olduğunu görüyorum.",
+    "communicationPurpose": "Geleceğin çalışma biçimi üzerine karşılıklı HSK6 düzeyinde değerlendirme",
+    "tone": "sakin, analitik, saygılı",
+    "mainPhysicalAction": "İki yetişkin konuşmacı aynı mekânda açıklayıcı jestlerle tartışıyor",
+    "charactersPresent": [
+      "CHAR_WANG_MING_001",
+      "CHAR_ZHANG_WEI_001"
+    ],
+    "visibleProps": [
+      "light wood desks",
+      "large windows",
+      "green desk plants",
+      "office monitors"
+    ],
+    "continuityFromPrevious": "HSK6_SC036 (LOC_PUBLIC_LIBRARY_001) → HSK6_SC037 (LOC_ZHANG_OFFICE_001): komşu sahnenin mekan ve kadro değişikliği ayrı sahne sınırında korunur",
+    "continuityToNext": "HSK6_SC037 (LOC_ZHANG_OFFICE_001) → HSK6_SC038 (LOC_ELECTRONICS_STORE_001): canonical kimlikler değiştirilmez",
+    "visualNotes": "Tek 9:16 kare, metinsiz, 720x1280, yalnız SHA-doğrulanmış BG+CHAR_A+CHAR_B+FG"
+  },
+  "dialogueCheck": {
+    "status": "approved_with_locked_content",
+    "source": "content/hsk6/sc037/dialogue.json",
+    "lineCount": 36,
+    "voiceMapping": {
+      "CHAR_WANG_MING_001": [
+        "VOICE_WANG_MING_001"
+      ],
+      "CHAR_ZHANG_WEI_001": [
+        "VOICE_ZHANG_WEI_001"
+      ]
+    }
+  },
+  "locationMatch": {
+    "status": "approved",
+    "locationId": "LOC_ZHANG_OFFICE_001",
+    "authoritativeBible": "locations/LOC_ZHANG_OFFICE_001/visual_bible.json",
+    "reason": "Zhang Wei Workplace konuşma ortamı olarak scene/manifest ile uyumlu ve diyalog zorunlu farklı konum istemiyor",
+    "dialogueEvidence": [
+      "最近我反复想到“未来工作的形态”，越想越觉得它和个人选择、社会环境都有关系。",
+      "这类问题很难靠单一立场解释，先把不同层次分开会更清楚。"
+    ],
+    "continuityEvidence": "HSK6_SC036/HSK6_SC038 scene.json location/role sınırları incelendi",
+    "approvedForLayerPlanning": true
+  },
+  "layerPlan": {
+    "status": "approved",
+    "sources": {
+      "background": {
+        "path": "content/hsk6/sc037/assets/hsk6_sc037_bg.webp",
+        "gitBlobSha": "df52de129130d06220c250afabec250caf218541"
+      },
+      "characterA": {
+        "path": "content/hsk6/sc037/assets/hsk6_sc037_char_wang_ming.webp",
+        "gitBlobSha": "067fcfe261c52adebc383f5551d7ed365abd747e"
+      },
+      "characterB": {
+        "path": "content/hsk6/sc037/assets/hsk6_sc037_char_zhang_wei.webp",
+        "gitBlobSha": "717828100874a371def695365e29b7c946147b4d"
+      },
+      "foreground": {
+        "path": "content/hsk6/sc037/assets/hsk6_sc037_fg.webp",
+        "gitBlobSha": "ab49f2892127f49189bc800d6e8cd444feb37a15"
+      }
+    },
+    "preview": {
+      "stagingPath": "staging/hsk6/qa_pending/sc037/hsk6_sc037_preview_canonical_pillow_20261015.webp",
+      "gitBlobSha": "4c2d42374f2b92419c5b37e30f0c34aabe6c50d5",
+      "productionPath": "content/hsk6/sc037/assets/hsk6_sc037_preview.webp"
+    },
+    "method": "Pillow dört canonical katman"
+  },
+  "visualQa": {
+    "status": "PASS",
+    "physical": "PASS",
+    "canonicalIdentity": "PASS_BY_SHA",
+    "foregroundGuard": "PASS",
+    "location": "PASS",
+    "continuity": "PASS_METADATA_AND_LOCATION_CANONICAL",
+    "noGeneratedArtwork": true,
+    "acceptedScene": false,
+    "notes": "Görsel olarak QA temas sayfası ve tekil preview denetlendi; genel sahne kapanışı bağımsızdır"
+  }
+}
