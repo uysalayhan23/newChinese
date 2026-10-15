@@ -9,14 +9,12 @@
       "assets/hsk6_sc022_fg.webp",
       "assets/hsk6_sc022_preview.webp"
     ],
-    "missing": [
-      "assets/hsk6_sc022_preview.webp"
-    ],
+    "missing": [],
     "physicalStaging": {
-      "present": 4,
+      "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "physical production Git blob 5/5; manifest preview SHA match",
+      "qa": "PHYSICAL_WEBP_720x1280_PASS; HOLD_MIXED_RENDER_STYLE_ADULT_IDENTITY"
     }
   },
   "audio": {
