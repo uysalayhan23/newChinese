@@ -9,15 +9,12 @@
       "assets/hsk6_sc015_fg.webp",
       "assets/hsk6_sc015_preview.webp"
     ],
-    "missing": [
-      "assets/hsk6_sc015_char_liu_mei.webp",
-      "assets/hsk6_sc015_preview.webp"
-    ],
+    "missing": [],
     "physicalStaging": {
-      "present": 3,
+      "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "exact-canonical-git-blob-reuse; physical production paths",
+      "qa": "PASS_GIT_TREE_5_OF_5_AND_MANIFEST_SHA; visual_style_review_pending"
     }
   },
   "audio": {
