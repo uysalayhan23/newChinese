@@ -10,15 +10,13 @@
       "assets/hsk6_sc020_preview.webp"
     ],
     "missing": [
-      "assets/hsk6_sc020_bg.webp",
-      "assets/hsk6_sc020_fg.webp",
       "assets/hsk6_sc020_preview.webp"
     ],
     "physicalStaging": {
-      "present": 2,
+      "present": 4,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "existing characters + SHA-identical approved LOC_PUBLIC_LIBRARY_001 BG/FG from HSK6_SC033",
+      "qa": "PHYSICAL_4_OF_5_PASS; SC020_PREVIEW_MISSING; VISUAL_QA_PENDING"
     }
   },
   "audio": {

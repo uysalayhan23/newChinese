@@ -10,16 +10,13 @@
       "assets/hsk6_sc019_preview.webp"
     ],
     "missing": [
-      "assets/hsk6_sc019_bg.webp",
-      "assets/hsk6_sc019_char_liu_mei.webp",
-      "assets/hsk6_sc019_fg.webp",
       "assets/hsk6_sc019_preview.webp"
     ],
     "physicalStaging": {
-      "present": 1,
+      "present": 4,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "existing canonical Git blobs; four verified in production tree",
+      "qa": "PHYSICAL_4_OF_5_PASS; PREVIEW_MISSING; HOME_DEPTH_OCCLUSION_HOLD"
     }
   },
   "audio": {
