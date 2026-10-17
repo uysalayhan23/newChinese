@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "HSK6_SC032",
+  "sceneTopic": "human judgment",
+  "auditedMainHead": "1d0dfc05366f12d61fb8085d235ebbec5e849abf",
+  "kind": "NON_PRODUCTION_INDEPENDENT_PIXEL_AND_ALTERNATIVE_SOURCE_REVIEW",
+  "sourceOriginalHsk6ZipSha256": "3bbfad7f8133fd542c7b431e195dc689f72886fd4d0ec235ff5a71a580d319db",
+  "independentlyReproducedV4": {
+    "fg": {
+      "bytes": 84614,
+      "mode": "RGBA",
+      "size": [
+        720,
+        1280
+      ],
+      "sha": "84631be9ed27a64a29e134e84037919b23277440",
+      "sha256": "c79a0c4dbfbc6807a94c598afd378682213894fd992356fcfe3cd3b66bcb62aa"
+    },
+    "preview": {
+      "bytes": 215124,
+      "mode": "RGB",
+      "size": [
+        720,
+        1280
+      ],
+      "sha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+      "sha256": "5a69c580d7a85d160eae0602f956440b3800bd39dd07b80363c13de05f6bc5bc"
+    },
+    "reproducedFromOriginalPillowSourceByteForByte": true,
+    "physicalInputSHAVerified": true,
+    "githubBinariesPresent": false,
+    "githubRoundtripVerified": false
+  },
+  "sourceAndGeometry": {
+    "donorBG": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+    "donorFG": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+    "canonicalZW": "44a7a521b7fa64466111c30f6830904081c3767d",
+    "canonicalCY": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+    "fgAlpha80ActorAIntersection": 0,
+    "fgAlpha80ActorBIntersection": 0,
+    "actorAlpha80Intersection": 0,
+    "footVisibleAlpha80EndY": {
+      "ZhangWei": 1203,
+      "ChenYu": 1200
+    },
+    "footVisibleAlphaPositivePreviouslyReported": [
+      1203,
+      1203
+    ],
+    "lineBasedDonorImageVanishingProxy": [
+      379.25,
+      396.25
+    ],
+    "leftCorridorBoundAtY1203": 150.14,
+    "rightCorridorBoundAtY1203": 680.24,
+    "zhangWeiFootHorizontalRangeAtEnd": [
+      148,
+      359
+    ],
+    "chenYuFootHorizontalRangeAtEnd": [
+      579,
+      628
+    ],
+    "leftShoeSignedClearanceImagePixels": -2.14,
+    "interpretation": "2.14 px proxy line deviation and 3 px alpha-threshold difference do NOT establish a perspective error, source-camera parity or valid target projection"
+  },
+  "additionalSameLocationSourceQA": [
+    {
+      "origin": "HSK3_SC042 or HSK5_SC002",
+      "bg": "bc540d14e120afa06e8766a9e574c41470211a6a",
+      "fg": "0bf5404580c38c70f8c185e9b9a45d1dc62bfc56",
+      "size": [
+        360,
+        640
+      ],
+      "decision": "REJECT_AS_CANONICAL_DONOR_FOR_FULL_RES_SCENE_DIFFERENT_CAMERA_GEOMETRY"
+    },
+    {
+      "origin": "HSK5_SC008",
+      "bg": "c0a8cd2fdace1ed57ca5690ae030b00e5b3d0549",
+      "fg": "71931bdfc24c20f853887c612cdc4c14608df917",
+      "size": [
+        576,
+        1024
+      ],
+      "decision": "REJECT_AS_CANONICAL_DONOR_NO_720x1280_REAL_RESOLUTION_AND_DIFFERENT_FG_OBSTRUCTION"
+    }
+  ],
+  "camera": {
+    "donor": "CAM_HSK6_SC035_01",
+    "target": "CAM_HSK6_SC032_01",
+    "sourceTargetCalibratedEquivalent": false,
+    "homographyKnown": false,
+    "numericTargetIntrinsicsAvailable": false
+  },
+  "canonical": {
+    "BG": false,
+    "FG": false,
+    "preview": false
+  },
+  "status": "V4_STAGE_PHYSICAL_SHA_PASS_BUT_TARGET_CAMERA_BGFG_GITHUB_BINARY_HOLD",
+  "releaseAllowed": false,
+  "acceptScene": false,
+  "sourcePixelsModified": false,
+  "locksPreserved": true,
+  "sc026HoldPreserved": true,
+  "globalZhangWeiAudit": "P999_LAST_NOT_STARTED",
+  "actionsUsed": false
+}
