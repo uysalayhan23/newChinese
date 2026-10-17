@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "HSK6_SC032",
+  "qaDate": "2026-10-17",
+  "sourceBaselineHead": "e3600b164c731f782b406bed29bd6b5f3bc060ad",
+  "kind": "REAL_PHYSICAL_WEBP_MULTITHRESHOLD_STAGING_ONLY",
+  "sourceArchives": [
+    "hsk6.zip",
+    "NewChinese_HSK6_SC032_SC038_V4_VERIFIED_STAGING_NOT_PRODUCTION_20261017.zip"
+  ],
+  "physicalDecodeAllSources": true,
+  "allSourceGitBlobShasMatched": true,
+  "sourceSha": {
+    "BG": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+    "donorFG": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+    "ZhangWei": "44a7a521b7fa64466111c30f6830904081c3767d",
+    "ChenYu": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+    "v4FG": "84631be9ed27a64a29e134e84037919b23277440",
+    "v4Preview": "ca8c43043c628d2b69ef7e59625bca49f1586533"
+  },
+  "v4WebpPhysical": {
+    "foreground": {
+      "size": [
+        720,
+        1280
+      ],
+      "mode": "RGBA",
+      "bytes": 84614,
+      "gitBlobSha": "84631be9ed27a64a29e134e84037919b23277440",
+      "sha256": "c79a0c4dbfbc6807a94c598afd378682213894fd992356fcfe3cd3b66bcb62aa"
+    },
+    "preview": {
+      "size": [
+        720,
+        1280
+      ],
+      "mode": "RGB",
+      "bytes": 215124,
+      "gitBlobSha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+      "sha256": "5a69c580d7a85d160eae0602f956440b3800bd39dd07b80363c13de05f6bc5bc"
+    }
+  },
+  "method": "Independent physical image masks: crop each original source actor nonzero-alpha bbox, Pillow Lanczos resize A=(387,597) at (66,614), B=(403,737) at (313,473). Compare whole-foreground original/V4 alpha masks at same thresholds 1,8,32,80,128,192,240, count coincident pixels. RGB difference computed by Pillow alpha compositing V4 FG over unchanged BG+actors, restricted to B and FG positive-alpha mask. No image sources changed.",
+  "thresholds": {
+    "1": {
+      "A_fg_v4": 0,
+      "B_fg_v4": 1196,
+      "AB_overlap": 52,
+      "A_fg_donor": 1455,
+      "B_fg_donor": 1196,
+      "foregroundAlphaArea": 63211
+    },
+    "8": {
+      "A_fg_v4": 0,
+      "B_fg_v4": 558,
+      "AB_overlap": 3,
+      "A_fg_donor": 1151,
+      "B_fg_donor": 558,
+      "foregroundAlphaArea": 59680
+    },
+    "32": {
+      "A_fg_v4": 0,
+      "B_fg_v4": 139,
+      "AB_overlap": 1,
+      "A_fg_donor": 943,
+      "B_fg_donor": 139,
+      "foregroundAlphaArea": 56121
+    },
+    "80": {
+      "A_fg_v4": 0,
+      "B_fg_v4": 0,
+      "AB_overlap": 0,
+      "A_fg_donor": 726,
+      "B_fg_donor": 0,
+      "foregroundAlphaArea": 52651
+    },
+    "128": {
+      "A_fg_v4": 0,
+      "B_fg_v4": 0,
+      "AB_overlap": 0,
+      "A_fg_donor": 567,
+      "B_fg_donor": 0,
+      "foregroundAlphaArea": 50053
+    },
+    "192": {
+      "A_fg_v4": 0,
+      "B_fg_v4": 0,
+      "AB_overlap": 0,
+      "A_fg_donor": 335,
+      "B_fg_donor": 0,
+      "foregroundAlphaArea": 46232
+    },
+    "240": {
+      "A_fg_v4": 0,
+      "B_fg_v4": 0,
+      "AB_overlap": 0,
+      "A_fg_donor": 100,
+      "B_fg_donor": 0,
+      "foregroundAlphaArea": 41111
+    }
+  },
+  "footVisibleEndYByAlphaThreshold": {
+    "1": {
+      "ZhangWei": 1210,
+      "ChenYu": 1209
+    },
+    "8": {
+      "ZhangWei": 1203,
+      "ChenYu": 1204
+    },
+    "32": {
+      "ZhangWei": 1203,
+      "ChenYu": 1202
+    },
+    "80": {
+      "ZhangWei": 1203,
+      "ChenYu": 1200
+    },
+    "128": {
+      "ZhangWei": 1202,
+      "ChenYu": 1199
+    },
+    "192": {
+      "ZhangWei": 1202,
+      "ChenYu": 1198
+    },
+    "240": {
+      "ZhangWei": 1202,
+      "ChenYu": 1195
+    }
+  },
+  "weakAlphaOverlap": {
+    "actorBNewV4PixelCountAlphaPositive": 1196,
+    "bbox": [
+      619,
+      554,
+      715,
+      1004
+    ],
+    "numAtThreshold8": 558,
+    "numAtThreshold32": 139,
+    "numAtThreshold80": 0,
+    "alpha8BBox": [
+      623,
+      637,
+      633,
+      746
+    ],
+    "alpha32BBox": [
+      628,
+      657,
+      631,
+      721
+    ],
+    "rgbMeanAbsolutePerChannel": 1.4214,
+    "rgbP95AbsolutePerChannel": 5,
+    "rgbMaxAbsolutePerChannel": 21,
+    "numPixelsWithAnyChannelDifferenceGt2": 285,
+    "numPixelsWithAnyChannelDifferenceGt10": 25
+  },
+  "correctedInterpretation": "The old zero-collision statement is strictly true for alpha>=80, not alpha-positive; low-alpha actor/FG and actor/actor halos are measurable. They are mild RGB effects but require manual scene-depth review; no unproven FG trim, clipping, source alteration, or production promotion.",
+  "cameraGate": {
+    "source": "CAM_HSK6_SC035_01",
+    "target": "CAM_HSK6_SC032_01",
+    "numericCameraEquivalenceApproved": false,
+    "sourceTargetHomographyVerified": false,
+    "fourCanonicalBGFGPathsMissingAcrossBothScenes": 4
+  },
+  "githubV4Status": {
+    "FGBlobReadBack": "NOT_FOUND_404",
+    "previewBlobReadBack": "NOT_FOUND_404",
+    "binaryUploadAttemptedThisPass": false,
+    "productionV4WebpPromoted": false
+  },
+  "releaseDecision": "HOLD_CAMERA_BGFG_SOFT_ALPHA_ANTIALIAS_REVIEW",
+  "accepted": false,
+  "sourceWebpsChanged": false,
+  "globalZhangWeiReview": "DEFERRED_LAST_P999",
+  "actions": false
+}
