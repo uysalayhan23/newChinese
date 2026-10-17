@@ -1,0 +1,85 @@
+{
+  "sceneId": "HSK6_SC032",
+  "recordType": "NONPRODUCTION_STAGING_INDEPENDENT_ALPHA_MASK_QA",
+  "baseHead": "22cac8abc4ae13edd981b5bed9a24184322eb417",
+  "qaDate": "2026-10-17",
+  "dateNote": "This QA runs on source ZIP binaries; it does not assert the candidate WEBP is in the GitHub repository.",
+  "sourceArchiveSha256": "3bbfad7f8133fd542c7b431e195dc689f72886fd4d0ec235ff5a71a580d319db",
+  "stagingBundleSha256": "aee2e3900a03c56c6617059fa60e0f385447bd4499015cae05085630c292968e",
+  "fourSourcesPin": {
+    "background": {
+      "donorScene": "HSK6_SC035",
+      "gitBlobSha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48"
+    },
+    "foreground": {
+      "donorScene": "HSK6_SC035",
+      "gitBlobSha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061"
+    },
+    "characterA": {
+      "scene": "HSK6_SC032",
+      "gitBlobSha": "44a7a521b7fa64466111c30f6830904081c3767d"
+    },
+    "characterB": {
+      "scene": "HSK6_SC032",
+      "gitBlobSha": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b"
+    }
+  },
+  "allFourSourceWebpsDecoded": true,
+  "sourceBlobShaMatchesGitHub": true,
+  "stagingPreview": {
+    "colorMode": "RGB",
+    "width": 720,
+    "height": 1280,
+    "bytes": 193516,
+    "gitBlobSha": "5398498273bbf47abaa10445f9775f71304dff0b",
+    "sha256": "da7313861d19bc7faf3577b139408f9f43a707a21b155be698656916809eda3a",
+    "decoded": true,
+    "productionPreviewExists": false
+  },
+  "independentMaskMethod": "Pillow alpha.getbbox, source alpha crop Lanczos into original staging sidecar position; actor mask alpha>=80; donor FG alpha>=80; independent head band first 25%/torso 25–75%; NOT same head/torso ROI as earlier QA sidecar.",
+  "pixelMetrics": {
+    "originalV2PositionBottomBoth1210": true,
+    "alphaDerivedFootVisibleEnd": {
+      "characterA": 1202,
+      "characterB": 1203,
+      "differencePixels": 1
+    },
+    "actorAHeadFgAlpha80OverlapFraction": 0,
+    "actorATorsoFgAlpha80OverlapFraction": 0.02039655,
+    "actorBHeadFgAlpha80OverlapFraction": 0,
+    "actorBTorsoFgAlpha80OverlapFraction": 0,
+    "wholeActorAForegroundAlpha80CollisionPixels": 896,
+    "opaqueActorToActorCollisionPixels": 0,
+    "alpha80ActorToActorCollisionPixels": 0,
+    "fgAlpha80Fraction": 0.09360677083333334,
+    "fgAlpha80ByVerticalThird": [
+      0.023237,
+      0.219796,
+      0.037656
+    ],
+    "actorARelativeHeightRatio": 0.81
+  },
+  "gateComparison": {
+    "previousV2SidecarThresholdsCannotBeDirectlyAppliedToThisIndependentRoi": true,
+    "headIndependentMaskObservation": "NO_FLAG_0_5_PERCENT_ROI",
+    "torsoIndependentMaskObservation": "FLAG_ABOVE_2_PERCENT_NONCOMPARABLE_ROI",
+    "physicalSourceQA": "PASS",
+    "layerPlanCameraPerspectDepth": "HOLD",
+    "foregroundQA": "HOLD_REVIEW_REQUIRED",
+    "sceneAcceptance": false
+  },
+  "productionChanges": false,
+  "missingTargetAssets": [
+    "BG",
+    "FG",
+    "PREVIEW"
+  ],
+  "globalZhangWeiCrossLevelAudit": "DEFERRED_FINAL_P999_NOT_STARTED",
+  "verificationLimitations": [
+    "Source alpha Lanczos reconstruction is proxy geometry, not exact compositor pixel parity",
+    "Foot contact y difference is derived from alpha-visible masks, whereas source staging sidecar says translated crop box bottoms both y=1210",
+    "Camera preset IDs are not calibrated camera matrices",
+    "Character adult canonical match not newly approved",
+    "Do not promote donor assets to production"
+  ]
+}
