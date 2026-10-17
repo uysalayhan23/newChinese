@@ -267,6 +267,30 @@
           "baseline": "HSK1-HSK5_SC005 approved canonical identities"
         }
       ]
+    },
+    {
+      "id": "P999_FINAL_HSK1_HSK6_ZHANG_WEI_CANONICAL_VISUAL_REVIEW",
+      "priority": 999,
+      "executionOrder": "LAST — only after all other ongoing NewChinese production, QA, HOLD resolution and existing backlog tasks have been completed; do not perform until the end by explicit user request.",
+      "status": "deferred_not_started_2026-10-17",
+      "items": [
+        {
+          "range": "HSK1_SC001–HSK6_SC050",
+          "characterId": "CHAR_ZHANG_WEI_001",
+          "required": [
+            "compare_original_canonical_character_WebP_visuals_across_all_HSK_levels",
+            "evaluate_face_hair_adult_identity_style_outfit_pose_and_proportions_against_approved_Character_Bible",
+            "record_scene_specific_evidence_and_only_then_propose_repairs"
+          ],
+          "preserve": [
+            "currently_accepted_source_binary_assets",
+            "all_LOCKS_and_Golden_Demo",
+            "unchanged_scene_dialogues",
+            "existing_HOLD_decisions"
+          ],
+          "note": "USER DEFERRED: Zhang Wei cross-level visual identity/appearance comparison, including divergent HSK6 blue-sweater variant, must be handled last. Do NOT start now, and do not regenerate, overwrite, accept or replace character assets based only on SHA reuse or stylistic suspicion. Current HSK6 BG/FG, dialogue grounding and local QA continue as before."
+        }
+      ]
     }
   ],
   "completedRepairs": [
@@ -391,7 +415,7 @@
       "note": "Exact accepted canonical preview blob validated; metadata gate closed without unnecessary regeneration."
     }
   ],
-  "updatedAt": "2026-10-10",
+  "updatedAt": "2026-10-17",
   "partialRepairs": [
     {
       "range": "HSK1_SC014/019/021/030",
