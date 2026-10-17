@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from verify_hsk6_032_038_camera_gate import preflight
 
 class CameraGateTests(unittest.TestCase):
