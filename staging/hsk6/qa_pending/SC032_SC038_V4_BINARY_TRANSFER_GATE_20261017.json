@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "scope": "HSK6_SC032_SC038_V4",
   "qaDate": "2026-10-17",
-  "auditedHead": "4b5f9fce4287cca2a0258fbe80b18b94ff8ca2f1",
-  "status": "LOCAL_SOURCE_RERUN_PASS_GITHUB_BINARY_TRANSFER_PENDING_CAMERA_AND_CANONICAL_HOLD",
+  "auditedHead": "9cb2eb5a93c726459eb34c10b1520dd978fd62e7",
+  "status": "V4_PHYSICAL_AND_FULL_OBJECT_PIXEL_QA_PASS_GITHUB_EXACT_BINARY_UPLOAD_UNVERIFIED_CAMERA_CANONICAL_HOLD",
   "sourceArchive": {
     "name": "NewChinese_HSK6_SC032_SC038_V4_COUNTER_DEPTH_QA_20261017.zip",
     "bytes": 1800978,
@@ -40,7 +40,16 @@
     "performed": false,
     "verifiedGitBlobCreated": false,
     "githubBackreadShaValidated": false,
-    "reason": "No verified authenticated bridge from exact local binary WebP bytes into connected GitHub create_blob(base64); do not submit placeholder or claim upload."
+    "reason": "Exact original V4 WebP bytes physically decoded and base64 text staged locally, but no authenticated direct bridge exists from local runtime bytes to connected create_blob(base64); local files cannot be read as exact original bytes through this connector. Avoid fake WebP, lossy transformation, SHA assumptions or unverified upload.",
+    "lastCheck": "2026-10-17",
+    "requiredFgGitSha": "84631be9ed27a64a29e134e84037919b23277440",
+    "requiredPreviewGitSha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+    "remoteDirectBlobGET": {
+      "fg": "404_NOT_FOUND",
+      "preview": "404_NOT_FOUND"
+    },
+    "locallyVerifiedExactBase64Prepared": true,
+    "trustedNativeBinaryToGitHubCreateBlobBridge": "NOT_VERIFIED"
   },
   "qa": {
     "sourceRerun": "PASS",
@@ -69,5 +78,88 @@
     "globalZhangWeiAudit": "DEFERRED_LAST_P999",
     "actionsRunByThisAudit": false,
     "forcePush": false
+  },
+  "additionalIndependentPhysicalQa": {
+    "sourceArchives": {
+      "original": "hsk6.zip",
+      "V4": "NewChinese_HSK6_SC032_SC038_V4_VERIFIED_STAGING_NOT_PRODUCTION_20261017.zip"
+    },
+    "physicalSourceShas": {
+      "donorBg": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+      "donorFg": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+      "zhangWei": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "chenYu": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b"
+    },
+    "pixels": {
+      "originalFgAlphaPositiveLeft": 40417,
+      "originalFgAlpha80Left": 33617,
+      "originalFgAlphaPositiveMiddle": 0,
+      "originalFgAlphaPositiveRight": 63211,
+      "originalFgAlpha80Right": 52651,
+      "v4FgAlphaPositiveLeft": 0,
+      "v4FgAlphaPositiveMiddle": 0,
+      "v4FgAlphaPositiveRight": 63211,
+      "v4FgAlpha80Right": 52651,
+      "visibleRightFgRgbaPixelsDifferent": 0,
+      "rightFgAlphaPixelsDifferent": 0
+    },
+    "V4Webps": {
+      "foreground": {
+        "sha": "84631be9ed27a64a29e134e84037919b23277440",
+        "sha256": "c79a0c4dbfbc6807a94c598afd378682213894fd992356fcfe3cd3b66bcb62aa",
+        "bytes": 84614,
+        "mode": "RGBA",
+        "dimensions": [
+          720,
+          1280
+        ]
+      },
+      "preview": {
+        "sha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+        "sha256": "5a69c580d7a85d160eae0602f956440b3800bd39dd07b80363c13de05f6bc5bc",
+        "bytes": 215124,
+        "mode": "RGB",
+        "dimensions": [
+          720,
+          1280
+        ]
+      }
+    },
+    "result": "PASS_ONLY_VISIBLE_RIGHT_FG_PIXEL_PRESERVATION_AND_LEFT_WHOLE_OBJECT_ALPHA_REMOVAL_NOT_CAMERA_VALIDATION"
+  },
+  "cameraAndCanonicalRemediation": {
+    "referenceDonor": "HSK6_SC035",
+    "referenceCamera": "CAM_HSK6_SC035_01",
+    "targets": [
+      {
+        "sceneId": "HSK6_SC032",
+        "camera": "CAM_HSK6_SC032_01",
+        "sourceBG": "content/hsk6/sc035/assets/hsk6_sc035_bg.webp",
+        "targetBG": "content/hsk6/sc032/assets/hsk6_sc032_bg.webp",
+        "targetFG": "content/hsk6/sc032/assets/hsk6_sc032_fg.webp",
+        "targetPreview": "content/hsk6/sc032/assets/hsk6_sc032_preview.webp"
+      },
+      {
+        "sceneId": "HSK6_SC038",
+        "camera": "CAM_HSK6_SC038_01",
+        "sourceBG": "content/hsk6/sc035/assets/hsk6_sc035_bg.webp",
+        "targetBG": "content/hsk6/sc038/assets/hsk6_sc038_bg.webp",
+        "targetFG": "content/hsk6/sc038/assets/hsk6_sc038_fg.webp",
+        "targetPreview": "content/hsk6/sc038/assets/hsk6_sc038_preview.webp"
+      }
+    ],
+    "sceneCameraEquivalence": "HOLD_NO_CALIBRATED_PROJECTION_LENS_EXTRINSICS_OR_FLOOR_PLANE_TRANSFORM",
+    "canonicalTargetBG": "MISSING_BOTH",
+    "canonicalTargetFG": "MISSING_BOTH",
+    "productionPreview": "MISSING_BOTH",
+    "repairGate": [
+      "Find or generate truly target-camera-matched empty-scene BG while preserving location bible and locked sources",
+      "Verify numerical or manually grounded camera/floor line equivalence against target scene, not only donor name",
+      "Validate full-object FG depth ordering and actor hands/faces/torso natural occlusion in scene-specific camera",
+      "Verify complete four real source layers and independently reproduce source SHA preview composition",
+      "Approve scene-specific layerPlan only after visual and identity QA; keep source canonical and other accepted scene pixels untouched"
+    ],
+    "approvedToPublish": false,
+    "status": "HOLD"
   }
 }
