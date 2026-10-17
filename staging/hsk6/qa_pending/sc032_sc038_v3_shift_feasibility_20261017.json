@@ -1,0 +1,62 @@
+{
+  "schema": "NewChinese_HSK6_SC032_SC038_STAGING_V3_FG_SHIFT_FEASIBILITY_V1",
+  "date": "2026-10-17",
+  "repository": "uysalayhan23/newChinese",
+  "sourceHead": "a971edc2fac38dc282dea502236339dcfc79648a",
+  "stageOnly": true,
+  "identicalStagingPreviewBlobSha": "1226b4b39bfe0bbdef938ea392488c071fa251e4",
+  "scenes": [
+    "HSK6_SC032",
+    "HSK6_SC038"
+  ],
+  "verifiedSources": {
+    "donor": "HSK6_SC035",
+    "backgroundGitBlob": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+    "foregroundGitBlob": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+    "characterAGitBlob": "44a7a521b7fa64466111c30f6830904081c3767d",
+    "characterBGitBlob": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b"
+  },
+  "geometry": {
+    "foregroundThreshold": 80,
+    "actorAlphaThreshold": 80,
+    "actorAShiftY": 1,
+    "minimumXShift": -32,
+    "maximumXShift": 40,
+    "nConfigurationsTested": 73,
+    "correspondingFootBaselineConstraint": "aligned_visible_alpha_foot_bottom",
+    "bestNoActorCollision": {
+      "dx": 4,
+      "dy": 1,
+      "overlapForegroundPixels": 726,
+      "actorCollisionPixels": 0
+    },
+    "overlapBBoxInclusive": {
+      "xmin": 82,
+      "ymin": 785,
+      "xmax": 110,
+      "ymax": 833
+    },
+    "nextXShift": {
+      "dx": 5,
+      "dy": 1,
+      "foregroundOverlapPixels": 685,
+      "actorCollisionPixels": 2
+    },
+    "next2XShift": {
+      "dx": 6,
+      "dy": 1,
+      "foregroundOverlapPixels": 642,
+      "actorCollisionPixels": 10
+    },
+    "noZeroBothFoundInRange": true,
+    "scopeCaveat": "Only horizontal movement of fixed-size character A relative to fixed-position character B and unchanged foreground at fixed foot contact. Does not rule out an independently approved alternative camera, layer, character artwork or changed geometry."
+  },
+  "gate": {
+    "fgGestureOcclusion": "HOLD_726_PIXELS",
+    "perspectiveCalibration": "HOLD_NO_INTRINSICS_EXTRINSICS",
+    "canonicalTargetBgFg": "HOLD_SIX_MISSING",
+    "previewProduction": "NOT_PROMOTED",
+    "sourceArtChanged": false,
+    "globalZhangWeiAudit": "DEFERRED_P999"
+  }
+}
