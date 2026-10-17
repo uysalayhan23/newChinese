@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "HSK6_SC038",
+  "qaDate": "2026-10-17",
+  "auditBaseHead": "8a4c075347bc124b9aff23905649689a55791b01",
+  "sceneContext": {
+    "status": "approved",
+    "approvalScope": "dialogue_intent_scene_cast_and_visible_prop_grounding_only",
+    "summary": "Dijital kimlik: iki konuşmacı konuyu sakin ve analitik biçimde tartışır; olgular, yargı ve sorumlulukla ilgili farklı bakış açılarını ele alır.",
+    "communicationPurpose": "数字身份 (Dijital kimlik) üzerine HSK6 düzeyinde karşılıklı değerlendirme",
+    "tone": "sakin, analitik, saygılı; natural duygulu konuşma",
+    "mainPhysicalAction": "İki yetişkin karakter karşılıklı konuşur; hafif, yüz ve jestleri açık bırakan konuşma jestleri; kilitli diyalogda nesne tutma/yürüme eylemi zorunluluğu yok",
+    "charactersPresent": [
+      "CHAR_ZHANG_WEI_001",
+      "CHAR_CHEN_YU_001"
+    ],
+    "visiblePropsSuggestedFromLocationBible": [
+      "telefon ve kulaklık aksesuar rafları",
+      "cihaz demo masaları",
+      "düzenli mağaza rafları"
+    ],
+    "dialogueMandatoryPropInteractions": [],
+    "continuityFromPrevious": "HSK6_SC037: LOC_ZHANG_OFFICE_001 → LOC_ELECTRONICS_STORE_001; mekan değişimi sahne sınırında korunur",
+    "continuityToNext": "LOC_ELECTRONICS_STORE_001 → HSK6_SC039: LOC_PUBLIC_LIBRARY_001; yeni mekan sahne sınırında korunur",
+    "visualNotes": "9:16 720×1280 hedef; BG + izole CHAR_A + izole CHAR_B + şeffaf FG; yüzler, eller, konuşma jestleri, altyazı UI safe-area açık; metinsiz önizleme; app içi konuşma balonu ayrı overlay",
+    "dialogueEvidenceLineIds": [
+      "HSK6_SC038_L001",
+      "HSK6_SC038_L019",
+      "HSK6_SC038_L024",
+      "HSK6_SC038_L033"
+    ],
+    "exactDialogueFileSha": "fd0a0327953cf70a4cd537c78f66aeb3d6d1d7a8"
+  },
+  "dialogueCheck": {
+    "status": "approved_with_locked_content",
+    "source": "content/hsk6/sc038/dialogue.json",
+    "sourceGitBlob": "fd0a0327953cf70a4cd537c78f66aeb3d6d1d7a8",
+    "lineCount": 36,
+    "dialogueStatus": "locked-reference",
+    "voiceMapping": {
+      "CHAR_ZHANG_WEI_001": [
+        "VOICE_ZHANG_WEI_001"
+      ],
+      "CHAR_CHEN_YU_001": [
+        "VOICE_CHEN_YU_001"
+      ]
+    },
+    "lineCountsByCharacter": {
+      "CHAR_ZHANG_WEI_001": 18,
+      "CHAR_CHEN_YU_001": 18
+    },
+    "contentChanged": false
+  },
+  "locationMatch": {
+    "status": "approved",
+    "approvalScope": "scene_dialogue_and_Location_Bible_selection_only_not_camera_reuse",
+    "locationId": "LOC_ELECTRONICS_STORE_001",
+    "authoritativeBible": "locations/LOC_ELECTRONICS_STORE_001/visual_bible.json",
+    "locationBibleGitBlob": "85307c57069580ac8a9cf8037b68fdb361650ab2",
+    "reason": "scene.json, visual_manifest ve visual_production_queue ayni konumu kullaniyor; tam kilitli 36 satirlik konusma farkli bir mekan veya scene-specific prop zorunlulugu getirmiyor; Location Bible ortam kimligiyle uyumlu.",
+    "dialogueEvidence": [
+      "HSK6_SC038_L001",
+      "HSK6_SC038_L019",
+      "HSK6_SC038_L024",
+      "HSK6_SC038_L033"
+    ],
+    "continuityEvidence": "HSK6_SC037 (LOC_ZHANG_OFFICE_001) → HSK6_SC038 (LOC_ELECTRONICS_STORE_001) → HSK6_SC039 (LOC_PUBLIC_LIBRARY_001)",
+    "approvedForLayerPlanning": true,
+    "caveat": "Sadece layer planlama ADIMINI baslatma onayi; donor BG/FG perspektif, kamera ve source binary kabul onayi DEGIL."
+  },
+  "layerPlan": {
+    "status": "HOLD_PENDING_CAMERA_FG_GEOMETRY_CANONICAL_ACTOR_ASSET_COMPLETENESS",
+    "approved": false,
+    "plannedLayerOrder": [
+      "BG",
+      "CHAR_A",
+      "CHAR_B",
+      "FG",
+      "PREVIEW"
+    ],
+    "environmentCandidate": {
+      "donorScene": "HSK6_SC035",
+      "referenceBackground": {
+        "path": "content/hsk6/sc035/assets/hsk6_sc035_bg.webp",
+        "blobSha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48"
+      },
+      "referenceForeground": {
+        "path": "content/hsk6/sc035/assets/hsk6_sc035_fg.webp",
+        "blobSha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061"
+      },
+      "sameLocationVerified": true,
+      "donorCameraPreset": "CAM_HSK6_SC035_01",
+      "targetCameraPreset": "CAM_HSK6_SC038_01",
+      "cameraCalibrationVerified": false,
+      "donorReuseApproved": false,
+      "desiredLighting": "LIGHT_WARM_NATURAL_01"
+    },
+    "canonicalActorInputs": [
+      {
+        "characterId": "CHAR_ZHANG_WEI_001",
+        "outfit": "OUTFIT_ZHANG_WEI_CASUAL_01",
+        "path": "content/hsk6/sc038/assets/hsk6_sc038_char_zhang_wei.webp",
+        "blobSha": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "sourcePixelsMustRemainUnchanged": true,
+        "localVisualIdentityGate": "HOLD_DONT_REPLACE_OR_PROMOTE"
+      },
+      {
+        "characterId": "CHAR_CHEN_YU_001",
+        "outfit": "OUTFIT_CHEN_YU_CASUAL_01",
+        "path": "content/hsk6/sc038/assets/hsk6_sc038_char_chen_yu.webp",
+        "blobSha": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+        "sourcePixelsMustRemainUnchanged": true,
+        "localVisualIdentityGate": "HOLD_DONT_REPLACE_OR_PROMOTE"
+      }
+    ],
+    "foregroundPlan": "Subtle transparent depth layer only; must not obscure actor face, torso or hands. Verify floor-plane, vanishing lines, actor scale and safe areas with actual final four-layer candidate. Donor reuse is NOT authorised.",
+    "previewPlan": "staging-v2 QA candidate only; actual Git blob 5398498273bbf47abaa10445f9775f71304dff0b. Not a fifth runtime layer.",
+    "outstanding": [
+      "six_missing_BGFG_across_three_target_scenes",
+      "independent_camera_perspective_and_actor_scale_test",
+      "local_actor_canonical_continuity_verification",
+      "four_layer_physical_final_files",
+      "final_scene_visual_QA_and_app_acceptance"
+    ]
+  },
+  "visualQa": {
+    "status": "HOLD_BGFG_CAMERA_SCALE_PRODUCTION_NOT_APPROVED",
+    "stagingPreview": {
+      "blobSha": "5398498273bbf47abaa10445f9775f71304dff0b",
+      "physicalDecode": "PASS",
+      "width": 720,
+      "height": 1280,
+      "fgAlpha80ByVerticalThird": [
+        0.023237,
+        0.219796,
+        0.037656
+      ],
+      "actorAHeadFgOverlapReported": 0.003414,
+      "actorATorsoFgOverlapReported": 0.01496,
+      "reportedActorHeightRatio": 0.81,
+      "footBaselinesAligned": true,
+      "foregroundProxyGates": "PASS_PREVIOUS_STAGING_SIDECAR"
+    },
+    "interpretation": "Pillow/SHA ve FG proxy PASS yalniz staging fizigini kanitlar; gercek kamera eslesmesi, yetiskin karakter kimligi ve kaynak BG/FG kabulunu kanitlamaz.",
+    "acceptedScene": false,
+    "productionAssetsModified": false,
+    "visualComplete": false,
+    "globalZhangWeiCrossLevelReview": "DEFERRED_TO_FINAL_P999_TASK_NOT_PERFORMED"
+  },
+  "sourceFilePins": {
+    "sceneGitBlob": "4b389124a352f60139359ffa703ef6bf63859c51",
+    "visualManifestGitBlob": "865e8024383f42e27e6c87cd51f9e306a4944146",
+    "lockedDialogueGitBlob": "fd0a0327953cf70a4cd537c78f66aeb3d6d1d7a8"
+  }
+}
