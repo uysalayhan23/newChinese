@@ -1,0 +1,84 @@
+{
+  "sceneId": "HSK6_SC026",
+  "date": "2026-10-17",
+  "baseCommit": "f2e94dbc94827140e0ac5e33e81e19044652e128",
+  "kind": "PHYSICAL_V3_STAGING_QA_EVIDENCE_ONLY_NO_PRODUCTION_ASSETS",
+  "sourcePhysicalArchive": "hsk6.zip",
+  "oldStageBundle": "NewChinese_HSK6_SC026_SC032_SC038_STAGE_V2_QA_BUNDLE_20261016.zip",
+  "verifiedRealSources": {
+    "background": {
+      "donor": "HSK6_SC023",
+      "gitBlob": "a0fda64fd0732d378d2648a48d058edfb4fca015"
+    },
+    "characterA": {
+      "gitBlob": "44a7a521b7fa64466111c30f6830904081c3767d"
+    },
+    "characterB": {
+      "gitBlob": "eea4742918bf5b78f222b54631de8f71a4c824a7"
+    },
+    "foreground": {
+      "donor": "HSK6_SC023",
+      "gitBlob": "5da1b87d0e43673ce2259c2759c88569f8cae81e"
+    }
+  },
+  "oldV2StagingPreviewGitBlob": "ceca83f32fe89c510844de4820c22c379f207f88",
+  "candidateV3StagingWebP": {
+    "file": "hsk6_sc026_safe_placement_v3_staging.webp",
+    "source": "downloadable QA ZIP; NOT yet stored as a GitHub repo blob",
+    "gitBlobVerifiedLocally": "9fd2fdb63ee437a741ca43a47ba2defdd6ce7c83",
+    "sha256": "52ad32504d743de4508306eae7319ca036d728afd902bd879311a6b78b4defe9",
+    "bytes": 363694,
+    "dimensions": [
+      720,
+      1280
+    ],
+    "mode": "RGB",
+    "physicalPillowDecode": "PASS",
+    "deterministicReproduction": "SECOND_RUN_BYTE_IDENTICAL"
+  },
+  "transformation": {
+    "method": "Crop original alpha bounding box; same Lanczos resize as V2, translate only character A; composite unchanged BG -> A -> B -> unchanged FG; encode WebP",
+    "actorAFrom": {
+      "x": 14,
+      "y": 588
+    },
+    "actorATo": {
+      "x": 22,
+      "y": 594
+    },
+    "pixelShift": {
+      "dx": 8,
+      "dy": 6
+    },
+    "characterSizeUnchanged": true,
+    "characterBUnchanged": true,
+    "sourceWebPPixelsUnchanged": true,
+    "foregroundMaskNotEdited": true
+  },
+  "independentAlphaMaskQA": {
+    "alphaThresholdActorAndFG": 80,
+    "oldVisibleFootDeltaPx": -6,
+    "newVisibleFootDeltaPx": 0,
+    "oldFgOverlapActorAPixels": 117,
+    "newFgOverlapActorAPixels": 0,
+    "oldFgOverlapActorAHeadPixels": 117,
+    "newFgOverlapActorAHeadPixels": 0,
+    "oldFgOverlapActorATorsoPixels": 0,
+    "newFgOverlapActorATorsoPixels": 0,
+    "oldOpaqueActorCollision": 0,
+    "newOpaqueActorCollision": 0,
+    "newSoftActorCollision": 0
+  },
+  "decision": {
+    "stagingPhysicalAndProxyQA": "PASS",
+    "sceneSpecificCameraCalibration": "NOT_PROVEN_HOLD",
+    "trueGroundPlaneDepth": "NOT_PROVEN_HOLD",
+    "canonicalSourceBGFG": "SIX_TARGET_FILES_MISSING_HOLD",
+    "actorVisualIdentityAndProportions": "LOCAL_HOLD_NO_REPLACEMENT",
+    "productionPreview": "ABSENT",
+    "accepted": false,
+    "visualComplete": false,
+    "sourceOrLockChanged": false,
+    "globalZhangWeiCharacterReview": "DEFERRED_P999_LAST"
+  }
+}
