@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "HSK6_SC038",
+  "analysisDate": "2026-10-17",
+  "auditedBaseHead": "6f1ac13ced03cfc473c534e4afe217b0fbb36ba3",
+  "purpose": "NON_PRODUCTION_SCENE_SPECIFIC_CAMERA_FLOOR_QA",
+  "dialogueTopic": "digital_identity",
+  "metadataGrounding": {
+    "sceneContextApproved": true,
+    "locationMatched": "LOC_ELECTRONICS_STORE_001",
+    "locationId": "LOC_ELECTRONICS_STORE_001",
+    "layerPlanApproved": false,
+    "lockedDialogueUnchanged": true
+  },
+  "cameraCandidate": {
+    "targetCameraPreset": "CAM_HSK6_SC038_01",
+    "sourceScene": "HSK6_SC035",
+    "donorCameraPreset": "CAM_HSK6_SC035_01",
+    "nativeDonorBG": {
+      "path": "content/hsk6/sc035/assets/hsk6_sc035_bg.webp",
+      "gitBlobSha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48"
+    },
+    "nativeDonorFG": {
+      "path": "content/hsk6/sc035/assets/hsk6_sc035_fg.webp",
+      "gitBlobSha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061"
+    },
+    "pixelGeometryTransformedFromDonor": false,
+    "originalDonorBGImageUnchanged": true,
+    "perspectiveProxy": {
+      "roiY": [
+        500,
+        1250
+      ],
+      "Canny": [
+        50,
+        150
+      ],
+      "hough": {
+        "rho": 1,
+        "thetaDegrees": 1,
+        "threshold": 75,
+        "minLineLength": 75,
+        "maxLineGap": 28
+      },
+      "leftSegments": [
+        [
+          38,
+          898,
+          247,
+          589
+        ],
+        [
+          137,
+          1249,
+          209,
+          997
+        ]
+      ],
+      "rightSegments": [
+        [
+          563,
+          627,
+          719,
+          834
+        ],
+        [
+          620,
+          1047,
+          698,
+          1249
+        ]
+      ],
+      "pairwiseIntersections": [
+        [
+          382.92,
+          388.05
+        ],
+        [
+          371.86,
+          404.39
+        ],
+        [
+          382.97,
+          388.11
+        ],
+        [
+          375.57,
+          414
+        ]
+      ],
+      "medianXY": [
+        379.25,
+        396.25
+      ],
+      "interpretation": "2D donor-background vanishing-line proxy only, not a calibrated target-camera transformation"
+    },
+    "numericTargetCameraParametersAvailable": false,
+    "sceneSpecificCameraEquivalenceConfirmed": false,
+    "approvedForCanonicalReuse": false
+  },
+  "exactV4LocalBinaries": {
+    "foreground": {
+      "bytes": 84614,
+      "size": [
+        720,
+        1280
+      ],
+      "mode": "RGBA",
+      "gitBlobSha": "84631be9ed27a64a29e134e84037919b23277440",
+      "sha256": "c79a0c4dbfbc6807a94c598afd378682213894fd992356fcfe3cd3b66bcb62aa"
+    },
+    "preview": {
+      "bytes": 215124,
+      "size": [
+        720,
+        1280
+      ],
+      "mode": "RGB",
+      "gitBlobSha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+      "sha256": "5a69c580d7a85d160eae0602f956440b3800bd39dd07b80363c13de05f6bc5bc"
+    },
+    "bothScenesByteIdenticalForEachAsset": true,
+    "localPillowPhysicalVerified": true,
+    "githubV4BlobAvailable": false,
+    "githubV4BinaryRoundtripVerified": false
+  },
+  "foregroundDepthEvidence": {
+    "method": "whole-separate-left-object omitted from NEW staging FG while retained in unmodified BG; entire right-object foreground preserved",
+    "donorLeftAlpha80Pixels": 33617,
+    "v4LeftAlpha80Pixels": 0,
+    "v4RightAlpha80Pixels": 52651,
+    "rightFGVisiblePixelsIdentical": true,
+    "actorAHandFGOverlapPrior": 726,
+    "actorAHandFGOverlapV4": 0,
+    "actorBCollision": 0,
+    "actorPairCollision": 0,
+    "visibleFootEndY": [
+      1203,
+      1203
+    ],
+    "calibratedFloorPlaneFromTargetArt": false
+  },
+  "alternateSameLocationSources": [
+    {
+      "scene": "HSK3_SC042 / HSK5_SC002",
+      "bgBlob": "bc540d14e120afa06e8766a9e574c41470211a6a",
+      "fgBlob": "0bf5404580c38c70f8c185e9b9a45d1dc62bfc56",
+      "previewBlob": "1d893f8b0db949bb999910e534c64433fbceeeed",
+      "cameraEquivalenceToTarget": "NOT_PROVEN"
+    },
+    {
+      "scene": "HSK5_SC008",
+      "bgBlob": "c0a8cd2fdace1ed57ca5690ae030b00e5b3d0549",
+      "fgBlob": "71931bdfc24c20f853887c612cdc4c14608df917",
+      "previewBlob": "1d893f8b0db949bb999910e534c64433fbceeeed",
+      "caution": "Preview blob identical to HSK5_SC002 despite different BG and character source SHA, so metadata complete is not sufficient independent camera QA."
+    }
+  ],
+  "blockers": [
+    "target_bg_webp_missing",
+    "target_fg_webp_missing",
+    "production_preview_missing",
+    "camera_equivalence_not_approved",
+    "target-specific canonical BG/FG pixels not ready",
+    "source_actor local identity/scale still HOLD; global HSK1–HSK6 review deferred final P999"
+  ],
+  "status": "V4_LOCAL_FG_AND_SOURCE_SHA_PASS_CAMERA_AND_CANONICAL_BGFG_HOLD",
+  "promotionAllowed": false,
+  "acceptedScene": false,
+  "actionsUsed": false,
+  "sourceWebpsChanged": false
+}
