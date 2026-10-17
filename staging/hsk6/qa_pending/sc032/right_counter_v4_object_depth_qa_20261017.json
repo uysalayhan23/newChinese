@@ -1,0 +1,121 @@
+{
+  "sceneId": "HSK6_SC032",
+  "status": "PHYSICAL_V4_LOCAL_STAGE_QA_PASS_CAMERA_PRODUCTION_HOLD",
+  "sourceHead": "4081704d21ca2c30c6541874b5b38f44f0e2cda7",
+  "sourceWebps": [
+    {
+      "kind": "BG",
+      "sourcePath": "content/hsk6/sc035/assets/hsk6_sc035_bg.webp",
+      "sha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+      "reusedAs": "QA background reference only—not production scene BG"
+    },
+    {
+      "kind": "A",
+      "sourcePath": "content/hsk6/sc032/assets/hsk6_sc032_char_zhang_wei.webp",
+      "sha": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "reusedAs": "unchanged alpha-cropped actor A"
+    },
+    {
+      "kind": "B",
+      "sourcePath": "content/hsk6/sc032/assets/hsk6_sc032_char_chen_yu.webp",
+      "sha": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+      "reusedAs": "unchanged alpha-cropped actor B"
+    },
+    {
+      "kind": "FG",
+      "sourcePath": "content/hsk6/sc035/assets/hsk6_sc035_fg.webp",
+      "sha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+      "reusedAs": "unchanged donor source for separable counter depth alternative"
+    }
+  ],
+  "originalV3StagingGitBlob": "1226b4b39bfe0bbdef938ea392488c071fa251e4",
+  "originalV3CommitVerified": true,
+  "method": "Object-level FG depth alternative. SC035 donor FG alpha consists of two completely disjoint groups x=0..122 and x=617..719 with zero alpha at columns x=123..616. The entire LEFT island is excluded from the NEW staging FG, not just pixels intersecting a hand. The left counter is already present unchanged in the donor BG; RIGHT island is preserved. Original donor FG binary and all character pixels remain unchanged.",
+  "isolatedAlphaIslandsAtThresholdPositive": {
+    "left": [
+      0,
+      122
+    ],
+    "right": [
+      617,
+      719
+    ],
+    "gap": [
+      123,
+      616
+    ]
+  },
+  "actorGeometryV3": {
+    "characterA": {
+      "x": 66,
+      "y": 614,
+      "width": 387,
+      "height": 597
+    },
+    "characterB": {
+      "x": 313,
+      "y": 473,
+      "width": 403,
+      "height": 737
+    },
+    "visibleFootEndBoth": 1203
+  },
+  "alpha80": {
+    "originalV3ActorAHandFgOverlaps": 726,
+    "newV4ActorAHandFgOverlaps": 0,
+    "actorBForegroundOverlaps": 0,
+    "actorToActorOverlaps": 0
+  },
+  "bgAlreadyContainsLeftCabinet": true,
+  "donorBGVersusDonorFGOverlayOnLeftCabinet": {
+    "meanAbsoluteRgbChannelDelta": 0.2851,
+    "p95AbsoluteRgbChannelDelta": 2,
+    "maxAbsoluteRgbChannelDelta": 16
+  },
+  "physicalStage": {
+    "foregroundWebp": {
+      "filename": "hsk6_sc032_right_counter_only_fg_candidate.webp",
+      "size": [
+        720,
+        1280
+      ],
+      "mode": "RGBA",
+      "bytes": 84614,
+      "gitBlobSha": "84631be9ed27a64a29e134e84037919b23277440",
+      "sha256": "c79a0c4dbfbc6807a94c598afd378682213894fd992356fcfe3cd3b66bcb62aa"
+    },
+    "previewWebp": {
+      "filename": "hsk6_sc032_right_counter_depth_preview_v4_STAGING.webp",
+      "size": [
+        720,
+        1280
+      ],
+      "mode": "RGB",
+      "bytes": 215124,
+      "gitBlobSha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+      "sha256": "5a69c580d7a85d160eae0602f956440b3800bd39dd07b80363c13de05f6bc5bc"
+    },
+    "localDeterministicSecondRunByteEquality": true,
+    "physicalPillowDecode": true,
+    "sourceV3RecompositionBinaryEqualToGitHubBlob": true,
+    "localDeliverableArchive": "NewChinese_HSK6_SC032_SC038_V4_COUNTER_DEPTH_QA_20261017.zip",
+    "githubBinaryUploadV4": false
+  },
+  "sceneSpecificApproval": {
+    "sceneContext": true,
+    "locationMatch": true,
+    "layerPlanApproved": false,
+    "donorCameraPreset": "CAM_HSK6_SC035_01",
+    "targetCameraPreset": "CAM_HSK6_SC032_01",
+    "calibratedCameraProof": false,
+    "canonicalBGExists": false,
+    "canonicalFGExists": false,
+    "productionPreviewExists": false,
+    "finalVisualAcceptance": false
+  },
+  "qaInterpretation": "FG hand-cover fault eliminated for this whole-object depth staging alternative, not a calibrated scene-correct BG/FG proof. Synthetic hand-pixel masking and canonical source edits were NOT used. Reconsider whether left cabinet really belongs behind the character and obtain scene-specific camera/foreground approval before production.",
+  "lockedAssetsChanged": false,
+  "globalZhangWeiAudit": "P999_DEFERRED_UNSTARTED_LAST",
+  "githubActions": "NOT_RUN",
+  "forcePush": false
+}
