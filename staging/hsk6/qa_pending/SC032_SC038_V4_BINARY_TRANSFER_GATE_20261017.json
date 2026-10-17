@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "scope": "HSK6_SC032_SC038_V4",
+  "qaDate": "2026-10-17",
+  "auditedHead": "4b5f9fce4287cca2a0258fbe80b18b94ff8ca2f1",
+  "status": "LOCAL_SOURCE_RERUN_PASS_GITHUB_BINARY_TRANSFER_PENDING_CAMERA_AND_CANONICAL_HOLD",
+  "sourceArchive": {
+    "name": "NewChinese_HSK6_SC032_SC038_V4_COUNTER_DEPTH_QA_20261017.zip",
+    "bytes": 1800978,
+    "sha256": "35db68ad9b30060baca5c55b8a53c6abe1b790bf603a9c94561fdffde0802701",
+    "zipCRC": "PASS",
+    "fourBinaryDeterministicRerun": "BYTE_FOR_BYTE_EQUAL_4_OF_4"
+  },
+  "sharedBinaries": {
+    "fg": {
+      "bytes": 84614,
+      "gitBlobSha": "84631be9ed27a64a29e134e84037919b23277440",
+      "sha256": "c79a0c4dbfbc6807a94c598afd378682213894fd992356fcfe3cd3b66bcb62aa",
+      "image": "RGBA_WEBP_720x1280"
+    },
+    "preview": {
+      "bytes": 215124,
+      "gitBlobSha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+      "sha256": "5a69c580d7a85d160eae0602f956440b3800bd39dd07b80363c13de05f6bc5bc",
+      "image": "RGB_WEBP_720x1280"
+    }
+  },
+  "proposedStagingOnlyPaths": {
+    "sc032": [
+      "staging/hsk6/qa_pending/sc032/hsk6_sc032_right_counter_only_fg_candidate_v4.webp",
+      "staging/hsk6/qa_pending/sc032/hsk6_sc032_right_counter_depth_preview_v4_STAGING.webp"
+    ],
+    "sc038": [
+      "staging/hsk6/qa_pending/sc038/hsk6_sc038_right_counter_only_fg_candidate_v4.webp",
+      "staging/hsk6/qa_pending/sc038/hsk6_sc038_right_counter_depth_preview_v4_STAGING.webp"
+    ]
+  },
+  "binaryTransport": {
+    "requested": true,
+    "performed": false,
+    "verifiedGitBlobCreated": false,
+    "githubBackreadShaValidated": false,
+    "reason": "No verified authenticated bridge from exact local binary WebP bytes into connected GitHub create_blob(base64); do not submit placeholder or claim upload."
+  },
+  "qa": {
+    "sourceRerun": "PASS",
+    "fourLocalWebps": "PASS",
+    "actorAOverlap": {
+      "v3": 726,
+      "v4": 0
+    },
+    "actorBOverlap": 0,
+    "actorActorCollision": 0,
+    "visibleFeetY": [
+      1203,
+      1203
+    ],
+    "rightFgObjectPixelIdentity": "PASS",
+    "cameraCalibration": "HOLD_INSUFFICIENT_SOURCE_PARAMETER_EVIDENCE",
+    "targetCanonicalBG": "MISSING",
+    "targetCanonicalFG": "MISSING",
+    "layerPlanApproved": false,
+    "productionPromoted": false
+  },
+  "protected": {
+    "sc026": true,
+    "lockedSources": true,
+    "allOtherHolds": true,
+    "globalZhangWeiAudit": "DEFERRED_LAST_P999",
+    "actionsRunByThisAudit": false,
+    "forcePush": false
+  }
+}
