@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "sceneId": "HSK6_SC032",
+  "status": "V4_LOCAL_OPACITY_WEIGHTED_FG_RECHECK_CAMERA_CANONICAL_HOLD",
+  "kind": "NON_PRODUCTION_PILLOW_NUMPY_REAL_WEBP_QA",
+  "auditedMainHead": "b8941efb82e51ff990c8e820ac9fc714cb25b4a5",
+  "originalUserHead": "1d0dfc05366f12d61fb8085d235ebbec5e849abf",
+  "sourceArchives": [
+    "hsk6.zip",
+    "NewChinese_HSK6_SC032_SC038_V4_VERIFIED_STAGING_NOT_PRODUCTION_20261017.zip"
+  ],
+  "sourcePins": {
+    "donorBG": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+    "donorFG": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+    "zhangWei": "44a7a521b7fa64466111c30f6830904081c3767d",
+    "chenYu": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b"
+  },
+  "physicallyDecodedPillow": true,
+  "gitBlobShasVerifiedByRawBytes": 6,
+  "v4Assets": {
+    "fg": {
+      "sha": "84631be9ed27a64a29e134e84037919b23277440",
+      "sha256": "c79a0c4dbfbc6807a94c598afd378682213894fd992356fcfe3cd3b66bcb62aa",
+      "bytes": 84614,
+      "mode": "RGBA"
+    },
+    "preview": {
+      "sha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+      "sha256": "5a69c580d7a85d160eae0602f956440b3800bd39dd07b80363c13de05f6bc5bc",
+      "bytes": 215124,
+      "mode": "RGB"
+    }
+  },
+  "candidateIdenticalAcrossSC032SC038": true,
+  "method": "Alpha cropped exact original actor WEBP, Pillow Lanczos A (66,614,387,597) B (313,473,403,737). Multiply two source-alpha maps at each pixel divided by 255^2 to estimate effective opacity overlap. Staging-specific proxy, not camera QA or scene acceptance.",
+  "measurements": {
+    "zhangWei": {
+      "positiveAlphaPixels": 0,
+      "intersectionAlpha80Pixels": 0,
+      "equivalentFullOpacityPixels": 0,
+      "ofActorAlphaMassPercent": 0
+    },
+    "chenYu": {
+      "positiveAlphaPixels": 1196,
+      "intersectionAlpha32Pixels": 139,
+      "intersectionAlpha80Pixels": 0,
+      "medianFGAlphaWhereBothPositive": 12,
+      "maxFGAlphaWhereBothPositive": 246,
+      "equivalentFullOpacityPixels": 47.5459,
+      "effectiveOverlapOfActorAlphaMassPercent": 0.05016
+    },
+    "note": "Maximum FG alpha 246 can occur where Chen Yu's alpha is very low; do not treat it as 246-alpha opaque covering a solid hand. The simultaneous >=80 intersection is zero."
+  },
+  "cameraGate": {
+    "donor": "CAM_HSK6_SC035_01",
+    "target": "CAM_HSK6_SC032_01",
+    "numericCalibrationApproved": false,
+    "groundPlaneCorrespondenceVerified": false,
+    "canonicalBGTargetPresent": false,
+    "canonicalFGTargetPresent": false,
+    "canonicalPreviewPresent": false
+  },
+  "githubBinaryGate": {
+    "v4ForegroundFoundByExactSHA": false,
+    "v4PreviewFoundByExactSHA": false,
+    "verifiedGitHubRoundTrip": false
+  },
+  "releaseDecision": "HOLD_CAMERA_AND_FOUR_CANONICAL_BGFG_MISSING",
+  "noProductionPixelsChanged": true,
+  "noLOCKSChanged": true,
+  "globalZhangWeiAudit": "P999_LAST_DEFERRED_NOT_STARTED",
+  "actionsUsed": false
+}
