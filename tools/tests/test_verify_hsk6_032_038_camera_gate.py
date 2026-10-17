@@ -53,5 +53,20 @@ class CameraGateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             preflight(Path('.'), '026')
 
+    def test_v4_staging_fg_and_preview_names_are_seen_but_mismatch_holds(self):
+        with TemporaryDirectory() as d:
+            self.fixture(d, '032')
+            stage = Path(d) / 'staging' / 'hsk6' / 'qa_pending' / 'sc032'
+            stage.mkdir(parents=True)
+            (stage/'hsk6_sc032_right_counter_only_fg_v4_STAGING.webp').write_bytes(b'wrong-fg')
+            (stage/'hsk6_sc032_right_counter_depth_preview_v4_STAGING.webp').write_bytes(b'wrong-preview')
+            result = preflight(Path(d), '032')
+            self.assertTrue(result['checks']['v4StagingOnly']['fg']['present'])
+            self.assertTrue(result['checks']['v4StagingOnly']['preview']['present'])
+            self.assertFalse(result['checks']['v4StagingOnly']['fg']['shaVerified'])
+            self.assertFalse(result['checks']['v4StagingOnly']['preview']['shaVerified'])
+            self.assertIn('V4_FG_STAGING_SHA_MISMATCH', result['blockers'])
+            self.assertEqual(result['status'], 'HOLD')
+
 if __name__ == '__main__':
     unittest.main()

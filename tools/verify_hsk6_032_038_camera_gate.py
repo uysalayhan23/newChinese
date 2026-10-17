@@ -106,7 +106,7 @@ def preflight(root: Path, sc: str) -> dict:
             blockers.append(f'{kind.upper()}_DONOR_COPY_UNAPPROVED')
     result['checks']['physicalTargetAssets'] = assets
     stage = {}
-    for kind, file in {'fg': f'hsk6_sc{sc}_right_counter_only_fg_candidate_v4.webp',
+    for kind, file in {'fg': f'hsk6_sc{sc}_right_counter_only_fg_v4_STAGING.webp',
                        'preview': f'hsk6_sc{sc}_right_counter_depth_preview_v4_STAGING.webp'}.items():
         p = root / 'staging' / 'hsk6' / 'qa_pending' / f'sc{sc}' / file
         stage[kind] = {'present': p.is_file(), 'shaVerified': p.is_file() and blob_sha(p) == V4_PINS[kind]}
