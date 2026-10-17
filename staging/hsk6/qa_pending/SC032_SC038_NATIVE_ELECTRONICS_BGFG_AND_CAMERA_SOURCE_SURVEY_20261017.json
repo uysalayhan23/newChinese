@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "kind": "NATIVE_SAME_LOCATION_SOURCE_SURVEY_AND_TARGET_CAMERA_EVIDENCE_GATE",
+  "qaDate": "2026-10-17",
+  "repository": "uysalayhan23/newChinese",
+  "branch": "main",
+  "inputHead": "a3e0dcd1aa1677c7055623f1b837cbb6183d7413",
+  "goal": "Find preexisting high-resolution scene-compatible canonical BG/FG plus approved numeric target camera geometry before allowing production",
+  "sourcesVerified": [
+    {
+      "scope": "HSK6_SC035_FULL_SIZE_REFERENCE_NOT_TARGET_APPROVED",
+      "source": "content/hsk6/sc035/assets/",
+      "bg": {
+        "sha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+        "bytes": 199694,
+        "width": 720,
+        "height": 1280,
+        "mode": "RGB",
+        "sha256": "5fa5a8f71fba1743fcc0ebbef8b1a9a419da6354d24a4e6e0b1078e893f9aba4"
+      },
+      "fg": {
+        "sha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+        "bytes": 134182,
+        "width": 720,
+        "height": 1280,
+        "mode": "RGBA",
+        "sha256": "04076642df2a32983b83f510e0814b2968a3054595e8024dc24bd0c818f44d68"
+      },
+      "status": "PHYSICAL_SOURCE_PASS; ONLY_KNOWN_NATIVE_SIZE_SCENE_LOCATION_REFERENCE; TARGET_CAMERA_UNPROVED"
+    },
+    {
+      "scope": "HSK6_ELECTRONICS_LOCATION_STAGING_BGFG",
+      "source": "staging/hsk6/qa_pending/locations/LOC_ELECTRONICS_STORE_001/",
+      "bgSha": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+      "fgSha": "dd7b43d996a33e40ff2c5cf86b5c4fa297238061",
+      "identicalToSC035": true,
+      "sourceQaManifest": {
+        "status": "QA_PENDING",
+        "accepted": false
+      },
+      "status": "NO_NEW_INDEPENDENT_CAMERA_SOURCE"
+    },
+    {
+      "scope": "HSK3_SC042_AND_HSK5_SC002",
+      "bgSha": "bc540d14e120afa06e8766a9e574c41470211a6a",
+      "fgSha": "0bf5404580c38c70f8c185e9b9a45d1dc62bfc56",
+      "width": 360,
+      "height": 640,
+      "verifiedHeader": "RIFF/WEBP/VP8; fg VP8X",
+      "status": "TOO_LOW_RESOLUTION_AND_NOT_CAMERA_PROVED"
+    },
+    {
+      "scope": "HSK5_SC008",
+      "bgSha": "c0a8cd2fdace1ed57ca5690ae030b00e5b3d0549",
+      "fgSha": "71931bdfc24c20f853887c612cdc4c14608df917",
+      "width": 576,
+      "height": 1024,
+      "verifiedHeader": "RIFF/WEBP/VP8; fg VP8X",
+      "status": "TOO_LOW_RESOLUTION_AND_NOT_CAMERA_PROVED"
+    }
+  ],
+  "v4GitHubStaging": {
+    "state": "CONFIRMED_EXISTING_BINARY_FILES_NOT_NEWLY_UPLOADED",
+    "bothScenes": [
+      "HSK6_SC032",
+      "HSK6_SC038"
+    ],
+    "fourPathsVerifiedByRemoteFetch": true,
+    "FG": {
+      "sha": "84631be9ed27a64a29e134e84037919b23277440",
+      "sha256": "c79a0c4dbfbc6807a94c598afd378682213894fd992356fcfe3cd3b66bcb62aa",
+      "width": 720,
+      "height": 1280,
+      "mode": "RGBA",
+      "bytes": 84614,
+      "normalizedBase64Length": 112820
+    },
+    "PREVIEW": {
+      "sha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+      "sha256": "5a69c580d7a85d160eae0602f956440b3800bd39dd07b80363c13de05f6bc5bc",
+      "width": 720,
+      "height": 1280,
+      "mode": "RGB",
+      "bytes": 215124,
+      "normalizedBase64Length": 286832
+    },
+    "bothScenePairsByteIdentical": true,
+    "githubBlobShaMatchesLocalOriginalZIP": true,
+    "pixelQA": {
+      "actorAAlpha80FGCollision": 0,
+      "actorBAlpha80FGCollision": 0,
+      "actorPairAlpha80Collision": 0,
+      "actorBPositiveFGAlphaContactPixels": 1196,
+      "actorBEquivalentFullOpacityPixels": 47.54594,
+      "alpha80FootEndY": {
+        "ZhangWei": 1203,
+        "ChenYu": 1200
+      }
+    },
+    "limitations": "V4 physical/source identity and staging edge checks only, not camera or production QA"
+  },
+  "cameraEvidence": {
+    "donorCamera": "CAM_HSK6_SC035_01",
+    "targets": [
+      "CAM_HSK6_SC032_01",
+      "CAM_HSK6_SC038_01"
+    ],
+    "numericTargetCameraMatrixPresent": false,
+    "approvedSourceToTargetHomographyPresent": false,
+    "approvedGroundPlaneLandmarksPresent": false,
+    "approvedNumericCameraEvidenceFilesPresent": false,
+    "sourceImageForEachDistinctTargetCameraPresent": false,
+    "donorVanishingProxyXY": [
+      379.25,
+      396.25
+    ],
+    "targetCameraEquivalence": "NOT_PROVEN",
+    "explanation": "Vanishing-point proxy is extracted only from donor pixels and cannot independently verify a distinct scene camera without target source image/independently grounded correspondences."
+  },
+  "canonicalRequiredAbsent": [
+    "content/hsk6/sc032/assets/hsk6_sc032_bg.webp",
+    "content/hsk6/sc032/assets/hsk6_sc032_fg.webp",
+    "content/hsk6/sc038/assets/hsk6_sc038_bg.webp",
+    "content/hsk6/sc038/assets/hsk6_sc038_fg.webp"
+  ],
+  "productionPreviewAbsent": [
+    "content/hsk6/sc032/assets/hsk6_sc032_preview.webp",
+    "content/hsk6/sc038/assets/hsk6_sc038_preview.webp"
+  ],
+  "acceptedLayerPlan": false,
+  "acceptedScene": false,
+  "productionMediaTransferThisTurn": false,
+  "stagingProtected": true,
+  "sc026AndOtherHoldsProtected": true,
+  "LOCKSProtected": true,
+  "crossLevelZhangWeiIdentityAudit": "P999_LAST_UNSTARTED",
+  "githubActionsUsed": false,
+  "forcePush": false,
+  "nextGate": "Obtain independently anchored numeric scene-specific target-camera geometry with ≥4 landmark correspondences & supported per-landmark reprojection errors (or real distinct approved 720x1280 target BG); then approve target FG ground-plane and occlusion; physically QA all 4 true layers and preview before any production create_blob + SHA readback."
+}
