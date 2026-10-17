@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-17",
+  "kind": "REAL_WEBP_PILLOW_RECOMPOSITION_AND_189_CANDIDATE_2D_SHIFT_TRADEOFF",
+  "repository": "uysalayhan23/newChinese",
+  "auditedMainHead": "11dee2743b38adb4c57d4c113e1af778e742b8e7",
+  "scope": "TWO_INDEPENDENT_HSK6_SCENE_RELEASE_DECISIONS_WITH_SHARED_PIXEL_ART",
+  "source": {
+    "originalArchive": "hsk6.zip",
+    "v4Archive": "NewChinese_HSK6_SC032_SC038_V4_VERIFIED_STAGING_NOT_PRODUCTION_20261017.zip",
+    "zipCRCPass": true,
+    "pillowPhysicalWebPDecodePass": true,
+    "exactByteIdenticalRecompositionOfOriginalV4RGBWebp": true,
+    "donorBG": "b0ba989e06045ea92a0c4fd6ebf580877f4acc48",
+    "actorZhangWei": "44a7a521b7fa64466111c30f6830904081c3767d",
+    "actorChenYu": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+    "v4FG": {
+      "sha": "84631be9ed27a64a29e134e84037919b23277440",
+      "bytes": 84614,
+      "mode": "RGBA",
+      "size": [
+        720,
+        1280
+      ]
+    },
+    "v4Preview": {
+      "sha": "ca8c43043c628d2b69ef7e59625bca49f1586533",
+      "bytes": 215124,
+      "mode": "RGB",
+      "size": [
+        720,
+        1280
+      ]
+    },
+    "originalSourceAndV4Unchanged": true
+  },
+  "experimentalScan": {
+    "dimensions": "Chen Yu original alpha-crop resized to 403x737 at x313,y473; Zhang Wei unchanged 387x597 at x66,y614; FG original right-object V4 unchanged",
+    "alphaThreshold": 80,
+    "shiftDxPixelsInclusive": [
+      -16,
+      4
+    ],
+    "shiftDyPixelsInclusive": [
+      -4,
+      4
+    ],
+    "candidatesPhysicallyCalculated": 189,
+    "fullyInBoundsAllCandidates": true,
+    "foregroundEquivalentOpaquePixelsFormula": "sum((alphaChenYu*alphaForeground)/(255*255))",
+    "baseline": {
+      "dx": 0,
+      "dy": 0,
+      "zhangWeiFootYAlpha80": 1203,
+      "chenYuFootYAlpha80": 1200,
+      "footDifferencePx": 3,
+      "actorPairCollisionAlpha80Px": 0,
+      "foregroundCollisionAlpha80Px": 0,
+      "effectiveFGOverlapFullOpacityPixelEquivalents": 47.54594,
+      "FGPositiveAlphaOverlapPx": 1196,
+      "actorPairPositiveAlphaOverlapPx": 52
+    },
+    "observedComparisonCases": [
+      {
+        "dx": -1,
+        "dy": 0,
+        "actorPairCollisionAlpha80Px": 2,
+        "effectiveFGOverlapFullOpacityPixelEquivalents": 33.5728
+      },
+      {
+        "dx": -2,
+        "dy": 0,
+        "actorPairCollisionAlpha80Px": 10,
+        "effectiveFGOverlapFullOpacityPixelEquivalents": 22.9815
+      },
+      {
+        "dx": -4,
+        "dy": 0,
+        "actorPairCollisionAlpha80Px": 32,
+        "effectiveFGOverlapFullOpacityPixelEquivalents": 9.6144
+      },
+      {
+        "dx": -8,
+        "dy": 0,
+        "actorPairCollisionAlpha80Px": 99,
+        "effectiveFGOverlapFullOpacityPixelEquivalents": 0.7703
+      },
+      {
+        "dx": 0,
+        "dy": 1,
+        "actorPairCollisionAlpha80Px": 0,
+        "foregroundCollisionAlpha80Px": 0,
+        "footDifferencePx": 2,
+        "effectiveFGOverlapFullOpacityPixelEquivalents": 46.52697,
+        "actorPairPositiveAlphaOverlapPx": 55
+      },
+      {
+        "dx": 0,
+        "dy": 2,
+        "actorPairCollisionAlpha80Px": 0,
+        "foregroundCollisionAlpha80Px": 0,
+        "footDifferencePx": 1,
+        "effectiveFGOverlapFullOpacityPixelEquivalents": 45.51623,
+        "actorPairPositiveAlphaOverlapPx": 56
+      },
+      {
+        "dx": 0,
+        "dy": 3,
+        "actorPairCollisionAlpha80Px": 2,
+        "foregroundCollisionAlpha80Px": 0,
+        "footDifferencePx": 0,
+        "effectiveFGOverlapFullOpacityPixelEquivalents": 44.5151
+      },
+      {
+        "dx": 1,
+        "dy": 3,
+        "actorPairCollisionAlpha80Px": 0,
+        "foregroundCollisionAlpha80Px": 0,
+        "footDifferencePx": 0,
+        "effectiveFGOverlapFullOpacityPixelEquivalents": 61.59865,
+        "actorPairPositiveAlphaOverlapPx": 47
+      }
+    ],
+    "safeCandidateCountAllowingUpToBaselineFootError": 7,
+    "safeCandidatesWithLowerEffectiveFGOverlapThanV4": 2,
+    "safeCandidatesWithFootDelta0AndNoOpaqueFGActorCollisionAndNoOpaqueActorPairCollisionAndZeroEffectiveFGOverlap": 0,
+    "interpretation": "Within tested finite 2D offsets, smaller FG edge contact and exact foot alignment trade off against unwanted actor contact or larger FG contact. Original V4 remains safe as staging and retains original approved physical source bytes. This finite scan is not a camera-calibration proof."
+  },
+  "perScene": [
+    {
+      "sceneId": "HSK6_SC032",
+      "targetCameraPreset": "CAM_HSK6_SC032_01",
+      "donorPreset": "CAM_HSK6_SC035_01",
+      "sameLocation": true,
+      "approvedTargetCameraEquivalence": false,
+      "sceneBGCanonicalPresent": false,
+      "sceneFGCanonicalPresent": false,
+      "productionPreviewPresent": false,
+      "layerPlanApproved": false,
+      "releaseDecision": "HOLD"
+    },
+    {
+      "sceneId": "HSK6_SC038",
+      "targetCameraPreset": "CAM_HSK6_SC038_01",
+      "donorPreset": "CAM_HSK6_SC035_01",
+      "sameLocation": true,
+      "approvedTargetCameraEquivalence": false,
+      "sceneBGCanonicalPresent": false,
+      "sceneFGCanonicalPresent": false,
+      "productionPreviewPresent": false,
+      "layerPlanApproved": false,
+      "releaseDecision": "HOLD"
+    }
+  ],
+  "decision": "NO_V5_IMAGE_GENERATION_OR_SOURCE_PIXEL_MUTATION; KEEP_VERIFIED_V4_STAGING_INTACT; NEED_NUMERIC_TARGET_CAMERA_AND_FOUR_SCENE_CANONICAL_BGFG_SOURCE_FILES_BEFORE_PRODUCTION",
+  "constraints": {
+    "SC026AndOtherHolds": "PRESERVED",
+    "LOCKS": "PRESERVED",
+    "globalZhangWeiCrossLevelIdentity": "DEFERRED_LAST_P999_NOT_STARTED",
+    "githubActions": "NOT_RUN",
+    "forcePush": false
+  }
+}
