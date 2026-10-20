@@ -28,31 +28,22 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk3_sc008_preview.webp",
-      "reason": "preview_recompose_required_after_hd_breakroom_rebase",
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "preview"
-    ],
+    "required": [],
     "preserve": [
       "background",
       "foreground",
       "characterA",
-      "characterB"
+      "characterB",
+      "preview"
     ]
   },
   "repair": {
-    "method": "partial_canonical_rebase",
-    "source": "HSK2_SC003 BG/FG + HSK2_SC001 canonical characters",
-    "reason": "replace legacy 360x640 breakroom set; preview remains to be recomposed"
+    "method": "verified_canonical_four_layer_preview_composition",
+    "source": "HSK3_SC008 physical BG, Zhang Wei, Wang Ming, FG blobs",
+    "reason": "Previously mismatched old Preview showed different sitting characters; replaced with 720×1280 Pillow composition from actual canonical four WebP source layers. Faces/gestures clear; foreground tea and food only at lower depth. All four source WebP blobs preserved. GitHub output blob SHA matches local.",
+    "previewBlobSha": "bee8071fe639fa6adcbfcabfc1053753c5baf32d"
   }
 }
