@@ -44,20 +44,20 @@
       "先看问题本身，再看资源、成本和实际使用条件",
       "谁做决定、谁掌握信息、谁承担后果，都应该说清楚。"
     ],
-    "continuityEvidence": "HSK5_SC002 aynı LOC_ELECTRONICS_STORE_001, aynı Zhang Wei + Chen Yu çifti, aynı canonical outfits, aynı face_right/face_left yönleri ve LIGHT_WARM_NATURAL_01 ile accepted complete canonical kaynaktır.",
+    "continuityEvidence": "HSK5_SC002 aynı LOC_ELECTRONICS_STORE_001, Zhang Wei + Chen Yu kimlikleri ve canonical kıyafet/yön kuralını paylaşır; ancak SC008'in Zhang Wei, FG ve Preview dosyaları SC002 ile birebir aynı değildir. BG, HSK2_SC029 ile; Zhang Wei HSK5_SC001 ile; Chen Yu HSK5_SC002 ile; FG HSK2_SC029 ile blob düzeyinde eşleşir.",
     "approvedForLayerPlanning": true
   },
   "compositionMethod": {
     "status": "approved",
-    "method": "accepted-canonical-set-reuse",
-    "note": "HSK5_SC002 accepted Electronics Store seti SC008 ile location, character IDs, outfits, anchors ve lighting açısından birebir eşleşir; identity drift ve gereksiz yeniden üretimi önlemek için 5'li set doğrudan reuse edilir."
+    "method": "canonical-layer-reuse-with-scene-recomposition",
+    "note": "SC008 dört gerçek katmanı kendi kaynaklarından birleştirir. BG: HSK2_SC029 (576×1024); Zhang Wei: HSK5_SC001; Chen Yu: HSK5_SC002; FG: HSK2_SC029. Preview kendi dört katmanından 720×1280 yeniden oluşturulmuştur; SC002 Preview'ının birebir kopyası değildir."
   },
   "layerPlan": {
     "status": "approved",
-    "background": "content/hsk5/sc002/assets/hsk5_sc002_bg.webp",
-    "characterA": "content/hsk5/sc002/assets/hsk5_sc002_char_zhang_wei.webp",
+    "background": "content/hsk2/sc029/assets/hsk2_sc029_bg.webp",
+    "characterA": "content/hsk5/sc001/assets/hsk5_sc001_char_zhang_wei.webp",
     "characterB": "content/hsk5/sc002/assets/hsk5_sc002_char_chen_yu.webp",
-    "foreground": "content/hsk5/sc002/assets/hsk5_sc002_fg.webp",
-    "preview": "content/hsk5/sc002/assets/hsk5_sc002_preview.webp"
+    "foreground": "content/hsk2/sc029/assets/hsk2_sc029_fg.webp",
+    "preview": "content/hsk5/sc008/assets/hsk5_sc008_preview.webp"
   }
 }

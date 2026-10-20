@@ -31,18 +31,18 @@
       "这和经验有关，多做几次会更稳",
       "其实适合现在情况的方法更重要"
     ],
-    "continuityEvidence": "HSK2_SC025 aynı LOC_ELECTRONICS_STORE_001 için visual-assets-complete kabul edilmiş canonical mağaza kaynağıdır. HSK3_SC031 ise aynı Zhang Wei + Chen Yu çiftini current outfit ve face_right/face_left yönleriyle visual-assets-complete kabul edilmiş canonical karakter kaynağıdır.",
+    "continuityEvidence": "HSK2_SC025 aynı LOC_ELECTRONICS_STORE_001 için visual-assets-complete kabul edilmiş canonical mağaza kaynağıdır. HSK3_SC031 ise aynı Zhang Wei + Chen Yu çiftini current outfit ve face_right/face_left yönleriyle visual-assets-complete kabul edilmiş canonical karakter kaynağıdır. BG'nin güncel tam kaynak atfı HSK2_SC029'dur; HSK2_SC025 referansı sadece aynı canonical mekânın geçmiş düşük çözünürlüklü sürümüne aittir.",
     "approvedForLayerPlanning": true
   },
   "layerPlan": {
     "status": "approved",
-    "background": "HSK2_SC025 canonical LOC_ELECTRONICS_STORE_001 BG yeniden kullanılır.",
+    "background": "HSK2_SC029 canonical LOC_ELECTRONICS_STORE_001 576×1024 BG yeniden kullanılır; bu BG, SC042 fiziksel BG ile aynı Git blob SHA (c0a8cd2fdace1ed57ca5690ae030b00e5b3d0549) taşır.",
     "characterA": "HSK3_SC031 canonical CHAR_ZHANG_WEI_001 / OUTFIT_ZHANG_WEI_CASUAL_01 / face_right katmanı yeniden kullanılır.",
     "characterB": "HSK3_SC031 canonical CHAR_CHEN_YU_001 / OUTFIT_CHEN_YU_CASUAL_01 / face_left katmanı yeniden kullanılır.",
     "foreground": "HSK2_SC025 canonical electronics-store FG yeniden kullanılır; character body/speaking gesture masking yapılmaz.",
     "preview": "SC042 için 9:16 electronics-store two-shot QA preview üretilir; baked readable text, logo veya UI içermez.",
     "sourceReuse": {
-      "background": "content/hsk2/sc025/assets/hsk2_sc025_bg.webp",
+      "background": "content/hsk2/sc029/assets/hsk2_sc029_bg.webp",
       "characterA": "content/hsk3/sc031/assets/hsk3_sc031_char_zhang_wei.webp",
       "characterB": "content/hsk3/sc031/assets/hsk3_sc031_char_chen_yu.webp",
       "foreground": "content/hsk2/sc025/assets/hsk2_sc025_fg.webp"

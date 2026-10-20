@@ -37,7 +37,7 @@
     ]
   },
   "repair": {
-    "method": "accepted_canonical_preview_blob_validation",
-    "reason": "SC008 preview blob SHA exactly matches accepted HSK5_SC002 Electronics Store preview; no recomposition or regeneration required."
+    "method": "canonical_four_layer_recomposition",
+    "reason": "SC008 Preview kendi BG, Zhang Wei, Chen Yu ve FG katmanlarından 720×1280 oluşturulmuştur (blob SHA dee4ec1d6a049dc1da296a698d49500e2bbab781). SC002 Preview SHA 6869a0a6684a9382d0a80f9d6dcad65dbea692bd ile eşit değildir; özgün BG 576×1024 ve aynı kameralı 720×1280 kaynak henüz doğrulanmamıştır."
   }
 }

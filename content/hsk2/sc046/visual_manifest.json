@@ -31,8 +31,8 @@
   "status": "visual-quality-pending",
   "qualityBlocked": [
     {
-      "asset": "assets/hsk2_sc046_preview.webp",
-      "reason": "preview_recompose_required_after_hd_neighborhood_rebase",
+      "asset": "assets/hsk2_sc046_bg.webp",
+      "reason": "native_540x960_bg_below_720x1280_target; same-camera higher-resolution canonical source not verified",
       "minimum": [
         720,
         1280
@@ -41,10 +41,10 @@
   ],
   "regeneration": {
     "required": [
+      "background",
       "preview"
     ],
     "preserve": [
-      "background",
       "foreground",
       "characterA",
       "characterB"
@@ -53,6 +53,6 @@
   "repair": {
     "method": "partial_canonical_rebase",
     "source": "HSK3_SC022 Neighborhood BG/FG + HSK3_SC032 canonical Zhang Wei/Liu Mei",
-    "reason": "invalid legacy binary set replaced except preview; remaining task is true composite preview"
+    "reason": "720×1280 WebP Preview gerçek katmanlardan üretilmiş, Pillow ile açılmış ve Git blob SHA 7b00c17d46edf5c633eb8f48f7acf000830c2eff doğrulanmıştır. Kalite bekleme nedeni, 540×960 özgün BG için birebir kompozisyonda daha yüksek çözünürlüklü kaynak bulunmamasıdır; mevcut Preview korunur."
   }
 }
