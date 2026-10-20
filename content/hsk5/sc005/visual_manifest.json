@@ -28,5 +28,37 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-quality-pending",
+  "qualityBlocked": [
+    {
+      "asset": "assets/hsk5_sc005_preview.webp",
+      "reason": "existing_360x640_preview_is_stale_after_verified_576x1024_canonical_BG_upgrade; full-resolution recomposition must keep character hands/faces/torsos unmasked by FG display counter",
+      "minimum": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "regeneration": {
+    "required": [
+      "preview"
+    ],
+    "preserve": [
+      "background",
+      "characterA",
+      "characterB",
+      "foreground"
+    ]
+  },
+  "repair": {
+    "method": "exact_canonical_BG_blob_reuse",
+    "backgroundSource": "content/hsk3/sc042/assets/hsk3_sc042_bg.webp",
+    "backgroundGitBlobSha": "c0a8cd2fdace1ed57ca5690ae030b00e5b3d0549",
+    "backgroundNativeResolution": [
+      576,
+      1024
+    ],
+    "preservedPreviewGitBlobSha": "64293bd2f4b6d27714798eb7c94cdf61e0e11a0b",
+    "note": "Existing preview and character/FG assets intentionally unchanged pending a verified 720x1280 composite"
+  }
 }

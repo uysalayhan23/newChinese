@@ -60,7 +60,7 @@
   "compositionMethod": {
     "status": "approved",
     "method": "canonical-layer-composite",
-    "note": "Electronics Store BG/FG HSK3_SC042 accepted kaynağından; Zhang Wei/Wang Ming character layers HSK4_SC041 accepted kaynağından kullanıldı. Textless 9:16 PREVIEW staged dört canonical runtime katmanından repo deterministic PIL compositor mantığıyla fiziksel olarak türetildi."
+    "note": "SC005 live BG is refreshed from canonical HSK3_SC042 576x1024 (Git blob c0a8cd2fdace1ed57ca5690ae030b00e5b3d0549); FG and two identity-preserving character cutouts retain their original HSK3_SC042 / HSK4_SC041 sources. Previous 360x640 PREVIEW is held unchanged: its counter/character placement is not approved as an HD composite."
   },
   "layerPlan": {
     "status": "approved",
@@ -68,6 +68,6 @@
     "characterA": "content/hsk4/sc041/assets/hsk4_sc041_char_zhang_wei.webp",
     "characterB": "content/hsk4/sc041/assets/hsk4_sc041_char_wang_ming.webp",
     "foreground": "content/hsk3/sc042/assets/hsk3_sc042_fg.webp",
-    "preview": "content/hsk5/sc005/assets/hsk5_sc005_preview.webp"
+    "preview": "content/hsk5/sc005/assets/hsk5_sc005_preview.webp (legacy 360x640; visual-quality-pending, not HD-accepted)"
   }
 }
