@@ -28,31 +28,22 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk1_sc021_preview.webp",
-      "reason": "preview_recompose_required_after_hd_bg_fg_rebase",
-      "actual": [
-        320,
-        180
-      ],
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "repair": {
-    "method": "partial_canonical_rebase",
-    "source": "HSK3_SC022",
-    "repaired": [
+    "method": "canonical_four_layer_pillow_preview_recomposition",
+    "source": "Exact HSK1 Neighborhood BG, Li Na, Zhang Wei and FG WebPs",
+    "reason": "Previously mismatched small preview recomposed at 720×1280 from preserved source WebPs; original 540×960 BG not changed or claimed to be native 720×1280. Characters full-body with clear faces and gestures on walking path; foreground alpha at most 28. Pillow local decode and GitHub blob SHA confirmed 45a29a3c9af6a38da9fe5c5f1432b3c03a464f67.",
+    "previewBlobSha": "45a29a3c9af6a38da9fe5c5f1432b3c03a464f67"
+  },
+  "regeneration": {
+    "required": [],
+    "preserve": [
       "background",
-      "foreground"
-    ],
-    "pending": [
+      "foreground",
+      "characterA",
+      "characterB",
       "preview"
-    ],
-    "reason": "same Neighborhood location HD BG/FG are safe to reuse; source character orientation differs, so target character layers are preserved and preview must be recomposed"
+    ]
   }
 }
