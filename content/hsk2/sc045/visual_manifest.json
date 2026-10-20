@@ -28,39 +28,22 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk2_sc045_bg.webp",
-      "reason": "background_regeneration_required_after_partial_canonical_rebase",
-      "minimum": [
-        540,
-        960
-      ]
-    },
-    {
-      "asset": "assets/hsk2_sc045_preview.webp",
-      "reason": "preview_recompose_required_after_partial_canonical_rebase",
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "background",
-      "preview"
-    ],
+    "required": [],
     "preserve": [
+      "background",
       "foreground",
       "characterA",
-      "characterB"
+      "characterB",
+      "preview"
     ]
   },
   "repair": {
-    "method": "partial_canonical_rebase",
-    "source": "HSK3_SC032/036/040 canonical Zhang Wei/Liu Mei + Community Center FG",
-    "reason": "canonical characters and HD FG preserved; Community Center BG/preview source is below quality floor"
+    "method": "canonical_bg_verified_four_layer_preview_recomposition",
+    "source": "Exact HSK2_SC045 BG, Zhang Wei, Liu Mei and FG physical blobs",
+    "reason": "Physically verified existing BG Git SHA 6ba20dfb8423743e855c90dcd4212a17a866e9b7 is a Pillow-decodable 941×1672 canonical Community Center background, so prior background-regeneration blocker is stale. Generated new 720×1280 Preview with native canonical person and FG layers, clear faces and gestures, ground contact and supported depth. New Git blob SHA ae5fa08eecb0dae3b1004d05a355d3e7ebaf2d9d.",
+    "previewBlobSha": "ae5fa08eecb0dae3b1004d05a355d3e7ebaf2d9d"
   }
 }
