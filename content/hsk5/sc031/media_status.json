@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC031",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc031_bg.webp",
       "assets/hsk5_sc031_char_liu_mei.webp",
@@ -10,28 +10,29 @@
       "assets/hsk5_sc031_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc031_preview.webp",
-        "reason": "preview_missing_or_below_quality",
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
+    "qualityBlocked": [],
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
-    "remainingAudit": [
-      "preview"
-    ],
-    "regenerationRequired": [
-      "preview"
-    ],
+    "remainingAudit": [],
+    "regenerationRequired": [],
     "backgroundValidation": {
       "status": "passed",
       "source": "HSK2_SC041",
       "blobSha": "6ba20dfb8423743e855c90dcd4212a17a866e9b7"
+    },
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "88b0bd6b75eda7dd69d96243c1e64ec7653c7518",
+      "sourceGitBlobs": {
+        "background": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "eea4742918bf5b78f222b54631de8f71a4c824a7",
+        "foreground": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
+      }
     }
   },
   "audio": {
@@ -94,5 +95,5 @@
     ],
     "missing": []
   },
-  "rule": "HD Community Center background and canonical character/foreground layers pass; preview remains the only open visual gate."
+  "rule": "Audio complete; all five visual WebP assets physically present; canonical HSK5 SC031 720×1280 four-layer Preview locally decoded, visually reviewed and remotely blob-SHA verified."
 }
