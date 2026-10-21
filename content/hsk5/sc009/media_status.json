@@ -17,8 +17,25 @@
     "regenerationRequired": [],
     "previewValidation": {
       "status": "passed",
-      "evidence": "hsk5_sc009_preview.webp blob SHA 9477139306cd0fabb44ee25b8be6556583fb4739 equals accepted HSK5_SC003 preview blob SHA"
-    }
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "f2e97b9f047d7771bce8d29c0f999a54c1589573",
+      "sourceGitBlobs": {
+        "background": "4c21df1ad7bf346240a29478694f2f201090cdb7",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "foreground": "64fc32bb2b3016780e666f9caea7d7d4e10b3de8"
+      },
+      "sourceBgFgNativeSize": [
+        941,
+        1672
+      ],
+      "provenance": "reused_exact_HSK5_SC046_protected_HSK6_SC006",
+      "method": "Byte-identical prior Pillow-verified canonical four-layer WebP"
+    },
+    "previewStatus": "complete"
   },
   "audio": {
     "status": "complete",

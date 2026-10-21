@@ -9,7 +9,30 @@
       "assets/hsk4_sc032_fg.webp",
       "assets/hsk4_sc032_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "previewStatus": "complete",
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "957e34cf43fd0a8b5ca13449b6be4ffed555a7ba",
+      "sourceGitBlobs": {
+        "background": "ac319c2f105cbf1410080dccd20351bb3b5f6670",
+        "characterA": "f36efdeaa502ab3ee7ee319695a888c5dd4968c2",
+        "characterB": "eea4742918bf5b78f222b54631de8f71a4c824a7",
+        "foreground": "55cdacc73a843117400d8b464294e993fab58dca"
+      },
+      "sourceBgFgNativeSize": [
+        600,
+        1067
+      ],
+      "provenance": "local_pillow_verified_same_source",
+      "method": "Pillow composite of canonical four native WebP layers and visual QA; locally computed SHA matches uploaded Git blob"
+    }
   },
   "audio": {
     "status": "complete",

@@ -28,5 +28,22 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "characterA",
+      "characterB",
+      "foreground",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "reused_exact_HSK5_SC046_protected_HSK6_SC006",
+    "source": "Exact Git source blobs of the same canonical BG, character A, character B and FG; unmodified",
+    "previewBlobSha": "f2e97b9f047d7771bce8d29c0f999a54c1589573",
+    "reason": "Replace small Preview with 720x1280 canonical four-layer composition; verify decoded WebP, visual placement and remote Git SHA."
+  }
 }
