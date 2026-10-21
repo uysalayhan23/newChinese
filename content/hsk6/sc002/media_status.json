@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK6_SC002",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk6_sc002_bg.webp",
       "assets/hsk6_sc002_char_zhang_wei.webp",
@@ -13,8 +13,40 @@
     "physicalStaging": {
       "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "Pillow verified four canonical WebP layers; 720x1280 West Lake path geometry repair",
+      "qa": "passed"
+    },
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "5216ade22358a8622fa7602af0c8da8ca5ae739a",
+      "sourceGitBlobs": {
+        "background": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "foreground": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
+      },
+      "originalPreviewGitBlobSha": "9d694d70648dc930525b15f0d48f43847fa07e71",
+      "method": "Pillow RGBA compositing with BG, canonical characters and FG; relocated standing feet onto path, perspective and foreground visual QA",
+      "placements": [
+        {
+          "asset": "char_zhang_wei",
+          "x": 256,
+          "y": 700,
+          "height": 400
+        },
+        {
+          "asset": "char_wang_ming",
+          "x": 458,
+          "y": 710,
+          "height": 400
+        }
+      ]
     }
   },
   "audio": {
