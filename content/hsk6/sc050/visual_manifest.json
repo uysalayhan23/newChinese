@@ -28,15 +28,39 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending",
+  "status": "visual-assets-complete",
   "previewComposition": {
-    "method": "hsk6_deterministic_alpha_composite_v1",
+    "method": "canonical_git_sha_matched_accepted_SC044_preview_reuse",
     "inputBlobs": {
       "background": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
       "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
       "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
       "foreground": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
     },
-    "previewBlob": "e117ed2b699e1300e4b02e60356782ab385c9185"
+    "previewBlob": "354295042e25f2dd96da633fa1d3d6e43840c750"
+  },
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "accepted_canonical_pillow_preview_reuse",
+    "source": "HSK6 SC044 accepted 720x1280 canonical Pillow composite",
+    "reason": "Original SC050 placed Zhang Wei behind West Lake stone parapet. Reused verified accepted SC044 Preview grounding both canonical characters on walkway; all four original SC050 source blobs unchanged.",
+    "originalPreviewGitBlobSha": "e117ed2b699e1300e4b02e60356782ab385c9185",
+    "previewBlobSha": "354295042e25f2dd96da633fa1d3d6e43840c750",
+    "sourceGitBlobs": {
+      "background": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "foreground": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0"
+    }
   }
 }
