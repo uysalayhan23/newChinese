@@ -28,5 +28,22 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "preserve_and_reuse_protected_hsk6_sc006_verified_four_layer_preview",
+    "source": "Exact native canonical cafe BG, Zhang Wei, Wang Ming, FG; all Git blob SHAs identical to HSK6_SC006",
+    "reason": "Replaced invalid 180x320 preview with protected HSK6_SC006 720x1280 canonical composition, without modifying any source layers.",
+    "previewBlobSha": "f2e97b9f047d7771bce8d29c0f999a54c1589573"
+  }
 }

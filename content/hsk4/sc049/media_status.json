@@ -9,7 +9,33 @@
       "assets/hsk4_sc049_fg.webp",
       "assets/hsk4_sc049_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "previewStatus": "complete",
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "f2e97b9f047d7771bce8d29c0f999a54c1589573",
+      "sourceGitBlobs": {
+        "background": "4c21df1ad7bf346240a29478694f2f201090cdb7",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "foreground": "64fc32bb2b3016780e666f9caea7d7d4e10b3de8"
+      },
+      "source": "Byte-identical Pillow-decodable protected HSK6_SC006 canonical 4-layer preview",
+      "nativeBackgroundSize": [
+        941,
+        1672
+      ],
+      "nativeForegroundSize": [
+        941,
+        1672
+      ]
+    }
   },
   "audio": {
     "status": "complete",

@@ -28,25 +28,22 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc046_preview.webp",
-      "reason": "preview_recompose_required_after_canonical_staging"
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "preview"
-    ],
+    "required": [],
     "preserve": [
       "background",
       "foreground",
-      "characterB"
+      "characterA",
+      "characterB",
+      "preview"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "Cafe BG/FG + canonical Zhang Wei/Wang Ming pass; preview source was low-resolution and must be recomposed."
+    "method": "preserve_and_reuse_protected_hsk6_sc006_verified_four_layer_preview",
+    "source": "Exact native canonical cafe BG, Zhang Wei, Wang Ming, FG; all Git blob SHAs identical to HSK6_SC006",
+    "reason": "Existing 720x1280 preview already matches protected HSK6_SC006 Git blob; stale pending record cleared after physical Pillow/sha confirmation.",
+    "previewBlobSha": "f2e97b9f047d7771bce8d29c0f999a54c1589573"
   }
 }
