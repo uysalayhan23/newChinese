@@ -28,5 +28,22 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "reused_exact_verified_canonical_composition",
+    "source": "HSK2_SC045",
+    "reason": "Four source physical Git blobs exactly match the prior Pillow-verified 720×1280 HSK2_SC045 Community Center preview. The prior scene preview was 256×455. Reuse identical verified WebP bytes without altering BG, FG or characters.",
+    "previewBlobSha": "ae5fa08eecb0dae3b1004d05a355d3e7ebaf2d9d"
+  }
 }

@@ -9,7 +9,25 @@
       "assets/hsk3_sc036_fg.webp",
       "assets/hsk3_sc036_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "previewStatus": "complete",
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "ae5fa08eecb0dae3b1004d05a355d3e7ebaf2d9d",
+      "sourceGitBlobs": {
+        "background": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
+        "characterA": "f36efdeaa502ab3ee7ee319695a888c5dd4968c2",
+        "characterB": "eea4742918bf5b78f222b54631de8f71a4c824a7",
+        "foreground": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
+      },
+      "validationProvenance": "Byte-identical reuse of HSK2_SC045 Pillow-verified canonical four-layer preview"
+    }
   },
   "audio": {
     "status": "complete",
