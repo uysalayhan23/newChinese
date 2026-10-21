@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK3_SC014",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk3_sc014_bg.webp",
       "assets/hsk3_sc014_char_zhang_wei.webp",
@@ -10,19 +10,27 @@
       "assets/hsk3_sc014_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk3_sc014_preview.webp",
-        "reason": "preview_recompose_required_after_hd_canonical_rebase",
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
-    "regenerationRequired": [
-      "preview"
-    ]
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "439663d5234c525eed83dc05f481de188746cc9c",
+      "sourceGitBlobs": {
+        "background": "e56a214bd8135e1130f6dabd6595bdc1a242b921",
+        "characterA": "97b5f564002c297f0b40622dd307a7b5593ee8bb",
+        "characterB": "042f301cc718d74440126553e0e307d94566c267",
+        "foreground": "32632b6a4f27e6212381ed82c9084fb17543484b"
+      },
+      "sourceBgNativeSize": [
+        576,
+        1024
+      ],
+      "layout": "two canonical upper-body characters behind foreground study table; face visibility checked"
+    }
   },
   "audio": {
     "status": "complete",
