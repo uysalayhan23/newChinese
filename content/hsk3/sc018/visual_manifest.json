@@ -28,5 +28,28 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "exact_verified_canonical_four_layer_reuse",
+    "source": "HSK4_SC012 accepted Pillow-verified 720x1280 preview",
+    "reason": "All four canonical BG/character/FG Git blobs and characters/location exactly match accepted HSK4 SC012. Only preview updated from 540x960 to 720x1280; source files unchanged.",
+    "previewBlobSha": "44d515df3b20bb7bdb77eb8cb131d8699391d28d",
+    "sourceGitBlobs": {
+      "background": "e1c633ba3ace3d3e99f2b7e4782ac5b7b609b30e",
+      "characterA": "97b5f564002c297f0b40622dd307a7b5593ee8bb",
+      "characterB": "042f301cc718d74440126553e0e307d94566c267",
+      "foreground": "29988ab6068d2824c2b5389b6b1a39595c5d3c99"
+    }
+  }
 }
