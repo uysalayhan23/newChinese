@@ -33,11 +33,23 @@
   "regeneration": {
     "required": [],
     "preserve": [
-      "all"
+      "background",
+      "foreground",
+      "characterA",
+      "characterB",
+      "preview"
     ]
   },
   "repair": {
-    "method": "accepted_canonical_preview_blob_validation",
-    "reason": "SC020 preview blob SHA exactly matches accepted HSK4_SC035 canonical preview; no regeneration required."
+    "method": "verified_four_layer_pillow_preview_recomposition",
+    "source": "Exact scene canonical BG, Zhang Wei, Chen Yu, FG Git WebP blobs",
+    "reason": "Replaced 180x320 preview with 720x1280 canonical Pillow-composited scene. Faces visible, contact with ground and FG layering visually reviewed; four source Git blobs unchanged.",
+    "previewBlobSha": "8761180630affc32d0cd323b78042aafff6a206a",
+    "sourceGitBlobs": {
+      "background": "ac319c2f105cbf1410080dccd20351bb3b5f6670",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+      "foreground": "55cdacc73a843117400d8b464294e993fab58dca"
+    }
   }
 }

@@ -28,5 +28,28 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "verified_four_layer_pillow_preview_recomposition",
+    "source": "Exactly matched HSK4 SC012/014/016/018/020 canonical physical WebP layers",
+    "reason": "Replaced 540x960 preview with native 720x1280 Pillow-composited canonical image, two visible faces and foreground table depth. Source Git blobs remain unchanged.",
+    "previewBlobSha": "44d515df3b20bb7bdb77eb8cb131d8699391d28d",
+    "sourceGitBlobs": {
+      "background": "e1c633ba3ace3d3e99f2b7e4782ac5b7b609b30e",
+      "characterA": "97b5f564002c297f0b40622dd307a7b5593ee8bb",
+      "characterB": "042f301cc718d74440126553e0e307d94566c267",
+      "foreground": "29988ab6068d2824c2b5389b6b1a39595c5d3c99"
+    }
+  }
 }

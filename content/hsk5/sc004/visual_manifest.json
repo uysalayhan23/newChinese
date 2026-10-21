@@ -28,5 +28,28 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "verified_four_layer_pillow_preview_recomposition",
+    "source": "Exact scene canonical BG, Zhang Wei, Chen Yu, FG Git WebP blobs",
+    "reason": "Replaced 360x640 preview with 720x1280 canonical Pillow-composited scene. Faces visible, contact with ground and FG layering visually reviewed; four source Git blobs unchanged.",
+    "previewBlobSha": "b3f1505863879b9b16c2458ef728deeadf8d78e9",
+    "sourceGitBlobs": {
+      "background": "9c660be22cdd428e2a90862be84176defa615899",
+      "foreground": "8c5f4525102a9c486917a0c5d13d7f5a6062f151",
+      "characterA": "b90f96f7904526d676e911e8d768a2cd0349b050",
+      "characterB": "fabe661ebed0ce7b99ff1789d2ed0e51f47e70d8"
+    }
+  }
 }
