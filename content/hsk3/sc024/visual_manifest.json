@@ -28,5 +28,28 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-complete"
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "characterA",
+      "characterB",
+      "foreground",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "pillow_native_bg_fg_four_layer_visual_recompose",
+    "source": "Four original canonical WebP Git blobs identical for HSK3 SC024 and SC028",
+    "reason": "Preview 540x960 was below 720x1280; source BG/FG 768x1365 and character layers 1086x1448, Pillow composition matched existing camera/framing and character/foreground occlusion.",
+    "previewBlobSha": "27c99720413c5a4579b968dcd23af0ba099e0433",
+    "sourceGitBlobs": {
+      "background": "d27f173c43106f28ef5a3ab1a12eb6b814290883",
+      "foreground": "a3c418b84db4050625f1c29366b931d94b40be49",
+      "characterA": "0535438c1522ffe762033a2779edd538d3cdd8fc",
+      "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0"
+    }
+  }
 }

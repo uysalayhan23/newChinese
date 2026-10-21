@@ -9,7 +9,34 @@
       "assets/hsk3_sc024_fg.webp",
       "assets/hsk3_sc024_preview.webp"
     ],
-    "missing": []
+    "missing": [],
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "originalPreviewSize": [
+        540,
+        960
+      ],
+      "gitBlobSha": "27c99720413c5a4579b968dcd23af0ba099e0433",
+      "sourceGitBlobs": {
+        "background": "d27f173c43106f28ef5a3ab1a12eb6b814290883",
+        "foreground": "a3c418b84db4050625f1c29366b931d94b40be49",
+        "characterA": "0535438c1522ffe762033a2779edd538d3cdd8fc",
+        "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0"
+      },
+      "method": "Pillow 720x1280 four-canonical-layer composite; pixel visual validation against source 540x960 reference",
+      "pixelQA": {
+        "ssimComparedAt540x960": 0.9059,
+        "meanAbsoluteRgbChannelDifference": 4.73,
+        "maxChannelValue": 255
+      },
+      "originalSources": "Git source hashes matched original source archive; byte-identical canonical BG, both characters and FG in SC024/SC028"
+    }
   },
   "audio": {
     "status": "complete",
