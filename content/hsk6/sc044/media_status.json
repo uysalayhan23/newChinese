@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK6_SC044",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk6_sc044_bg.webp",
       "assets/hsk6_sc044_char_zhang_wei.webp",
@@ -14,7 +14,28 @@
       "present": 5,
       "required": 5,
       "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "qa": "PILLOW_720x1280_PHYSICAL_COMPOSITION_QA_PASSED",
+      "previewSize": [
+        720,
+        1280
+      ]
+    },
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "354295042e25f2dd96da633fa1d3d6e43840c750",
+      "sourceGitBlobs": {
+        "background": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+        "foreground": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0"
+      },
+      "method": "Pillow canonical four-layer alpha composition; stone parapet/feet grounding compared visually with original; Git SHA matched"
     }
   },
   "audio": {

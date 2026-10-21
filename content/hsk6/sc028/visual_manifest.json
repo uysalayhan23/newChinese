@@ -28,7 +28,7 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending",
+  "status": "visual-assets-complete",
   "previewComposition": {
     "method": "hsk6_deterministic_alpha_composite_v1",
     "inputBlobs": {
@@ -38,5 +38,29 @@
       "foreground": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3"
     },
     "previewBlob": "56f465a61f2e58c1d437f9098c66f6f126a2fc55"
+  },
+  "qualityBlocked": [],
+  "regeneration": {
+    "required": [],
+    "preserve": [
+      "background",
+      "foreground",
+      "characterA",
+      "characterB",
+      "preview"
+    ]
+  },
+  "repair": {
+    "method": "pillow_canonical_layers_physical_grounding_preview_only",
+    "reason": "Repositioned the two existing canonical transparent characters onto the visible West Lake walkway so feet are grounded and bodies are not unnaturally cut by the stone parapet. Original background, both character sources and foreground remain byte-for-byte unchanged.",
+    "source": "Existing scene-specific Git-matched canonical WebP BG, characterA, characterB and FG layers",
+    "originalPreviewGitBlobSha": "56f465a61f2e58c1d437f9098c66f6f126a2fc55",
+    "previewBlobSha": "22f0c1b7a5c6e1f7c02a69cc9d11422389578e81",
+    "sourceGitBlobs": {
+      "background": "25f8521039611c8a42d4d7fd52eb5458f88fc15a",
+      "foreground": "5c82abbaebc1dd44fed912fe2a440b0f2e7ef2e3",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "eea4742918bf5b78f222b54631de8f71a4c824a7"
+    }
   }
 }
