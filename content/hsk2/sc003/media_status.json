@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK2_SC003",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk2_sc003_bg.webp",
       "assets/hsk2_sc003_char_zhang_wei.webp",
@@ -18,20 +18,24 @@
       "assets/hsk2_sc003_preview.webp"
     ],
     "previewStatus": "complete",
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk2_sc003_preview.webp",
-        "reason": "preview_recompose_required_after_canonical_character_rebase",
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
-    "regenerationRequired": [
-      "preview"
-    ],
-    "identityReviewRequired": false
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "identityReviewRequired": false,
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "bee8071fe639fa6adcbfcabfc1053753c5baf32d",
+      "sourceGitBlobs": {
+        "background": "e57a82f8b61df368b5dfab58d3deaec3c74addf4",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "foreground": "895696ccae836541f7fef5169b9daf3d92b2d701"
+      },
+      "reference": "Previously Pillow-verified HSK3 SC002 / HSK4 SC002 Preview with identical four WebP source blobs"
+    }
   },
   "audio": {
     "status": "complete",
