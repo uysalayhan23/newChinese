@@ -30,13 +30,13 @@
   },
   "status": "visual-assets-pending",
   "previewComposition": {
-    "method": "hsk6_deterministic_alpha_composite_v1",
+    "method": "verified_canonical_four_layer_preview_reuse_HSK5_SC031",
     "inputBlobs": {
       "background": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
       "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
       "characterB": "eea4742918bf5b78f222b54631de8f71a4c824a7",
       "foreground": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
     },
-    "previewBlob": "be64dcbdc7a74bcd0727cc3a3d7c103181d0cb76"
+    "previewBlob": "88b0bd6b75eda7dd69d96243c1e64ec7653c7518"
   }
 }
