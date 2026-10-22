@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK2_SC046",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk2_sc046_bg.webp",
       "assets/hsk2_sc046_char_zhang_wei.webp",
@@ -10,20 +10,35 @@
       "assets/hsk2_sc046_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk2_sc046_preview.webp",
-        "reason": "preview_recompose_required_after_hd_neighborhood_rebase",
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
-    "regenerationRequired": [
-      "preview"
-    ],
-    "preserveCanonicalCharacters": true
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "preserveCanonicalCharacters": true,
+    "remainingAudit": [],
+    "backgroundValidation": {
+      "status": "passed",
+      "gitBlobSha": "414f8840ca9cfbf11f75584ba33de68bcba9e44d",
+      "size": [
+        941,
+        1672
+      ],
+      "sourceOriginalGitBlobSha": "b3dc36b60ee3b552f398ef5707e2e9992eab0eff"
+    },
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "8518eba7e09b69d956bed502c69f277f37c3b5e6",
+      "sourceGitBlobs": {
+        "background": "414f8840ca9cfbf11f75584ba33de68bcba9e44d",
+        "characterA": "f36efdeaa502ab3ee7ee319695a888c5dd4968c2",
+        "characterB": "eea4742918bf5b78f222b54631de8f71a4c824a7",
+        "foreground": "623a5e4c5a311b1d3a54c64d06aee74f903aa588"
+      },
+      "verification": "Pillow composite and visual QA passed; original character and foreground Git blobs preserved."
+    },
+    "previewStatus": "complete"
   },
   "audio": {
     "status": "complete",
@@ -65,5 +80,5 @@
     ],
     "missing": []
   },
-  "rule": "Partial canonical rebase applied; only the listed remaining visual assets may block completion."
+  "rule": "Shared verified true HD Neighborhood background and 720x1280 Pillow Preview complete; original characters and foreground preserved."
 }
