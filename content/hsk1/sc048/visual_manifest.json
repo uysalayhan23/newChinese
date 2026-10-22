@@ -28,61 +28,48 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk1_sc048_bg.webp",
-      "reason": "below_minimum_resolution",
-      "actual": [
-        512,
-        910
-      ],
-      "minimum": [
-        540,
-        960
-      ]
-    },
-    {
-      "asset": "assets/hsk1_sc048_fg.webp",
-      "reason": "below_minimum_resolution",
-      "actual": [
-        512,
-        910
-      ],
-      "minimum": [
-        540,
-        960
-      ]
-    },
-    {
-      "asset": "assets/hsk1_sc048_preview.webp",
-      "reason": "below_minimum_resolution",
-      "actual": [
-        512,
-        910
-      ],
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "identityReviewRequired": false,
   "regeneration": {
-    "required": [
+    "required": [],
+    "preserve": [
       "background",
+      "characterA",
+      "characterB",
       "foreground",
       "preview"
-    ],
-    "preserve": [
-      "characterA",
-      "characterB"
     ],
     "identityRule": "canonical Li Na/Zhang Wei already fixed"
   },
   "repair": {
-    "method": "character_canonical_rebase",
-    "source": "HSK3_SC019 canonical Li Na/Zhang Wei blobs",
-    "reason": "remove one-off character drift while preserving scene-specific environment until HD regeneration"
+    "method": "reference_guided_hd_cgi_environment_rebuild",
+    "backgroundBlobSha": "7ef5dd8a76187c085d2fef573d76325ef5fd240b",
+    "foregroundBlobSha": "f0d466e7b995d867f4afcfa4794927b76d643475",
+    "backgroundSize": [
+      941,
+      1672
+    ],
+    "foregroundSize": [
+      941,
+      1672
+    ],
+    "previewBlobSha": "7e9e2f00600f439232ab6ab4286369508db1effd",
+    "reason": "Scene-specific environment rebuilt in true HD; clean foreground depth extracted from new CGI environment; canonical characters preserved."
+  },
+  "previewValidation": {
+    "status": "passed",
+    "size": [
+      720,
+      1280
+    ],
+    "gitBlobSha": "7e9e2f00600f439232ab6ab4286369508db1effd",
+    "sourceGitBlobs": {
+      "background": "7ef5dd8a76187c085d2fef573d76325ef5fd240b",
+      "characterA": "22ad29eea28cae496f48144c00753faf5b8bc865",
+      "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+      "foreground": "f0d466e7b995d867f4afcfa4794927b76d643475"
+    },
+    "verification": "Pillow 720x1280 composite and visual QA passed; accepted canonical character blobs preserved exactly."
   }
 }

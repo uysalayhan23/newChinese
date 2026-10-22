@@ -28,55 +28,47 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk1_sc027_bg.webp",
-      "reason": "below_minimum_resolution",
-      "actual": [
-        480,
-        853
-      ],
-      "minimum": [
-        540,
-        960
-      ]
-    },
-    {
-      "asset": "assets/hsk1_sc027_fg.webp",
-      "reason": "placeholder_foreground_1x1",
-      "actual": [
-        1,
-        1
-      ],
-      "minimum": [
-        540,
-        960
-      ]
-    },
-    {
-      "asset": "assets/hsk1_sc027_preview.webp",
-      "reason": "below_minimum_resolution",
-      "actual": [
-        120,
-        213
-      ],
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
+    "required": [],
+    "preserve": [
       "background",
+      "characterA",
+      "characterB",
       "foreground",
       "preview"
     ],
-    "preserve": [
-      "characterA",
-      "characterB"
-    ],
     "identityRule": "keep existing canonical Li Na/Zhang Wei layers"
+  },
+  "repair": {
+    "method": "reference_guided_hd_cgi_environment_rebuild",
+    "backgroundBlobSha": "71da85807124258d4d0a133581913dda23aa3991",
+    "foregroundBlobSha": "1f86b685613ce483b68fc485a74f809c65e2a4d7",
+    "backgroundSize": [
+      941,
+      1672
+    ],
+    "foregroundSize": [
+      941,
+      1672
+    ],
+    "previewBlobSha": "43e0eba7765499635e2b78bb575bee88af8d4c4a",
+    "reason": "Scene-specific environment rebuilt in true HD; clean foreground depth extracted from new CGI environment; canonical characters preserved."
+  },
+  "previewValidation": {
+    "status": "passed",
+    "size": [
+      720,
+      1280
+    ],
+    "gitBlobSha": "43e0eba7765499635e2b78bb575bee88af8d4c4a",
+    "sourceGitBlobs": {
+      "background": "71da85807124258d4d0a133581913dda23aa3991",
+      "characterA": "22ad29eea28cae496f48144c00753faf5b8bc865",
+      "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+      "foreground": "1f86b685613ce483b68fc485a74f809c65e2a4d7"
+    },
+    "verification": "Pillow 720x1280 composite and visual QA passed; accepted canonical character blobs preserved exactly."
   }
 }

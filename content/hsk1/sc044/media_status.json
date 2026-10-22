@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK1_SC044",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk1_sc044_bg.webp",
       "assets/hsk1_sc044_char_li_na.webp",
@@ -10,51 +10,45 @@
       "assets/hsk1_sc044_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk1_sc044_bg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          512,
-          910
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
-        "asset": "assets/hsk1_sc044_fg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          512,
-          910
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
-        "asset": "assets/hsk1_sc044_preview.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          512,
-          910
-        ],
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
-    "regenerationRequired": [
-      "background",
-      "foreground",
-      "preview"
-    ],
+    "qualityBlocked": [],
+    "regenerationRequired": [],
     "preserveCanonicalCharacters": true,
-    "identityReviewRequired": false
+    "identityReviewRequired": false,
+    "remainingAudit": [],
+    "backgroundValidation": {
+      "status": "passed",
+      "gitBlobSha": "32972f25048ff0f475b1e6bc7d43147b89999013",
+      "size": [
+        941,
+        1672
+      ],
+      "method": "direct_reference_hd_cgi_rebuild"
+    },
+    "foregroundValidation": {
+      "status": "passed",
+      "gitBlobSha": "9f0bf4550bb69073161792fa2989cc7b510ad34e",
+      "size": [
+        941,
+        1672
+      ],
+      "method": "scene_matched_hd_depth_plane"
+    },
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "4d246546b4406317b45eaa236de6eb65f1aa4f5a",
+      "sourceGitBlobs": {
+        "background": "32972f25048ff0f475b1e6bc7d43147b89999013",
+        "characterA": "22ad29eea28cae496f48144c00753faf5b8bc865",
+        "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+        "foreground": "9f0bf4550bb69073161792fa2989cc7b510ad34e"
+      },
+      "verification": "Pillow 720x1280 composite and visual QA passed; accepted canonical character blobs preserved exactly."
+    },
+    "previewStatus": "complete"
   },
   "audio": {
     "status": "complete",
@@ -86,5 +80,5 @@
     ],
     "missing": []
   },
-  "rule": "Li Na/Zhang Wei character layers have been rebased to canonical HD identities; environment and preview remain blocked by 512x910 legacy resolution."
+  "rule": "True HD scene-specific BG/FG and 720x1280 Pillow Preview passed visual QA; canonical Li Na/Zhang Wei layers preserved."
 }
