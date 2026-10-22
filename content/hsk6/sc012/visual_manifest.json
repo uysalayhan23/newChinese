@@ -30,13 +30,32 @@
   },
   "status": "visual-assets-pending",
   "previewComposition": {
-    "method": "hsk6_deterministic_alpha_composite_v1",
+    "method": "canonical_four_layer_pillow_actor_grounding_v2",
     "inputBlobs": {
       "background": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
       "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
       "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
       "foreground": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
     },
-    "previewBlob": "f8c664bbfb3b8f5006a923dd3cb61c495f2133f9"
+    "previewBlob": "185463f24cb8ae7faf567f6923dfdbb5f1ef3917",
+    "targetSize": [
+      720,
+      1280
+    ],
+    "actorPlacement": {
+      "characterA": {
+        "x": 0,
+        "y": 430,
+        "width": 507,
+        "height": 760
+      },
+      "characterB": {
+        "x": 205,
+        "y": 440,
+        "width": 548,
+        "height": 730
+      }
+    },
+    "foregroundLast": true
   }
 }
