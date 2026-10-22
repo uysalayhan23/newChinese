@@ -28,26 +28,42 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc034_preview.webp",
-      "reason": "preview_missing_after_canonical_staging"
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "preview"
-    ],
+    "required": [],
     "preserve": [
       "background",
       "characterA",
       "characterB",
-      "foreground"
+      "foreground",
+      "preview"
     ]
   },
   "repair": {
     "method": "canonical_staging",
     "reason": "Community Center BG/FG pass and canonical Zhang Wei/Chen Yu are staged; only preview remains."
+  },
+  "previewValidation": {
+    "status": "passed",
+    "previewBlob": "7d0ac36040613d0cb1dbad70cfa84c0bbba851c3",
+    "sourceGitBlobs": {
+      "background": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+      "foreground": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
+    },
+    "verifiedMethod": "canonical-Pillow-four-layer-binary-alpha-reconstruction",
+    "compositeQA": {
+      "meanAbsoluteRgbDifference": 1.9841,
+      "psnrDb": 36.37,
+      "pixelChannelsWithin15Of255": 0.99147,
+      "characterSiftInliers": [
+        130,
+        124
+      ],
+      "foregroundSiftInliers": 30,
+      "canonicalCharactersAndForegroundUnchanged": true
+    }
   }
 }
