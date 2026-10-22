@@ -28,5 +28,39 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-pending",
+  "previewComposition": {
+    "method": "scene_specific_canonical_four_layer_pillow_2026_10_22",
+    "outputSize": [
+      720,
+      1280
+    ],
+    "inputBlobs": {
+      "background": "8c3e7732156ba04375c846af6633475264b229a2",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "foreground": "01c2add740504ca62d55e2226c53d8993e74fcc7"
+    },
+    "previewBlob": "7d3ec5ca608497388a534df4ccb7de81638fc476",
+    "actorPlacement": {
+      "characterA": {
+        "visibleCenterX": 215,
+        "visibleBottomY": 1120,
+        "renderHeight": 610
+      },
+      "characterB": {
+        "visibleCenterX": 505,
+        "visibleBottomY": 1120,
+        "renderHeight": 575
+      }
+    },
+    "qualityChecks": [
+      "physical_pillow_webp_decode_720x1280",
+      "canonical_source_blob_shas_matched",
+      "character_foot_baseline_1120",
+      "foreground_high_opacity_character_overlap_zero",
+      "manual_visual_comparison"
+    ],
+    "reason": "Previous preview was byte-identical to SC014 despite distinct native SC020 background; scene-specific background and more coherent character scale and grounding composed from four unchanged canonical layers; scene acceptance remains pending."
+  }
 }
