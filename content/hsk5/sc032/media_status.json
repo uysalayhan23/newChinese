@@ -9,9 +9,7 @@
       "assets/hsk5_sc032_fg.webp",
       "assets/hsk5_sc032_preview.webp"
     ],
-    "missing": [
-      "assets/hsk5_sc032_preview.webp"
-    ],
+    "missing": [],
     "qualityBlocked": [
       {
         "asset": "assets/hsk5_sc032_bg.webp",
