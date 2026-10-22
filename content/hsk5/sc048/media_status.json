@@ -12,7 +12,24 @@
     "missing": [],
     "qualityBlocked": [],
     "regenerationRequired": [],
-    "remainingAudit": []
+    "remainingAudit": [],
+    "previewStatus": "complete",
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "bee8071fe639fa6adcbfcabfc1053753c5baf32d",
+      "sourceGitBlobs": {
+        "background": "e57a82f8b61df368b5dfab58d3deaec3c74addf4",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "foreground": "895696ccae836541f7fef5169b9daf3d92b2d701"
+      },
+      "method": "exact-four-canonical-layer verified preview reuse",
+      "reference": "HSK2_SC003 accepted, Pillow-verified 720x1280 preview; identical four Git blob SHA assets; target local source WebP pixel/alpha decoded and verified"
+    }
   },
   "audio": {
     "status": "complete",

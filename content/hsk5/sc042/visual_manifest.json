@@ -33,11 +33,23 @@
   "regeneration": {
     "required": [],
     "preserve": [
-      "all"
+      "background",
+      "characterA",
+      "characterB",
+      "foreground",
+      "preview"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "Exact Breakroom orientation match staged from accepted canonical set."
+    "method": "verified_identical_four_layer_preview_reuse",
+    "source": "HSK2_SC003",
+    "reason": "Replaced 768x1365 legacy staged two-shot inconsistent with canonical actor layers; reused pre-verified 720x1280 preview with identical BG, Zhang Wei, Wang Ming, FG Git blob SHAs, correct location, CGI style and source alpha.",
+    "previewBlobSha": "bee8071fe639fa6adcbfcabfc1053753c5baf32d",
+    "sourceGitBlobs": {
+      "background": "e57a82f8b61df368b5dfab58d3deaec3c74addf4",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "foreground": "895696ccae836541f7fef5169b9daf3d92b2d701"
+    }
   }
 }
