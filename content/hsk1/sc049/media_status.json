@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK1_SC049",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk1_sc049_bg.webp",
       "assets/hsk1_sc049_char_li_na.webp",
@@ -10,19 +10,8 @@
       "assets/hsk1_sc049_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk1_sc049_preview.webp",
-        "reason": "preview_recompose_required_after_hd_rebase",
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
-    "regenerationRequired": [
-      "preview"
-    ],
+    "qualityBlocked": [],
+    "regenerationRequired": [],
     "preserveCanonicalCharacters": true
   },
   "audio": {
