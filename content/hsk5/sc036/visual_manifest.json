@@ -28,26 +28,44 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc036_preview.webp",
-      "reason": "preview_missing_after_canonical_staging"
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "preview"
-    ],
+    "required": [],
     "preserve": [
       "background",
       "characterA",
       "characterB",
-      "foreground"
+      "foreground",
+      "preview"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "City Park BG/FG and canonical Zhang Wei/Chen Yu are staged; only preview remains."
+    "method": "verified_existing_canonical_preview_metadata_sync",
+    "source": "Existing HSK5_SC036 physical WebP and user-uploaded verified SC033/SC036/SC039 Preview package",
+    "reason": "Existing 720x1280 Preview physically present on main and matches canonical BG, Zhang Wei, Chen Yu and transparent FG; real Pillow pixel/alpha QA passed; obsolete missing Preview gate removed. No WebP asset edited.",
+    "previewBlobSha": "37af99c582ba7b59a5f61c17ea6969373cab9707"
+  },
+  "previewValidation": {
+    "status": "passed",
+    "size": [
+      720,
+      1280
+    ],
+    "gitBlobSha": "37af99c582ba7b59a5f61c17ea6969373cab9707",
+    "sourceGitBlobs": {
+      "background": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+      "foreground": "db15db8c4743a6d0edb547d6c471be1b1a4e9f9a"
+    },
+    "source": "Previously uploaded SC033/SC036/SC039 preview patch matches main Git blob; Pillow reconstruction of actual scene background/characters with fully transparent current FG; Git blob SHA matches native source WebPs.",
+    "pillowQA": {
+      "meanAbsoluteRgbDifference": 2.4229727,
+      "fractionChannelsDifferenceAtMost15": 0.99305194,
+      "psnrDb": 36.5909741,
+      "siftInliersZhangWei": 19,
+      "siftInliersChenYu": 41
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC036",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc036_bg.webp",
       "assets/hsk5_sc036_char_zhang_wei.webp",
@@ -9,21 +9,33 @@
       "assets/hsk5_sc036_fg.webp",
       "assets/hsk5_sc036_preview.webp"
     ],
-    "missing": [
-      "assets/hsk5_sc036_preview.webp"
-    ],
-    "regenerationRequired": [
-      "preview"
-    ],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc036_preview.webp",
-        "reason": "preview_missing_after_canonical_staging"
+    "missing": [],
+    "regenerationRequired": [],
+    "qualityBlocked": [],
+    "remainingAudit": [],
+    "previewStatus": "complete",
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "37af99c582ba7b59a5f61c17ea6969373cab9707",
+      "sourceGitBlobs": {
+        "background": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+        "foreground": "db15db8c4743a6d0edb547d6c471be1b1a4e9f9a"
+      },
+      "source": "Previously uploaded SC033/SC036/SC039 preview patch matches main Git blob; Pillow reconstruction of actual scene background/characters with fully transparent current FG; Git blob SHA matches native source WebPs.",
+      "pillowQA": {
+        "meanAbsoluteRgbDifference": 2.4229727,
+        "fractionChannelsDifferenceAtMost15": 0.99305194,
+        "psnrDb": 36.5909741,
+        "siftInliersZhangWei": 19,
+        "siftInliersChenYu": 41
       }
-    ],
-    "remainingAudit": [
-      "preview"
-    ]
+    }
   },
   "audio": {
     "status": "complete",
