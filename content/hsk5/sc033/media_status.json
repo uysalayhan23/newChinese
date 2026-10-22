@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC033",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc033_bg.webp",
       "assets/hsk5_sc033_char_liu_mei.webp",
@@ -9,28 +9,27 @@
       "assets/hsk5_sc033_fg.webp",
       "assets/hsk5_sc033_preview.webp"
     ],
-    "missing": [
-      "assets/hsk5_sc033_char_liu_mei.webp",
-      "assets/hsk5_sc033_preview.webp"
-    ],
-    "regenerationRequired": [
-      "characterA",
-      "preview"
-    ],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc033_char_liu_mei.webp",
-        "reason": "canonical_face_right_character_regeneration_required"
+    "missing": [],
+    "regenerationRequired": [],
+    "qualityBlocked": [],
+    "remainingAudit": [],
+    "characterIdentityStatus": "verified_exact_lossless_canonical_mirror_face_right",
+    "previewStatus": "complete",
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "ecb6d824c45158a07b9a9c6fdd04afde9a0e309b",
+      "sourceGitBlobs": {
+        "background": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+        "characterA": "1944d13b2565d618ad183da64fd33ef68a11191a",
+        "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+        "foreground": "db15db8c4743a6d0edb547d6c471be1b1a4e9f9a"
       },
-      {
-        "asset": "assets/hsk5_sc033_preview.webp",
-        "reason": "preview_missing_after_canonical_staging"
-      }
-    ],
-    "remainingAudit": [
-      "characterA",
-      "preview"
-    ]
+      "verification": "Direct GitHub WebP preview dimensions and visual composition verified; characterA WebP bytes exactly equal lossless horizontal mirror of accepted HSK6_SC028 Liu Mei canonical (Git SHA verified with Pillow), face_right; no source layers or previews altered."
+    }
   },
   "audio": {
     "status": "complete",
@@ -92,5 +91,5 @@
     ],
     "missing": []
   },
-  "rule": "City Park BG/FG and canonical Zhang Wei face-left are staged; Liu Mei face-right canonical regeneration and preview remain."
+  "rule": "Existing 720x1280 Preview and all four real WebP source blobs verified; Liu Mei face_right identical to accepted canonical horizontal mirror. Prior staging missing flags obsolete; source images preserved."
 }

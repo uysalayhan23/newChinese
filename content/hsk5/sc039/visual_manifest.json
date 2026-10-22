@@ -28,30 +28,37 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc039_char_liu_mei.webp",
-      "reason": "canonical_face_right_character_regeneration_required"
-    },
-    {
-      "asset": "assets/hsk5_sc039_preview.webp",
-      "reason": "preview_missing_after_canonical_staging"
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "characterA",
-      "preview"
-    ],
+    "required": [],
     "preserve": [
       "background",
+      "characterA",
       "characterB",
-      "foreground"
+      "foreground",
+      "preview"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "City Park BG/FG and canonical Zhang Wei face-left are staged; Liu Mei face-right canonical regeneration and preview remain."
+    "method": "verified_existing_canonical_face_right_metadata_sync",
+    "source": "Liu Mei HSK6_SC028 canonical lossless mirror and existing 720x1280 Git Preview",
+    "reason": "Physical canonical mirrored-character SHA identity and scene continuity verified; obsolete pending/missing flags corrected. WebP assets preserved unchanged.",
+    "previewBlobSha": "ecb6d824c45158a07b9a9c6fdd04afde9a0e309b"
+  },
+  "previewValidation": {
+    "status": "passed",
+    "size": [
+      720,
+      1280
+    ],
+    "gitBlobSha": "ecb6d824c45158a07b9a9c6fdd04afde9a0e309b",
+    "sourceGitBlobs": {
+      "background": "d6dc8b286b482c84716db61f550b2aafa08aec5c",
+      "characterA": "1944d13b2565d618ad183da64fd33ef68a11191a",
+      "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+      "foreground": "db15db8c4743a6d0edb547d6c471be1b1a4e9f9a"
+    },
+    "verification": "Direct GitHub WebP preview dimensions and visual composition verified; characterA WebP bytes exactly equal lossless horizontal mirror of accepted HSK6_SC028 Liu Mei canonical (Git SHA verified with Pillow), face_right; no source layers or previews altered."
   }
 }

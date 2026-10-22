@@ -28,32 +28,37 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc037_char_liu_mei.webp",
-      "reason": "canonical_face_right_character_regeneration_required"
-    },
-    {
-      "asset": "assets/hsk5_sc037_preview.webp",
-      "reason": "preview_missing_after_canonical_staging"
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "characterA",
-      "preview"
-    ],
+    "required": [],
     "preserve": [
+      "background",
+      "characterA",
       "characterB",
       "foreground",
-      "background"
+      "preview"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "HD canonical background installed; Liu Mei face_right regeneration and preview remain pending.",
-    "backgroundSource": "HSK2_SC041",
-    "backgroundBlobSHA": "6ba20dfb8423743e855c90dcd4212a17a866e9b7"
+    "method": "verified_existing_canonical_face_right_metadata_sync",
+    "source": "Liu Mei HSK6_SC028 canonical lossless mirror and existing 720x1280 Git Preview",
+    "reason": "Physical canonical mirrored-character SHA identity and scene continuity verified; obsolete pending/missing flags corrected. WebP assets preserved unchanged.",
+    "previewBlobSha": "a010c81624131952b037cd1dc45014a8d1257b37"
+  },
+  "previewValidation": {
+    "status": "passed",
+    "size": [
+      720,
+      1280
+    ],
+    "gitBlobSha": "a010c81624131952b037cd1dc45014a8d1257b37",
+    "sourceGitBlobs": {
+      "background": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
+      "characterA": "1944d13b2565d618ad183da64fd33ef68a11191a",
+      "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+      "foreground": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
+    },
+    "verification": "Direct GitHub WebP preview dimensions and visual composition verified; characterA WebP bytes exactly equal lossless horizontal mirror of accepted HSK6_SC028 Liu Mei canonical (Git SHA verified with Pillow), face_right; no source layers or previews altered."
   }
 }
