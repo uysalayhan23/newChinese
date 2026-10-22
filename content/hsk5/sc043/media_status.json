@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC043",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc043_bg.webp",
       "assets/hsk5_sc043_char_wang_ming.webp",
@@ -9,28 +9,31 @@
       "assets/hsk5_sc043_fg.webp",
       "assets/hsk5_sc043_preview.webp"
     ],
-    "missing": [
-      "assets/hsk5_sc043_char_wang_ming.webp",
-      "assets/hsk5_sc043_preview.webp"
-    ],
-    "regenerationRequired": [
-      "characterA",
-      "preview"
-    ],
-    "remainingAudit": [
-      "characterA",
-      "preview"
-    ],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc043_char_wang_ming.webp",
-        "reason": "canonical_face_right_character_regeneration_required"
+    "missing": [],
+    "regenerationRequired": [],
+    "remainingAudit": [],
+    "qualityBlocked": [],
+    "characterIdentityStatus": "approved_canonical_sha_and_face_right_verified",
+    "previewStatus": "complete",
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "2b47d278269994097ebaf21fc1985d28c7de2d3e",
+      "sourceGitBlobs": {
+        "background": "4c21df1ad7bf346240a29478694f2f201090cdb7",
+        "characterA": "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+        "foreground": "64fc32bb2b3016780e666f9caea7d7d4e10b3de8"
       },
-      {
-        "asset": "assets/hsk5_sc043_preview.webp",
-        "reason": "preview_missing_after_canonical_staging"
+      "verification": "Previously completed 4-layer Pillow alpha/visual QA, physical preview and canonical SHA allowlist including accepted HSK5_SC045, with Wang Ming facing right in this scene. No new QA run.",
+      "previousPillowQA": {
+        "approximateMeanAbsRgbDifference": 2.17,
+        "channelScale": 255
       }
-    ]
+    }
   },
   "audio": {
     "status": "complete",

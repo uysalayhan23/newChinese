@@ -28,30 +28,41 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc047_char_wang_ming.webp",
-      "reason": "canonical_face_right_character_regeneration_required"
-    },
-    {
-      "asset": "assets/hsk5_sc047_preview.webp",
-      "reason": "preview_recompose_required_after_canonical_staging"
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "characterA",
-      "preview"
-    ],
+    "required": [],
     "preserve": [
       "background",
+      "characterA",
+      "characterB",
       "foreground",
-      "characterB"
+      "preview"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "Office BG/FG + canonical Zhang Wei face-left staged; Wang Ming face-right canonical regeneration and preview remain."
+    "method": "verified_existing_canonical_preview_metadata_sync",
+    "source": "Prior Pillow QA and approved canonical Wang Ming SHA/HSK5 SC045 identity gate",
+    "reason": "Confirmed existing office/cafe preview aligns with approved canonical Wang Ming face-right, Zhang Wei face-left, outfit, camera and depth; obsolete missing flags only; no assets replaced.",
+    "previewBlobSha": "73e923ea58ed0bccbdce5a8321c03f31d6510ca3"
+  },
+  "previewValidation": {
+    "status": "passed",
+    "size": [
+      720,
+      1280
+    ],
+    "gitBlobSha": "73e923ea58ed0bccbdce5a8321c03f31d6510ca3",
+    "sourceGitBlobs": {
+      "background": "9c660be22cdd428e2a90862be84176defa615899",
+      "characterA": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+      "foreground": "8c5f4525102a9c486917a0c5d13d7f5a6062f151"
+    },
+    "verification": "Previously completed 4-layer Pillow alpha/visual QA, physical preview and canonical SHA allowlist including accepted HSK5_SC045, with Wang Ming facing right in this scene. No new QA run.",
+    "previousPillowQA": {
+      "approximateMeanAbsRgbDifference": 1.65,
+      "channelScale": 255
+    }
   }
 }
