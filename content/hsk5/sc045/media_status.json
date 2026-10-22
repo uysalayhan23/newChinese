@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC045",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc045_bg.webp",
       "assets/hsk5_sc045_char_wang_ming.webp",
@@ -9,28 +9,34 @@
       "assets/hsk5_sc045_fg.webp",
       "assets/hsk5_sc045_preview.webp"
     ],
-    "missing": [
-      "assets/hsk5_sc045_char_wang_ming.webp",
-      "assets/hsk5_sc045_preview.webp"
-    ],
-    "regenerationRequired": [
-      "characterA",
-      "preview"
-    ],
-    "remainingAudit": [
-      "characterA",
-      "preview"
-    ],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc045_char_wang_ming.webp",
-        "reason": "canonical_face_right_character_regeneration_required"
+    "missing": [],
+    "regenerationRequired": [],
+    "remainingAudit": [],
+    "qualityBlocked": [],
+    "previewStatus": "complete",
+    "characterIdentityStatus": "approved_canonical_sha_and_face_right_verified",
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "ee0761c3a5e5c67718963574af63fe94390b68f4",
+      "sourceGitBlobs": {
+        "background": "e57a82f8b61df368b5dfab58d3deaec3c74addf4",
+        "characterA": "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+        "foreground": "895696ccae836541f7fef5169b9daf3d92b2d701"
       },
-      {
-        "asset": "assets/hsk5_sc045_preview.webp",
-        "reason": "preview_missing_after_canonical_staging"
+      "validation": "Pillow alpha recomposition of original canonical WebP layers matched existing preview; Git blob SHA and approvedCanonicalGitBlobSha1 gate confirmed",
+      "pixelQA": {
+        "meanAbsRgbDifference": 1.484187644675926,
+        "rgbFractionWithin15": 0.9961892361111111,
+        "psnrDb": 39.274034595655436,
+        "wangMingInliers": 138,
+        "zhangWeiInliers": 119
       }
-    ]
+    }
   },
   "audio": {
     "status": "complete",
@@ -92,5 +98,5 @@
     ],
     "missing": []
   },
-  "rule": "Breakroom BG/FG + canonical Zhang Wei face-left staged; Wang Ming face-right canonical regeneration and preview remain."
+  "rule": "Existing physical Wang Ming and Preview blobs are Git SHA-verified; canonical approved SHA, in-scene right-facing pose and Pillow four-layer alpha reconstruction passed; no visual binaries replaced."
 }

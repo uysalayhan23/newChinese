@@ -28,30 +28,44 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc045_char_wang_ming.webp",
-      "reason": "canonical_face_right_character_regeneration_required"
-    },
-    {
-      "asset": "assets/hsk5_sc045_preview.webp",
-      "reason": "preview_missing_after_canonical_staging"
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "characterA",
-      "preview"
-    ],
+    "required": [],
     "preserve": [
       "background",
+      "characterA",
       "characterB",
-      "foreground"
+      "foreground",
+      "preview"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "Breakroom BG/FG + canonical Zhang Wei face-left staged; Wang Ming face-right canonical regeneration and preview remain."
+    "method": "verified_existing_canonical_preview_metadata_sync",
+    "reason": "Existing 720x1280 Preview is correctly assembled from the four exact scene source blobs, including globally approved canonical Wang Ming; obsolete missing/regeneration flags cleared after real Pillow pixel/alpha and identity/orientation QA.",
+    "source": "existing HSK5_SC045 WebP assets; original HSK5 archive; approved canonical Git blob allowlist",
+    "previewBlobSha": "ee0761c3a5e5c67718963574af63fe94390b68f4"
+  },
+  "previewValidation": {
+    "status": "passed",
+    "size": [
+      720,
+      1280
+    ],
+    "gitBlobSha": "ee0761c3a5e5c67718963574af63fe94390b68f4",
+    "sourceGitBlobs": {
+      "background": "e57a82f8b61df368b5dfab58d3deaec3c74addf4",
+      "characterA": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "characterB": "b617cef41d4adeb331f126284a2039dd33868a99",
+      "foreground": "895696ccae836541f7fef5169b9daf3d92b2d701"
+    },
+    "validation": "Pillow alpha recomposition of original canonical WebP layers matched existing preview; Git blob SHA and approvedCanonicalGitBlobSha1 gate confirmed",
+    "pixelQA": {
+      "meanAbsRgbDifference": 1.484187644675926,
+      "rgbFractionWithin15": 0.9961892361111111,
+      "psnrDb": 39.274034595655436,
+      "wangMingInliers": 138,
+      "zhangWeiInliers": 119
+    }
   }
 }
