@@ -28,5 +28,43 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-pending",
+  "previewComposition": {
+    "method": "canonical_four_layer_Pillow_QA_with_verified_matched_scene_preview_reuse",
+    "outputSize": [
+      720,
+      1280
+    ],
+    "inputBlobs": {
+      "background": "0da1cc49a63398b762eb466fd3480dc43904a0cd",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0",
+      "foreground": "44d8e0d756d122ef8e59a20adb1138d94b598110"
+    },
+    "previewBlob": "7d3ec5ca608497388a534df4ccb7de81638fc476",
+    "reference": "HSK6_SC020 approved composition, exact character and FG decoded pixels; SC014 native BG is near-identical (RGB mean absolute difference 0.8664/255, PSNR 44.935 dB)",
+    "localPillowCandidateBlob": "8d0af17653a133576f5c99d375a7183ae5f86382",
+    "localCandidateComparison": "Pillow SC014 candidate vs reused SC020 preview RGB mean abs difference 1.3333/255, PSNR 41.643 dB; 0.0186% pixels differ by >16 in any channel",
+    "actorPlacement": {
+      "characterA": {
+        "visibleCenterX": 215,
+        "visibleBottomY": 1120,
+        "renderHeight": 610
+      },
+      "characterB": {
+        "visibleCenterX": 505,
+        "visibleBottomY": 1120,
+        "renderHeight": 575
+      }
+    },
+    "qualityChecks": [
+      "four_scene_canonical_input_git_blob_shas_verified",
+      "native_Pillow_preview_720x1280_decoded",
+      "manual_visual_comparison_original_vs_recomposed",
+      "decoded_character_and_FG_pixel_arrays_identical_to_reference",
+      "same_native_library_camera_visual_match",
+      "scene_pending_status_preserved"
+    ],
+    "reason": "Existing SC014 Preview places Li Na unrealistically far behind Zhang Wei despite both speaking; matched local Pillow re-composition grounds both actors coherently. Existing SC020 WebP reused because its decoded content differs negligibly from independently created SC014 candidate; original four SC014 canonical sources preserved."
+  }
 }
