@@ -28,42 +28,43 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk5_sc032_bg.webp",
-      "reason": "requires_genuine_HD_for_sharp_preview",
-      "actual": [
-        540,
-        960
-      ],
-      "minimum": [
-        720,
-        1280
-      ]
-    },
-    {
-      "asset": "assets/hsk5_sc032_preview.webp",
-      "reason": "preview_missing_or_below_quality",
-      "minimum": [
-        720,
-        1280
-      ]
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "background",
-      "preview"
-    ],
+    "required": [],
     "preserve": [
-      "foreground",
+      "background",
       "characterA",
-      "characterB"
+      "characterB",
+      "foreground",
+      "preview"
     ]
   },
   "repair": {
-    "method": "partial_canonical_rebase",
-    "reason": "Neighborhood BG 540x960 must be replaced with true HD source before 720x1280 preview compositing; do not upscale."
+    "method": "reference_guided_hd_cgi_background_rebuild",
+    "source": "original shared 540x960 Neighborhood lakeside background",
+    "originalBackgroundBlobSha": "b3dc36b60ee3b552f398ef5707e2e9992eab0eff",
+    "backgroundBlobSha": "414f8840ca9cfbf11f75584ba33de68bcba9e44d",
+    "backgroundSize": [
+      941,
+      1672
+    ],
+    "previewBlobSha": "29dee1f1b5a8b80c5f74c0b5b397498e31de2111",
+    "reason": "Original tree, promenade, railing, lake, gazebo, pagoda, sunset, and camera perspective matched in visual QA."
+  },
+  "previewValidation": {
+    "status": "passed",
+    "size": [
+      720,
+      1280
+    ],
+    "gitBlobSha": "29dee1f1b5a8b80c5f74c0b5b397498e31de2111",
+    "sourceGitBlobs": {
+      "background": "414f8840ca9cfbf11f75584ba33de68bcba9e44d",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+      "foreground": "623a5e4c5a311b1d3a54c64d06aee74f903aa588"
+    },
+    "verification": "Pillow 720x1280 composite and visual QA passed; original character and foreground Git blobs preserved."
   }
 }

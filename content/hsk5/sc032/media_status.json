@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK5_SC032",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk5_sc032_bg.webp",
       "assets/hsk5_sc032_char_zhang_wei.webp",
@@ -10,38 +10,38 @@
       "assets/hsk5_sc032_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk5_sc032_bg.webp",
-        "reason": "requires_genuine_HD_for_sharp_preview",
-        "actual": [
-          540,
-          960
-        ],
-        "minimum": [
-          720,
-          1280
-        ]
-      },
-      {
-        "asset": "assets/hsk5_sc032_preview.webp",
-        "reason": "preview_missing_or_below_quality",
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
+    "qualityBlocked": [],
     "characterIdentityStatus": "canonical_rebase_complete",
     "characterIdentityBaseline": "HSK1-HSK5_SC005 canonical orientation-aware allowlist",
-    "remainingAudit": [
-      "background",
-      "preview"
-    ],
-    "regenerationRequired": [
-      "background",
-      "preview"
-    ]
+    "remainingAudit": [],
+    "regenerationRequired": [],
+    "backgroundValidation": {
+      "status": "passed",
+      "originalGitBlobSha": "b3dc36b60ee3b552f398ef5707e2e9992eab0eff",
+      "gitBlobSha": "414f8840ca9cfbf11f75584ba33de68bcba9e44d",
+      "size": [
+        941,
+        1672
+      ],
+      "method": "direct_reference_hd_cgi_rebuild",
+      "visualQa": "landmarks and camera perspective matched"
+    },
+    "previewStatus": "complete",
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "29dee1f1b5a8b80c5f74c0b5b397498e31de2111",
+      "sourceGitBlobs": {
+        "background": "414f8840ca9cfbf11f75584ba33de68bcba9e44d",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "ee14b09ae3c8cc4f5e539a54884798900f2ad85b",
+        "foreground": "623a5e4c5a311b1d3a54c64d06aee74f903aa588"
+      },
+      "verification": "Pillow 720x1280 composite and visual QA passed; original character and foreground Git blobs preserved."
+    }
   },
   "audio": {
     "status": "complete",
@@ -103,5 +103,5 @@
     ],
     "missing": []
   },
-  "rule": "Neighborhood background 540x960 requires true HD replacement; preview cannot be accepted by simple upscaling."
+  "rule": "Shared reference-matched true HD Neighborhood BG and 720x1280 Pillow Preview verified; original characters and foreground preserved."
 }
