@@ -33,11 +33,27 @@
   "regeneration": {
     "required": [],
     "preserve": [
-      "all"
+      "background",
+      "characterA",
+      "characterB",
+      "foreground",
+      "preview"
     ]
   },
   "repair": {
-    "method": "canonical_staging",
-    "reason": "Exact Zhang Office orientation match staged from accepted canonical set."
+    "method": "canonical four-layer Pillow recomposition",
+    "source": "Existing exact canonical BG/Zhang Wei/Wang Ming/FG; no new identity assets",
+    "reason": "Replaced old 768x1365 preview with 720x1280 two-character composition matching canonical source clothing, office setting and correct foreground depth.",
+    "previewBlobSha": "73dc3b2bb473e5619f648f222daa8ad27b595764",
+    "sourceGitBlobs": {
+      "background": "9c660be22cdd428e2a90862be84176defa615899",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "foreground": "8c5f4525102a9c486917a0c5d13d7f5a6062f151"
+    },
+    "qualityEvidence": {
+      "rgbMeanAbsoluteDiff": 1.346,
+      "pixelChannelsWithin15": 0.99963
+    }
   }
 }

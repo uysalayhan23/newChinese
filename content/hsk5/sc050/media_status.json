@@ -12,7 +12,56 @@
     "missing": [],
     "qualityBlocked": [],
     "regenerationRequired": [],
-    "remainingAudit": []
+    "remainingAudit": [],
+    "previewStatus": "complete",
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "73dc3b2bb473e5619f648f222daa8ad27b595764",
+      "sourceGitBlobs": {
+        "background": "9c660be22cdd428e2a90862be84176defa615899",
+        "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+        "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+        "foreground": "8c5f4525102a9c486917a0c5d13d7f5a6062f151"
+      },
+      "method": "Pillow 12.3 canonical four-layer RGBA composition; position-checked physical office scene",
+      "sourceNativeBackground": [
+        540,
+        960
+      ],
+      "sourceNativeForeground": [
+        540,
+        960
+      ],
+      "render": {
+        "foregroundLast": true,
+        "zhangWei": {
+          "x": 50,
+          "y": 530,
+          "height": 560
+        },
+        "wangMing": {
+          "x": 340,
+          "y": 540,
+          "height": 520
+        }
+      },
+      "pixelQA": {
+        "meanAbsoluteRgbDifference": 1.346,
+        "pixelChannelsWithin15": 0.99963
+      },
+      "replacedLegacyPreview": {
+        "size": [
+          768,
+          1365
+        ],
+        "sha": "397eb69eb0a8fbfe789f054fdeb55e23e6d2a10f",
+        "reason": "Legacy Preview had noncanonical glasses and seated actor absent from source layers"
+      }
+    }
   },
   "audio": {
     "status": "complete",
