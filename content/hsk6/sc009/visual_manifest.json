@@ -28,16 +28,33 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending",
+  "status": "visual-assets-complete",
   "previewComposition": {
-    "method": "hsk6_deterministic_alpha_composite_v1",
+    "method": "hsk6_pillow_canonical_face_alignment_v2",
     "inputBlobs": {
       "background": "4c21df1ad7bf346240a29478694f2f201090cdb7",
       "characterA": "067fcfe261c52adebc383f5551d7ed365abd747e",
       "characterB": "717828100874a371def695365e29b7c946147b4d",
       "foreground": "64fc32bb2b3016780e666f9caea7d7d4e10b3de8"
     },
-    "previewBlob": "0a38fd3b246b18908e291e34f5ae6ffb3c04bd95",
-    "review": "real source and 720x1280 physical QA passed; full scene visual acceptance pending"
+    "previewBlob": "b8de9088abb948538b59cac628f18d22894d2abc",
+    "review": "720x1280 physical scene QA passed: same-camera BG/FG, right-facing Wang Ming and left-facing Zhang Wei, grounded feet, no clipping; canonical layers preserved",
+    "placement": {
+      "characterA": {
+        "x": 80,
+        "y": 535,
+        "scale": 0.96
+      },
+      "characterB": {
+        "x": 350,
+        "y": 535,
+        "scale": 0.95
+      },
+      "coordinateSystem": [
+        941,
+        1672
+      ],
+      "mirrored": false
+    }
   }
 }

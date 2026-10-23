@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK6_SC003",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk6_sc003_bg.webp",
       "assets/hsk6_sc003_char_wang_ming.webp",
@@ -14,7 +14,13 @@
       "present": 5,
       "required": 5,
       "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "qa": "passed",
+      "previewSize": [
+        720,
+        1280
+      ],
+      "previewBlob": "b8de9088abb948538b59cac628f18d22894d2abc",
+      "method": "pillow_941x1672_canonical_layer_alpha_composition_resized_720x1280"
     }
   },
   "audio": {
