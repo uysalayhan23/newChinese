@@ -28,5 +28,47 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-pending",
+  "previewComposition": {
+    "method": "hsk6_sc004_same-camera_canonical_pillow_composite_v1",
+    "inputBlobs": {
+      "background": "e415c22b8caec959a0a14b0f41af1704ee617f11",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "foreground": "8ab1e2a04249ddc5d59c2e89f676a7a26a18e106"
+    },
+    "previewBlob": "fee76113be57e54e8ed5fdafbad5ea83edfb5e84",
+    "previewSize": [
+      720,
+      1280
+    ],
+    "sourceCharacterAssets": {
+      "characterA": "content/hsk6/sc004/assets/hsk6_sc004_char_zhang_wei.webp",
+      "characterB": "content/hsk6/sc004/assets/hsk6_sc004_char_wang_ming.webp"
+    },
+    "placementOn720x1280": {
+      "characterA": {
+        "x": 0,
+        "y": 388,
+        "scale": 0.695,
+        "mirrored": false
+      },
+      "characterB": {
+        "x": 367,
+        "y": 374,
+        "scale": 0.7,
+        "mirrored": true
+      }
+    },
+    "targetQA": {
+      "resolution": "PASS",
+      "canonicalSha": "PASS",
+      "relativeScale": "PASS",
+      "faceAlignment": "PASS",
+      "footGroundAlignment": "PASS",
+      "foregroundOcclusion": "PASS",
+      "pixelMaE": 1.052
+    },
+    "review": "Targeted physical layout QA passed; scene-wide visual acceptance remains pending"
+  }
 }

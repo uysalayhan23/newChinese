@@ -13,8 +13,14 @@
     "physicalStaging": {
       "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "verified-exact-SC004-canonical-BG-ZhangWei-WangMing-FG",
+      "qa": "targeted-pass",
+      "previewSize": [
+        720,
+        1280
+      ],
+      "previewBlob": "fee76113be57e54e8ed5fdafbad5ea83edfb5e84",
+      "review": "Pillow face-to-face positioning, preserved feet, comparable relative character scale and aligned BG/FG physical occlusion PASS; overall scene acceptance remains pending"
     }
   },
   "audio": {
