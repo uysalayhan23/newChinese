@@ -13,8 +13,14 @@
     "physicalStaging": {
       "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "canonical-same-scene-BG-ChenYu-FG-plus-verified-SC004-ZhangWei",
+      "qa": "targeted-pass",
+      "previewSize": [
+        720,
+        1280
+      ],
+      "previewBlob": "77031072eb4802c8518be8dc7c5e888edb3f4673",
+      "review": "feet-ground, relative adult scale, left-facing canonical pose and FG depth passed; full scene acceptance pending"
     }
   },
   "audio": {

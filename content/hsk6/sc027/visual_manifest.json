@@ -30,14 +30,44 @@
   },
   "status": "visual-assets-pending",
   "previewComposition": {
-    "method": "hsk6_deterministic_alpha_composite_v1",
+    "method": "hsk6_sc027_pillow_ground_aligned_canonical_composite_v1",
     "inputBlobs": {
       "background": "6ba20dfb8423743e855c90dcd4212a17a866e9b7",
       "characterA": "55885be8637e7df4b7ff300a710ed9d1b6f78847",
-      "characterB": "717828100874a371def695365e29b7c946147b4d",
+      "characterB": "44a7a521b7fa64466111c30f6830904081c3767d",
       "foreground": "6b1f41e98c50cd53e5bd32b5e14c0976c5de32ed"
     },
-    "previewBlob": "2cab32aad9acbf8e4f2ec682b8b8d7d38c4d01c4",
-    "review": "real source and 720x1280 physical QA passed; full scene visual acceptance pending"
+    "previewBlob": "77031072eb4802c8518be8dc7c5e888edb3f4673",
+    "previewSize": [
+      720,
+      1280
+    ],
+    "sourceCharacterAssets": {
+      "characterA": "content/hsk6/sc027/assets/hsk6_sc027_char_chen_yu.webp",
+      "characterB": "content/hsk6/sc004/assets/hsk6_sc004_char_zhang_wei.webp"
+    },
+    "placementOn720x1280": {
+      "characterA": [
+        57,
+        530,
+        310,
+        624
+      ],
+      "characterB": [
+        330,
+        530,
+        346,
+        633
+      ],
+      "mirrorCharacterB": true
+    },
+    "targetQA": {
+      "resolution": "PASS",
+      "canonicalSha": "PASS",
+      "footGroundAlignment": "PASS",
+      "foregroundOcclusion": "PASS",
+      "pixelMaE": 1.448
+    },
+    "review": "targeted physical QA passed; full visual scene acceptance remains pending"
   }
 }
