@@ -13,8 +13,14 @@
     "physicalStaging": {
       "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "verified-SC034-SC040-canonical-shared-office-BG-ZhangWei-ChenYu-FG",
+      "qa": "targeted-pass",
+      "previewSize": [
+        720,
+        1280
+      ],
+      "previewBlob": "0e15d779d22ee6f20d0551de80c9112490b7e82d",
+      "review": "Pillow target QA: equal foot-ground y=1198, adult relative character scale, facing, framing, identical BG/FG source and transparent occlusion PASS; full visual acceptance pending"
     }
   },
   "audio": {
