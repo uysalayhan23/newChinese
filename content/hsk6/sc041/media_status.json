@@ -16,17 +16,15 @@
       "source": "verified-exact-four-layer-canonical-preview-blob-reuse",
       "qa": "pending",
       "previewSize": [
-        941,
-        1672
+        720,
+        1280
       ],
       "target": [
         720,
         1280
       ]
     },
-    "qualityBlocked": [
-      "preview requires exact 720x1280 normalization and scene continuity QA"
-    ]
+    "qualityBlocked": []
   },
   "audio": {
     "status": "complete",
