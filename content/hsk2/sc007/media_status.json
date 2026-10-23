@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK2_SC007",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk2_sc007_bg.webp",
       "assets/hsk2_sc007_char_zhang_wei.webp",
@@ -18,20 +18,35 @@
       "assets/hsk2_sc007_preview.webp"
     ],
     "previewStatus": "complete",
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk2_sc007_preview.webp",
-        "reason": "preview_recompose_required_after_canonical_character_rebase",
-        "minimum": [
-          720,
-          1280
-        ]
-      }
-    ],
-    "regenerationRequired": [
-      "preview"
-    ],
-    "identityReviewRequired": false
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "identityReviewRequired": false,
+    "preserveCanonicalCharacters": true,
+    "remainingAudit": [],
+    "previewValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "bc01386f526ed1a0ef5b11e405558e7bcce7305b",
+      "sourceGitBlobs": {
+        "background": "c199706ecad7b52fdb2de1ac8a3e2b62fb16d51b",
+        "characterA": "34ed13f7d6e09e9f4fe83daabf11de75a152a452",
+        "characterB": "06741c51627e3f2da3da658cf2490a6b6ce68cb6",
+        "foreground": "fbdb0deb5d128a80991c58192cbb3711098df832"
+      },
+      "verification": "User accepted v4 canonical scene; Pillow 720x1280 composition/alpha QA passed; all ten Git blob SHAs verified against actual uploaded bytes."
+    },
+    "backgroundValidation": {
+      "status": "passed",
+      "size": [
+        720,
+        1280
+      ],
+      "gitBlobSha": "c199706ecad7b52fdb2de1ac8a3e2b62fb16d51b",
+      "verification": "BG from user-approved v4 scene; FG uses the same camera source."
+    }
   },
   "audio": {
     "status": "complete",
