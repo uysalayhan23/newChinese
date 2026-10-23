@@ -31,30 +31,6 @@
   "status": "visual-quality-pending",
   "qualityBlocked": [
     {
-      "asset": "assets/hsk1_sc023_bg.webp",
-      "reason": "below_minimum_resolution",
-      "actual": [
-        480,
-        853
-      ],
-      "minimum": [
-        540,
-        960
-      ]
-    },
-    {
-      "asset": "assets/hsk1_sc023_fg.webp",
-      "reason": "placeholder_foreground_1x1",
-      "actual": [
-        1,
-        1
-      ],
-      "minimum": [
-        540,
-        960
-      ]
-    },
-    {
       "asset": "assets/hsk1_sc023_preview.webp",
       "reason": "below_minimum_resolution",
       "actual": [
@@ -65,18 +41,32 @@
         720,
         1280
       ]
+    },
+    {
+      "asset": "assets/hsk1_sc023_preview.webp",
+      "reason": "canonical_seated_character_alignment_pending"
     }
   ],
   "regeneration": {
     "required": [
-      "background",
-      "foreground",
       "preview"
     ],
     "preserve": [
+      "background",
+      "foreground",
       "characterA",
       "characterB"
     ],
     "identityRule": "keep existing canonical Li Na/Zhang Wei layers"
+  },
+  "repair": {
+    "method": "hd_bg_fg_same_frame_pillow",
+    "source": "new Hangzhou lake-side bus interior, 720x1280, same-frame foreground poles",
+    "updatedAssets": {
+      "background": "60226223aceb78d8e7720178213f1f1020719e2f",
+      "foreground": "70a494e5be309c3d171e9e7a6d1ce657ade7fafd"
+    },
+    "remaining": "Seated canonical character identity/outfit integration and 720x1280 Preview",
+    "status": "partial_pending"
   }
 }

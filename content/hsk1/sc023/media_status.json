@@ -12,30 +12,6 @@
     "missing": [],
     "qualityBlocked": [
       {
-        "asset": "assets/hsk1_sc023_bg.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          480,
-          853
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
-        "asset": "assets/hsk1_sc023_fg.webp",
-        "reason": "placeholder_foreground_1x1",
-        "actual": [
-          1,
-          1
-        ],
-        "minimum": [
-          540,
-          960
-        ]
-      },
-      {
         "asset": "assets/hsk1_sc023_preview.webp",
         "reason": "below_minimum_resolution",
         "actual": [
@@ -46,11 +22,14 @@
           720,
           1280
         ]
+      },
+      {
+        "asset": "assets/hsk1_sc023_preview.webp",
+        "reason": "canonical_seated_character_alignment_pending",
+        "details": "Canonical Li Na/Zhang Wei appearance and seated pose are not yet simultaneously validated; preserve original character WebP layers."
       }
     ],
     "regenerationRequired": [
-      "background",
-      "foreground",
       "preview"
     ],
     "preserveCanonicalCharacters": true
