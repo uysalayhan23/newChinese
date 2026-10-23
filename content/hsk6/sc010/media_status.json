@@ -13,8 +13,14 @@
     "physicalStaging": {
       "present": 5,
       "required": 5,
-      "source": "exact-canonical-git-blob-reuse",
-      "qa": "pending"
+      "source": "verified-SC010-canonical-BG-ZhangWei-WangMing-FG",
+      "qa": "targeted-pass",
+      "previewSize": [
+        720,
+        1280
+      ],
+      "previewBlob": "04dd4b7cacef5ef439f9782e32ee646f14fc0d99",
+      "review": "Canonical SHA, centered face-to-face character placement, comparable floor plane, BG/FG alignment, alpha masks and Pillow WebP round-trip QA passed; full scene acceptance pending"
     }
   },
   "audio": {

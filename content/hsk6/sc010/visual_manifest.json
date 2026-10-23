@@ -28,5 +28,47 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-assets-pending"
+  "status": "visual-assets-pending",
+  "previewComposition": {
+    "method": "hsk6_sc010_canonical_Pillow_office_ground_aligned_v1",
+    "inputBlobs": {
+      "background": "df52de129130d06220c250afabec250caf218541",
+      "characterA": "44a7a521b7fa64466111c30f6830904081c3767d",
+      "characterB": "067fcfe261c52adebc383f5551d7ed365abd747e",
+      "foreground": "ab49f2892127f49189bc800d6e8cd444feb37a15"
+    },
+    "previewBlob": "04dd4b7cacef5ef439f9782e32ee646f14fc0d99",
+    "previewSize": [
+      720,
+      1280
+    ],
+    "sourceCharacterAssets": {
+      "characterA": "content/hsk6/sc010/assets/hsk6_sc010_char_zhang_wei.webp",
+      "characterB": "content/hsk6/sc010/assets/hsk6_sc010_char_wang_ming.webp"
+    },
+    "placementOn720x1280": {
+      "characterA": {
+        "x": 0,
+        "y": 455,
+        "scale": 0.725,
+        "mirrored": false
+      },
+      "characterB": {
+        "x": 359,
+        "y": 445,
+        "scale": 0.715,
+        "mirrored": true
+      }
+    },
+    "targetQA": {
+      "sourceBlobSHA": "PASS",
+      "resolution": "PASS",
+      "characterBounds": "PASS",
+      "characterFacing": "PASS",
+      "footGroundAlignment": "PASS",
+      "foregroundOcclusion": "PASS",
+      "pixelMAE": 0.914
+    },
+    "review": "Targeted physical layout verified; full visual scene acceptance pending"
+  }
 }
