@@ -1,7 +1,7 @@
 {
   "sceneId": "HSK1_SC023",
   "visual": {
-    "status": "pending",
+    "status": "complete",
     "required": [
       "assets/hsk1_sc023_bg.webp",
       "assets/hsk1_sc023_char_li_na.webp",
@@ -10,29 +10,17 @@
       "assets/hsk1_sc023_preview.webp"
     ],
     "missing": [],
-    "qualityBlocked": [
-      {
-        "asset": "assets/hsk1_sc023_preview.webp",
-        "reason": "below_minimum_resolution",
-        "actual": [
-          120,
-          213
-        ],
-        "minimum": [
-          720,
-          1280
-        ]
-      },
-      {
-        "asset": "assets/hsk1_sc023_preview.webp",
-        "reason": "canonical_seated_character_alignment_pending",
-        "details": "Canonical Li Na/Zhang Wei appearance and seated pose are not yet simultaneously validated; preserve original character WebP layers."
-      }
+    "qualityBlocked": [],
+    "regenerationRequired": [],
+    "available": [
+      "assets/hsk1_sc023_bg.webp",
+      "assets/hsk1_sc023_char_li_na.webp",
+      "assets/hsk1_sc023_char_zhang_wei.webp",
+      "assets/hsk1_sc023_fg.webp",
+      "assets/hsk1_sc023_preview.webp"
     ],
-    "regenerationRequired": [
-      "preview"
-    ],
-    "preserveCanonicalCharacters": true
+    "previewStatus": "complete",
+    "canonicalSeatedIdentityValidated": true
   },
   "audio": {
     "status": "complete",
@@ -66,5 +54,5 @@
     ],
     "missing": []
   },
-  "rule": "Li Na and Zhang Wei character layers pass canonical identity/resolution checks; only BG/FG/PREVIEW require regeneration."
+  "rule": "Mark complete only after all five 720x1280 canonical visual layers and Preview have passed visual and physical QA."
 }

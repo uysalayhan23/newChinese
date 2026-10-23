@@ -28,45 +28,41 @@
     "outline": "dashed",
     "text": false
   },
-  "status": "visual-quality-pending",
-  "qualityBlocked": [
-    {
-      "asset": "assets/hsk1_sc023_preview.webp",
-      "reason": "below_minimum_resolution",
-      "actual": [
-        120,
-        213
-      ],
-      "minimum": [
-        720,
-        1280
-      ]
-    },
-    {
-      "asset": "assets/hsk1_sc023_preview.webp",
-      "reason": "canonical_seated_character_alignment_pending"
-    }
-  ],
+  "status": "visual-assets-complete",
+  "qualityBlocked": [],
   "regeneration": {
-    "required": [
-      "preview"
-    ],
+    "required": [],
     "preserve": [
       "background",
       "foreground",
       "characterA",
-      "characterB"
-    ],
-    "identityRule": "keep existing canonical Li Na/Zhang Wei layers"
+      "characterB",
+      "preview"
+    ]
   },
   "repair": {
-    "method": "hd_bg_fg_same_frame_pillow",
-    "source": "new Hangzhou lake-side bus interior, 720x1280, same-frame foreground poles",
+    "method": "pillow_canonical_seated_character_recomposition",
+    "source": "same-camera HD bus background and foreground; seated Li Na / Zhang Wei canonical outfit and face candidates",
     "updatedAssets": {
       "background": "60226223aceb78d8e7720178213f1f1020719e2f",
-      "foreground": "70a494e5be309c3d171e9e7a6d1ce657ade7fafd"
+      "characterA": "ea4b7c7d3620941cc16fd6d5f0acf3557e4d514a",
+      "characterB": "92eb764c024599973c978f6ddc1f78be6b17e75c",
+      "foreground": "70a494e5be309c3d171e9e7a6d1ce657ade7fafd",
+      "preview": "dd05846849f363cffa6e3c9c2f52678c16d5e18d"
     },
-    "remaining": "Seated canonical character identity/outfit integration and 720x1280 Preview",
-    "status": "partial_pending"
+    "qa": {
+      "resolution": [
+        720,
+        1280
+      ],
+      "alphaLayersValidated": true,
+      "previewCompositeMeanAbsoluteDifference": 1.6882769097222223,
+      "previewCompositeP95AbsoluteDifference": 5,
+      "floorSeatPerspectiveReviewed": true,
+      "characterIdentityOutfitReviewed": true,
+      "gitBlobShaValidated": true,
+      "bgAndFgPreserved": true
+    },
+    "status": "complete"
   }
 }
