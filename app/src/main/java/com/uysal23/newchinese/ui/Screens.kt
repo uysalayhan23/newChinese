@@ -21,6 +21,8 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.unit.dp
 import com.uysal23.newchinese.data.SceneContent
 import com.uysal23.newchinese.data.UserSettings
@@ -188,6 +190,8 @@ fun DialogueScreen(
     var audioMissing by remember { mutableStateOf(false) }
     var showPinyin by rememberSaveable { mutableStateOf(showPinyinDefault) }
     var showTurkish by rememberSaveable { mutableStateOf(showTurkishDefault) }
+    val isHsk6Review = Hsk6ReviewGeometry.matches(sceneIdToAssetBase(scene.sceneId))
+    var expandedReview by rememberSaveable(scene.sceneId) { mutableStateOf(false) }
 
     val line = scene.lines[index]
     val speaker = when (line.speakerId) {
@@ -270,11 +274,40 @@ fun DialogueScreen(
             speechText = line.chinese,
             characterAId = scene.visualAssets.characterAId,
             characterBId = scene.visualAssets.characterBId,
+            onExpand = if (isHsk6Review) ({ expandedReview = true }) else null,
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
                 .heightIn(min = 180.dp, max = 245.dp)
         )
+        if (isHsk6Review && expandedReview) {
+            Dialog(
+                onDismissRequest = { expandedReview = false },
+                properties = DialogProperties(usePlatformDefaultWidth = false)
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxSize()
+                        .background(MaterialTheme.colorScheme.background)
+                        .padding(horizontal = 8.dp, vertical = 16.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    TextButton(onClick = { expandedReview = false }) { Text("Sahneye dön") }
+                    AssetSceneStage(
+                        sceneAssetBase = sceneIdToAssetBase(scene.sceneId),
+                        background = scene.visualAssets.background,
+                        characterA = scene.visualAssets.characterA,
+                        characterB = scene.visualAssets.characterB,
+                        foreground = scene.visualAssets.foreground,
+                        preview = scene.visualAssets.preview,
+                        activeSpeakerId = line.speakerId,
+                        speechText = line.chinese,
+                        characterAId = scene.visualAssets.characterAId,
+                        characterBId = scene.visualAssets.characterBId,
+                        modifier = Modifier.fillMaxWidth().weight(1f)
+                    )
+                }
+            }
+        }
 
         Card(
             Modifier.fillMaxWidth()

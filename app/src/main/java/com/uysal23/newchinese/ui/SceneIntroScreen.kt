@@ -6,6 +6,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.uysal23.newchinese.data.SceneContent
 
@@ -31,7 +32,10 @@ fun SceneIntroScreen(
         AssetSceneImage(
             sceneAssetBase = sceneIdToAssetBase(scene.sceneId),
             relativePath = scene.visualAssets.preview,
-            contentDescription = scene.titleTr
+            contentDescription = scene.titleTr,
+            contentScale = if (Hsk6ReviewGeometry.matches(sceneIdToAssetBase(scene.sceneId))) {
+                ContentScale.Fit
+            } else ContentScale.Crop
         )
 
         Card(Modifier.fillMaxWidth()) {

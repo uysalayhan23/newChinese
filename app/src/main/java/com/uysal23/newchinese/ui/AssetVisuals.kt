@@ -166,6 +166,7 @@ fun AssetSceneStage(
     speechText: String,
     characterAId: String? = null,
     characterBId: String? = null,
+    onExpand: (() -> Unit)? = null,
     modifier: Modifier = Modifier
         .fillMaxWidth()
         .height(280.dp)
@@ -176,11 +177,16 @@ fun AssetSceneStage(
         loadVisual(context, sceneAssetBase, background, trimAlphaPadding = false)
     }
     val characterAVisual = remember(sceneAssetBase, characterA) {
-        loadVisual(context, sceneAssetBase, characterA, trimAlphaPadding = true)
+        loadVisual(context, sceneAssetBase, characterA, trimAlphaPadding = !Hsk6ReviewGeometry.matches(sceneAssetBase))
     }
     val characterBVisual = remember(sceneAssetBase, characterB) {
-        loadVisual(context, sceneAssetBase, characterB, trimAlphaPadding = true)
+        loadVisual(context, sceneAssetBase, characterB, trimAlphaPadding = !Hsk6ReviewGeometry.matches(sceneAssetBase))
     }
+    val foregroundVisualForReview = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+        remember(sceneAssetBase, foreground) {
+            loadVisual(context, sceneAssetBase, foreground, trimAlphaPadding = false)
+        }
+    } else null
     val previewVisual = remember(sceneAssetBase, preview) {
         loadVisual(context, sceneAssetBase, preview, trimAlphaPadding = false)
     }
@@ -223,7 +229,47 @@ fun AssetSceneStage(
     BoxWithConstraints(
         modifier = modifier.background(MaterialTheme.colorScheme.surfaceVariant)
     ) {
-        if (usePreviewFallback) {
+        if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+            if (backgroundVisual != null && characterASafe && characterBSafe &&
+                foregroundVisualForReview != null &&
+                backgroundVisual.image.width == 720 && backgroundVisual.image.height == 1280 &&
+                foregroundVisualForReview.image.width == 720 && foregroundVisualForReview.image.height == 1280
+            ) {
+                val h = minOf(maxHeight, maxWidth * (1280f / 720f))
+                val w = h * (720f / 1280f)
+                val z = Hsk6ReviewGeometry.zhang
+                val n = Hsk6ReviewGeometry.liNa
+                Box(Modifier.align(Alignment.Center).size(w, h)) {
+                    Image(bitmap = backgroundVisual.image, contentDescription = "Sahne arka planı",
+                        modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillBounds)
+                    Image(bitmap = characterAVisual!!.image, contentDescription = "Zhang Wei",
+                        modifier = Modifier.offset(x=w*(z.x/720f), y=h*(z.y/1280f))
+                            .size(w*(z.width/720f),h*(z.height/1280f))
+                            .graphicsLayer {
+                                scaleX = characterAScale
+                                scaleY = characterAScale
+                                alpha = characterAAlpha
+                                transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 1f)
+                            }, contentScale = ContentScale.FillBounds)
+                    Image(bitmap = characterBVisual!!.image, contentDescription = "Li Na",
+                        modifier = Modifier.offset(x=w*(n.x/720f), y=h*(n.y/1280f))
+                            .size(w*(n.width/720f),h*(n.height/1280f))
+                            .graphicsLayer {
+                                scaleX = characterBScale
+                                scaleY = characterBScale
+                                alpha = characterBAlpha
+                                transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 1f)
+                            }, contentScale = ContentScale.FillBounds)
+                    Image(bitmap = foregroundVisualForReview.image,
+                        contentDescription = "Derinlik katmanı",
+                        modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillBounds)
+                }
+            } else {
+                Box(Modifier.fillMaxSize(), contentAlignment=Alignment.Center) {
+                    Text("SC042/048 canonical kaynaklar henüz yüklenmedi")
+                }
+            }
+        } else if (usePreviewFallback) {
             Image(
                 bitmap = previewVisual!!.image,
                 contentDescription = "Sahne önizlemesi",
@@ -324,10 +370,15 @@ fun AssetSceneStage(
         }
 
         if (speechText.isNotBlank()) {
-            val bubbleWidth = minOf(maxWidth * 0.42f, 184.dp)
+            val bubbleWidth = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+                Hsk6DialogViewportV3.MARKER_WIDTH_DP.dp
+            } else minOf(maxWidth * 0.42f, 184.dp)
+            val marker = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+                Hsk6DialogViewportV3.speakerBubble(maxWidth.value, maxHeight.value, characterAActive)
+            } else null
             val mouthY = maxHeight * 0.30f
-            val bubbleTopTarget = (mouthY - 26.dp).coerceAtLeast(8.dp)
-            val bubbleXTarget = if (characterAActive) {
+            val bubbleTopTarget = marker?.y?.dp ?: (mouthY - 26.dp).coerceAtLeast(8.dp)
+            val bubbleXTarget = marker?.x?.dp ?: if (characterAActive) {
                 (maxWidth * 0.30f + 8.dp).coerceAtMost(maxWidth - bubbleWidth - 6.dp)
             } else {
                 (maxWidth * 0.70f - bubbleWidth - 8.dp).coerceAtLeast(6.dp)
@@ -345,12 +396,17 @@ fun AssetSceneStage(
             )
 
             SceneSpeechBubble(
-                text = speechText,
-                pointsLeft = characterAActive,
+                text = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) "" else speechText,
+                pointsLeft = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) !characterAActive else characterAActive,
                 modifier = Modifier
                     .width(bubbleWidth)
                     .offset(x = bubbleX, y = bubbleY)
             )
+        }
+        if (Hsk6ReviewGeometry.matches(sceneAssetBase) && onExpand != null) {
+            androidx.compose.material3.TextButton(
+                onClick = onExpand, modifier = Modifier.align(Alignment.TopEnd)
+            ) { Text("Sahneyi büyüt") }
         }
     }
 }
