@@ -10,7 +10,7 @@ permissions:
 jobs:
   scene-smoke:
     if: github.head_ref == 'review/hsk6-sc042-sc048-compose-qa'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +21,17 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.11.1'
+      - name: Enable hardware acceleration for emulator
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -c /dev/kvm ]; then
+            echo "::error::Runner has no /dev/kvm device; stop before emulator boot."
+            exit 1
+          fi
+          sudo chmod a+rw /dev/kvm
+          test -r /dev/kvm && test -w /dev/kvm
+          ls -l /dev/kvm
       - name: Prepare offline Mandarin recognition model
         run: bash tools/prepare_vosk_cn_model.sh
       - name: Build QA debug APK
