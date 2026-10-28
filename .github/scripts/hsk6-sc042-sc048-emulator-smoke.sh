@@ -1,6 +1,45 @@
 #!/usr/bin/env bash
 set -euo pipefail
 mkdir -p qa-screens
+
+# REVIEW-only hard gate: a successful APK build is not SC042/048 visual acceptance.
+# Require the exact approved WebP blobs in both checkout and the APK assets.
+assert_review_canonical_assets() {
+  local apk="app/build/outputs/apk/debug/app-debug.apk"
+  if [ ! -s "$apk" ]; then
+    echo "::error::Debug APK missing before canonical asset QA"; return 1
+  fi
+  local -a expected_assets=(
+    "bg:1eed67c86bd543c56ef9766a86b40b241afe3ecf"
+    "char_zhang_wei:13c6761792396b85f0c4a4a1e20b581a8fc13aa2"
+    "char_li_na:a02f88b5075f6cb590d8c0f23219b0e5fa3e80d0"
+    "fg:61d80dcfd46fe74475e32578e86e01343de5ab40"
+    "preview:1a82a31c12caa2cab57b64fb91c1beaf9f1b1028"
+  )
+  local scene entry suffix expected path repo_sha apk_sha
+  for scene in 042 048; do
+    for entry in "${expected_assets[@]}"; do
+      suffix="${entry%%:*}"; expected="${entry#*:}"
+      path="content/hsk6/sc${scene}/assets/hsk6_sc${scene}_${suffix}.webp"
+      if [ ! -s "$path" ]; then
+        echo "::error file=$path::Approved canonical review asset missing"; return 1
+      fi
+      repo_sha="$(git hash-object "$path")"
+      if [ "$repo_sha" != "$expected" ]; then
+        echo "::error file=$path::Wrong canonical blob: got $repo_sha, expected $expected"; return 1
+      fi
+      if ! apk_sha="$(unzip -p "$apk" "assets/${path#content/}" | git hash-object --stdin)"; then
+        echo "::error file=$path::Canonical asset missing or unreadable in built APK"; return 1
+      fi
+      if [ "$apk_sha" != "$expected" ]; then
+        echo "::error file=$path::Built APK contains wrong asset: got $apk_sha, expected $expected"; return 1
+      fi
+    done
+  done
+  echo "SC042/048 canonical repository + APK assets SHA PASS (10/10)"
+}
+assert_review_canonical_assets
+
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 adb logcat -c
 
