@@ -43,6 +43,47 @@ assert_review_canonical_assets
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 adb logcat -c
 
+# Physical-device regression: selecting a real scene (intro/dialogue) was
+# reported to close the app. The layer-only probe cannot catch this path.
+check_real_scene_screen() {
+  local scene="$1" screen="$2" title="$3"
+  local prefix="qa-screens/sc${scene}_${screen}_app"
+  local ready=false
+  adb shell am force-stop com.uysal23.newchinese || true
+  adb logcat -c
+  adb shell am start -n com.uysal23.newchinese/.ui.Hsk6ReviewProbeActivity \
+    --es scene "$scene" --es screen "$screen"
+  for attempt in $(seq 1 16); do
+    if ! adb shell pidof com.uysal23.newchinese >/dev/null 2>&1; then
+      break
+    fi
+    if timeout 18s adb shell uiautomator dump /sdcard/newchinese-review.xml >/dev/null 2>&1 &&
+       timeout 8s adb exec-out cat /sdcard/newchinese-review.xml > "${prefix}.xml" 2>/dev/null &&
+       grep -Fq "$title" "${prefix}.xml"; then
+      sleep 2
+      if adb shell pidof com.uysal23.newchinese >/dev/null 2>&1; then
+        ready=true
+        break
+      fi
+    fi
+    sleep 2
+  done
+  adb exec-out screencap -p > "${prefix}.png" 2>/dev/null || true
+  adb logcat -d > "${prefix}_logcat.txt" 2>&1 || true
+  if [ "$ready" != true ] ||
+     grep -Fq "Process: com.uysal23.newchinese" "${prefix}_logcat.txt"; then
+    echo "::error::SC${scene} ${screen}: real content screen crashed or did not render"
+    return 1
+  fi
+  echo "SC${scene} ${screen}: content loaded, screen visible and process alive"
+}
+for scene in 042 048; do
+  title="Dil yaşamda neyi değiştirdi"
+  if [ "$scene" = 048 ]; then title="Gelecekte de hata yapmak"; fi
+  check_real_scene_screen "$scene" intro "$title"
+  check_real_scene_screen "$scene" dialogue "$title"
+done
+
 # A running PID or a nonempty PNG does not prove the scene rendered.
 # Previous successful workflow captured only Android's launch splash.
 wait_until_scene_rendered() {
