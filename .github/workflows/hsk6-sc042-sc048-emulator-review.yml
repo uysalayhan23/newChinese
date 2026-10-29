@@ -49,7 +49,9 @@ jobs:
         with:
           api-level: 35
           arch: x86_64
-          target: google_apis
+          # AOSP image avoids the Pixel Launcher ANR proven in prior QA XML/logs.
+          # Keep API level, CPU arch, screen profile and all acceptance gates.
+          target: default
           profile: pixel_6
           disable-animations: true
           script: bash .github/scripts/hsk6-sc042-sc048-emulator-smoke.sh
