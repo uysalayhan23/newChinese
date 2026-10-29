@@ -61,7 +61,7 @@ wait_until_scene_rendered() {
       # even when they render. The ready marker exists only after all four
       # canonical layers passed decoding, alpha and dimension checks.
       local expected_marker="SC${scene}_REVIEW_READY_${speaker^^}"
-      if grep -Fq "$expected_marker" "$hierarchy"; then
+      if python3 tools/hsk6_review_evidence_gate.py --xml "$hierarchy" --scene "$scene" --speaker "$speaker" --mode "$mode" >/dev/null 2>&1; then
         echo "Rendered SC${scene} ${speaker} ${mode} on attempt ${attempt}"
         return 0
       fi
@@ -101,8 +101,28 @@ for scene in 042 048; do
       adb shell am force-stop com.uysal23.newchinese || true
       adb shell am start -n com.uysal23.newchinese/.ui.Hsk6ReviewProbeActivity --es scene "$scene" --es speaker "$speaker" --ez expanded "$expanded"
       wait_until_scene_rendered "$scene" "$speaker" "$mode"
-      adb exec-out screencap -p > "qa-screens/sc${scene}_${speaker}_${mode}.png"
-      test -s "qa-screens/sc${scene}_${speaker}_${mode}.png"
+      # A correct accessibility tree can precede the first drawn frame.
+      # Retry until BOTH the scene geometry and real screenshot pixels pass.
+      local_capture="qa-screens/sc${scene}_${speaker}_${mode}.png"
+      frame_pass=false
+      for frame_attempt in $(seq 1 12); do
+        adb exec-out screencap -p > "$local_capture"
+        if python3 tools/hsk6_review_evidence_gate.py \
+          --xml "qa-screens/sc${scene}_${speaker}_${mode}.xml" \
+          --png "$local_capture" --scene "$scene" --speaker "$speaker" --mode "$mode"; then
+          frame_pass=true
+          break
+        fi
+        sleep 2
+        timeout 18s adb shell uiautomator dump /sdcard/newchinese-review.xml >/dev/null 2>&1 || true
+        timeout 8s adb exec-out cat /sdcard/newchinese-review.xml \
+          > "qa-screens/sc${scene}_${speaker}_${mode}.xml" 2>/dev/null || true
+      done
+      if [ "$frame_pass" != true ]; then
+        echo "::error::SC${scene} ${speaker} ${mode}: screenshot/geometry NOT PASS"
+        adb logcat -d > "qa-screens/sc${scene}_${speaker}_${mode}_logcat.txt" 2>&1 || true
+        exit 1
+      fi
     done
   done
 done
