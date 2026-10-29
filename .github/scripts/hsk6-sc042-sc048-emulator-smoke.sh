@@ -71,6 +71,11 @@ wait_until_scene_rendered() {
     fi
     sleep 2
   done
+  # Preserve evidence when scene detection fails, before the emulator shuts down.
+  adb exec-out screencap -p > "qa-screens/sc${scene}_${speaker}_${mode}_failure.png" 2>/dev/null || true
+  adb shell dumpsys window windows > "qa-screens/sc${scene}_${speaker}_${mode}_windows.txt" 2>&1 || true
+  adb shell dumpsys activity top > "qa-screens/sc${scene}_${speaker}_${mode}_activity.txt" 2>&1 || true
+  adb logcat -d > "qa-screens/sc${scene}_${speaker}_${mode}_logcat.txt" 2>&1 || true
   echo "::error::SC${scene} ${speaker} ${mode}: splash or unavailable scene; NOT PASS"
   adb shell dumpsys activity activities | tail -n 60 || true
   return 1
