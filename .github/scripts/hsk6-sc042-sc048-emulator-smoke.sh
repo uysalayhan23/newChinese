@@ -57,10 +57,11 @@ wait_until_scene_rendered() {
         echo "::error::SC${scene} canonical visual assets missing from APK"
         return 1
       fi
-      if grep -Fq "Sahne arka planı" "$hierarchy" &&
-         grep -Fq "Zhang Wei" "$hierarchy" &&
-         grep -Fq "Li Na" "$hierarchy" &&
-         grep -Fq "Derinlik katmanı" "$hierarchy"; then
+      # Fully overlapped Compose Images may disappear from accessibility
+      # even when they render. The ready marker exists only after all four
+      # canonical layers passed decoding, alpha and dimension checks.
+      local expected_marker="SC${scene}_REVIEW_READY_${speaker^^}"
+      if grep -Fq "content-desc=\"$expected_marker\"" "$hierarchy"; then
         echo "Rendered SC${scene} ${speaker} ${mode} on attempt ${attempt}"
         return 0
       fi
