@@ -71,6 +71,17 @@ wait_until_scene_rendered() {
     fi
     sleep 2
   done
+  # Preserve the accessibility evidence too: missing nodes and failed UIAutomator
+  # dumps previously produced the same opaque timeout message.
+  if [ -s "$hierarchy" ]; then
+    echo "SC${scene} ${speaker} ${mode}: last UIAutomator hierarchy:"
+    head -c 3000 "$hierarchy" || true
+    echo
+  else
+    echo "::warning::SC${scene} ${speaker} ${mode}: no UIAutomator hierarchy was captured"
+  fi
+  timeout 18s adb shell uiautomator dump /sdcard/newchinese-review.xml \\
+    > "qa-screens/sc${scene}_${speaker}_${mode}_uiautomator.txt" 2>&1 || true
   # Preserve evidence when scene detection fails, before the emulator shuts down.
   adb exec-out screencap -p > "qa-screens/sc${scene}_${speaker}_${mode}_failure.png" 2>/dev/null || true
   adb shell dumpsys window windows > "qa-screens/sc${scene}_${speaker}_${mode}_windows.txt" 2>&1 || true
