@@ -26,6 +26,8 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 
 private const val CHARACTER_MIN_TRANSPARENT_FRACTION = 0.35f
@@ -226,15 +228,27 @@ fun AssetSceneStage(
         label = "characterBAlpha"
     )
 
+    // UIAutomator may hide fully overlapped Image semantics. Expose one verified
+    // scene-level marker only after all canonical layer checks pass.
+    val reviewReady = Hsk6ReviewGeometry.matches(sceneAssetBase) &&
+        backgroundVisual != null && characterASafe && characterBSafe &&
+        foregroundVisualForReview != null &&
+        backgroundVisual.image.width == 720 && backgroundVisual.image.height == 1280 &&
+        foregroundVisualForReview.image.width == 720 && foregroundVisualForReview.image.height == 1280
+    val reviewMarker = if (reviewReady) {
+        "${sceneAssetBase.substringAfterLast('/').uppercase()}_REVIEW_READY_" +
+            (if (characterAActive) "ZHANG" else "LI")
+    } else null
+
     BoxWithConstraints(
-        modifier = modifier.background(MaterialTheme.colorScheme.surfaceVariant)
+        modifier = modifier.background(MaterialTheme.colorScheme.surfaceVariant).then(
+            if (reviewMarker != null) Modifier.semantics(mergeDescendants = true) {
+                contentDescription = reviewMarker
+            } else Modifier
+        )
     ) {
         if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
-            if (backgroundVisual != null && characterASafe && characterBSafe &&
-                foregroundVisualForReview != null &&
-                backgroundVisual.image.width == 720 && backgroundVisual.image.height == 1280 &&
-                foregroundVisualForReview.image.width == 720 && foregroundVisualForReview.image.height == 1280
-            ) {
+            if (reviewReady) {
                 val h = minOf(maxHeight, maxWidth * (1280f / 720f))
                 val w = h * (720f / 1280f)
                 val z = Hsk6ReviewGeometry.zhang
