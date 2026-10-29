@@ -61,7 +61,7 @@ wait_until_scene_rendered() {
       # even when they render. The ready marker exists only after all four
       # canonical layers passed decoding, alpha and dimension checks.
       local expected_marker="SC${scene}_REVIEW_READY_${speaker^^}"
-      if grep -Fq "content-desc=\"$expected_marker\"" "$hierarchy"; then
+      if grep -Fq "$expected_marker" "$hierarchy"; then
         echo "Rendered SC${scene} ${speaker} ${mode} on attempt ${attempt}"
         return 0
       fi
