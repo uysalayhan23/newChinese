@@ -122,7 +122,7 @@ wait_until_scene_rendered() {
   else
     echo "::warning::SC${scene} ${speaker} ${mode}: no UIAutomator hierarchy was captured"
   fi
-  timeout 18s adb shell uiautomator dump /sdcard/newchinese-review.xml \\
+  timeout 18s adb shell uiautomator dump /sdcard/newchinese-review.xml \
     > "qa-screens/sc${scene}_${speaker}_${mode}_uiautomator.txt" 2>&1 || true
   # Preserve evidence when scene detection fails, before the emulator shuts down.
   adb exec-out screencap -p > "qa-screens/sc${scene}_${speaker}_${mode}_failure.png" 2>/dev/null || true
