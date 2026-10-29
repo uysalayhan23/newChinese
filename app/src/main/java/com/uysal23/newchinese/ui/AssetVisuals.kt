@@ -189,8 +189,15 @@ fun AssetSceneStage(
             loadVisual(context, sceneAssetBase, foreground, trimAlphaPadding = false)
         }
     } else null
-    val previewVisual = remember(sceneAssetBase, preview) {
-        loadVisual(context, sceneAssetBase, preview, trimAlphaPadding = false)
+    // SC042/048 render their four canonical layers directly. Decoding the
+    // additional full-size preview here needlessly increases live bitmap memory
+    // when entering these scenes on a physical Android device.
+    val previewVisual = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+        null
+    } else {
+        remember(sceneAssetBase, preview) {
+            loadVisual(context, sceneAssetBase, preview, trimAlphaPadding = false)
+        }
     }
 
     val characterASafe =
