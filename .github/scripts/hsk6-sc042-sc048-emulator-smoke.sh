@@ -12,6 +12,47 @@ capture_failure_evidence() {
 }
 trap capture_failure_evidence EXIT
 
+# A Pixel Launcher ANR can cover a fully rendered scene on the emulator.
+# Save evidence and dismiss ONLY the exact launcher dialog, never an app ANR.
+recover_launcher_anr() {
+  local hierarchy="$1" tap x y stem
+  if ! grep -Fq "Pixel Launcher isn't responding" "$hierarchy"; then
+    return 1
+  fi
+  if ! tap="$(python3 - "$hierarchy" <<'PY'
+import re
+import sys
+import xml.etree.ElementTree as ET
+root = ET.parse(sys.argv[1]).getroot()
+nodes = list(root.iter("node"))
+titles = [n.get("text") for n in nodes if n.get("resource-id") == "android:id/alertTitle"]
+if titles != ["Pixel Launcher isn't responding"]:
+    sys.exit(1)
+buttons = [n for n in nodes if n.get("resource-id") == "android:id/aerr_close" and n.get("text") == "Close app"]
+if len(buttons) != 1:
+    sys.exit(1)
+bounds = re.fullmatch(r"\\[(\\d+),(\\d+)\\]\\[(\\d+),(\\d+)\\]", buttons[0].get("bounds", ""))
+if not bounds:
+    sys.exit(1)
+x1, y1, x2, y2 = map(int, bounds.groups())
+if x2 <= x1 or y2 <= y1:
+    sys.exit(1)
+print((x1 + x2) // 2, (y1 + y2) // 2)
+PY
+)"; then
+    return 1
+  fi
+  read -r x y <<< "$tap"
+  stem="${hierarchy%.xml}"
+  cp "$hierarchy" "${stem}_launcher_anr.xml"
+  adb exec-out screencap -p > "${stem}_launcher_anr.png" 2>/dev/null || true
+  adb logcat -d > "${stem}_launcher_anr_logcat.txt" 2>&1 || true
+  echo "::warning::Pixel Launcher ANR overlay dismissed; scene still requires independent PASS"
+  adb shell input tap "$x" "$y"
+  sleep 2
+  return 0
+}
+
 # REVIEW-only hard gate: a successful APK build is not SC042/048 visual acceptance.
 # Require the exact approved WebP blobs in both checkout and the APK assets.
 assert_review_canonical_assets() {
@@ -68,12 +109,16 @@ check_real_scene_screen() {
       break
     fi
     if timeout 18s adb shell uiautomator dump /sdcard/newchinese-review.xml >/dev/null 2>&1 &&
-       timeout 8s adb exec-out cat /sdcard/newchinese-review.xml > "${prefix}.xml" 2>/dev/null &&
-       grep -Fq "$title" "${prefix}.xml"; then
-      sleep 2
-      if adb shell pidof com.uysal23.newchinese >/dev/null 2>&1; then
-        ready=true
-        break
+       timeout 8s adb exec-out cat /sdcard/newchinese-review.xml > "${prefix}.xml" 2>/dev/null; then
+      if recover_launcher_anr "${prefix}.xml"; then
+        continue
+      fi
+      if grep -Fq "$title" "${prefix}.xml"; then
+        sleep 2
+        if adb shell pidof com.uysal23.newchinese >/dev/null 2>&1; then
+          ready=true
+          break
+        fi
       fi
     fi
     sleep 2
@@ -104,6 +149,9 @@ wait_until_scene_rendered() {
     # UIAutomator inspects the visible window, rejecting the system splash.
     if timeout 18s adb shell uiautomator dump /sdcard/newchinese-review.xml >/dev/null 2>&1 &&
        timeout 8s adb exec-out cat /sdcard/newchinese-review.xml > "$hierarchy" 2>/dev/null; then
+      if recover_launcher_anr "$hierarchy"; then
+        continue
+      fi
       if grep -Fq "canonical kaynaklar henüz yüklenmedi" "$hierarchy"; then
         echo "::error::SC${scene} canonical visual assets missing from APK"
         return 1
