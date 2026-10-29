@@ -121,7 +121,13 @@ private fun loadVisual(
     trimAlphaPadding: Boolean
 ): LoadedVisual? {
     val bitmap = decodeAssetBitmap(context, sceneAssetBase, relativePath) ?: return null
-    val transparency = transparentFraction(bitmap)
+    // Only character layers need an alpha ratio. Scanning full-size BG/FG
+    // creates another width*height IntArray during scene entry.
+    val transparency = if (relativePath?.contains("char_") == true) {
+        transparentFraction(bitmap)
+    } else {
+        0f
+    }
     val displayBitmap = if (trimAlphaPadding && transparency > 0f) {
         trimTransparentPadding(bitmap)
     } else {
