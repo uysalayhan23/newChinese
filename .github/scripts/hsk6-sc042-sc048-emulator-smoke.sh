@@ -250,4 +250,3 @@ if grep -F "Process: com.uysal23.newchinese" qa-screens/logcat.txt; then
   exit 1
 fi
 sha256sum qa-screens/*.png > qa-screens/screenshots.sha256
-
