@@ -89,6 +89,17 @@ for scene in 042 048; do
     done
   done
 done
+# Different speakers and viewport modes must produce distinct actual scene pixels.
+# This catches silent reuse of a splash, stale framebuffer or wrong intent extras.
+for scene in 042 048; do
+  if cmp -s "qa-screens/sc${scene}_zhang_compact.png" "qa-screens/sc${scene}_li_compact.png"; then
+    echo "::error::SC${scene} speaker change did not alter pixels"; exit 1
+  fi
+  if cmp -s "qa-screens/sc${scene}_zhang_compact.png" "qa-screens/sc${scene}_zhang_expanded.png"; then
+    echo "::error::SC${scene} expanded mode did not alter pixels"; exit 1
+  fi
+done
+
 adb logcat -d > qa-screens/logcat.txt
 if grep -F "Process: com.uysal23.newchinese" qa-screens/logcat.txt; then
   echo "App crashed during Android scene runtime QA"
