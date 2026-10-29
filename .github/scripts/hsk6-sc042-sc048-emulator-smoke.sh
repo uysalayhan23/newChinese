@@ -104,9 +104,17 @@ check_real_scene_screen() {
   adb logcat -c
   adb shell am start -n com.uysal23.newchinese/.ui.Hsk6ReviewProbeActivity \
     --es scene "$scene" --es screen "$screen"
+  # am start returns before Android has finished creating the process. A
+  # missing PID on the first poll is startup, not evidence of an app crash.
+  local process_seen=false
   for attempt in $(seq 1 16); do
-    if ! adb shell pidof com.uysal23.newchinese >/dev/null 2>&1; then
+    if adb shell pidof com.uysal23.newchinese >/dev/null 2>&1; then
+      process_seen=true
+    elif [ "$process_seen" = true ]; then
       break
+    else
+      sleep 2
+      continue
     fi
     if timeout 18s adb shell uiautomator dump /sdcard/newchinese-review.xml >/dev/null 2>&1 &&
        timeout 8s adb exec-out cat /sdcard/newchinese-review.xml > "${prefix}.xml" 2>/dev/null; then
@@ -127,7 +135,7 @@ check_real_scene_screen() {
   adb logcat -d > "${prefix}_logcat.txt" 2>&1 || true
   if [ "$ready" != true ] ||
      grep -Fq "Process: com.uysal23.newchinese" "${prefix}_logcat.txt"; then
-    echo "::error::SC${scene} ${screen}: real content screen crashed or did not render"
+    echo "::error::SC${scene} ${screen}: real content screen crashed or did not render (process_seen=${process_seen})"
     return 1
   fi
   echo "SC${scene} ${screen}: content loaded, screen visible and process alive"
@@ -242,3 +250,4 @@ if grep -F "Process: com.uysal23.newchinese" qa-screens/logcat.txt; then
   exit 1
 fi
 sha256sum qa-screens/*.png > qa-screens/screenshots.sha256
+
