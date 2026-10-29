@@ -31,7 +31,7 @@ if titles != ["Pixel Launcher isn't responding"]:
 buttons = [n for n in nodes if n.get("resource-id") == "android:id/aerr_close" and n.get("text") == "Close app"]
 if len(buttons) != 1:
     sys.exit(1)
-bounds = re.fullmatch(r"\\[(\\d+),(\\d+)\\]\\[(\\d+),(\\d+)\\]", buttons[0].get("bounds", ""))
+bounds = re.fullmatch(r"\[(\d+),(\d+)\]\[(\d+),(\d+)\]", buttons[0].get("bounds", ""))
 if not bounds:
     sys.exit(1)
 x1, y1, x2, y2 = map(int, bounds.groups())
