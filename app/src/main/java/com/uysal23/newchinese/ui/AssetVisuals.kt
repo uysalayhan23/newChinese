@@ -40,12 +40,19 @@ private data class LoadedVisual(
 private fun decodeAssetBitmap(
     context: android.content.Context,
     sceneAssetBase: String,
-    relativePath: String?
+    relativePath: String?,
+    sampleSize: Int = 1
 ): Bitmap? {
     if (relativePath.isNullOrBlank()) return null
     return runCatching {
         context.assets.open("$sceneAssetBase/$relativePath").use {
-            BitmapFactory.decodeStream(it)
+            if (sampleSize <= 1) {
+                BitmapFactory.decodeStream(it)
+            } else {
+                BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply {
+                    inSampleSize = sampleSize
+                })
+            }
         }
     }.getOrNull()
 }
@@ -136,7 +143,12 @@ fun AssetSceneImage(
 ) {
     val context = LocalContext.current
     val bitmap = remember(sceneAssetBase, relativePath) {
-        decodeAssetBitmap(context, sceneAssetBase, relativePath)?.asImageBitmap()
+        // Intro uses a 220dp thumbnail; a full-resolution preview needlessly
+        // allocates a large bitmap on SC042/048 devices with limited memory.
+        decodeAssetBitmap(
+            context, sceneAssetBase, relativePath,
+            sampleSize = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) 2 else 1
+        )?.asImageBitmap()
     }
 
     if (bitmap != null) {
