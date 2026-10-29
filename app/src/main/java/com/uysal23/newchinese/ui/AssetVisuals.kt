@@ -408,7 +408,9 @@ fun AssetSceneStage(
             }
         }
 
-        if (speechText.isNotBlank()) {
+        // SC042/048 already show the spoken line in the dialogue panel.
+        // Their empty review bubble obscures Zhang Wei's face in real Android frames.
+        if (speechText.isNotBlank() && !Hsk6ReviewGeometry.matches(sceneAssetBase)) {
             val bubbleWidth = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
                 Hsk6DialogViewportV3.MARKER_WIDTH_DP.dp
             } else minOf(maxWidth * 0.42f, 184.dp)
