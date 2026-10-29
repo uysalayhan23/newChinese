@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 mkdir -p qa-screens
+# Keep device crash evidence even when an intermediate assertion exits early.
+capture_failure_evidence() {
+  local status=$?
+  if [ "$status" -ne 0 ]; then
+    adb logcat -d > qa-screens/failure_logcat.txt 2>&1 || true
+    adb shell dumpsys activity activities > qa-screens/failure_activity.txt 2>&1 || true
+    adb shell dumpsys meminfo com.uysal23.newchinese > qa-screens/failure_meminfo.txt 2>&1 || true
+  fi
+}
+trap capture_failure_evidence EXIT
 
 # REVIEW-only hard gate: a successful APK build is not SC042/048 visual acceptance.
 # Require the exact approved WebP blobs in both checkout and the APK assets.
