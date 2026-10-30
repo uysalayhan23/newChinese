@@ -254,4 +254,4 @@ if grep -F "Process: com.uysal23.newchinese" qa-screens/logcat.txt; then
   echo "App crashed during Android scene runtime QA"
   exit 1
 fi
-sha256sum qa-screens/*.png > qa-screens/screenshots.sha256
+find qa-screens -type f -name '*.png' -print0 | sort -z | xargs -0 sha256sum > qa-screens/screenshots.sha256
