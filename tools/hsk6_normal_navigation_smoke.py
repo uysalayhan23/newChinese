@@ -69,12 +69,12 @@ class Android:
         except subprocess.CalledProcessError:
             return False
 
-    def wait(self, *labels, timeout=75):
+    def wait(self, *labels, timeout=75, prefix=False):
         until = time.monotonic() + timeout
         while time.monotonic() < until:
             try:
                 xml = self.dump()
-                if self.alive() and any(position(xml, x) for x in labels):
+                if self.alive() and any(position(xml, x, prefix=prefix) for x in labels):
                     return xml
             except (subprocess.SubprocessError, ET.ParseError):
                 pass
@@ -139,7 +139,7 @@ def run(out):
         d.tap('HSK Seviyeleri')
         d.wait('HSK Seviyeleri')
         d.tap('HSK6 ·', prefix=True)
-        d.wait('HSK6')
+        d.wait('Sahne ', prefix=True)
         for scene, title in TITLES.items():
             d.tap('Sahne '+str(int(scene))+' ·', prefix=True, scroll=True)
             # The 220dp preview, metadata and summary can push the start
@@ -163,7 +163,7 @@ def run(out):
             d.adb('shell', 'input', 'keyevent', '4')
             d.wait('Diyaloğu Başlat')
             d.adb('shell', 'input', 'keyevent', '4')
-            d.wait('HSK6')
+            d.wait('Sahne ', prefix=True)
         print('SC042/048 normal navigation intro+dialogue 4/4 PASS')
     except Exception:
         try:
@@ -192,7 +192,10 @@ def selftest():
     locked = '<hierarchy><node clickable="true" enabled="false" bounds="[0,0][100,100]"><node text="Sahne 42 · Kilitli" enabled="false" bounds="[10,10][30,30]"/></node></hierarchy>'
     assert position(locked, 'Sahne 42 ·', prefix=True) is None
     assert position(locked.replace('enabled="false"', 'enabled="true"'), 'Sahne 42 ·', prefix=True) == (50, 50)
-    print('Normal navigation static positive/negative self-test 11/11 PASS')
+    scene_list = '<hierarchy><node clickable="true" bounds="[0,0][100,100]"><node text="Sahne 42 · Dil yaşamda neyi değiştirdi" bounds="[10,10][30,30]"/></node></hierarchy>'
+    assert position(scene_list, 'Sahne ', prefix=True) == (50, 50)
+    assert position(scene_list, 'HSK6') is None
+    print('Normal navigation static positive/negative self-test 13/13 PASS')
 
 
 if __name__ == '__main__':
