@@ -9,7 +9,7 @@ import zlib
 from pathlib import Path
 
 
-def validate_hierarchy(path, marker, mode):
+def validate_hierarchy(path, marker, mode, return_bounds=False):
     nodes = [n for n in ET.parse(path).getroot().iter("node")
              if marker in n.attrib.get("content-desc", "")]
     if len(nodes) != 1:
@@ -26,7 +26,9 @@ def validate_hierarchy(path, marker, mode):
         raise ValueError(f"Expanded scene still compact: {w}x{h}")
     if mode == "compact" and h >= 1200:
         raise ValueError(f"Compact scene unexpectedly expanded: {w}x{h}")
-    return w, h
+    # Preserve the legacy width/height API; the screenshot gate also needs
+    # the actual UIAutomator scene rectangle, not a fixed top-center crop.
+    return (w, h, (x1, y1, x2, y2)) if return_bounds else (w, h)
 
 
 def validate_pixels(path, bounds=None):
@@ -117,8 +119,8 @@ def main():
     p.add_argument("--mode", choices=("compact", "expanded"), required=True)
     a = p.parse_args()
     marker = f"SC{a.scene}_REVIEW_READY_{a.speaker.upper()}"
-    w, h = validate_hierarchy(a.xml, marker, a.mode)
-    ratio = validate_pixels(a.png) if a.png else None
+    w, h, bounds = validate_hierarchy(a.xml, marker, a.mode, return_bounds=True)
+    ratio = validate_pixels(a.png, bounds=bounds) if a.png else None
     print(f"{marker} {a.mode}: {w}x{h}" +
           (f", colored={ratio:.1%}" if ratio is not None else ", UI-only"))
 
