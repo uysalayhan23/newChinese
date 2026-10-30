@@ -142,11 +142,14 @@ def run(out):
         d.wait('HSK6')
         for scene, title in TITLES.items():
             d.tap('Sahne '+str(int(scene))+' ·', prefix=True, scroll=True)
-            xml = d.wait('Diyaloğu Başlat')
+            # The 220dp preview, metadata and summary can push the start
+            # button below the viewport. Verify the exact intro title first,
+            # capture the visible scene, then scroll to its enabled action.
+            xml = d.wait(title)
             if not position(xml, title):
                 raise AssertionError(f'SC{scene}: intro title mismatch')
             d.capture('sc'+scene+'_normal_intro')
-            d.tap('Diyaloğu Başlat')
+            d.tap('Diyaloğu Başlat', scroll=True)
             until = time.monotonic()+75
             while time.monotonic() < until:
                 xml = d.dump()
@@ -182,10 +185,14 @@ def selftest():
     assert crashed('FATAL EXCEPTION: main\nProcess: '+PKG+', PID: 12')
     assert not crashed('FATAL EXCEPTION: main\nProcess: com.android.launcher, PID: 12')
     assert TITLES['042'] != TITLES['048']
+    # Intro action may be offscreen even though the correct scene loaded.
+    intro_top = '<hierarchy><node text="'+TITLES['042']+'" bounds="[0,0][200,40]"/></hierarchy>'
+    assert position(intro_top, TITLES['042']) == (100,20)
+    assert position(intro_top, 'Diyaloğu Başlat') is None
     locked = '<hierarchy><node clickable="true" enabled="false" bounds="[0,0][100,100]"><node text="Sahne 42 · Kilitli" enabled="false" bounds="[10,10][30,30]"/></node></hierarchy>'
     assert position(locked, 'Sahne 42 ·', prefix=True) is None
     assert position(locked.replace('enabled="false"', 'enabled="true"'), 'Sahne 42 ·', prefix=True) == (50, 50)
-    print('Normal navigation static positive/negative self-test 9/9 PASS')
+    print('Normal navigation static positive/negative self-test 11/11 PASS')
 
 
 if __name__ == '__main__':
