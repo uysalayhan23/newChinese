@@ -244,6 +244,11 @@ for scene in 042 048; do
   fi
 done
 
+# Verify the actual user path in MainActivity, not only the review probe.
+# The smoke enforces real intro/dialogue accessibility, screenshots and logcat.
+python3 tools/hsk6_normal_navigation_smoke.py --self-test
+python3 tools/hsk6_normal_navigation_smoke.py --out qa-screens/normal-navigation
+
 adb logcat -d > qa-screens/logcat.txt
 if grep -F "Process: com.uysal23.newchinese" qa-screens/logcat.txt; then
   echo "App crashed during Android scene runtime QA"
