@@ -62,14 +62,21 @@ private fun transparentFraction(bitmap: Bitmap): Float {
 
     val width = bitmap.width
     val height = bitmap.height
-    val pixels = IntArray(width * height)
-    bitmap.getPixels(pixels, 0, width, 0, 0, width, height)
-
+    // Review characters are 720x1280: a full-frame IntArray allocates 3.5 MiB
+    // per character. Scan the same pixels in bounded 16-row batches instead.
+    val rowsPerBatch = minOf(16, height)
+    val pixels = IntArray(width * rowsPerBatch)
     var transparent = 0
-    pixels.forEach { pixel ->
-        if (AndroidColor.alpha(pixel) < 245) transparent++
+    var y = 0
+    while (y < height) {
+        val rows = minOf(rowsPerBatch, height - y)
+        bitmap.getPixels(pixels, 0, width, 0, y, width, rows)
+        for (i in 0 until width * rows) {
+            if (AndroidColor.alpha(pixels[i]) < 245) transparent++
+        }
+        y += rows
     }
-    return transparent.toFloat() / pixels.size.toFloat()
+    return transparent.toFloat() / (width * height).toFloat()
 }
 
 private fun trimTransparentPadding(bitmap: Bitmap): Bitmap {
