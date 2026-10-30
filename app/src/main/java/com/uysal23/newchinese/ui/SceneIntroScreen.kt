@@ -43,7 +43,7 @@ fun SceneIntroScreen(
                 Modifier.padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(scene.locationTr)
+                Text(sceneLocationDisplayName(scene.locationTr))
                 Text("Karakterler: ${scene.characterIds.joinToString(" · ") { characterDisplayName(it) }}")
                 if (scene.estimatedMinutes > 0) {
                     Text("Tahmini süre: ${scene.estimatedMinutes} dk")
@@ -71,6 +71,11 @@ fun SceneIntroScreen(
             Text("Çalışma")
         }
     }
+}
+
+private fun sceneLocationDisplayName(locationTr: String): String = when (locationTr) {
+    "LOC_ZHANG_HOME_001" -> "Zhang Wei'nin evi"
+    else -> locationTr
 }
 
 private fun characterDisplayName(characterId: String): String = when (characterId) {
