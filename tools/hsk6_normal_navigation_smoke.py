@@ -27,8 +27,14 @@ def position(xml, text, prefix=False):
         if not any(x.startswith(text) if prefix else x == text for x in labels):
             continue
         target = n
+        disabled = target.get('enabled') == 'false'
         while target in parents and target.get('clickable') != 'true':
             target = parents[target]
+            disabled = disabled or target.get('enabled') == 'false'
+        # A locked scene row still has text and bounds in UIAutomator.
+        # Never treat tapping its disabled button as a successful navigation.
+        if disabled or target.get('enabled') == 'false':
+            continue
         match = BOUNDS.fullmatch(target.get('bounds', '')) or BOUNDS.fullmatch(n.get('bounds', ''))
         if match:
             x1, y1, x2, y2 = map(int, match.groups())
@@ -176,7 +182,10 @@ def selftest():
     assert crashed('FATAL EXCEPTION: main\nProcess: '+PKG+', PID: 12')
     assert not crashed('FATAL EXCEPTION: main\nProcess: com.android.launcher, PID: 12')
     assert TITLES['042'] != TITLES['048']
-    print('Normal navigation static positive/negative self-test 7/7 PASS')
+    locked = '<hierarchy><node clickable="true" enabled="false" bounds="[0,0][100,100]"><node text="Sahne 42 · Kilitli" enabled="false" bounds="[10,10][30,30]"/></node></hierarchy>'
+    assert position(locked, 'Sahne 42 ·', prefix=True) is None
+    assert position(locked.replace('enabled="false"', 'enabled="true"'), 'Sahne 42 ·', prefix=True) == (50, 50)
+    print('Normal navigation static positive/negative self-test 9/9 PASS')
 
 
 if __name__ == '__main__':
