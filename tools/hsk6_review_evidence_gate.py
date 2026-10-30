@@ -29,7 +29,7 @@ def validate_hierarchy(path, marker, mode):
     return w, h
 
 
-def validate_pixels(path):
+def validate_pixels(path, bounds=None):
     data = Path(path).read_bytes()
     if data[:8] != b"\x89PNG\r\n\x1a\n":
         raise ValueError("Not a PNG screenshot")
@@ -52,12 +52,24 @@ def validate_pixels(path):
         pos += size + 12
     if width < 600 or height < 1000 or not chunks:
         raise ValueError(f"Unexpected screenshot size {width}x{height}")
+    if bounds is None:
+        sample_left, sample_right = int(width*.40), int(width*.61)
+        sample_top, sample_bottom = int(height*.08), int(height*.24)
+    else:
+        x1, y1, x2, y2 = bounds
+        if not (0 <= x1 < x2 <= width and 0 <= y1 < y2 <= height):
+            raise ValueError("Scene bounds outside screenshot")
+        sample_left = int(x1 + (x2-x1)*.40)
+        sample_right = int(x1 + (x2-x1)*.60)
+        sample_top = int(y1 + (y2-y1)*.20)
+        sample_bottom = int(y1 + (y2-y1)*.75)
     stride = width * channels
     raw = zlib.decompress(b"".join(chunks))
     if len(raw) != height * (stride + 1):
         raise ValueError("Invalid PNG payload size")
     prev = bytearray(stride)
     colored = sampled = 0
+    colors = set()
     offset = 0
     for y in range(height):
         filter_type = raw[offset]
@@ -80,16 +92,19 @@ def validate_pixels(path):
                 row[i] = (row[i] + pred) & 255
             elif filter_type != 0:
                 raise ValueError(f"Invalid PNG filter {filter_type}")
-        if int(height*.08) <= y <= int(height*.24) and y % 16 == 0:
-            for x in range(int(width*.40), int(width*.61), 12):
+        if sample_top <= y < sample_bottom and y % 16 == 0:
+            for x in range(sample_left, sample_right, 12):
                 r, g, b = row[x*channels:x*channels+3]
                 sampled += 1
+                colors.add((r//16, g//16, b//16))
                 if max(r,g,b)-min(r,g,b) >= 20 and min(r,g,b) < 220:
                     colored += 1
         prev = row
     ratio = colored / max(sampled, 1)
     if ratio < .15:
         raise ValueError(f"Top-center scene pixels absent ({ratio:.1%}); splash/stale framebuffer")
+    if bounds is not None and len(colors) < 16:
+        raise ValueError(f"Scene pixels lack diversity ({len(colors)} quantized colors)")
     return ratio
 
 

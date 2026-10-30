@@ -11,6 +11,7 @@ import sys
 import time
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from hsk6_review_evidence_gate import validate_pixels
 
 PKG = 'com.uysal23.newchinese'
 TITLES = {'042': 'Dil yaşamda neyi değiştirdi', '048': 'Gelecekte de hata yapmak'}
@@ -41,6 +42,24 @@ def position(xml, text, prefix=False):
             if x2 > x1 and y2 > y1:
                 return (x1+x2)//2, (y1+y2)//2
     return None
+
+
+def visual_bounds(xml, scene, screen, title):
+    root = ET.fromstring(xml)
+    if screen == 'intro':
+        nodes = [n for n in root.iter('node') if n.get('content-desc') == title]
+    else:
+        nodes = [n for n in root.iter('node') if re.fullmatch(
+            rf'SC{scene}_REVIEW_READY_(ZHANG|LI)', n.get('content-desc', ''))]
+    if len(nodes) != 1 or nodes[0].get('visible-to-user') == 'false':
+        raise AssertionError(f'SC{scene} {screen}: verified visual marker missing/ambiguous')
+    match = BOUNDS.fullmatch(nodes[0].get('bounds', ''))
+    if not match:
+        raise AssertionError(f'SC{scene} {screen}: missing visual bounds')
+    x1, y1, x2, y2 = map(int, match.groups())
+    if x2 - x1 < 300 or y2 - y1 < 300:
+        raise AssertionError(f'SC{scene} {screen}: unusable visual bounds')
+    return x1, y1, x2, y2
 
 
 def crashed(log):
@@ -92,8 +111,9 @@ class Android:
                 self.adb('shell', 'input', 'swipe', '540', '1740', '540', '470', '360')
         raise AssertionError(f'Cannot tap {text!r}')
 
-    def capture(self, name):
+    def capture(self, name, scene=None, screen=None, title=None):
         self.dump()
+        bounds = visual_bounds(self.xml, scene, screen, title) if scene else None
         (self.out / (name+'.xml')).write_text(self.xml)
         png = self.adb('exec-out', 'screencap', '-p', binary=True)
         (self.out / (name+'.png')).write_bytes(png)
@@ -101,6 +121,8 @@ class Android:
         (self.out / (name+'_logcat.txt')).write_text(log)
         if not png.startswith(b'\x89PNG\r\n\x1a\n') or len(png) < 5000:
             raise AssertionError(f'{name}: invalid screenshot')
+        if bounds is not None:
+            validate_pixels(self.out / (name+'.png'), bounds=bounds)
         if crashed(log) or not self.alive():
             raise AssertionError(f'{name}: application exited/crashed')
 
@@ -148,7 +170,7 @@ def run(out):
             xml = d.wait(title)
             if not position(xml, title):
                 raise AssertionError(f'SC{scene}: intro title mismatch')
-            d.capture('sc'+scene+'_normal_intro')
+            d.capture('sc'+scene+'_normal_intro', scene, 'intro', title)
             d.tap('Diyaloğu Başlat', scroll=True)
             until = time.monotonic()+75
             while time.monotonic() < until:
@@ -159,7 +181,7 @@ def run(out):
                 time.sleep(2)
             else:
                 raise AssertionError(f'SC{scene}: dialogue missing')
-            d.capture('sc'+scene+'_normal_dialogue')
+            d.capture('sc'+scene+'_normal_dialogue', scene, 'dialogue', title)
             d.adb('shell', 'input', 'keyevent', '4')
             d.wait('Diyaloğu Başlat')
             d.adb('shell', 'input', 'keyevent', '4')
@@ -195,7 +217,25 @@ def selftest():
     scene_list = '<hierarchy><node clickable="true" bounds="[0,0][100,100]"><node text="Sahne 42 · Dil yaşamda neyi değiştirdi" bounds="[10,10][30,30]"/></node></hierarchy>'
     assert position(scene_list, 'Sahne ', prefix=True) == (50, 50)
     assert position(scene_list, 'HSK6') is None
-    print('Normal navigation static positive/negative self-test 13/13 PASS')
+    intro_visual = '<hierarchy><node content-desc="' + TITLES['042'] + '" bounds="[0,0][500,500]"/></hierarchy>'
+    dialogue_visual = '<hierarchy><node content-desc="SC042_REVIEW_READY_ZHANG" bounds="[0,0][500,500]"/></hierarchy>'
+    assert visual_bounds(intro_visual, '042', 'intro', TITLES['042']) == (0, 0, 500, 500)
+    assert visual_bounds(dialogue_visual, '042', 'dialogue', TITLES['042']) == (0, 0, 500, 500)
+    invalid_visuals = (
+        dialogue_visual.replace('SC042_REVIEW_READY_ZHANG', 'SC048_REVIEW_READY_ZHANG'),
+        dialogue_visual.replace('SC042_REVIEW_READY_ZHANG', 'SC042_NOT_READY_ZHANG'),
+        dialogue_visual.replace('[0,0][500,500]', '[0,0][2,2]'),
+        dialogue_visual.replace('content-desc=', 'visible-to-user="false" content-desc='),
+        dialogue_visual.replace('</hierarchy>', '<node content-desc="SC042_REVIEW_READY_LI" bounds="[0,0][500,500]"/></hierarchy>'),
+    )
+    for invalid in invalid_visuals:
+        try:
+            visual_bounds(invalid, '042', 'dialogue', TITLES['042'])
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError('Invalid scene marker accepted')
+    print('Normal navigation static positive/negative self-test 20/20 PASS')
 
 
 if __name__ == '__main__':
