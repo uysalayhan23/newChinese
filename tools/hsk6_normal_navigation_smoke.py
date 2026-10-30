@@ -63,7 +63,14 @@ def visual_bounds(xml, scene, screen, title):
 
 
 def crashed(log):
-    return 'Process: ' + PKG in log
+    # A process can restart before capture(), so pidof alone does not prove
+    # the scene was crash-free. Event logs also report crashes and ANRs
+    # without a Java "Process:" stacktrace.
+    return bool(
+        re.search(r'\bProcess:\s*' + re.escape(PKG) + r'(?=[,:\s]|$)', log)
+        or re.search(r'(?m)^[^\n]*\bam_(?:crash|anr)\b[^\n]*\b'
+                     + re.escape(PKG) + r'(?=[,:\s\]]|$)', log)
+    )
 
 
 class Android:
@@ -206,6 +213,11 @@ def selftest():
     assert position(splash,'Diyaloğu Başlat') is None
     assert crashed('FATAL EXCEPTION: main\nProcess: '+PKG+', PID: 12')
     assert not crashed('FATAL EXCEPTION: main\nProcess: com.android.launcher, PID: 12')
+    assert crashed('I am_crash: [0,1234,'+PKG+',12345,IllegalStateException]')
+    assert crashed('I am_anr: [0,1234,'+PKG+',Input dispatching timed out]')
+    assert not crashed('I am_crash: [0,1234,com.android.launcher,12345,RuntimeException]')
+    assert not crashed('I am_crash: [0,1234,'+PKG+'plus,12345,RuntimeException]')
+    assert not crashed('OtherProcess: '+PKG)
     assert TITLES['042'] != TITLES['048']
     # Intro action may be offscreen even though the correct scene loaded.
     intro_top = '<hierarchy><node text="'+TITLES['042']+'" bounds="[0,0][200,40]"/></hierarchy>'
@@ -235,7 +247,7 @@ def selftest():
             pass
         else:
             raise AssertionError('Invalid scene marker accepted')
-    print('Normal navigation static positive/negative self-test 20/20 PASS')
+    print('Normal navigation static positive/negative self-test 25/25 PASS')
 
 
 if __name__ == '__main__':
