@@ -6,6 +6,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.uysal23.newchinese.data.SceneContent
 
@@ -31,7 +32,10 @@ fun SceneIntroScreen(
         AssetSceneImage(
             sceneAssetBase = sceneIdToAssetBase(scene.sceneId),
             relativePath = scene.visualAssets.preview,
-            contentDescription = scene.titleTr
+            contentDescription = scene.titleTr,
+            contentScale = if (Hsk6ReviewGeometry.matches(sceneIdToAssetBase(scene.sceneId))) {
+                ContentScale.Fit
+            } else ContentScale.Crop
         )
 
         Card(Modifier.fillMaxWidth()) {
@@ -39,7 +43,7 @@ fun SceneIntroScreen(
                 Modifier.padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Text(scene.locationTr)
+                Text(sceneLocationDisplayName(scene.locationTr))
                 Text("Karakterler: ${scene.characterIds.joinToString(" · ") { characterDisplayName(it) }}")
                 if (scene.estimatedMinutes > 0) {
                     Text("Tahmini süre: ${scene.estimatedMinutes} dk")
@@ -67,6 +71,11 @@ fun SceneIntroScreen(
             Text("Çalışma")
         }
     }
+}
+
+private fun sceneLocationDisplayName(locationTr: String): String = when (locationTr) {
+    "LOC_ZHANG_HOME_001" -> "Zhang Wei'nin evi"
+    else -> locationTr
 }
 
 private fun characterDisplayName(characterId: String): String = when (characterId) {

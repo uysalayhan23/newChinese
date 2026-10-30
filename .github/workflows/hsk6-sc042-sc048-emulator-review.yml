@@ -1,0 +1,64 @@
+name: HSK6 SC042-048 Android emulator QA
+
+on:
+  pull_request:
+    types: [synchronize]
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  scene-smoke:
+    if: github.head_ref == 'review/hsk6-sc042-sc048-compose-qa'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+      - name: Enable hardware acceleration for emulator
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -c /dev/kvm ]; then
+            echo "::error::Runner has no /dev/kvm device; stop before emulator boot."
+            exit 1
+          fi
+          sudo chmod a+rw /dev/kvm
+          test -r /dev/kvm && test -w /dev/kvm
+          ls -l /dev/kvm
+      - name: Prepare offline Mandarin recognition model
+        run: bash tools/prepare_vosk_cn_model.sh
+      - name: Build QA debug APK
+        run: gradle :app:assembleDebug --stacktrace
+      - name: Upload review debug APK for physical-device testing
+        uses: actions/upload-artifact@v4
+        with:
+          name: NewChinese-SC042-SC048-review-debug-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 7
+      - name: Launch SC042/048 and capture stage screenshots
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          arch: x86_64
+          # AOSP image avoids the Pixel Launcher ANR proven in prior QA XML/logs.
+          # Keep API level, CPU arch, screen profile and all acceptance gates.
+          target: default
+          profile: pixel_6
+          disable-animations: true
+          script: bash .github/scripts/hsk6-sc042-sc048-emulator-smoke.sh
+      - name: Upload QA screenshots and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hsk6-sc042-sc048-emulator-screenshots
+          path: qa-screens/
+          if-no-files-found: warn

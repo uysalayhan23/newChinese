@@ -26,6 +26,8 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 
 private const val CHARACTER_MIN_TRANSPARENT_FRACTION = 0.35f
@@ -38,12 +40,19 @@ private data class LoadedVisual(
 private fun decodeAssetBitmap(
     context: android.content.Context,
     sceneAssetBase: String,
-    relativePath: String?
+    relativePath: String?,
+    sampleSize: Int = 1
 ): Bitmap? {
     if (relativePath.isNullOrBlank()) return null
     return runCatching {
         context.assets.open("$sceneAssetBase/$relativePath").use {
-            BitmapFactory.decodeStream(it)
+            if (sampleSize <= 1) {
+                BitmapFactory.decodeStream(it)
+            } else {
+                BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply {
+                    inSampleSize = sampleSize
+                })
+            }
         }
     }.getOrNull()
 }
@@ -53,14 +62,21 @@ private fun transparentFraction(bitmap: Bitmap): Float {
 
     val width = bitmap.width
     val height = bitmap.height
-    val pixels = IntArray(width * height)
-    bitmap.getPixels(pixels, 0, width, 0, 0, width, height)
-
+    // Review characters are 720x1280: a full-frame IntArray allocates 3.5 MiB
+    // per character. Scan the same pixels in bounded 16-row batches instead.
+    val rowsPerBatch = minOf(16, height)
+    val pixels = IntArray(width * rowsPerBatch)
     var transparent = 0
-    pixels.forEach { pixel ->
-        if (AndroidColor.alpha(pixel) < 245) transparent++
+    var y = 0
+    while (y < height) {
+        val rows = minOf(rowsPerBatch, height - y)
+        bitmap.getPixels(pixels, 0, width, 0, y, width, rows)
+        for (i in 0 until width * rows) {
+            if (AndroidColor.alpha(pixels[i]) < 245) transparent++
+        }
+        y += rows
     }
-    return transparent.toFloat() / pixels.size.toFloat()
+    return transparent.toFloat() / (width * height).toFloat()
 }
 
 private fun trimTransparentPadding(bitmap: Bitmap): Bitmap {
@@ -112,7 +128,13 @@ private fun loadVisual(
     trimAlphaPadding: Boolean
 ): LoadedVisual? {
     val bitmap = decodeAssetBitmap(context, sceneAssetBase, relativePath) ?: return null
-    val transparency = transparentFraction(bitmap)
+    // Only character layers need an alpha ratio. Scanning full-size BG/FG
+    // creates another width*height IntArray during scene entry.
+    val transparency = if (relativePath?.contains("char_") == true) {
+        transparentFraction(bitmap)
+    } else {
+        0f
+    }
     val displayBitmap = if (trimAlphaPadding && transparency > 0f) {
         trimTransparentPadding(bitmap)
     } else {
@@ -134,7 +156,12 @@ fun AssetSceneImage(
 ) {
     val context = LocalContext.current
     val bitmap = remember(sceneAssetBase, relativePath) {
-        decodeAssetBitmap(context, sceneAssetBase, relativePath)?.asImageBitmap()
+        // Intro uses a 220dp thumbnail; a full-resolution preview needlessly
+        // allocates a large bitmap on SC042/048 devices with limited memory.
+        decodeAssetBitmap(
+            context, sceneAssetBase, relativePath,
+            sampleSize = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) 2 else 1
+        )?.asImageBitmap()
     }
 
     if (bitmap != null) {
@@ -166,6 +193,7 @@ fun AssetSceneStage(
     speechText: String,
     characterAId: String? = null,
     characterBId: String? = null,
+    onExpand: (() -> Unit)? = null,
     modifier: Modifier = Modifier
         .fillMaxWidth()
         .height(280.dp)
@@ -176,13 +204,25 @@ fun AssetSceneStage(
         loadVisual(context, sceneAssetBase, background, trimAlphaPadding = false)
     }
     val characterAVisual = remember(sceneAssetBase, characterA) {
-        loadVisual(context, sceneAssetBase, characterA, trimAlphaPadding = true)
+        loadVisual(context, sceneAssetBase, characterA, trimAlphaPadding = !Hsk6ReviewGeometry.matches(sceneAssetBase))
     }
     val characterBVisual = remember(sceneAssetBase, characterB) {
-        loadVisual(context, sceneAssetBase, characterB, trimAlphaPadding = true)
+        loadVisual(context, sceneAssetBase, characterB, trimAlphaPadding = !Hsk6ReviewGeometry.matches(sceneAssetBase))
     }
-    val previewVisual = remember(sceneAssetBase, preview) {
-        loadVisual(context, sceneAssetBase, preview, trimAlphaPadding = false)
+    val foregroundVisualForReview = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+        remember(sceneAssetBase, foreground) {
+            loadVisual(context, sceneAssetBase, foreground, trimAlphaPadding = false)
+        }
+    } else null
+    // SC042/048 render their four canonical layers directly. Decoding the
+    // additional full-size preview here needlessly increases live bitmap memory
+    // when entering these scenes on a physical Android device.
+    val previewVisual = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+        null
+    } else {
+        remember(sceneAssetBase, preview) {
+            loadVisual(context, sceneAssetBase, preview, trimAlphaPadding = false)
+        }
     }
 
     val characterASafe =
@@ -220,10 +260,62 @@ fun AssetSceneStage(
         label = "characterBAlpha"
     )
 
+    // UIAutomator may hide fully overlapped Image semantics. Expose one verified
+    // scene-level marker only after all canonical layer checks pass.
+    val reviewReady = Hsk6ReviewGeometry.matches(sceneAssetBase) &&
+        backgroundVisual != null && characterASafe && characterBSafe &&
+        foregroundVisualForReview != null &&
+        backgroundVisual.image.width == 720 && backgroundVisual.image.height == 1280 &&
+        foregroundVisualForReview.image.width == 720 && foregroundVisualForReview.image.height == 1280
+    val reviewMarker = if (reviewReady) {
+        "${sceneAssetBase.substringAfterLast('/').uppercase()}_REVIEW_READY_" +
+            (if (characterAActive) "ZHANG" else "LI")
+    } else null
+
     BoxWithConstraints(
-        modifier = modifier.background(MaterialTheme.colorScheme.surfaceVariant)
+        modifier = modifier.background(MaterialTheme.colorScheme.surfaceVariant).then(
+            if (reviewMarker != null) Modifier.semantics(mergeDescendants = true) {
+                contentDescription = reviewMarker
+            } else Modifier
+        )
     ) {
-        if (usePreviewFallback) {
+        if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+            if (reviewReady) {
+                val h = minOf(maxHeight, maxWidth * (1280f / 720f))
+                val w = h * (720f / 1280f)
+                val z = Hsk6ReviewGeometry.zhang
+                val n = Hsk6ReviewGeometry.liNa
+                Box(Modifier.align(Alignment.Center).size(w, h)) {
+                    Image(bitmap = backgroundVisual.image, contentDescription = "Sahne arka planı",
+                        modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillBounds)
+                    Image(bitmap = characterAVisual!!.image, contentDescription = "Zhang Wei",
+                        modifier = Modifier.offset(x=w*(z.x/720f), y=h*(z.y/1280f))
+                            .size(w*(z.width/720f),h*(z.height/1280f))
+                            .graphicsLayer {
+                                scaleX = characterAScale
+                                scaleY = characterAScale
+                                alpha = characterAAlpha
+                                transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 1f)
+                            }, contentScale = ContentScale.FillBounds)
+                    Image(bitmap = characterBVisual!!.image, contentDescription = "Li Na",
+                        modifier = Modifier.offset(x=w*(n.x/720f), y=h*(n.y/1280f))
+                            .size(w*(n.width/720f),h*(n.height/1280f))
+                            .graphicsLayer {
+                                scaleX = characterBScale
+                                scaleY = characterBScale
+                                alpha = characterBAlpha
+                                transformOrigin = androidx.compose.ui.graphics.TransformOrigin(0.5f, 1f)
+                            }, contentScale = ContentScale.FillBounds)
+                    Image(bitmap = foregroundVisualForReview.image,
+                        contentDescription = "Derinlik katmanı",
+                        modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillBounds)
+                }
+            } else {
+                Box(Modifier.fillMaxSize(), contentAlignment=Alignment.Center) {
+                    Text("SC042/048 canonical kaynaklar henüz yüklenmedi")
+                }
+            }
+        } else if (usePreviewFallback) {
             Image(
                 bitmap = previewVisual!!.image,
                 contentDescription = "Sahne önizlemesi",
@@ -323,11 +415,18 @@ fun AssetSceneStage(
             }
         }
 
-        if (speechText.isNotBlank()) {
-            val bubbleWidth = minOf(maxWidth * 0.42f, 184.dp)
+        // SC042/048 already show the spoken line in the dialogue panel.
+        // Their empty review bubble obscures Zhang Wei's face in real Android frames.
+        if (speechText.isNotBlank() && !Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+            val bubbleWidth = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+                Hsk6DialogViewportV3.MARKER_WIDTH_DP.dp
+            } else minOf(maxWidth * 0.42f, 184.dp)
+            val marker = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) {
+                Hsk6DialogViewportV3.speakerBubble(maxWidth.value, maxHeight.value, characterAActive)
+            } else null
             val mouthY = maxHeight * 0.30f
-            val bubbleTopTarget = (mouthY - 26.dp).coerceAtLeast(8.dp)
-            val bubbleXTarget = if (characterAActive) {
+            val bubbleTopTarget = marker?.y?.dp ?: (mouthY - 26.dp).coerceAtLeast(8.dp)
+            val bubbleXTarget = marker?.x?.dp ?: if (characterAActive) {
                 (maxWidth * 0.30f + 8.dp).coerceAtMost(maxWidth - bubbleWidth - 6.dp)
             } else {
                 (maxWidth * 0.70f - bubbleWidth - 8.dp).coerceAtLeast(6.dp)
@@ -345,12 +444,17 @@ fun AssetSceneStage(
             )
 
             SceneSpeechBubble(
-                text = speechText,
-                pointsLeft = characterAActive,
+                text = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) "" else speechText,
+                pointsLeft = if (Hsk6ReviewGeometry.matches(sceneAssetBase)) !characterAActive else characterAActive,
                 modifier = Modifier
                     .width(bubbleWidth)
                     .offset(x = bubbleX, y = bubbleY)
             )
+        }
+        if (Hsk6ReviewGeometry.matches(sceneAssetBase) && onExpand != null) {
+            androidx.compose.material3.TextButton(
+                onClick = onExpand, modifier = Modifier.align(Alignment.TopEnd)
+            ) { Text("Sahneyi büyüt") }
         }
     }
 }
